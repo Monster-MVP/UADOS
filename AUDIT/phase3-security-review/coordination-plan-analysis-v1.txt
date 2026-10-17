@@ -1,0 +1,21 @@
+# T000010 / D000014 independent security plan analysis
+
+Reviewer: Phase3-Security-Reviewer (S000011)
+Task revision: 2
+
+Assessment
+
+The additive, process-local reference lease state machine and read-only history benchmark are a suitable bounded plan if the implementation makes token, clock and concurrency semantics explicit. Approval is conditional on the constraints below; it does not authorize cross-host coordination, authenticated identity, durable fencing, trusted time, or automatic task-lease integration.
+
+Required contract conditions
+
+1. A lease token must bind the exact resource, holder, fencing generation and expiry, with strict bounded types and lengths. Reject booleans-as-integers, non-finite or negative TTL values, empty/oversized identifiers, malformed tokens and unknown fields. Fencing numbers must be per-resource, strictly monotonic across expiry, release and reacquire, and must never reset when a resource becomes idle. validate, renew and release must compare the complete current token and fencing number; an old token must never clear or extend a newer holder.
+2. Expiry must be defined at the boundary (the lease is expired at now >= expires_at), with tests at just-before, exact and just-after expiry. The injected clock is a deterministic test dependency, not an authority. Reject a clock observation that moves backwards or is non-finite, or maintain a monotonic high-water mark so a backward jump cannot resurrect a lease. Do not claim wall-clock synchronization.
+3. Acquire, renew, release and validate need one in-process critical section so contention cannot issue duplicate fencing generations or allow check/use races. Use a backend lock or equivalent serialization. This only covers threads in one process; process-local memory and cooperative callers cannot resist another process or host rewriting state.
+4. Release and renewal must be owner/token guarded and fail closed on stale tokens. Resource names must be isolated exactly; traversal/path-like strings are identifiers only and must not become filesystem paths. Holder labels and capabilities are declarations, not authenticated principals.
+5. The benchmark must open the existing SQLite database/projections read-only, avoid project mutation or projection repair, and return an unavailable/unsupported result without creating files or schema when the project is absent. Measure event count and head before/after in a bounded operation, and document that a concurrent writer can invalidate a measurement unless the normal lock/quiescence contract is observed.
+6. Preserve the existing schema, task lifecycle, local OS lock and event authority. No automatic task-lease integration, migration, generated-event append, shell/network/provider call or hidden clock access is part of this task.
+
+Residual limits
+
+A passing local backend proves deterministic state-machine mechanics only. It cannot establish identity, token authenticity, durable fencing, crash recovery, cross-host ordering, partition behavior, synchronized time, or availability. Those require a separately reviewed authenticated remote/OS-backed design.

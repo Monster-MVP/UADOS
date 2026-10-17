@@ -1,0 +1,664 @@
+{
+  "agent": "Phase2-Documentation-Builder",
+  "command": [
+    "python3",
+    "AUDIT/phase2-docs-check.py"
+  ],
+  "documented_cli_forms": [
+    {
+      "argv": [
+        "--help"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "status"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "audit"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "init",
+        "/path/to/new-project",
+        "--name",
+        "My project",
+        "--objective",
+        "Describe the intended outcome",
+        "--mode",
+        "auto"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "start",
+        "--agent",
+        "AGENT_ID"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "acknowledge",
+        "SESSION_ID",
+        "--report-hash",
+        "REPORT_HASH"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "status"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "context"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "session",
+        "start",
+        "--agent",
+        "Builder",
+        "--runtime",
+        "Codex"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "session",
+        "acknowledge",
+        "SESSION_ID",
+        "--report-hash",
+        "REPORT_HASH"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "task",
+        "add",
+        "--session",
+        "SESSION_ID",
+        "--title",
+        "Observable outcome",
+        "--description",
+        "Acceptance criteria",
+        "--risk",
+        "routine",
+        "--scope",
+        "src/component"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "task",
+        "plan",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID",
+        "--implementation",
+        "Steps and recovery",
+        "--validation",
+        "Checks and expected outcomes",
+        "--evidence",
+        "evidence/plan.md"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "task",
+        "claim",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID"
+      ],
+      "file": "README.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "start",
+        "--agent",
+        "AGENT_ID"
+      ],
+      "file": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "acknowledge",
+        "SESSION_ID",
+        "--report-hash",
+        "REPORT_HASH"
+      ],
+      "file": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "task",
+        "add",
+        "--session",
+        "SESSION_ID",
+        "--title",
+        "Describe the observable outcome",
+        "--description",
+        "Problem and acceptance criteria",
+        "--risk",
+        "routine",
+        "--scope",
+        "src/component"
+      ],
+      "file": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "task",
+        "plan",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID",
+        "--implementation",
+        "Steps, assumptions, alternatives and recovery",
+        "--validation",
+        "Checks, inputs and expected outcomes",
+        "--evidence",
+        "evidence/plan.md"
+      ],
+      "file": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "task",
+        "record",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID",
+        "--summary",
+        "What changed, why, and what validation established",
+        "--evidence",
+        "evidence/validation.txt"
+      ],
+      "file": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "close",
+        "SESSION_ID",
+        "--summary",
+        "Current status, completed work and validation",
+        "--next",
+        "First concrete next action with task/evidence paths"
+      ],
+      "file": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "analysis",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--solution",
+        "Independent proposed approach",
+        "--assumption",
+        "Explicit assumption",
+        "--risk",
+        "Concrete failure mode",
+        "--alternative",
+        "Reasoned alternative",
+        "--evidence",
+        "evidence/analysis.md"
+      ],
+      "file": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "advance",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID"
+      ],
+      "file": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "challenge",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--target",
+        "OTHER_ANALYSIS_ID",
+        "--failure",
+        "How this could fail",
+        "--unsupported",
+        "Unsupported assumption",
+        "--alternative",
+        "Better choice under stated conditions",
+        "--missing-evidence",
+        "What would resolve the challenge",
+        "--evidence",
+        "evidence/challenge.md"
+      ],
+      "file": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "advance",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID"
+      ],
+      "file": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "vote",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--select",
+        "SELECTED_ANALYSIS_ID",
+        "--verdict",
+        "approve",
+        "--reason",
+        "Evidence-backed disposition of challenges",
+        "--evidence",
+        "evidence/review.md"
+      ],
+      "file": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "consensus",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--select",
+        "SELECTED_ANALYSIS_ID",
+        "--reason",
+        "Selection and rejected alternatives",
+        "--risk",
+        "Remaining risk and its disposition"
+      ],
+      "file": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    }
+  ],
+  "documented_json_shapes": [
+    {
+      "fields": [
+        "problem",
+        "background",
+        "alternatives",
+        "decision",
+        "impact",
+        "risk",
+        "validation",
+        "evidence"
+      ],
+      "file": "CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "fields": [
+        "title",
+        "identifier",
+        "url",
+        "claim",
+        "limitation",
+        "access",
+        "evidence",
+        "corpus"
+      ],
+      "file": "RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "fields": [
+        "title",
+        "fields",
+        "sources",
+        "evidence"
+      ],
+      "file": "RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "fields": [
+        "idea",
+        "prediction",
+        "baseline",
+        "metric",
+        "rejection",
+        "uncertainty",
+        "evidence"
+      ],
+      "file": "RESEARCH_MANAGEMENT/innovation_policy.md"
+    }
+  ],
+  "earlier_observed_attempts": [
+    {
+      "command": [
+        "python3",
+        "scripts/verify_scaffold.py"
+      ],
+      "exit_code": 1,
+      "observed_error": "Required context is unavailable: .cursor/rules/uados.mdc",
+      "occurrences": 2,
+      "resolution": "Parent initializer was corrected to enumerate maintained .md and .mdc assets recursively; final scaffold check passed."
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/run_phase2_scenarios.py",
+        "--help"
+      ],
+      "exit_code": 2,
+      "observed_error": "Scenario runner file does not exist during documentation integration",
+      "resolution": "Owned by T000004; final integration evidence must establish the runner and scenario behavior."
+    }
+  ],
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "exit_code": 0,
+  "file_hashes": {
+    ".agent/compatibility.md": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+    ".agent/handover_protocol.md": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+    ".agent/memory_update_protocol.md": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+    ".agent/startup_protocol.md": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+    ".agent/task_execution_protocol.md": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+    ".cursor/rules/uados.md": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+    ".cursor/rules/uados.mdc": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+    "AGENTS.md": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+    "CHANGE_REQUESTS/CHANGE_POLICY.md": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+    "CHANGE_REQUESTS/CR_TEMPLATE.md": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+    "CLAUDE.md": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+    "ENGINEERING_RULES/README.md": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+    "ENGINEERING_RULES/quality.md": "e7086df0375cff7300ff3e3807ed95db14390581ccee885e693196289c7706d6",
+    "MASTER_AGENT_WORKFLOW.md": "12936a0e3638e3dc81a681e877a9d505a23e34c0d8c231cf1f33f84b79a21c36",
+    "MULTI_AGENT_SYSTEM/README.md": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+    "MULTI_AGENT_SYSTEM/agent_selection.md": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+    "MULTI_AGENT_SYSTEM/consensus_protocol.md": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+    "MULTI_AGENT_SYSTEM/debate_protocol.md": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+    "MULTI_AGENT_SYSTEM/review_protocol.md": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+    "MULTI_AGENT_SYSTEM/role_generator.md": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+    "MULTI_AGENT_SYSTEM/roles.md": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+    "PROJECT_MEMORY/architecture.md": "dfd708f7e00d9aaf2a5d26adb3a755dfdffd9b6fdbec14585331e218bb47499c",
+    "README.md": "72dce756ae174347f2d2a661feefb7e86250991de198878e73cd06ee982b6368",
+    "RESEARCH_MANAGEMENT/innovation_policy.md": "a9d022db4b5c2d2eba743e1cdca62514ecc049e2f93dd5342de98320457bbba3",
+    "docs/adr/0002-phase2-governance.md": "2b0c4758fa84481b3044dc92d545119f9e09a12fc9b09db00e5cf40679d82ff1",
+    "docs/architecture.md": "27a343ed120a4aa880a5d0f4fa440d70d88e0e3ca732190f3d79952038f7a210",
+    "docs/requirements.md": "82024754f8c94117217770bfc62349df939b2989ef06db9f84350389d467551a"
+  },
+  "limits": [
+    "Parser/schema checks validate documented input forms, not runtime behavior; T000004 scenarios and regression tests establish behavior.",
+    "Isolated wheel/Git verification belongs to T000004 integration validation; this result does not claim those unexecuted checks passed.",
+    "Official loader documentation checked 2026-10-12; native commercial clients were not launched by these checks."
+  ],
+  "local_links_checked": [
+    [
+      ".agent/compatibility.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      ".agent/handover_protocol.md",
+      "../MASTER_AGENT_WORKFLOW.md#6-close-with-a-usable-handover"
+    ],
+    [
+      ".agent/memory_update_protocol.md",
+      "../MASTER_AGENT_WORKFLOW.md#3-execute-and-preserve-reasoning"
+    ],
+    [
+      ".agent/memory_update_protocol.md",
+      "../PROJECT_MEMORY/README.md"
+    ],
+    [
+      ".agent/startup_protocol.md",
+      "../MASTER_AGENT_WORKFLOW.md#1-establish-context-before-action"
+    ],
+    [
+      ".agent/startup_protocol.md",
+      "compatibility.md"
+    ],
+    [
+      ".agent/task_execution_protocol.md",
+      "../MASTER_AGENT_WORKFLOW.md#2-define-and-review-owned-work"
+    ],
+    [
+      ".agent/task_execution_protocol.md",
+      "../MULTI_AGENT_SYSTEM/debate_protocol.md"
+    ],
+    [
+      ".agent/task_execution_protocol.md",
+      "../CHANGE_REQUESTS/CHANGE_POLICY.md"
+    ],
+    [
+      "CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "CR_TEMPLATE.md"
+    ],
+    [
+      "CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "CHANGE_POLICY.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      ".agent/startup_protocol.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      ".agent/task_execution_protocol.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      "CHANGE_REQUESTS/CHANGE_POLICY.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      "MULTI_AGENT_SYSTEM/README.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      ".agent/memory_update_protocol.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      "RESEARCH_MANAGEMENT/innovation_policy.md"
+    ],
+    [
+      "MASTER_AGENT_WORKFLOW.md",
+      ".agent/handover_protocol.md"
+    ],
+    [
+      "MULTI_AGENT_SYSTEM/agent_selection.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "consensus_protocol.md"
+    ],
+    [
+      "MULTI_AGENT_SYSTEM/role_generator.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "MULTI_AGENT_SYSTEM/role_generator.md",
+      "agent_selection.md"
+    ],
+    [
+      "PROJECT_MEMORY/architecture.md",
+      "../docs/adr/0001-local-ledger.md"
+    ],
+    [
+      "PROJECT_MEMORY/architecture.md",
+      "../docs/adr/0002-phase2-governance.md"
+    ],
+    [
+      "README.md",
+      "MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "README.md",
+      "EXAMPLES/README.md"
+    ],
+    [
+      "README.md",
+      "EXAMPLES/generated/software/PROJECT_STATE.md"
+    ],
+    [
+      "README.md",
+      "EXAMPLES/generated/research/RESEARCH_MANAGEMENT/experiments.md"
+    ],
+    [
+      "README.md",
+      "EXAMPLES/generated/hybrid/PROJECT_STATE.md"
+    ],
+    [
+      "README.md",
+      "AUDIT/independent-review.md"
+    ],
+    [
+      "README.md",
+      "docs/architecture.md"
+    ],
+    [
+      "README.md",
+      "docs/requirements.md"
+    ],
+    [
+      "README.md",
+      "docs/adr/0001-local-ledger.md"
+    ],
+    [
+      "README.md",
+      "docs/adr/0002-phase2-governance.md"
+    ],
+    [
+      "README.md",
+      "AGENTS.md"
+    ],
+    [
+      "README.md",
+      "CLAUDE.md"
+    ],
+    [
+      "README.md",
+      ".cursor/rules/uados.mdc"
+    ],
+    [
+      "README.md",
+      ".agent/compatibility.md"
+    ],
+    [
+      "RESEARCH_MANAGEMENT/innovation_policy.md",
+      "../MASTER_AGENT_WORKFLOW.md"
+    ],
+    [
+      "docs/architecture.md",
+      "adr/0001-local-ledger.md"
+    ],
+    [
+      "docs/architecture.md",
+      "adr/0002-phase2-governance.md"
+    ]
+  ],
+  "native_loader_metadata": "Thin master references; CLAUDE import and alwaysApply .mdc wrapper checked as files, not commercial-client execution.",
+  "observed_at": "2026-10-12T10:58:13.255728+00:00",
+  "ok_documentation_checks": true,
+  "packaged_maintained_asset_count": 48,
+  "preserved_baseline_events": 37,
+  "preserved_historical_files": 184,
+  "procedure_sha256": "d15fb17055f9c9437a2054cf4d24d1b8cf7645f4c82c5ab54792908ffbd4a81f",
+  "root_package_pairs": 22,
+  "root_scoped_documents": 27,
+  "scaffold": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "scripts/verify_scaffold.py"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\n  \"ok\": true,\n  \"required_paths\": 16,\n  \"events\": 4,\n  \"packaged_markdown_files\": 47\n}\n"
+  },
+  "scenario_runner_help": {
+    "owner_task": "T000004",
+    "reason": "Scenario runner is not yet present; no passing invocation claim is made.",
+    "status": "pending_parent_integration"
+  },
+  "session": "S000005",
+  "task": "T000005"
+}

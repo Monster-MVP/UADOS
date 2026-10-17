@@ -1,0 +1,135 @@
+{
+  "reviewer": "Phase3-Validation-Reviewer",
+  "session": "S000012",
+  "checks": [
+    {
+      "name": "real_legacy1_checkpoint_no_event_or_database_change",
+      "ok": true,
+      "seconds": 0.049033458
+    },
+    {
+      "name": "missing_complete_marker",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "External trust file is unavailable: /private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-review-ka8rc7al/bundle/COMPLETE"
+    },
+    {
+      "name": "same_target_recreate_immutable",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "Checkpoint output must be a new external directory with an existing parent."
+    },
+    {
+      "name": "forged_complete_marker",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "Checkpoint bundle is incomplete or its completion marker changed."
+    },
+    {
+      "name": "expected_pin_mismatch",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "Checkpoint differs from the externally trusted SHA256 pin."
+    },
+    {
+      "name": "actual_revoked_ed25519_signature",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "OpenSSH signing/authorized verification failed (exit 255)."
+    },
+    {
+      "name": "historical_prefix_require_current",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "Checkpoint covers a historical prefix, not the current ledger head."
+    },
+    {
+      "name": "historical_prefix_explicit",
+      "ok": true,
+      "current_sequence": 2,
+      "checkpoint_sequence": 1
+    },
+    {
+      "name": "separate_valid_signed_past_assertion_from_current_audit_failure",
+      "ok": true
+    },
+    {
+      "name": "cli_current_audit_failure_exit1",
+      "ok": true,
+      "returncode": 1
+    },
+    {
+      "name": "four_real_processes_same_target_one_winner",
+      "ok": true,
+      "returncodes": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "files": [
+        "COMPLETE",
+        "checkpoint.json",
+        "checkpoint.json.sig"
+      ],
+      "event_count": 2
+    },
+    {
+      "name": "disk_failure_after_exclusive_directory_creation",
+      "expected_failure": true,
+      "exception_type": "OSError",
+      "diagnostic": "Independent injected disk publication failure"
+    },
+    {
+      "name": "incomplete_disk_publication_rejected",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "External trust file is unavailable: /private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-review-ka8rc7al/partial/checkpoint.json.sig"
+    },
+    {
+      "name": "partial_output_inspectable_and_staging_cleaned",
+      "ok": true,
+      "files": [
+        "checkpoint.json"
+      ]
+    },
+    {
+      "name": "real_process_timeout",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "OpenSSH trust operation timed out."
+    },
+    {
+      "name": "timeout_real_process_bound",
+      "ok": true,
+      "seconds": 0.21577616599999994,
+      "operation_timeout_seconds": 0.2
+    },
+    {
+      "name": "self_rehashed_locally_valid_ledger_rejected_by_real_anchor",
+      "expected_failure": true,
+      "exception_type": "UadosError",
+      "diagnostic": "Ledger prefix/state differs from the authorized checkpoint."
+    }
+  ],
+  "count": 17,
+  "source_before": {
+    "src/uados/trust.py": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_after": {
+    "src/uados/trust.py": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_unchanged": true,
+  "ephemeral_external_keys_deleted": true,
+  "limits": [
+    "Local macOS/OpenSSH only; publication disk error injected explicitly.",
+    "Timeout probe executes a real sleeping replacement executable with reduced 0.2 second test bound; it does not claim an actual OpenSSH cryptographic timeout.",
+    "No maintained implementation/tests edited; all projects and keys disposable."
+  ]
+}

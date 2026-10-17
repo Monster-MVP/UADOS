@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-c",
+    "import app; assert app.VALUE == 1"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

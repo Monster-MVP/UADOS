@@ -1,0 +1,18 @@
+{
+  "probes": {
+    "token_huge_issued": {
+      "exception": "OverflowError",
+      "message": "int too large to convert to float"
+    },
+    "token_unhashable_resource": {
+      "exception": "TypeError",
+      "message": "unhashable type: 'list'"
+    },
+    "ttl_huge_int": {
+      "exception": "OverflowError",
+      "message": "int too large to convert to float"
+    }
+  },
+  "purpose": "D000015 independent malformed-input negative probes",
+  "source": "src/uados/coordination.py"
+}

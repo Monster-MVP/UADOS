@@ -1,0 +1,11 @@
+{
+  "backend": "sqlite-local-readonly",
+  "claim_limit": "Local read-only size/timing baseline; no cross-host coordination or scale guarantee.",
+  "event_count": 737,
+  "events_projection_bytes": 2278583842,
+  "head_hash": "ecc931623a5386dfffc5fb228ec8f89e65433398367656ed81a7dc4a4e4b2656",
+  "ledger_bytes": 2295300096,
+  "ledger_mutated": false,
+  "state_projection_bytes": 7901280,
+  "verify_milliseconds": 264814.431
+}

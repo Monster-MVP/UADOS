@@ -1,0 +1,1 @@
+Implement a local deterministic retrieval/tool boundary application. Validate retrieval, abstention, prompt text as data, tool allowlist and input bounds. This fixture does not call an LLM.

@@ -1,0 +1,33 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 87.401351875,
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6"
+  },
+  "source_before": {
+    "src/uados/trust.py": "3813cb8765612a60676ea4caf3b32b731062f9a3317a1b615540008cda1fc0c9",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_after": {
+    "src/uados/trust.py": "3813cb8765612a60676ea4caf3b32b731062f9a3317a1b615540008cda1fc0c9",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_unchanged": true,
+  "raw_output": "AUDIT/phase3-validation-review/initial-full-tests-v1.txt",
+  "raw_sha256": "dae560e00267bf8fc6b7c27b2df1512babd86772c528f2ecc331492d0f738dd3",
+  "note": "Independent local tests; no hosted/provider claims."
+}

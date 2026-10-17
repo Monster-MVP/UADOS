@@ -1,0 +1,30 @@
+{
+  "benchmark": {
+    "bytes_unchanged": {
+      "events.jsonl": true,
+      "ledger.sqlite3": true,
+      "state.json": true
+    },
+    "event_count": 1,
+    "head_hash_matches": true,
+    "ledger_mutated": false,
+    "verify_milliseconds": 2.198
+  },
+  "clock_nan": "rejected",
+  "clock_rollback": "rejected",
+  "concurrent_acquire": [
+    [
+      "busy",
+      "b",
+      null
+    ],
+    [
+      "ok",
+      "a",
+      1
+    ]
+  ],
+  "exact_expiry": "rejected",
+  "old_after_renew": "rejected",
+  "stale_after_takeover": "rejected"
+}

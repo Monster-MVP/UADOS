@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/verify_distribution.py", line 104, in <module>
+    main()
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/verify_distribution.py", line 44, in main
+    assert archive.read(archive_path) == source.read_bytes(), "Wheel differs from current source: " + archive_path
+AssertionError: Wheel differs from current source: uados/assets/MASTER_AGENT_WORKFLOW.md

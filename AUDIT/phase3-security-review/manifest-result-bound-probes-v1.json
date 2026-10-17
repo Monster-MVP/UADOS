@@ -1,0 +1,27 @@
+{
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "source_sha256": "172c5f25589b218b19070e60ff29c9ab493f4dec2bab86d09b463d503b7ae169",
+  "cases": [
+    {
+      "case": "file_limit",
+      "rejected": true,
+      "error": "Manifest dependency exceeds its size limit: /var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/tmpvpod_o4z/leaf"
+    },
+    {
+      "case": "aggregate_limit",
+      "rejected": true,
+      "error": "Manifest dependency bytes exceed the aggregate limit."
+    },
+    {
+      "case": "node_limit",
+      "rejected": true,
+      "error": "Manifest dependency node count exceeds the limit."
+    },
+    {
+      "case": "depth",
+      "rejected": true,
+      "error": "Manifest dependency depth exceeds the limit."
+    }
+  ]
+}

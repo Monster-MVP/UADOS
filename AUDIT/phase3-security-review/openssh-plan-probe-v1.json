@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.9.6",
+  "cases": [
+    {
+      "command": [
+        "ssh-keygen",
+        "-q",
+        "-t",
+        "ed25519",
+        "-N",
+        "",
+        "-f",
+        "<external-temporary-directory>/signer"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-q",
+        "-t",
+        "ed25519",
+        "-N",
+        "",
+        "-f",
+        "<external-temporary-directory>/other"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "sign",
+        "-f",
+        "<external-temporary-directory>/signer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "<external-temporary-directory>/checkpoint.json"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "stdout": "",
+      "stderr": "Signing file <external-temporary-directory>/checkpoint.json\nWrite signature to <external-temporary-directory>/checkpoint.json.sig\n"
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "<external-temporary-directory>/checkpoint.json.sig"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "stdout": "Good \"uados-checkpoint@uados.local\" signature for reviewer with ED25519 key SHA256:3TGU+WPfc2fEMYEotoN4N1Bo4BWlt9FKMTj6iXLgk+8\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "unauthorized",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "<external-temporary-directory>/checkpoint.json.sig"
+      ],
+      "exit": 255,
+      "expected": 1,
+      "stdout": "Could not verify signature.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "reviewer",
+        "-n",
+        "unrelated-domain",
+        "-s",
+        "<external-temporary-directory>/checkpoint.json.sig"
+      ],
+      "exit": 255,
+      "expected": 1,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "Couldn't verify signature: namespace does not match\r\n"
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "<external-temporary-directory>/checkpoint.json.sig"
+      ],
+      "exit": 255,
+      "expected": 1,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "Signature verification failed: incorrect signature\r\n"
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "<external-temporary-directory>/checkpoint.json.sig",
+        "-r",
+        "<external-temporary-directory>/revocations"
+      ],
+      "exit": 255,
+      "expected": 1,
+      "stdout": "Could not verify signature.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "<external-temporary-directory>/checkpoint.json.sig"
+      ],
+      "exit": 255,
+      "expected": 1,
+      "stdout": "Could not verify signature.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "sign",
+        "-f",
+        "<external-temporary-directory>/other",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "<external-temporary-directory>/rotated.json"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "stdout": "",
+      "stderr": "Signing file <external-temporary-directory>/rotated.json\nWrite signature to <external-temporary-directory>/rotated.json.sig\n"
+    },
+    {
+      "command": [
+        "ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "<external-temporary-directory>/allowed",
+        "-I",
+        "reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "<external-temporary-directory>/rotated.json.sig"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "stdout": "Good \"uados-checkpoint@uados.local\" signature for reviewer with ED25519 key SHA256:t1J/9reC9Ow8qJKYilzJSEB7NAJuHhyGqJrPJiggNng\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "Actual host OpenSSH execution only; ephemeral outside-project keys removed; no private key bytes recorded.",
+    "These tests prove SSHSIG authorization, namespace, byte mutation, revocation and operator-supplied policy rotation, not yet UADOS integration.",
+    "Allowed signer and expected content pin must remain external and protected; cooperative agent labels are not authenticated."
+  ]
+}

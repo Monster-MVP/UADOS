@@ -1,0 +1,46 @@
+{
+  "task": "T000009",
+  "date": "2026-10-13",
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "full_suite": "108 tests passed; AUDIT/phase3-dispatch/tests-v1.txt",
+  "dispatch_suite": "5 tests passed",
+  "scaffold": "passed; 16 required paths, 4 events, 47 packaged Markdown files",
+  "files": [
+    {
+      "path": "src/uados/dispatch.py",
+      "bytes": 8534,
+      "sha256": "a3a4df82eded244ede71eff0a410a6df3eb72e3bc281f0c4c45b927fb286c42a"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 24521,
+      "sha256": "0e30e70d44653a8f43f3574fc59ff11a3ea057014834b8d6eb100a35a1c26545"
+    },
+    {
+      "path": "tests/test_dispatch.py",
+      "bytes": 4773,
+      "sha256": "e66730bd161362124df1d399f10785aba82f9e76c421fd33948f91c71154db89"
+    },
+    {
+      "path": "docs/dispatch.md",
+      "bytes": 1660,
+      "sha256": "c637792014d23dce9fd104b1e17a91fb7e373609f4571705e4125b1a9aa22bde"
+    },
+    {
+      "path": "AUDIT/phase3-dispatch/tests-v1.txt",
+      "bytes": 10143,
+      "sha256": "7e8f38d662f485d742e7329e90754c38051afd6ca0af27233337b66c4d9b5152"
+    },
+    {
+      "path": "AUDIT/phase3-dispatch/scaffold-v1.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    }
+  ],
+  "limits": [
+    "fake adapter only; no real provider/network/credentials",
+    "external receipt is operator-custody local output",
+    "receipt hashes bind bytes, not provider identity or scientific quality"
+  ]
+}

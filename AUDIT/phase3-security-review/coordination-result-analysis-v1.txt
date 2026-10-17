@@ -1,0 +1,25 @@
+# T000010 / D000015 independent security result analysis
+
+Reviewer: Phase3-Security-Reviewer (S000011)
+Task revision: 3
+Verdict: request_changes
+
+The focused five-test run and the independent validator evidence support the intended process-local fencing behavior: contention is serialized, expiry is checked at `now >= expires_at`, takeover increases the per-resource fence, renewal makes the prior token stale, clock rollback/NaN are rejected, and the temporary-project benchmark preserved ledger/state/events bytes. These results do not establish durable, cross-host or authenticated coordination. Holder labels, tokens, injected clocks and fence values remain cooperative local data; there is no crash recovery, partition handling, synchronized time, remote availability or protected-resource enforcement.
+
+Blocking malformed-input failures
+
+The final `src/uados/coordination.py` does not fail closed for all bounded token/TTL inputs claimed by the plan and validation:
+
+* `MemoryLeaseBackend.acquire("r", "h", 10**10000)` raises raw `OverflowError: int too large to convert to float` from `_ttl`, rather than `InvalidLeaseError`.
+* `validate(LeaseToken("r", "h", 1, 10**10000, 2, "n", "uados.memory.v1"))` raises raw `OverflowError` from `_complete`.
+* `validate(LeaseToken([], "h", 1, 1, 2, "n", "uados.memory.v1"))` raises raw `TypeError: unhashable type: 'list'` while indexing `_active`, rather than rejecting a malformed token.
+
+Evidence is `AUDIT/phase3-security-review/coordination-result-negative-probes-v1.json` (SHA-256 `f37425e40697a57b6b40e39673981f1db19239a9d3c1cb9e9a428ee48f48b135`). The 5-test focused artifact does not cover these cases, so the submitted result cannot yet claim complete malformed-input failure closure. Catch conversion overflow and validate every token field as bounded scalar strings/numbers before using a resource as a dictionary key; add regression tests for huge integers and unhashable fields.
+
+Read-only benchmark boundary
+
+`benchmark_history` uses the shared `connect()` helper, which opens SQLite in its default read-write mode. The independent temporary-project probe confirms no bytes changed for the current implementation, but the helper does not enforce SQLite read-only mode. A future accidental write path could therefore mutate the benchmark database. Use an explicit SQLite read-only URI or `PRAGMA query_only=ON`, and test unavailable-project behavior without creating `.uados` files. Keep event-count/head and projection-byte invariants around repeated runs.
+
+Result disposition
+
+Request changes for the malformed-input blockers and explicit read-only enforcement. Re-run focused and full suites, scaffold, benchmark no-mutation and audit after fixes, preserving the process-local/no-authentication/no-cross-host limits above. Do not infer production fencing or identity from a passing local state machine.

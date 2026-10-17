@@ -1,0 +1,9 @@
+Processing ./dist/uados-1.1.0-py3-none-any.whl
+Installing collected packages: uados
+  Attempting uninstall: uados
+    Found existing installation: uados 1.1.0
+    Uninstalling uados-1.1.0:
+      Successfully uninstalled uados-1.1.0
+Successfully installed uados-1.1.0
+WARNING: You are using pip version 21.2.4; however, version 26.0.1 is available.
+You should consider upgrading via the '/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/.venv/bin/python -m pip install --upgrade pip' command.

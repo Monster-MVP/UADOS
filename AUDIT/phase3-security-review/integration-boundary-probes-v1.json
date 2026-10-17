@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "passed": true,
+  "cases": [
+    {
+      "case": "real_integrated_current_signed_checkpoint_zero_events",
+      "passed": true,
+      "sequence": 1
+    },
+    {
+      "case": "policy_bytes_read_once_then_changed_original_does_not_change_authorized_check",
+      "passed": true,
+      "policy_hash": "7f241b14520ffa9d4eb8e75225e5ebf2b2148f742034ebee766f408c5c0b96f1"
+    },
+    {
+      "case": "subsequent_verify_uses_now_changed_policy",
+      "passed": true,
+      "observed_error": "OpenSSH signing/authorized verification failed (exit 255)."
+    },
+    {
+      "case": "actual_ledger_event_between_prefix_and_audit",
+      "passed": true,
+      "observed_error": "Ledger changed during verification; retry against stable current state."
+    },
+    {
+      "case": "old_prefix_require_current_rejected",
+      "passed": true,
+      "observed_error": "Checkpoint covers a historical prefix, not the current ledger head."
+    },
+    {
+      "case": "newest_pinned_checkpoint_rejects_truncated_workspace",
+      "passed": true,
+      "observed_error": "Checkpoint project or sequence is missing from this ledger."
+    },
+    {
+      "case": "old_pin_plus_old_workspace_can_replay_as_documented",
+      "passed": true,
+      "current_sequence": 1,
+      "limit": "No externally newest pin/global freshness supplied; this success is expected and disclosed, not rollback-resistance evidence."
+    },
+    {
+      "case": "midpublication_disk_failure_leaves_explicit_incomplete_bundle",
+      "passed": true,
+      "observed_error": "Independent injected disk publication failure",
+      "files": [
+        "checkpoint.json"
+      ]
+    },
+    {
+      "case": "incomplete_bundle_verification_refused",
+      "passed": true,
+      "observed_error": "External trust file is unavailable: /private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-trust-probe-p4dgmnwn/interrupted/checkpoint.json.sig"
+    },
+    {
+      "case": "incomplete_path_never_overwritten_on_retry",
+      "passed": true,
+      "observed_error": "Checkpoint output must be a new external directory with an existing parent."
+    },
+    {
+      "case": "authorized_payload_unpaired_surrogate_fails_canonical_parser",
+      "passed": true,
+      "observed_error": "Malformed trust JSON."
+    }
+  ],
+  "limits": [
+    "Real host OpenSSH integration under external ephemeral keys; original-policy mutation, actual ledger event and disk-failure trigger use explicit controlled hooks.",
+    "Old-pin replay is an observed design limitation and correct disclosure, not a claimed prevention.",
+    "No independent operator identity, global freshness, remote trust service or hostile OS writer guarantee."
+  ]
+}

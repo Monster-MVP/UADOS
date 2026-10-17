@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-13",
+  "task": "T000007",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 0,
+      "tests": 91,
+      "seconds": 63.211,
+      "output": "AUDIT/phase3-trust/tests-v2.txt"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_trust.py",
+        "-v"
+      ],
+      "exit": 0,
+      "tests": 16,
+      "seconds": 2.0,
+      "output": "AUDIT/phase3-trust/trust-tests-v2.txt"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/verify_scaffold.py"
+      ],
+      "exit": 0,
+      "output": "AUDIT/phase3-trust/scaffold-v1.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "src/uados/trust.py",
+      "bytes": 13262,
+      "sha256": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 23591,
+      "sha256": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8"
+    },
+    {
+      "path": "tests/test_trust.py",
+      "bytes": 13989,
+      "sha256": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1"
+    },
+    {
+      "path": "docs/trust.md",
+      "bytes": 6370,
+      "sha256": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+    },
+    {
+      "path": "AUDIT/phase3-trust/tests-v2.txt",
+      "bytes": 8502,
+      "sha256": "ead89065a90fefeebeb2640935f7f406cca439bdf905fe0e7ac80e5ca583f4a0"
+    },
+    {
+      "path": "AUDIT/phase3-trust/trust-tests-v2.txt",
+      "bytes": 1400,
+      "sha256": "ce910c32cb0204446246175e3f764461d6538187e6fff9e6978136cdb08122f7"
+    },
+    {
+      "path": "AUDIT/phase3-trust/scaffold-v1.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    },
+    {
+      "path": "AUDIT/phase3-trust/root-anchor-v2.json",
+      "bytes": 10731,
+      "sha256": "b82914fc8c5a9a298dd53d931690f0fe6bcc987634eaad51d271cc99366ebaa6"
+    },
+    {
+      "path": "AUDIT/phase3-trust/implementation-v2.txt",
+      "bytes": 1723,
+      "sha256": "c956cb06529579c4130cfba2a430b7a7e8083c8da615eecc0c52dea0ca791a19"
+    }
+  ],
+  "legacy_frozen_preservation": {
+    "count": 81,
+    "path": "AUDIT/phase3-trust/baseline-v1/preserved-manifest.json",
+    "original_byte_preserved": true,
+    "authorized_evolved_maintained_file": "src/uados/cli.py"
+  },
+  "scope": "Source-checkout optional SSHSIG checkpoint increment; no new published release or full Phase3 completion",
+  "limits": [
+    "External newest pin/authorization/revocation policy/operator key custody trusted",
+    "No agent-label enrollment, actual provider invocation, hosted CI or distributed freshness",
+    "Signed audit attestation separated from current audit; historical loss4 retained"
+  ]
+}

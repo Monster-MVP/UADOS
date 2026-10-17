@@ -1,0 +1,3209 @@
+{
+  "reviewer": "Phase2-Research-Reviewer",
+  "session": "S000006",
+  "date": "2026-10-13",
+  "independence": "Read-only maintained source/tests; this reviewer independently executed reproduction, current hash/provenance verification and inspected submitted acceptance; no implementation/test authorship.",
+  "task": "T000006",
+  "task_revision": 12,
+  "result_debate": "D000004",
+  "debate_binding": "ca05bf108a160f303b9963b0b784f5709e0220aada6bac719623172c2199d799",
+  "procedure": "Recompute every frozen, nested runtime/doc, task submission and acceptance-recorded SHA256 plus original Phase1 proofs; verify registered live+archive evidence and current research idea/hypothesis/run fingerprints; execute registered argument vector without modifying fixture; inspect actual fresh audit.",
+  "check_counts": {
+    "frozen": 81,
+    "runtime-nested": 16,
+    "docs-nested": 27,
+    "receipt-nested": 5,
+    "task-submission": 18,
+    "acceptance-frozen": 81,
+    "acceptance-runtime": 16,
+    "acceptance-maintained-docs": 27,
+    "acceptance-reviewer-tested-source": 122,
+    "acceptance-phase1-proof": 14,
+    "phase1-primary": 14,
+    "research-live": 7,
+    "research-archive": 7,
+    "research-code": 1,
+    "wheel": 1
+  },
+  "checks": [
+    {
+      "kind": "frozen",
+      "path": "src/uados/__init__.py",
+      "expected": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "actual": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/__main__.py",
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.agent/compatibility.md",
+      "expected": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "actual": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.agent/handover_protocol.md",
+      "expected": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "actual": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.agent/memory_update_protocol.md",
+      "expected": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "actual": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.agent/startup_protocol.md",
+      "expected": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "actual": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.agent/task_execution_protocol.md",
+      "expected": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "actual": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.cursor/rules/uados.md",
+      "expected": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "actual": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/.cursor/rules/uados.mdc",
+      "expected": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "actual": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/AGENTS.md",
+      "expected": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "actual": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/AUDIT/README.md",
+      "expected": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "actual": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "expected": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "actual": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "expected": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "actual": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/CLAUDE.md",
+      "expected": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "actual": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md",
+      "expected": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "actual": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md",
+      "expected": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "actual": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md",
+      "expected": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "actual": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md",
+      "expected": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "actual": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md",
+      "expected": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "actual": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/EXAMPLES/README.md",
+      "expected": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "actual": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md",
+      "expected": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "actual": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md",
+      "expected": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "actual": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md",
+      "expected": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "actual": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "expected": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "actual": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "expected": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "actual": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md",
+      "expected": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "actual": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md",
+      "expected": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "actual": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md",
+      "expected": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "actual": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md",
+      "expected": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "actual": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md",
+      "expected": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "actual": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROMPTS/bootstrap.md",
+      "expected": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "actual": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROMPTS/challenge.md",
+      "expected": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "actual": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROMPTS/handover.md",
+      "expected": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "actual": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROMPTS/implement.md",
+      "expected": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "actual": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/PROMPTS/research.md",
+      "expected": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "actual": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/README.md",
+      "expected": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "actual": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md",
+      "expected": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "actual": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md",
+      "expected": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "actual": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md",
+      "expected": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "actual": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md",
+      "expected": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "actual": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md",
+      "expected": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "actual": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/adr.md",
+      "expected": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "actual": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/experiment.md",
+      "expected": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "actual": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/extension.md",
+      "expected": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "actual": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/handover.md",
+      "expected": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "actual": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/literature.md",
+      "expected": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "actual": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/review.md",
+      "expected": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "actual": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/rfc.md",
+      "expected": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "actual": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/TEMPLATES/task.md",
+      "expected": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "actual": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/assets/VERSION_CONTROL/README.md",
+      "expected": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "actual": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/cli.py",
+      "expected": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "actual": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/context.py",
+      "expected": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "actual": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/governance.py",
+      "expected": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "actual": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/orchestration.py",
+      "expected": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "actual": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/project.py",
+      "expected": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "actual": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/protocol.py",
+      "expected": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "actual": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/research.py",
+      "expected": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "actual": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "src/uados/storage.py",
+      "expected": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "actual": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "tests/test_adversarial.py",
+      "expected": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "actual": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "tests/test_phase2.py",
+      "expected": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "actual": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "tests/test_workflows.py",
+      "expected": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "actual": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "scripts/run_examples.py",
+      "expected": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b",
+      "actual": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "scripts/run_phase2_scenarios.py",
+      "expected": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "actual": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "scripts/uados.py",
+      "expected": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf",
+      "actual": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "scripts/verify_distribution.py",
+      "expected": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "actual": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "scripts/verify_scaffold.py",
+      "expected": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6",
+      "actual": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "setup.cfg",
+      "expected": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1",
+      "actual": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": ".github/workflows/ci.yml",
+      "expected": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f",
+      "actual": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "expected": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "actual": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-runtime-validation-v3.json",
+      "expected": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "actual": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-docs-v3.json",
+      "expected": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "actual": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-scaffold-v3.json",
+      "expected": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "actual": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-distribution-v3-final.json",
+      "expected": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "actual": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-baseline-preservation-v3.json",
+      "expected": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268",
+      "actual": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "EXAMPLES/phase2-snapshot-validation/summary.json",
+      "expected": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3",
+      "actual": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-final-report.md",
+      "expected": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "actual": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/self_review.md",
+      "expected": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "actual": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/scenario_test_report.md",
+      "expected": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "actual": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-modified-files.json",
+      "expected": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "actual": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-architecture-s8-snapshot-probe-v1.json",
+      "expected": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f",
+      "actual": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f",
+      "ok": true
+    },
+    {
+      "kind": "frozen",
+      "path": "AUDIT/phase2-architecture-s8-snapshot-export-probe-v1.json",
+      "expected": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24",
+      "actual": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "expected": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "actual": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "AUDIT/phase2-docs-v3.json",
+      "expected": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "actual": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "AUDIT/phase2-scaffold-v3.json",
+      "expected": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "actual": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/__init__.py",
+      "expected": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "actual": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/__main__.py",
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/cli.py",
+      "expected": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "actual": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/context.py",
+      "expected": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "actual": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/governance.py",
+      "expected": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "actual": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/orchestration.py",
+      "expected": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "actual": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/project.py",
+      "expected": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "actual": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/protocol.py",
+      "expected": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "actual": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/research.py",
+      "expected": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "actual": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "src/uados/storage.py",
+      "expected": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "actual": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "tests/test_phase2.py",
+      "expected": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "actual": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "scripts/verify_distribution.py",
+      "expected": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "actual": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "ok": true
+    },
+    {
+      "kind": "runtime-nested",
+      "path": "scripts/run_phase2_scenarios.py",
+      "expected": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "actual": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".agent/compatibility.md",
+      "expected": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "actual": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".agent/handover_protocol.md",
+      "expected": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "actual": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".agent/memory_update_protocol.md",
+      "expected": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "actual": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".agent/startup_protocol.md",
+      "expected": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "actual": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".agent/task_execution_protocol.md",
+      "expected": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "actual": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".cursor/rules/uados.md",
+      "expected": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "actual": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": ".cursor/rules/uados.mdc",
+      "expected": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "actual": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "AGENTS.md",
+      "expected": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "actual": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "expected": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "actual": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "expected": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "actual": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "CLAUDE.md",
+      "expected": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "actual": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "ENGINEERING_RULES/README.md",
+      "expected": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "actual": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "ENGINEERING_RULES/quality.md",
+      "expected": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "actual": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MASTER_AGENT_WORKFLOW.md",
+      "expected": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "actual": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/README.md",
+      "expected": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "actual": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md",
+      "expected": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "actual": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "expected": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "actual": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "expected": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "actual": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md",
+      "expected": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "actual": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md",
+      "expected": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "actual": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "MULTI_AGENT_SYSTEM/roles.md",
+      "expected": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "actual": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "PROJECT_MEMORY/architecture.md",
+      "expected": "3ef060dc56de1709068f7230031d219186ca3f55f44c8eae6cbc4af2fc26a76a",
+      "actual": "3ef060dc56de1709068f7230031d219186ca3f55f44c8eae6cbc4af2fc26a76a",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "README.md",
+      "expected": "72dce756ae174347f2d2a661feefb7e86250991de198878e73cd06ee982b6368",
+      "actual": "72dce756ae174347f2d2a661feefb7e86250991de198878e73cd06ee982b6368",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md",
+      "expected": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "actual": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "docs/adr/0002-phase2-governance.md",
+      "expected": "2b0c4758fa84481b3044dc92d545119f9e09a12fc9b09db00e5cf40679d82ff1",
+      "actual": "2b0c4758fa84481b3044dc92d545119f9e09a12fc9b09db00e5cf40679d82ff1",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "docs/architecture.md",
+      "expected": "4709d8ccc9a65398028eba8c06f4aee76cd77072cbd4acf7b17f18620e65883e",
+      "actual": "4709d8ccc9a65398028eba8c06f4aee76cd77072cbd4acf7b17f18620e65883e",
+      "ok": true
+    },
+    {
+      "kind": "docs-nested",
+      "path": "docs/requirements.md",
+      "expected": "82024754f8c94117217770bfc62349df939b2989ef06db9f84350389d467551a",
+      "actual": "82024754f8c94117217770bfc62349df939b2989ef06db9f84350389d467551a",
+      "ok": true
+    },
+    {
+      "kind": "receipt-nested",
+      "path": "AUDIT/phase2-delivery/acceptance-tests.txt",
+      "expected": "1211f0dc68371f99ec9bb2c36423db8acdee6229080b6e2d3588f0b2f5f24bbe",
+      "actual": "1211f0dc68371f99ec9bb2c36423db8acdee6229080b6e2d3588f0b2f5f24bbe",
+      "ok": true
+    },
+    {
+      "kind": "receipt-nested",
+      "path": "AUDIT/phase2-delivery/acceptance-distribution.json",
+      "expected": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "actual": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "ok": true
+    },
+    {
+      "kind": "receipt-nested",
+      "path": "AUDIT/phase2-delivery/acceptance-hashes.json",
+      "expected": "0878b8ad69cf6ea7e11cf07897f217964bb4fe5068d99c8de6998b0ab04587fe",
+      "actual": "0878b8ad69cf6ea7e11cf07897f217964bb4fe5068d99c8de6998b0ab04587fe",
+      "ok": true
+    },
+    {
+      "kind": "receipt-nested",
+      "path": "AUDIT/phase2-delivery/acceptance-research.json",
+      "expected": "b5722207f0824c68283e75b6f8b4d11f8fe8372e2342fea59985cfa330f0f1bb",
+      "actual": "b5722207f0824c68283e75b6f8b4d11f8fe8372e2342fea59985cfa330f0f1bb",
+      "ok": true
+    },
+    {
+      "kind": "receipt-nested",
+      "path": "AUDIT/phase2-delivery/acceptance-audit.json",
+      "expected": "1119ba8aabf59f9831d7f912086000e0c651728b0cf5ba3519d93da6f92e6875",
+      "actual": "1119ba8aabf59f9831d7f912086000e0c651728b0cf5ba3519d93da6f92e6875",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-audit.json",
+      "expected": "1119ba8aabf59f9831d7f912086000e0c651728b0cf5ba3519d93da6f92e6875",
+      "actual": "1119ba8aabf59f9831d7f912086000e0c651728b0cf5ba3519d93da6f92e6875",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-distribution-launch.txt",
+      "expected": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "actual": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-distribution.json",
+      "expected": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "actual": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-hashes.json",
+      "expected": "0878b8ad69cf6ea7e11cf07897f217964bb4fe5068d99c8de6998b0ab04587fe",
+      "actual": "0878b8ad69cf6ea7e11cf07897f217964bb4fe5068d99c8de6998b0ab04587fe",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-receipt.json",
+      "expected": "228fd7be96bac6aee98b470abfcc7620d32e7a62452479266f730857787cb71d",
+      "actual": "228fd7be96bac6aee98b470abfcc7620d32e7a62452479266f730857787cb71d",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-research.json",
+      "expected": "b5722207f0824c68283e75b6f8b4d11f8fe8372e2342fea59985cfa330f0f1bb",
+      "actual": "b5722207f0824c68283e75b6f8b4d11f8fe8372e2342fea59985cfa330f0f1bb",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/acceptance-tests.txt",
+      "expected": "1211f0dc68371f99ec9bb2c36423db8acdee6229080b6e2d3588f0b2f5f24bbe",
+      "actual": "1211f0dc68371f99ec9bb2c36423db8acdee6229080b6e2d3588f0b2f5f24bbe",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/change.json",
+      "expected": "d15088f5f3f2c17c6470662cc699c81860b1e7dea7b7eb80699fb04bb1dd02f6",
+      "actual": "d15088f5f3f2c17c6470662cc699c81860b1e7dea7b7eb80699fb04bb1dd02f6",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/frozen-manifest.json",
+      "expected": "a48f8994ae1508f8feb6fe5ccae637273893c2888e64263ac4050955fae742a9",
+      "actual": "a48f8994ae1508f8feb6fe5ccae637273893c2888e64263ac4050955fae742a9",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-delivery/plan.md",
+      "expected": "5870c31b3213e3c63fd38fef2c79ce1a46e623de03c1f1add786242d0bcec955",
+      "actual": "5870c31b3213e3c63fd38fef2c79ce1a46e623de03c1f1add786242d0bcec955",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-distribution-v3-final.json",
+      "expected": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "actual": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-docs-v3.json",
+      "expected": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "actual": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-final-report.md",
+      "expected": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "actual": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-modified-files.json",
+      "expected": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "actual": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-runtime-validation-v3.json",
+      "expected": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "actual": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "expected": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "actual": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/scenario_test_report.md",
+      "expected": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "actual": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "ok": true
+    },
+    {
+      "kind": "task-submission",
+      "path": "AUDIT/self_review.md",
+      "expected": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "actual": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/__init__.py",
+      "expected": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "actual": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/__main__.py",
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.agent/compatibility.md",
+      "expected": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "actual": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.agent/handover_protocol.md",
+      "expected": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "actual": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.agent/memory_update_protocol.md",
+      "expected": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "actual": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.agent/startup_protocol.md",
+      "expected": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "actual": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.agent/task_execution_protocol.md",
+      "expected": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "actual": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.cursor/rules/uados.md",
+      "expected": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "actual": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/.cursor/rules/uados.mdc",
+      "expected": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "actual": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/AGENTS.md",
+      "expected": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "actual": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/AUDIT/README.md",
+      "expected": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "actual": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "expected": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "actual": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "expected": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "actual": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/CLAUDE.md",
+      "expected": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "actual": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md",
+      "expected": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "actual": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md",
+      "expected": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "actual": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md",
+      "expected": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "actual": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md",
+      "expected": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "actual": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md",
+      "expected": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "actual": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/EXAMPLES/README.md",
+      "expected": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "actual": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md",
+      "expected": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "actual": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md",
+      "expected": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "actual": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md",
+      "expected": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "actual": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "expected": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "actual": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "expected": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "actual": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md",
+      "expected": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "actual": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md",
+      "expected": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "actual": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md",
+      "expected": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "actual": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md",
+      "expected": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "actual": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md",
+      "expected": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "actual": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROMPTS/bootstrap.md",
+      "expected": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "actual": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROMPTS/challenge.md",
+      "expected": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "actual": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROMPTS/handover.md",
+      "expected": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "actual": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROMPTS/implement.md",
+      "expected": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "actual": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/PROMPTS/research.md",
+      "expected": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "actual": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/README.md",
+      "expected": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "actual": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md",
+      "expected": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "actual": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md",
+      "expected": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "actual": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md",
+      "expected": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "actual": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md",
+      "expected": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "actual": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md",
+      "expected": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "actual": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/adr.md",
+      "expected": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "actual": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/experiment.md",
+      "expected": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "actual": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/extension.md",
+      "expected": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "actual": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/handover.md",
+      "expected": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "actual": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/literature.md",
+      "expected": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "actual": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/review.md",
+      "expected": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "actual": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/rfc.md",
+      "expected": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "actual": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/TEMPLATES/task.md",
+      "expected": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "actual": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/assets/VERSION_CONTROL/README.md",
+      "expected": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "actual": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/cli.py",
+      "expected": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "actual": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/context.py",
+      "expected": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "actual": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/governance.py",
+      "expected": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "actual": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/orchestration.py",
+      "expected": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "actual": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/project.py",
+      "expected": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "actual": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/protocol.py",
+      "expected": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "actual": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/research.py",
+      "expected": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "actual": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "src/uados/storage.py",
+      "expected": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "actual": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "tests/test_adversarial.py",
+      "expected": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "actual": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "tests/test_phase2.py",
+      "expected": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "actual": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "tests/test_workflows.py",
+      "expected": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "actual": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "scripts/run_examples.py",
+      "expected": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b",
+      "actual": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "scripts/run_phase2_scenarios.py",
+      "expected": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "actual": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "scripts/uados.py",
+      "expected": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf",
+      "actual": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "scripts/verify_distribution.py",
+      "expected": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "actual": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "scripts/verify_scaffold.py",
+      "expected": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6",
+      "actual": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "setup.cfg",
+      "expected": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1",
+      "actual": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": ".github/workflows/ci.yml",
+      "expected": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f",
+      "actual": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "expected": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "actual": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-runtime-validation-v3.json",
+      "expected": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "actual": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-docs-v3.json",
+      "expected": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "actual": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-scaffold-v3.json",
+      "expected": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "actual": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-distribution-v3-final.json",
+      "expected": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "actual": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-baseline-preservation-v3.json",
+      "expected": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268",
+      "actual": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "EXAMPLES/phase2-snapshot-validation/summary.json",
+      "expected": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3",
+      "actual": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-final-report.md",
+      "expected": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "actual": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/self_review.md",
+      "expected": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "actual": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/scenario_test_report.md",
+      "expected": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "actual": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-modified-files.json",
+      "expected": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "actual": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-architecture-s8-snapshot-probe-v1.json",
+      "expected": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f",
+      "actual": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-frozen",
+      "path": "AUDIT/phase2-architecture-s8-snapshot-export-probe-v1.json",
+      "expected": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24",
+      "actual": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "expected": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "actual": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "AUDIT/phase2-docs-v3.json",
+      "expected": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "actual": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "AUDIT/phase2-scaffold-v3.json",
+      "expected": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "actual": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/__init__.py",
+      "expected": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "actual": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/__main__.py",
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/cli.py",
+      "expected": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "actual": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/context.py",
+      "expected": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "actual": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/governance.py",
+      "expected": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "actual": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/orchestration.py",
+      "expected": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "actual": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/project.py",
+      "expected": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "actual": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/protocol.py",
+      "expected": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "actual": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/research.py",
+      "expected": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "actual": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "src/uados/storage.py",
+      "expected": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "actual": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "tests/test_phase2.py",
+      "expected": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "actual": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "scripts/verify_distribution.py",
+      "expected": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "actual": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-runtime",
+      "path": "scripts/run_phase2_scenarios.py",
+      "expected": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "actual": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".agent/compatibility.md",
+      "expected": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "actual": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".agent/handover_protocol.md",
+      "expected": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "actual": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".agent/memory_update_protocol.md",
+      "expected": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "actual": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".agent/startup_protocol.md",
+      "expected": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "actual": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".agent/task_execution_protocol.md",
+      "expected": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "actual": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".cursor/rules/uados.md",
+      "expected": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "actual": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": ".cursor/rules/uados.mdc",
+      "expected": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "actual": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "AGENTS.md",
+      "expected": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "actual": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "expected": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "actual": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "expected": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "actual": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "CLAUDE.md",
+      "expected": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "actual": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "ENGINEERING_RULES/README.md",
+      "expected": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "actual": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "ENGINEERING_RULES/quality.md",
+      "expected": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "actual": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MASTER_AGENT_WORKFLOW.md",
+      "expected": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "actual": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/README.md",
+      "expected": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "actual": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md",
+      "expected": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "actual": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "expected": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "actual": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "expected": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "actual": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md",
+      "expected": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "actual": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md",
+      "expected": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "actual": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "MULTI_AGENT_SYSTEM/roles.md",
+      "expected": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "actual": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "PROJECT_MEMORY/architecture.md",
+      "expected": "3ef060dc56de1709068f7230031d219186ca3f55f44c8eae6cbc4af2fc26a76a",
+      "actual": "3ef060dc56de1709068f7230031d219186ca3f55f44c8eae6cbc4af2fc26a76a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "README.md",
+      "expected": "72dce756ae174347f2d2a661feefb7e86250991de198878e73cd06ee982b6368",
+      "actual": "72dce756ae174347f2d2a661feefb7e86250991de198878e73cd06ee982b6368",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md",
+      "expected": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "actual": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "docs/adr/0002-phase2-governance.md",
+      "expected": "2b0c4758fa84481b3044dc92d545119f9e09a12fc9b09db00e5cf40679d82ff1",
+      "actual": "2b0c4758fa84481b3044dc92d545119f9e09a12fc9b09db00e5cf40679d82ff1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "docs/architecture.md",
+      "expected": "4709d8ccc9a65398028eba8c06f4aee76cd77072cbd4acf7b17f18620e65883e",
+      "actual": "4709d8ccc9a65398028eba8c06f4aee76cd77072cbd4acf7b17f18620e65883e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-maintained-docs",
+      "path": "docs/requirements.md",
+      "expected": "82024754f8c94117217770bfc62349df939b2989ef06db9f84350389d467551a",
+      "actual": "82024754f8c94117217770bfc62349df939b2989ef06db9f84350389d467551a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/__init__.py",
+      "expected": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "actual": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/__main__.py",
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/compatibility.md",
+      "expected": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "actual": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/handover_protocol.md",
+      "expected": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "actual": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/memory_update_protocol.md",
+      "expected": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "actual": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/startup_protocol.md",
+      "expected": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "actual": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/task_execution_protocol.md",
+      "expected": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "actual": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.cursor/rules/uados.md",
+      "expected": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "actual": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.cursor/rules/uados.mdc",
+      "expected": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "actual": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/AGENTS.md",
+      "expected": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "actual": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/AUDIT/README.md",
+      "expected": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "actual": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "expected": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "actual": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "expected": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "actual": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/CLAUDE.md",
+      "expected": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "actual": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md",
+      "expected": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "actual": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md",
+      "expected": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "actual": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md",
+      "expected": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "actual": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md",
+      "expected": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "actual": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md",
+      "expected": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "actual": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/EXAMPLES/README.md",
+      "expected": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "actual": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md",
+      "expected": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "actual": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md",
+      "expected": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "actual": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md",
+      "expected": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "actual": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "expected": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "actual": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "expected": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "actual": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md",
+      "expected": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "actual": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md",
+      "expected": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "actual": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md",
+      "expected": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "actual": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md",
+      "expected": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "actual": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md",
+      "expected": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "actual": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/bootstrap.md",
+      "expected": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "actual": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/challenge.md",
+      "expected": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "actual": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/handover.md",
+      "expected": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "actual": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/implement.md",
+      "expected": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "actual": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/research.md",
+      "expected": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "actual": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/README.md",
+      "expected": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "actual": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md",
+      "expected": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "actual": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md",
+      "expected": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "actual": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md",
+      "expected": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "actual": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md",
+      "expected": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "actual": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md",
+      "expected": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "actual": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/adr.md",
+      "expected": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "actual": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/experiment.md",
+      "expected": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "actual": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/extension.md",
+      "expected": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "actual": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/handover.md",
+      "expected": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "actual": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/literature.md",
+      "expected": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "actual": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/review.md",
+      "expected": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "actual": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/rfc.md",
+      "expected": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "actual": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/task.md",
+      "expected": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "actual": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/VERSION_CONTROL/README.md",
+      "expected": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "actual": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/cli.py",
+      "expected": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "actual": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/context.py",
+      "expected": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "actual": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/governance.py",
+      "expected": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "actual": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/orchestration.py",
+      "expected": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "actual": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/project.py",
+      "expected": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "actual": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/protocol.py",
+      "expected": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "actual": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/research.py",
+      "expected": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "actual": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/storage.py",
+      "expected": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "actual": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "tests/test_adversarial.py",
+      "expected": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "actual": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "tests/test_phase2.py",
+      "expected": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "actual": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "tests/test_workflows.py",
+      "expected": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "actual": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/__init__.py",
+      "expected": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "actual": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/__main__.py",
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/compatibility.md",
+      "expected": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "actual": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/handover_protocol.md",
+      "expected": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "actual": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/memory_update_protocol.md",
+      "expected": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "actual": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/startup_protocol.md",
+      "expected": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "actual": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.agent/task_execution_protocol.md",
+      "expected": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "actual": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.cursor/rules/uados.md",
+      "expected": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "actual": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/.cursor/rules/uados.mdc",
+      "expected": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "actual": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/AGENTS.md",
+      "expected": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "actual": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/AUDIT/README.md",
+      "expected": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "actual": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "expected": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "actual": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "expected": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "actual": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/CLAUDE.md",
+      "expected": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "actual": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md",
+      "expected": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "actual": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md",
+      "expected": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "actual": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md",
+      "expected": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "actual": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md",
+      "expected": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "actual": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md",
+      "expected": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "actual": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/EXAMPLES/README.md",
+      "expected": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "actual": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md",
+      "expected": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "actual": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md",
+      "expected": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "actual": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md",
+      "expected": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "actual": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "expected": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "actual": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "expected": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "actual": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md",
+      "expected": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "actual": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md",
+      "expected": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "actual": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md",
+      "expected": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "actual": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md",
+      "expected": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "actual": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md",
+      "expected": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "actual": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/bootstrap.md",
+      "expected": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "actual": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/challenge.md",
+      "expected": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "actual": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/handover.md",
+      "expected": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "actual": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/implement.md",
+      "expected": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "actual": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/PROMPTS/research.md",
+      "expected": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "actual": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/README.md",
+      "expected": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "actual": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md",
+      "expected": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "actual": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md",
+      "expected": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "actual": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md",
+      "expected": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "actual": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md",
+      "expected": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "actual": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md",
+      "expected": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "actual": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/adr.md",
+      "expected": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "actual": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/experiment.md",
+      "expected": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "actual": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/extension.md",
+      "expected": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "actual": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/handover.md",
+      "expected": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "actual": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/literature.md",
+      "expected": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "actual": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/review.md",
+      "expected": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "actual": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/rfc.md",
+      "expected": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "actual": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/TEMPLATES/task.md",
+      "expected": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "actual": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/assets/VERSION_CONTROL/README.md",
+      "expected": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "actual": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/cli.py",
+      "expected": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "actual": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/context.py",
+      "expected": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "actual": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/governance.py",
+      "expected": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "actual": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/orchestration.py",
+      "expected": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "actual": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/project.py",
+      "expected": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "actual": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/protocol.py",
+      "expected": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "actual": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/research.py",
+      "expected": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "actual": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "src/uados/storage.py",
+      "expected": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "actual": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "tests/test_adversarial.py",
+      "expected": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "actual": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "tests/test_phase2.py",
+      "expected": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "actual": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-reviewer-tested-source",
+      "path": "tests/test_workflows.py",
+      "expected": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "actual": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/README.md",
+      "expected": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "actual": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/distribution.json",
+      "expected": "ed3e00279419db858190c5469453639364e94729833bf2062901090f2b9cc343",
+      "actual": "ed3e00279419db858190c5469453639364e94729833bf2062901090f2b9cc343",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/document-links.json",
+      "expected": "e7684a31bfb2ecaac193fd20add1334ce19078a089d285d08b94a2ba5258f1b7",
+      "actual": "e7684a31bfb2ecaac193fd20add1334ce19078a089d285d08b94a2ba5258f1b7",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/examples-and-scaffold.json",
+      "expected": "2ae2c93c7648a1f742371741e709fc0444305ebdb1a8321db0bdb6b78b888bd8",
+      "actual": "2ae2c93c7648a1f742371741e709fc0444305ebdb1a8321db0bdb6b78b888bd8",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/final-audit.json",
+      "expected": "4979855957f326eb8eda73a046eafe4614ffb95ade71717aa11218c380f4598a",
+      "actual": "4979855957f326eb8eda73a046eafe4614ffb95ade71717aa11218c380f4598a",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/independent-review.md",
+      "expected": "dea790a06835fc98cc26ae99fa396bf72579a985f5495fedbbe13d7634358cdf",
+      "actual": "dea790a06835fc98cc26ae99fa396bf72579a985f5495fedbbe13d7634358cdf",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/installed-package.json",
+      "expected": "438071f879ea5cc4ae03bbf8d6711df7222d88324d9eb332c7fd76faa5b047c5",
+      "actual": "438071f879ea5cc4ae03bbf8d6711df7222d88324d9eb332c7fd76faa5b047c5",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/result-review.json",
+      "expected": "b85f1976d92326068b66de99dc249932ace41520c766338d573d61fc6d0765d1",
+      "actual": "b85f1976d92326068b66de99dc249932ace41520c766338d573d61fc6d0765d1",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/reviewer-distribution.json",
+      "expected": "a1bfcfffc42f1138764f9cbf3a5abb5b31a0c8a6c5928fbfe4cc8fbfdeb860af",
+      "actual": "a1bfcfffc42f1138764f9cbf3a5abb5b31a0c8a6c5928fbfe4cc8fbfdeb860af",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/reviewer-tests.txt",
+      "expected": "222f39bcc6e143c995784cceea64d2304fdf7d182ddd8065398454d357f979d2",
+      "actual": "222f39bcc6e143c995784cceea64d2304fdf7d182ddd8065398454d357f979d2",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/tests-result.json",
+      "expected": "fdd81f06bc0b77b9109eac58522e9305d2fc69fb594a273d1adb5c894fa93a7d",
+      "actual": "fdd81f06bc0b77b9109eac58522e9305d2fc69fb594a273d1adb5c894fa93a7d",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/tests.txt",
+      "expected": "82ae310c2da324c51917442d6f61be2f8cdd9d48cac259bba95183057f726e04",
+      "actual": "82ae310c2da324c51917442d6f61be2f8cdd9d48cac259bba95183057f726e04",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "AUDIT/validation.json",
+      "expected": "cde4a2da84440a3fafc479a4069b9a113e9d608acbf3c9056e74ff8d597133d9",
+      "actual": "cde4a2da84440a3fafc479a4069b9a113e9d608acbf3c9056e74ff8d597133d9",
+      "ok": true
+    },
+    {
+      "kind": "acceptance-phase1-proof",
+      "path": "docs/adr/0001-local-ledger.md",
+      "expected": "2cc085323aa0499dfad964f8b80b20529181517c603a348c0d43762e3dd238c3",
+      "actual": "2cc085323aa0499dfad964f8b80b20529181517c603a348c0d43762e3dd238c3",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/README.md",
+      "expected": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "actual": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/distribution.json",
+      "expected": "ed3e00279419db858190c5469453639364e94729833bf2062901090f2b9cc343",
+      "actual": "ed3e00279419db858190c5469453639364e94729833bf2062901090f2b9cc343",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/document-links.json",
+      "expected": "e7684a31bfb2ecaac193fd20add1334ce19078a089d285d08b94a2ba5258f1b7",
+      "actual": "e7684a31bfb2ecaac193fd20add1334ce19078a089d285d08b94a2ba5258f1b7",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/examples-and-scaffold.json",
+      "expected": "2ae2c93c7648a1f742371741e709fc0444305ebdb1a8321db0bdb6b78b888bd8",
+      "actual": "2ae2c93c7648a1f742371741e709fc0444305ebdb1a8321db0bdb6b78b888bd8",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/final-audit.json",
+      "expected": "4979855957f326eb8eda73a046eafe4614ffb95ade71717aa11218c380f4598a",
+      "actual": "4979855957f326eb8eda73a046eafe4614ffb95ade71717aa11218c380f4598a",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/independent-review.md",
+      "expected": "dea790a06835fc98cc26ae99fa396bf72579a985f5495fedbbe13d7634358cdf",
+      "actual": "dea790a06835fc98cc26ae99fa396bf72579a985f5495fedbbe13d7634358cdf",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/installed-package.json",
+      "expected": "438071f879ea5cc4ae03bbf8d6711df7222d88324d9eb332c7fd76faa5b047c5",
+      "actual": "438071f879ea5cc4ae03bbf8d6711df7222d88324d9eb332c7fd76faa5b047c5",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/result-review.json",
+      "expected": "b85f1976d92326068b66de99dc249932ace41520c766338d573d61fc6d0765d1",
+      "actual": "b85f1976d92326068b66de99dc249932ace41520c766338d573d61fc6d0765d1",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/reviewer-distribution.json",
+      "expected": "a1bfcfffc42f1138764f9cbf3a5abb5b31a0c8a6c5928fbfe4cc8fbfdeb860af",
+      "actual": "a1bfcfffc42f1138764f9cbf3a5abb5b31a0c8a6c5928fbfe4cc8fbfdeb860af",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/reviewer-tests.txt",
+      "expected": "222f39bcc6e143c995784cceea64d2304fdf7d182ddd8065398454d357f979d2",
+      "actual": "222f39bcc6e143c995784cceea64d2304fdf7d182ddd8065398454d357f979d2",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/tests-result.json",
+      "expected": "fdd81f06bc0b77b9109eac58522e9305d2fc69fb594a273d1adb5c894fa93a7d",
+      "actual": "fdd81f06bc0b77b9109eac58522e9305d2fc69fb594a273d1adb5c894fa93a7d",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/tests.txt",
+      "expected": "82ae310c2da324c51917442d6f61be2f8cdd9d48cac259bba95183057f726e04",
+      "actual": "82ae310c2da324c51917442d6f61be2f8cdd9d48cac259bba95183057f726e04",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "AUDIT/validation.json",
+      "expected": "cde4a2da84440a3fafc479a4069b9a113e9d608acbf3c9056e74ff8d597133d9",
+      "actual": "cde4a2da84440a3fafc479a4069b9a113e9d608acbf3c9056e74ff8d597133d9",
+      "ok": true
+    },
+    {
+      "kind": "phase1-primary",
+      "path": "docs/adr/0001-local-ledger.md",
+      "expected": "2cc085323aa0499dfad964f8b80b20529181517c603a348c0d43762e3dd238c3",
+      "actual": "2cc085323aa0499dfad964f8b80b20529181517c603a348c0d43762e3dd238c3",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/evidence/source-access-manifest.json",
+      "expected": "64401bd66fbef40cd23e9dac5689109bb599b0cb470bd7e07b3ad7f15bf152f0",
+      "actual": "64401bd66fbef40cd23e9dac5689109bb599b0cb470bd7e07b3ad7f15bf152f0",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/64401bd66fbef40cd23e9dac5689109bb599b0cb470bd7e07b3ad7f15bf152f0",
+      "expected": "64401bd66fbef40cd23e9dac5689109bb599b0cb470bd7e07b3ad7f15bf152f0",
+      "actual": "64401bd66fbef40cd23e9dac5689109bb599b0cb470bd7e07b3ad7f15bf152f0",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/evidence/plan.md",
+      "expected": "954b6660d68d3f6a83dd5cf1ad4dff051a2235e9f58addd639e408b6bde6bfdb",
+      "actual": "954b6660d68d3f6a83dd5cf1ad4dff051a2235e9f58addd639e408b6bde6bfdb",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/954b6660d68d3f6a83dd5cf1ad4dff051a2235e9f58addd639e408b6bde6bfdb",
+      "expected": "954b6660d68d3f6a83dd5cf1ad4dff051a2235e9f58addd639e408b6bde6bfdb",
+      "actual": "954b6660d68d3f6a83dd5cf1ad4dff051a2235e9f58addd639e408b6bde6bfdb",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/evidence/analysis.json",
+      "expected": "59990512656d763b0efd5fbd3e15fa1ebec94941e44903ba668a08ed9a1a715b",
+      "actual": "59990512656d763b0efd5fbd3e15fa1ebec94941e44903ba668a08ed9a1a715b",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/59990512656d763b0efd5fbd3e15fa1ebec94941e44903ba668a08ed9a1a715b",
+      "expected": "59990512656d763b0efd5fbd3e15fa1ebec94941e44903ba668a08ed9a1a715b",
+      "actual": "59990512656d763b0efd5fbd3e15fa1ebec94941e44903ba668a08ed9a1a715b",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/config.json",
+      "expected": "e3dfa58227bbbc5ce5d4eaca88e01cc977580d2358f142d95795680eb007e3e6",
+      "actual": "e3dfa58227bbbc5ce5d4eaca88e01cc977580d2358f142d95795680eb007e3e6",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/e3dfa58227bbbc5ce5d4eaca88e01cc977580d2358f142d95795680eb007e3e6",
+      "expected": "e3dfa58227bbbc5ce5d4eaca88e01cc977580d2358f142d95795680eb007e3e6",
+      "actual": "e3dfa58227bbbc5ce5d4eaca88e01cc977580d2358f142d95795680eb007e3e6",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/data/design.json",
+      "expected": "143b536f3086f5f2df5bb15e2c169ffbc7ad9ac7a4c1f6f6dd3a41eab09c0bd4",
+      "actual": "143b536f3086f5f2df5bb15e2c169ffbc7ad9ac7a4c1f6f6dd3a41eab09c0bd4",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/143b536f3086f5f2df5bb15e2c169ffbc7ad9ac7a4c1f6f6dd3a41eab09c0bd4",
+      "expected": "143b536f3086f5f2df5bb15e2c169ffbc7ad9ac7a4c1f6f6dd3a41eab09c0bd4",
+      "actual": "143b536f3086f5f2df5bb15e2c169ffbc7ad9ac7a4c1f6f6dd3a41eab09c0bd4",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/runs/E000001/R000001/stdout.txt",
+      "expected": "788ec33587e84156b67062c5ee5ba260abe1914391028d5d3e3970f07d33eadc",
+      "actual": "788ec33587e84156b67062c5ee5ba260abe1914391028d5d3e3970f07d33eadc",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/788ec33587e84156b67062c5ee5ba260abe1914391028d5d3e3970f07d33eadc",
+      "expected": "788ec33587e84156b67062c5ee5ba260abe1914391028d5d3e3970f07d33eadc",
+      "actual": "788ec33587e84156b67062c5ee5ba260abe1914391028d5d3e3970f07d33eadc",
+      "ok": true
+    },
+    {
+      "kind": "research-live",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/runs/E000001/R000001/stderr.txt",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ok": true
+    },
+    {
+      "kind": "research-archive",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/.uados/evidence/sha256/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ok": true
+    },
+    {
+      "kind": "research-code",
+      "path": "EXAMPLES/phase2-snapshot-validation/research/src/calibration.py",
+      "expected": "b29da68adcf7538eb6a1cd5432aa0ef8d92f19adeb5f45ae06b5562f7bf7c63e",
+      "actual": "b29da68adcf7538eb6a1cd5432aa0ef8d92f19adeb5f45ae06b5562f7bf7c63e",
+      "ok": true
+    },
+    {
+      "kind": "wheel",
+      "path": "dist/uados-1.1.0-py3-none-any.whl",
+      "expected": "dbfc02dcb8ee8a73bbc053a59b0a2b85ab6c9465f09112ff238e4727a4356090",
+      "actual": "dbfc02dcb8ee8a73bbc053a59b0a2b85ab6c9465f09112ff238e4727a4356090",
+      "ok": true
+    }
+  ],
+  "submission_evidence_problems": [],
+  "receipt_sha256": "228fd7be96bac6aee98b470abfcc7620d32e7a62452479266f730857787cb71d",
+  "phase1": {
+    "original_event_prefix_count": 37,
+    "original_event_hash_prefix_unchanged": true,
+    "primary_proofs_checked": 14
+  },
+  "research": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "src/calibration.py",
+      "config.json",
+      "data/design.json"
+    ],
+    "cwd": "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/EXAMPLES/phase2-snapshot-validation/research",
+    "exit_code": 0,
+    "stdout_exact_match": true,
+    "stdout_sha256": "788ec33587e84156b67062c5ee5ba260abe1914391028d5d3e3970f07d33eadc",
+    "ids": [
+      "H000001",
+      "E000001",
+      "R000001"
+    ],
+    "HER_and_current_fingerprints_valid": true,
+    "registered_proof_records": 7,
+    "live_archive_problems": [],
+    "idea_fingerprint": "339ea9a3ccc4e39c6e13524f8e55d43a0b61ae615801b1e84d024f540e104185",
+    "run_fingerprint": "a561b2461a9538ce0cefdcef4d91e55b33fae627685975371d1aa78fe4203857",
+    "novelty": "overlap",
+    "correlated_source_groups": [
+      "NIST Engineering Statistics e-Handbook"
+    ],
+    "repetitions": 200,
+    "seed": 73,
+    "median_rmse_ratio": 0.7938114563766927,
+    "conditional_bootstrap_interval": [
+      0.715706307871708,
+      0.852870340691968
+    ],
+    "limits": [
+      "Synthetic known linear model",
+      "Oracle variance weights",
+      "Holdout evaluates noiseless mean response",
+      "Bootstrap interval conditional on this design",
+      "Known WLS reproduction; no novelty or wetlab claim"
+    ],
+    "audit": {
+      "ok": true,
+      "history_ok": true,
+      "errors": []
+    }
+  },
+  "distribution_receipt": {
+    "fresh_root_report_reviewed": true,
+    "fresh_independent_distribution_not_reexecuted_in_this_review": true,
+    "wheel_current_hash_match": true,
+    "wheel_sha256": "dbfc02dcb8ee8a73bbc053a59b0a2b85ab6c9465f09112ff238e4727a4356090",
+    "packaged_assets": 48,
+    "clone_project_count": 8,
+    "all_current_clone_audits_ok": true,
+    "root_clone_history_ok": false
+  },
+  "test_evidence": {
+    "root_fresh_75_tests_reviewed": "AUDIT/phase2-delivery/acceptance-tests.txt",
+    "own_12_targeted_tests": "AUDIT/phase2-research-snapshot-review-v3-tests.txt",
+    "tested_source_hashes_still_current": true,
+    "new_test_suite_not_reexecuted_in_this_review": true
+  },
+  "root_current_audit": {
+    "event_count": 269,
+    "head_hash": "954171e134fe280935d3da1275fad811d4d94863563aa82d609797ef3766a179",
+    "ok": true,
+    "history_ok": false,
+    "errors": [],
+    "historical_losses": [
+      {
+        "path": "AUDIT/phase2-validation-manifest.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest.json"
+        ],
+        "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-docs-integration-validation.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+        ],
+        "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-distribution-final.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-distribution-final.json"
+        ],
+        "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-validation-manifest-v2.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+        ],
+        "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+        "snapshot": null
+      }
+    ],
+    "receipt_losses_equal_current": true
+  },
+  "remaining_limits": [
+    "Hashes establish byte consistency only, not content authenticity, scientific truth or authenticated identity.",
+    "Fixture is seeded synthetic oracle WLS/OLS on a noiseless mean-response holdout, with conditional bootstrap; no instrument, novel estimator, systematic literature search or publication claim.",
+    "Three primary NIST handbook sections comprise one correlated corpus; overlap is preserved and cannot support distinct-corpus candidate novelty.",
+    "Four pre-snapshot legacy originals remain unrecoverable; current audit pass does not establish complete historical preservation.",
+    "Nested-manifest hashes were explicitly checked; CLI automatic evidence hashing does not recursively enforce dependencies.",
+    "Commercial-client/provider and hosted OS/CI execution remain unexecuted; fixture participant names are scripted labels."
+  ],
+  "ok": true,
+  "judgment": "Current result supports bounded local Phase2 delivery; separate actual result debate challenge/vote remains required. No global novelty, publication acceptance, authenticated enterprise readiness or recovered missing legacy bytes is approved."
+}

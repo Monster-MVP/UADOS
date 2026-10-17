@@ -1,0 +1,60 @@
+{
+  "reviewer": "Phase2-Research-Reviewer",
+  "date": "2026-10-12",
+  "manifest": "AUDIT/phase2-validation-manifest-v2.json",
+  "manifest_sha256": "cfd04caee63c441448c041a14f4f7743e3b5fb249445a9a551414b04afd40652",
+  "manifest_file_matches": 81,
+  "manifest_changed": [],
+  "manifest_missing": [],
+  "distribution": "AUDIT/phase2-distribution-final-v2.json",
+  "distribution_sha256": "074c6172f2d835cccc92ccf531d3b3be1f91d6d9eafe8be9b1f62132d5077895",
+  "distribution_ok": true,
+  "clone_audits": {
+    "repository": {
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Completed task scope has changed since validation: T000001",
+        "Completed task scope has changed since validation: T000002",
+        "Completed task scope has changed since validation: T000003"
+      ]
+    },
+    "software": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "research": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "hybrid": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "phase2/software": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "phase2/research": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "phase2/handover/day1": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    "phase2/handover/day30": {
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "research_fixture": "Prior fresh-process reproduction remains exact: E000001/R000001/H000001, 200 seeded repetitions, median ratio 0.7938114563766927, overlap verdict; synthetic/oracle/one-handbook limits retained.",
+  "judgment": "Current v2 manifest bytes and all 81 listed files match. Current distribution verifier reports wheel/source equality, isolated import, and all root/example clone audits ok; repository historical scope warnings are disclosed. This supports a bounded workflow acceptance review, not scientific novelty, provider invocation, hosted CI, or publication acceptance."
+}

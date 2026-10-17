@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python3",
+    "AUDIT/phase2-architecture-last-findings-recheck.py",
+    "REPOSITORY"
+  ],
+  "independent_mechanical_fixture": true,
+  "results": {
+    "invalid_path_type": {
+      "error": "Project paths must be nonempty strings or Path objects.",
+      "passed": true
+    },
+    "malformed_array": {
+      "event_count_after": 3,
+      "event_count_before": 3,
+      "exit_code": 2,
+      "passed": true,
+      "stderr": "{\"error\": \"Record field requires nonempty string elements: evidence\"}\n"
+    },
+    "novelty_policy_staleness": {
+      "audit_ok": true,
+      "passed": true,
+      "warnings": [
+        "Stale novelty assessment: IDEA000001"
+      ]
+    }
+  }
+}

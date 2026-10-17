@@ -1,0 +1,21 @@
+Independent T000008 plan analysis by Phase3-Security-Reviewer, S000011, 2026-10-13.
+Target: D000007-A001, strict recursive evidence manifests.
+
+Security decision
+Approve the opt-in reserved-suffix design only as a bounded local closure contract. Ordinary evidence remains opaque. A manifest root must be parsed as strict UTF-8 canonical JSON with exact fields, duplicate-key/nonfinite rejection, version and integer/type limits, canonical project-relative POSIX paths, and file-versus-manifest suffix/kind consistency. Reject symlink, generated, metadata, absolute, dot, traversal, backslash, empty and implicit directory/glob inputs before any snapshot or event publication.
+
+Capture and closure obligations
+Validate the complete graph before publishing snapshots or committing an event. Read each declared node through a bounded stream, with per-manifest and aggregate limits checked before allocation and a post-read size check for growth. Hash and snapshot the same byte buffer. Use a visited key that includes canonical path and declared hash/bytes/kind; reject a conflicting declaration within one closure, and reject cycles before recursion can consume depth. A parser/capture hook may exercise the cycle guard because a real SHA256 fixed-point cycle is not ordinarily constructible; report that injection separately from real acyclic DAG tests. Deduplicate identical shared nodes and emit a deterministic sorted flat dependency list.
+
+Stored metadata must be treated as a claim requiring reconstruction. At every live gate, audit, export and rebuild check, load each historical root manifest only from its immutable archived snapshot, reconstruct the expected transitive closure, and compare exact path/hash/bytes/kind members with stored dependencies. Validate all promised snapshots and reject omitted, extra, malformed, duplicate or conflicting members. Never resolve a superseded historical manifest from its current live path. Historical records with the same path but different bytes are legitimate versions when their own snapshots exist; conflict rejection is per closure, not a global path uniqueness rule.
+
+Workflow and failure semantics
+The root dependency metadata must be included by existing recursive evidence traversal. A leaf mutation must invalidate the root through every current plan/review/run/completion/audit gate even when snapshots remain intact. Ordinary top-level files in a batch containing a manifest need the same aggregate capture bound and precommit validation; ordinary batches without a manifest retain legacy behavior. A malformed, path-escaped, cyclic, conflicting or oversized graph must produce no ledger event and no partial evidence record. Snapshot publication before an eventual commit failure may leave content-addressed orphan objects; these are harmless only if they are never referenced as evidence and cannot overwrite a differing existing snapshot. Do not claim filesystem-wide atomicity against arbitrary OS writers.
+
+Export and compatibility
+Export must include current dependency files, every archived manifest/member snapshot, and preserve unrecoverable legacy originals honestly. Rebuild must validate the same closure semantics and retain the identical event chain; it must not silently downgrade a record carrying dependency metadata. Protocol/schema stay unchanged, and old records without manifest metadata remain opaque. Matching newer runtime is required for enforcement.
+
+Blocking tests and limits
+Required real tests cover an acyclic nested DAG with shared binary leaf, exact bytes, live leaf drift, historical manifest/member snapshot corruption or omission, export/rebuild, malformed canonical JSON, path/symlink/generated rejection, all bounds and incomplete publication. Injection-only cycle tests must be labeled as such. Add tests proving no event/snapshot record appears on prevalidation failure and that a growing file cannot bypass a byte bound. Remaining accepted limits are local lock coordination only, arbitrary OS edits, orphan snapshot cleanup, matching-runtime enforcement and no remote authenticity/freshness claim.
+
+Evidence: AUDIT/phase3-manifests/plan-v1.md; AUDIT/phase3-manifests/plan-clarifications-v1.txt; AUDIT/phase3-security-review/manifest-plan-refresh-v1.json; current storage.py/project.py/protocol.py evidence hooks inspected read-only.

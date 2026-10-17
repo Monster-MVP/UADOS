@@ -1,0 +1,1 @@
+Harness failure: CLI subprocess in initial probe omitted its prepared PYTHONPATH environment, so python -m uados could not import package. This was not a UADOS failure. Original v1 script retained; v2 explicitly supplies environment. Initial probe stopped at CLI current-audit case before remaining checks; temporary directory/key cleanup executed.

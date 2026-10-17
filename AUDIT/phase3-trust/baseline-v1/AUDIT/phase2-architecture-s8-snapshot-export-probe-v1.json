@@ -1,0 +1,81 @@
+{
+  "independent_mechanical_fixture": true,
+  "results": {
+    "archived_review_and_clone": {
+      "before_audit": {
+        "archived_originals": [
+          {
+            "path": "old-review.txt",
+            "problems": [
+              "Project file is unavailable: old-review.txt"
+            ],
+            "sha256": "7f71bc58bd00746d9580aa683a65e4a26de1eb375957bc341b88e4fa9fcfb102",
+            "snapshot": ".uados/evidence/sha256/7f71bc58bd00746d9580aa683a65e4a26de1eb375957bc341b88e4fa9fcfb102"
+          }
+        ],
+        "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+        "errors": [],
+        "event_count": 12,
+        "evidence_records_checked": 2,
+        "head_hash": "b1e3ba814f8eaaeb498738134f4303dda5992d77b7f16366affd013a9fac8b0c",
+        "historical_evidence_drift": [],
+        "history_ok": true,
+        "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+        "ok": true,
+        "projection_drift": [],
+        "protocol_version": 1,
+        "repaired": [],
+        "warnings": []
+      },
+      "clone_audit": {
+        "archived_originals": [
+          {
+            "path": "old-review.txt",
+            "problems": [
+              "Project file is unavailable: old-review.txt"
+            ],
+            "sha256": "7f71bc58bd00746d9580aa683a65e4a26de1eb375957bc341b88e4fa9fcfb102",
+            "snapshot": ".uados/evidence/sha256/7f71bc58bd00746d9580aa683a65e4a26de1eb375957bc341b88e4fa9fcfb102"
+          }
+        ],
+        "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+        "errors": [],
+        "event_count": 12,
+        "evidence_records_checked": 2,
+        "head_hash": "b1e3ba814f8eaaeb498738134f4303dda5992d77b7f16366affd013a9fac8b0c",
+        "historical_evidence_drift": [],
+        "history_ok": true,
+        "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+        "ok": true,
+        "projection_drift": [],
+        "protocol_version": 1,
+        "repaired": [],
+        "warnings": []
+      },
+      "database_ignored_and_reconstructed": true,
+      "exact_binary_bytes_preserved": true,
+      "export": {
+        "destination": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-archive-djx0phij/exported",
+        "event_count": 12,
+        "file_count": 64,
+        "note": "Available scopes, current evidence, historical snapshots and context copied. Missing legacy originals are disclosed, never invented. Use --include for other dependencies; inspect for private data before sharing.",
+        "unavailable_scopes": [],
+        "unrecoverable_historical_evidence": []
+      },
+      "git_snapshot_retained": true,
+      "old_review_live_path_missing": true,
+      "passed": true,
+      "rebuild": {
+        "event_count": 12,
+        "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-archive-djx0phij/clone",
+        "rebuilt": true
+      }
+    },
+    "concurrent_exact_binary_archive": {
+      "one_exact_snapshot": true,
+      "parallel_registrations": 16,
+      "passed": true,
+      "temporary_files_remaining": 0
+    }
+  }
+}

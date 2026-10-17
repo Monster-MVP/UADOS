@@ -1,0 +1,32 @@
+{
+  "benchmark": {
+    "bytes_unchanged": {
+      "events.jsonl": true,
+      "ledger.sqlite3": true,
+      "state.json": true
+    },
+    "event_count": 1,
+    "head_hash_matches": true,
+    "ledger_mutated": false
+  },
+  "probes": {
+    "token_huge_expires": {
+      "exception": "InvalidLeaseError",
+      "message": "Lease expires_at must be a finite number."
+    },
+    "token_huge_issued": {
+      "exception": "InvalidLeaseError",
+      "message": "Lease issued_at must be a finite number."
+    },
+    "token_unhashable_resource": {
+      "exception": "InvalidLeaseError",
+      "message": "Lease resource must be a bounded nonempty string."
+    },
+    "ttl_huge_int": {
+      "exception": "InvalidLeaseError",
+      "message": "Lease TTL must be finite, positive and bounded."
+    }
+  },
+  "purpose": "D000017 independent final malformed-input and no-mutation probe",
+  "source_sha256": "416431156f6152019f0e42cbe0ef5069e5829b8c8dc855a38378b9446cb7fa8c"
+}

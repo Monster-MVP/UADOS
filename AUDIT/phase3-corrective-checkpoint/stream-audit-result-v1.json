@@ -1,0 +1,62 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "Completed task scope has changed since validation: T000001",
+    "Completed task scope has changed since validation: T000002",
+    "Completed task scope has changed since validation: T000003",
+    "Completed task scope has changed since validation: T000004",
+    "Completed task scope has changed since validation: T000007",
+    "Completed task scope has changed since validation: T000009"
+  ],
+  "event_count": 818,
+  "procedure": "Independent read-only streamed audit: verifies every full event hash/chain/state and exact projections; does not invoke or replace Project.mutate.",
+  "governance_ok": false,
+  "governance_limit": "Events 745-818 used an unreviewed temporary wrapper omitting full history/projection checks. Root authored or submitted reviewer acknowledgements/challenges/votes; D17/D18 are not evidence of actual independent three-round acceptance.",
+  "started_at": "2026-10-14T01:13:55.127178+00:00",
+  "errors_scope": "Current content, promised snapshots, every historical event and all projections",
+  "history_ok": false,
+  "historical_evidence_drift": [
+    {
+      "path": "AUDIT/phase2-validation-manifest.json",
+      "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-docs-integration-validation.json",
+      "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-distribution-final.json",
+      "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-distribution-final.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-validation-manifest-v2.json",
+      "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+      ]
+    }
+  ],
+  "archived_originals": [],
+  "evidence_records_checked": 174,
+  "context_fingerprint": "3b20cf1ad60855d567e4ccaadde0a60963178013f52f0255d2d713f0defef6d5",
+  "head_hash": "71986e50f91df1ba2076920fe6a61f48f0e9b07f026365c94611c5e3a11a69db",
+  "state_sha256": "f581534250a69d8f1c0aae1d498d6e536346a14877914fbed3b928a7ac550599",
+  "line_count": 818,
+  "ended_at": "2026-10-14T01:44:12.783676+00:00",
+  "ledger_bytes": 2901082112,
+  "journal_bytes": 2881957824
+}

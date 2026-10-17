@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/run_phase2_scenarios.py", line 294, in <module>
+    main()
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/run_phase2_scenarios.py", line 285, in main
+    results = {"software": software(destination / "software"), "research": research(destination / "research"), "handover": handover(destination / "handover")}
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/run_phase2_scenarios.py", line 266, in handover
+    assert understanding["latest_handover"]["failed_approaches"]
+KeyError: 'failed_approaches'

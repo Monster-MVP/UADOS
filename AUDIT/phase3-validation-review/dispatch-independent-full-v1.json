@@ -1,0 +1,32 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "PYTHONPATH": "/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src"
+  },
+  "exit": 0,
+  "seconds": 40.533077209,
+  "source_before": {
+    "src/uados/dispatch.py": "a3a4df82eded244ede71eff0a410a6df3eb72e3bc281f0c4c45b927fb286c42a",
+    "src/uados/cli.py": "0e30e70d44653a8f43f3574fc59ff11a3ea057014834b8d6eb100a35a1c26545",
+    "tests/test_dispatch.py": "e66730bd161362124df1d399f10785aba82f9e76c421fd33948f91c71154db89",
+    "docs/dispatch.md": "c637792014d23dce9fd104b1e17a91fb7e373609f4571705e4125b1a9aa22bde"
+  },
+  "source_after": {
+    "src/uados/dispatch.py": "a3a4df82eded244ede71eff0a410a6df3eb72e3bc281f0c4c45b927fb286c42a",
+    "src/uados/cli.py": "0e30e70d44653a8f43f3574fc59ff11a3ea057014834b8d6eb100a35a1c26545",
+    "tests/test_dispatch.py": "e66730bd161362124df1d399f10785aba82f9e76c421fd33948f91c71154db89",
+    "docs/dispatch.md": "c637792014d23dce9fd104b1e17a91fb7e373609f4571705e4125b1a9aa22bde"
+  },
+  "unchanged": true,
+  "raw_sha256": "d20d44db00b3f866e2afd1589868b5a506de52ba14400d1cd8a4a86f2c1d1c48"
+}

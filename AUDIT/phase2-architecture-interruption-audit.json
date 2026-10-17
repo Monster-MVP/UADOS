@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "event_count": 65,
+  "head_hash": "55690704c73affa18ebb539736f95fe54727116fd5a5daa7897ad429600cc5b9",
+  "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+  "ok": true,
+  "projection_drift": [],
+  "protocol_version": 1,
+  "repaired": [],
+  "warnings": [
+    "Completed task scope has changed since validation: T000001",
+    "Completed task scope has changed since validation: T000002",
+    "Completed task scope has changed since validation: T000003"
+  ]
+}

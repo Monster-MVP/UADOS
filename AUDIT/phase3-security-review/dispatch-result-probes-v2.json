@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-14",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "dispatch_sha256": "a3a4df82eded244ede71eff0a410a6df3eb72e3bc281f0c4c45b927fb286c42a",
+  "cases": [
+    {
+      "case": "existing_receipt_dotdot_verify",
+      "accepted": true,
+      "verified": true
+    },
+    {
+      "case": "internal_receipt_via_parent_symlink_verify",
+      "accepted": true,
+      "verified": true
+    },
+    {
+      "case": "unpaired_surrogate_request",
+      "accepted": false,
+      "exception": "UnicodeEncodeError",
+      "error": "'utf-8' codec can't encode character '\\ud800' in position 44: surrogates not allowed"
+    }
+  ]
+}

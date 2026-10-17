@@ -1,0 +1,650 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "task": "T000007",
+  "revision": 3,
+  "result_fingerprint": "bff48d79acb33b344800eb0f39db7447aed9a3e589f1609224a4c8a5be6251e2",
+  "submitted_scope_count": 98,
+  "submitted_scope_exact_match": true,
+  "nine_explicit_validation_files": [
+    {
+      "path": "src/uados/trust.py",
+      "bytes": 13262,
+      "sha256": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+      "matches": true
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 23591,
+      "sha256": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+      "matches": true
+    },
+    {
+      "path": "tests/test_trust.py",
+      "bytes": 13989,
+      "sha256": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+      "matches": true
+    },
+    {
+      "path": "docs/trust.md",
+      "bytes": 6370,
+      "sha256": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-trust/tests-v2.txt",
+      "bytes": 8502,
+      "sha256": "ead89065a90fefeebeb2640935f7f406cca439bdf905fe0e7ac80e5ca583f4a0",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-trust/trust-tests-v2.txt",
+      "bytes": 1400,
+      "sha256": "ce910c32cb0204446246175e3f764461d6538187e6fff9e6978136cdb08122f7",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-trust/scaffold-v1.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-trust/root-anchor-v2.json",
+      "bytes": 10731,
+      "sha256": "b82914fc8c5a9a298dd53d931690f0fe6bcc987634eaad51d271cc99366ebaa6",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-trust/implementation-v2.txt",
+      "bytes": 1723,
+      "sha256": "c956cb06529579c4130cfba2a430b7a7e8083c8da615eecc0c52dea0ca791a19",
+      "matches": true
+    }
+  ],
+  "preserved_phase2_copies_count": 81,
+  "preserved_phase2_copies": [
+    {
+      "path": "src/uados/__init__.py",
+      "bytes": 84,
+      "sha256": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf"
+    },
+    {
+      "path": "src/uados/__main__.py",
+      "bytes": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "src/uados/assets/.agent/compatibility.md",
+      "bytes": 3256,
+      "sha256": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42"
+    },
+    {
+      "path": "src/uados/assets/.agent/handover_protocol.md",
+      "bytes": 1278,
+      "sha256": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119"
+    },
+    {
+      "path": "src/uados/assets/.agent/memory_update_protocol.md",
+      "bytes": 1364,
+      "sha256": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341"
+    },
+    {
+      "path": "src/uados/assets/.agent/startup_protocol.md",
+      "bytes": 1299,
+      "sha256": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1"
+    },
+    {
+      "path": "src/uados/assets/.agent/task_execution_protocol.md",
+      "bytes": 1564,
+      "sha256": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2"
+    },
+    {
+      "path": "src/uados/assets/.cursor/rules/uados.md",
+      "bytes": 415,
+      "sha256": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f"
+    },
+    {
+      "path": "src/uados/assets/.cursor/rules/uados.mdc",
+      "bytes": 499,
+      "sha256": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7"
+    },
+    {
+      "path": "src/uados/assets/AGENTS.md",
+      "bytes": 863,
+      "sha256": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4"
+    },
+    {
+      "path": "src/uados/assets/AUDIT/README.md",
+      "bytes": 3743,
+      "sha256": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1"
+    },
+    {
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "bytes": 1726,
+      "sha256": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88"
+    },
+    {
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "bytes": 1916,
+      "sha256": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718"
+    },
+    {
+      "path": "src/uados/assets/CLAUDE.md",
+      "bytes": 357,
+      "sha256": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md",
+      "bytes": 1606,
+      "sha256": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md",
+      "bytes": 2139,
+      "sha256": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md",
+      "bytes": 3486,
+      "sha256": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md",
+      "bytes": 2696,
+      "sha256": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md",
+      "bytes": 2494,
+      "sha256": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d"
+    },
+    {
+      "path": "src/uados/assets/EXAMPLES/README.md",
+      "bytes": 5472,
+      "sha256": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce"
+    },
+    {
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md",
+      "bytes": 13845,
+      "sha256": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md",
+      "bytes": 1928,
+      "sha256": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md",
+      "bytes": 1416,
+      "sha256": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "bytes": 1738,
+      "sha256": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "bytes": 4121,
+      "sha256": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md",
+      "bytes": 3791,
+      "sha256": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md",
+      "bytes": 1790,
+      "sha256": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md",
+      "bytes": 3200,
+      "sha256": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6"
+    },
+    {
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md",
+      "bytes": 2336,
+      "sha256": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a"
+    },
+    {
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md",
+      "bytes": 2968,
+      "sha256": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb"
+    },
+    {
+      "path": "src/uados/assets/PROMPTS/bootstrap.md",
+      "bytes": 1465,
+      "sha256": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b"
+    },
+    {
+      "path": "src/uados/assets/PROMPTS/challenge.md",
+      "bytes": 1490,
+      "sha256": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa"
+    },
+    {
+      "path": "src/uados/assets/PROMPTS/handover.md",
+      "bytes": 1250,
+      "sha256": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7"
+    },
+    {
+      "path": "src/uados/assets/PROMPTS/implement.md",
+      "bytes": 1427,
+      "sha256": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd"
+    },
+    {
+      "path": "src/uados/assets/PROMPTS/research.md",
+      "bytes": 1535,
+      "sha256": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b"
+    },
+    {
+      "path": "src/uados/assets/README.md",
+      "bytes": 7383,
+      "sha256": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16"
+    },
+    {
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md",
+      "bytes": 1459,
+      "sha256": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96"
+    },
+    {
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md",
+      "bytes": 2521,
+      "sha256": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8"
+    },
+    {
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md",
+      "bytes": 6524,
+      "sha256": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d"
+    },
+    {
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md",
+      "bytes": 2316,
+      "sha256": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0"
+    },
+    {
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md",
+      "bytes": 3998,
+      "sha256": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/adr.md",
+      "bytes": 1307,
+      "sha256": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/experiment.md",
+      "bytes": 1445,
+      "sha256": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/extension.md",
+      "bytes": 1071,
+      "sha256": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/handover.md",
+      "bytes": 1419,
+      "sha256": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/literature.md",
+      "bytes": 1122,
+      "sha256": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/review.md",
+      "bytes": 1375,
+      "sha256": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/rfc.md",
+      "bytes": 1338,
+      "sha256": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7"
+    },
+    {
+      "path": "src/uados/assets/TEMPLATES/task.md",
+      "bytes": 1341,
+      "sha256": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1"
+    },
+    {
+      "path": "src/uados/assets/VERSION_CONTROL/README.md",
+      "bytes": 3500,
+      "sha256": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 21913,
+      "sha256": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93"
+    },
+    {
+      "path": "src/uados/context.py",
+      "bytes": 11871,
+      "sha256": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43"
+    },
+    {
+      "path": "src/uados/governance.py",
+      "bytes": 16830,
+      "sha256": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6"
+    },
+    {
+      "path": "src/uados/orchestration.py",
+      "bytes": 21815,
+      "sha256": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e"
+    },
+    {
+      "path": "src/uados/project.py",
+      "bytes": 44193,
+      "sha256": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433"
+    },
+    {
+      "path": "src/uados/protocol.py",
+      "bytes": 4848,
+      "sha256": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701"
+    },
+    {
+      "path": "src/uados/research.py",
+      "bytes": 11856,
+      "sha256": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3"
+    },
+    {
+      "path": "src/uados/storage.py",
+      "bytes": 11393,
+      "sha256": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca"
+    },
+    {
+      "path": "tests/test_adversarial.py",
+      "bytes": 25074,
+      "sha256": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a"
+    },
+    {
+      "path": "tests/test_phase2.py",
+      "bytes": 30352,
+      "sha256": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41"
+    },
+    {
+      "path": "tests/test_workflows.py",
+      "bytes": 12303,
+      "sha256": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56"
+    },
+    {
+      "path": "scripts/run_examples.py",
+      "bytes": 6352,
+      "sha256": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b"
+    },
+    {
+      "path": "scripts/run_phase2_scenarios.py",
+      "bytes": 22895,
+      "sha256": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66"
+    },
+    {
+      "path": "scripts/uados.py",
+      "bytes": 223,
+      "sha256": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf"
+    },
+    {
+      "path": "scripts/verify_distribution.py",
+      "bytes": 6388,
+      "sha256": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf"
+    },
+    {
+      "path": "scripts/verify_scaffold.py",
+      "bytes": 2356,
+      "sha256": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6"
+    },
+    {
+      "path": "setup.cfg",
+      "bytes": 466,
+      "sha256": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 627,
+      "sha256": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f"
+    },
+    {
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "bytes": 7201,
+      "sha256": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd"
+    },
+    {
+      "path": "AUDIT/phase2-runtime-validation-v3.json",
+      "bytes": 2738,
+      "sha256": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36"
+    },
+    {
+      "path": "AUDIT/phase2-docs-v3.json",
+      "bytes": 16254,
+      "sha256": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced"
+    },
+    {
+      "path": "AUDIT/phase2-scaffold-v3.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    },
+    {
+      "path": "AUDIT/phase2-distribution-v3-final.json",
+      "bytes": 12330,
+      "sha256": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91"
+    },
+    {
+      "path": "AUDIT/phase2-baseline-preservation-v3.json",
+      "bytes": 267,
+      "sha256": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268"
+    },
+    {
+      "path": "EXAMPLES/phase2-snapshot-validation/summary.json",
+      "bytes": 14329,
+      "sha256": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3"
+    },
+    {
+      "path": "AUDIT/phase2-final-report.md",
+      "bytes": 5480,
+      "sha256": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175"
+    },
+    {
+      "path": "AUDIT/self_review.md",
+      "bytes": 2670,
+      "sha256": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b"
+    },
+    {
+      "path": "AUDIT/scenario_test_report.md",
+      "bytes": 1785,
+      "sha256": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de"
+    },
+    {
+      "path": "AUDIT/phase2-modified-files.json",
+      "bytes": 15768,
+      "sha256": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397"
+    },
+    {
+      "path": "AUDIT/phase2-architecture-s8-snapshot-probe-v1.json",
+      "bytes": 1963,
+      "sha256": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f"
+    },
+    {
+      "path": "AUDIT/phase2-architecture-s8-snapshot-export-probe-v1.json",
+      "bytes": 3357,
+      "sha256": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24"
+    }
+  ],
+  "task_and_debate_evidence": [
+    {
+      "group": "analyses",
+      "agent": "Codex-Phase3-Architect",
+      "evidence_count": 2,
+      "live_and_snapshot_valid": true
+    },
+    {
+      "group": "analyses",
+      "agent": "Phase3-Security-Reviewer",
+      "evidence_count": 5,
+      "live_and_snapshot_valid": true
+    },
+    {
+      "group": "analyses",
+      "agent": "Phase3-Validation-Reviewer",
+      "evidence_count": 6,
+      "live_and_snapshot_valid": true
+    },
+    {
+      "group": "challenges",
+      "agent": "Codex-Phase3-Architect",
+      "evidence_count": 3,
+      "live_and_snapshot_valid": true
+    },
+    {
+      "group": "challenges",
+      "agent": "Phase3-Security-Reviewer",
+      "evidence_count": 4,
+      "live_and_snapshot_valid": true
+    },
+    {
+      "group": "challenges",
+      "agent": "Phase3-Validation-Reviewer",
+      "evidence_count": 4,
+      "live_and_snapshot_valid": true
+    },
+    {
+      "group": "votes",
+      "agent": "Codex-Phase3-Architect",
+      "evidence_count": 3,
+      "live_and_snapshot_valid": true
+    }
+  ],
+  "audit": {
+    "ok": true,
+    "event_count": 398,
+    "head_hash": "220227e6cbe5b7aef050404c7240517c77382c3d2574dbde28998d3a13dd0002",
+    "projection_drift": [],
+    "repaired": [],
+    "errors": [],
+    "warnings": [
+      "Completed task scope has changed since validation: T000001",
+      "Completed task scope has changed since validation: T000002",
+      "Completed task scope has changed since validation: T000003",
+      "Completed task scope has changed since validation: T000004",
+      "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+      "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+      "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+      "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)"
+    ],
+    "protocol_version": 2,
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+    "history_ok": false,
+    "historical_evidence_drift": [
+      {
+        "path": "AUDIT/phase2-validation-manifest.json",
+        "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest.json"
+        ]
+      },
+      {
+        "path": "AUDIT/phase2-docs-integration-validation.json",
+        "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+        ]
+      },
+      {
+        "path": "AUDIT/phase2-distribution-final.json",
+        "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-distribution-final.json"
+        ]
+      },
+      {
+        "path": "AUDIT/phase2-validation-manifest-v2.json",
+        "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+        ]
+      }
+    ],
+    "archived_originals": [],
+    "evidence_records_checked": 91,
+    "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+    "improvement_candidates": [
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+        "fingerprint": "15aad5014f1077043d157f90de49849f361474af0f82af1995d02025c7498e51",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      },
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+        "fingerprint": "70170f87d750178e6143f765f47933ecbcd4903b8795b1491d0ea307065aadd1",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      },
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+        "fingerprint": "b839caad31cf2fbeb53ab53b148e8b50b087b3f0f4a50e5c190d154f99a9d650",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      },
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)",
+        "fingerprint": "ae30cfcf41368fe057ef01a5fc2538fde5fd0c3635836565490d034e53821781",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      }
+    ]
+  },
+  "frozen_independent_test_evidence": {
+    "agent": "Phase3-Security-Reviewer",
+    "session": "S000011",
+    "date": "2026-10-13",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 63.633587958999996,
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6",
+    "source_before": {
+      "src/uados/trust.py": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+      "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+      "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+      "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+    },
+    "source_after": {
+      "src/uados/trust.py": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+      "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+      "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+      "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+    },
+    "source_unchanged": true,
+    "raw_evidence": "AUDIT/phase3-security-review/frozen-tests-v2.txt",
+    "limits": [
+      "Real host OpenSSH on macOS arm64 Python3.9.6 only. Individual injection tests declare mocked unavailable/timeout/audit and disk failures explicitly."
+    ]
+  },
+  "limits": [
+    "Checks were executed read-only against frozen revision3; this receipt is outside submitted task scope.",
+    "Old-pin replay, external custody/current-policy/no trusted timestamp, signed assertion versus current audit, current history_ok=false, power-loss/hostile-host/hosted-matrix exclusions remain accepted explicit limits.",
+    "OpenSSH subprocess timeout does not bound lock/audit work."
+  ]
+}

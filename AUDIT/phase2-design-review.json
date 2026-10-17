@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-12",
+  "phase": "Pre-implementation design challenge",
+  "task": "T000004",
+  "selected_approach": "Keep the existing atomic ledger and add explicit workflow protocol2 with legacy task interpretation, executable task plans, role selection and three-round debate, change requests, research evidence/novelty records, improvement records and common runtime adapters.",
+  "alternatives": [
+    "Documentation-only additions: rejected because they do not execute controls or exercise state transitions.",
+    "Replace storage and migrate history: rejected because the current transactional ledger is working and SHA-bound evidence must survive.",
+    "Add a hosted model orchestration service: deferred; current local trust model has no credentials, authenticated identity or distributed scheduling."
+  ],
+  "round1": [
+    {
+      "agent": "Codex-Phase2-Builder",
+      "solution": "Add governance/orchestration modules behind the existing Project transactional interface.",
+      "assumptions": [
+        "Trusted local filesystem and contributor identities",
+        "Standard-library runtime retained",
+        "No provider credentials required"
+      ],
+      "risks": [
+        "Historical approvals must not be interpreted retroactively",
+        "Consensus must bind stable spec/source/policy/assignment/evidence inputs"
+      ]
+    },
+    {
+      "agent": "Phase2-Architecture-Reviewer",
+      "solution": "Explicit protocol version independent of schema1; mandatory evidence-bound task plans and major debate consensus plus review gates.",
+      "assumptions": [
+        "Historical tasks retain recorded version",
+        "Capability labels are declarations rather than authentication"
+      ],
+      "risks": [
+        "Upgrade could orphan prior approvals",
+        "Generated debate state could invalidate itself",
+        "Role coverage alone could hide one-label quorum"
+      ]
+    },
+    {
+      "agent": "Phase2-Research-Reviewer",
+      "solution": "Structured literature sources/access, seven-field ideas, and independent candidate/overlap/inconclusive audits tied to content fingerprints.",
+      "assumptions": [
+        "Candidate status is provisional",
+        "Read scope and unavailable data are preserved"
+      ],
+      "risks": [
+        "Full-text metadata alone cannot prove literature search completeness or scientific novelty",
+        "Fixture data must not imply wetlab or publication success"
+      ]
+    }
+  ],
+  "round2": [
+    {
+      "agent": "Phase2-Architecture-Reviewer",
+      "challenge": "Current generated context misses compatibility/runtime/change policies; package data may omit hidden nested directories. Frozen proposal plus live assignments/capabilities and evidence must be validated; every participant analyzes and challenges another before voting; >=2 independent reviewers; contributor history persists. Request changes cannot disappear by relabeling.",
+      "resolution": "Add explicit packaged hidden assets and governed context inputs; separate stable fingerprints from generated reports, require role/capability snapshot validity and all rounds, preserve dissent, and test stale selection/reviews. Legacy tests explicitly select protocol1; fresh init defaults protocol2."
+    },
+    {
+      "agent": "Codex-Phase2-Builder",
+      "challenge": "Novelty controls could falsely treat unavailable search or a synthetic calibration fixture as proof of a scientific gap.",
+      "resolution": "Require truthful access metadata and source/evidence checks; unavailable or abstract-only coverage cannot support candidate novelty, overlap and inconclusive remain valid review outcomes. Record logical-day switching as simulation and do not claim external product invocation."
+    }
+  ],
+  "remaining_risks": [
+    "No OS sandbox or authenticated identities",
+    "No model/provider invocation in selection; adapters provide executable workflow contracts and dispatch packets",
+    "No distributed consensus or external hash anchor",
+    "Full-state events remain costly for large histories",
+    "Cross-platform CI must be distinguished from actual execution"
+  ],
+  "acceptance": [
+    "Preserve all baseline event hashes and referenced Phase1 evidence",
+    "Legacy 40 tests plus new gate/round/staleness/research/upgrade tests",
+    "Three real executed CLI/state scenarios and independently reviewed final results",
+    "New wheel includes all hidden/nested protocol files; isolated install and clone/rebuild succeed"
+  ]
+}

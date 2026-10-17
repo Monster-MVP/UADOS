@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "wheel": "dist/uados-1.0.0-py3-none-any.whl",
+  "asset_count": 33,
+  "import_location": "/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/.venv/lib/python3.9/site-packages/uados/__init__.py",
+  "isolated_working_directory": true,
+  "audit": {
+    "errors": [],
+    "event_count": 4,
+    "head_hash": "f17eedc65d30a06a56d68f4d2108b7a2c70769735c8e6c9f3fc1f648c712e2de",
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+    "ok": true,
+    "projection_drift": [],
+    "repaired": [],
+    "warnings": []
+  }
+}

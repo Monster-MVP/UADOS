@@ -1,0 +1,67 @@
+{
+  "task": "T000010",
+  "revision": "hardening-v3",
+  "date": "2026-10-14",
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "full_suite": "116 tests passed; tests-v3.txt (424.353s)",
+  "focused_suite": "5 tests passed; coordination-tests-v3.txt",
+  "benchmark": "benchmark-v3.json; sqlite URI mode=ro, event count 737, no mutation",
+  "hardening": [
+    "Oversized TTL conversion and huge issued_at/expires_at conversion are InvalidLeaseError.",
+    "Unhashable forged resource/holder/nonce/backend fields are rejected before map access.",
+    "Benchmark uses SQLite URI mode=ro and does not append events or rewrite projections."
+  ],
+  "files": [
+    {
+      "path": "src/uados/coordination.py",
+      "bytes": 9039,
+      "sha256": "416431156f6152019f0e42cbe0ef5069e5829b8c8dc855a38378b9446cb7fa8c"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 24942,
+      "sha256": "5dd73b853a5cd287f3b541680150ec98d6ff0d758be79d684e77c271a0ce34fc"
+    },
+    {
+      "path": "tests/test_coordination.py",
+      "bytes": 4597,
+      "sha256": "8314668a19aa16ab093bf404ad6967cbf428d2fc41d5c64bbf6ace7aa2e7d971"
+    },
+    {
+      "path": "docs/coordination.md",
+      "bytes": 1552,
+      "sha256": "6f03a397cbe8a226ee9100bc305bb69a671813487bd70272b73aa7fd45736dd0"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/plan-v1.md",
+      "bytes": 2089,
+      "sha256": "626354707e70a264258211516fca367ee29eae54b41cf02ca7a12b9137472e1f"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/change-v1.json",
+      "bytes": 1602,
+      "sha256": "abcb8b899185d53c8ba3c25d4f85e2a8c7d5d639becb56ad8947a08a4df214d6"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/tests-v3.txt",
+      "bytes": 10883,
+      "sha256": "027d45fd6f64412518be9cc67ae119f5e284c723211b4271e1edaacbc664e861"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/coordination-tests-v3.txt",
+      "bytes": 578,
+      "sha256": "9c8b292ad7fd0a3f0be04dabd913aab8bb84f575d05d7e3aa7bab23c8deff398"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/benchmark-v3.json",
+      "bytes": 423,
+      "sha256": "eb0d4e3bec7ddfa20c9d5289740e2dfe346cac1c201d91089a135c919e3b4601"
+    }
+  ],
+  "limits": [
+    "process-local reference only",
+    "fencing must be enforced by a future protected resource",
+    "no authenticated identity, cross-host durability, clock sync, partitions, crash recovery, remote availability or arbitrary-writer protection"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Shanghai",
+  "stage": "Implementation validation before independent result review",
+  "ok": true,
+  "tests_passed": 40,
+  "tests_output": "AUDIT/tests.txt",
+  "tests": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "duration_seconds": 3.1,
+    "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "output": "AUDIT/tests.txt"
+  },
+  "scaffold": {
+    "ok": true,
+    "required_paths": 16,
+    "events": 4,
+    "packaged_markdown_files": 33
+  },
+  "example_audits": {
+    "software": {
+      "ok": true,
+      "event_count": 23,
+      "head_hash": "b587b958d05dd4dfa08c95d1f91fd87e98c0992b620c11051a0cbf4b341c33da",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    },
+    "research": {
+      "ok": true,
+      "event_count": 11,
+      "head_hash": "0a3b14fc2428df06405ea267d413fb40c765966442f8eef9aba4ba588b641bac",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    },
+    "hybrid": {
+      "ok": true,
+      "event_count": 33,
+      "head_hash": "9c10b62a02e00615334cac55c2b72978575054e5e49c9bbb60e43ec0e6e18aab",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    }
+  },
+  "installed_package": "AUDIT/installed-package.json",
+  "distribution_and_git_clone": "AUDIT/distribution.json",
+  "wheel": "dist/uados-1.0.0-py3-none-any.whl",
+  "wheel_sha256": "2a67e760e8389902d3263dde018065bb04276a0602d0a9862a9950f7d10ef265",
+  "independent_review": "AUDIT/independent-review.md",
+  "document_links": {
+    "ok": true,
+    "checked": 11,
+    "missing": [],
+    "method": "Resolve Markdown local links in repository entry and design docs"
+  },
+  "repository_audit": {
+    "ok": true,
+    "event_count": 25,
+    "head_hash": "6048b5511570a29b42d26e3ee590cb92b8db251b223b50650fb045032dcd2339",
+    "projection_drift": [],
+    "repaired": [],
+    "errors": [],
+    "warnings": [
+      "Completed task scope has changed since validation: T000001"
+    ],
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+  },
+  "warning_disposition": "T000001 historical scope warning is expected: T000003 subsequently corrected its maintained architecture ADR link, with recorded explanation and validation. The earlier evidence artifact remains unchanged.",
+  "platforms_executed": [
+    "macOS arm64 / Python 3.9.6"
+  ],
+  "ci_configured_not_executed": [
+    "Linux",
+    "macOS",
+    "Windows",
+    "Python 3.9 / 3.12 / 3.14"
+  ],
+  "trust_limits": [
+    "Trusted local collaborators; CLI does not restrict direct editors",
+    "Reviewer labels and hash chains are not authenticated",
+    "Experiment seed application, external environment/data and scientific validity require contributor verification"
+  ]
+}

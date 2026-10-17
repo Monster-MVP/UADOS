@@ -1,0 +1,19 @@
+# T000010 / D000016 independent security result analysis
+
+Reviewer: Phase3-Security-Reviewer (S000011)
+Task revision: 4 (hardening-v2)
+Verdict: request_changes
+
+The hardened candidate retains the intended process-local behavior. My focused coordination suite passed 5/5 in 0.830s, and the independent temporary-project probe confirms the benchmark now uses a SQLite URI in read-only mode while preserving ledger, state and event bytes, event count and head hash. The source hash `e8bab0eff0694e61cdbc49d30ff41e6f601cbeb837004d6059f13cffac66525c` matches validation-v2. These results remain local mechanics only: no durable or cross-host fencing, authenticated holders, synchronized time, crash recovery, partition handling, remote availability or protected-resource enforcement.
+
+Remaining blocking malformed-token case
+
+The revision correctly converts an oversized TTL integer into `InvalidLeaseError` and rejects an unhashable resource before dictionary access. However, `_complete()` still calls `float(token.issued_at)` and `float(token.expires_at)` directly inside its validation expression. An externally constructed token with a huge integer timestamp therefore raises a raw `OverflowError`:
+
+`validate(LeaseToken("r", "h", 1, 10**10000, 2, "n", "uados.memory.v1")) -> OverflowError: int too large to convert to float`
+
+Evidence: `AUDIT/phase3-security-review/coordination-result-negative-probes-v2.json`, SHA-256 `9f2865a8c952fa6f26a58c58f7ccbfbb9baae64babb34d26519006622eb8e32d`. This remains a malformed-input failure-closure gap against the plan's bounded token contract. Catch `OverflowError` around both timestamp conversions (or validate through a bounded finite-number helper) and add a regression test for huge issued and expiry integers. Do not rely on the token dataclass constructor as an authorization boundary: future adapters or callers may deserialize or construct it directly.
+
+Result disposition
+
+Request this narrow validation fix, then rerun focused/full suites, scaffold, benchmark no-mutation and audit with new revision-bound evidence. Preserve the explicit process-local and unauthenticated limits in the result record. The SQLite read-only hardening itself is supported by the independent byte-invariance probe.

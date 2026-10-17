@@ -1,0 +1,62 @@
+{
+  "task": "T000008",
+  "revision": "post-result-review-hardening",
+  "date": "2026-10-13",
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "full_suite": "103 tests passed; AUDIT/phase3-manifests/tests-v4.txt",
+  "manifest_suite": "12 tests passed; AUDIT/phase3-manifests/manifest-tests-v2.txt",
+  "scaffold": "passed; 16 required paths, 4 events, 47 packaged Markdown files",
+  "files": [
+    {
+      "path": "src/uados/manifests.py",
+      "bytes": 14984,
+      "sha256": "e8863d9f3d9385e793c4f391517734831c6e5d5eabcbc289df8d8a78a15417ee"
+    },
+    {
+      "path": "src/uados/storage.py",
+      "bytes": 11851,
+      "sha256": "a818e1a5f6f73ccaed4888e059f0ce09156cacd7ab14b894d157ef24232a5d6d"
+    },
+    {
+      "path": "src/uados/project.py",
+      "bytes": 45486,
+      "sha256": "dc9e0e6357c4421853b5a4542d77871512e0d855412fca666db838cf967db1c4"
+    },
+    {
+      "path": "src/uados/protocol.py",
+      "bytes": 5447,
+      "sha256": "127796155e42b2e21d48b73f1490ed0aa4cdc044815c6e28e126bd20f1989955"
+    },
+    {
+      "path": "tests/test_manifests.py",
+      "bytes": 8830,
+      "sha256": "5374dec28c65f3c59f250a22a57dd447c06f04f7137279c4adc5fd137d11f72a"
+    },
+    {
+      "path": "docs/manifests.md",
+      "bytes": 2295,
+      "sha256": "430773b7dc3c1dcca6f0c19822db2106d2c6587a4a842c888bc2bc83e67b411c"
+    },
+    {
+      "path": "AUDIT/phase3-manifests/tests-v4.txt",
+      "bytes": 9670,
+      "sha256": "2de76238502077cf2276a69c6f780047b1fc6476e869b7f151a4cb197c059dbc"
+    },
+    {
+      "path": "AUDIT/phase3-manifests/manifest-tests-v2.txt",
+      "bytes": 1266,
+      "sha256": "e79ca941c444082eee4687e9ca327a4808dc8f74b94c09e9638df98a2bd137d6"
+    },
+    {
+      "path": "AUDIT/phase3-manifests/scaffold-v2.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    }
+  ],
+  "limits": [
+    "opt-in .uados-manifest.json only",
+    "local consistency and matching-runtime enforcement",
+    "arbitrary OS writers and remote authenticity remain outside scope"
+  ]
+}

@@ -1,0 +1,13 @@
+test_cli_fake_run_and_verify (tests.test_dispatch.DispatchTests) ... ok
+test_deterministic_fake_receipt_and_verification_without_ledger_mutation (tests.test_dispatch.DispatchTests) ... ok
+test_existing_receipt_traversal_and_parent_alias_are_rejected (tests.test_dispatch.DispatchTests) ... ok
+test_invalid_naive_or_reversed_receipt_timestamps_are_rejected (tests.test_dispatch.DispatchTests) ... ok
+test_output_internal_existing_symlink_and_traversal_rejected (tests.test_dispatch.DispatchTests) ... ok
+test_request_drift_and_nonfinite_duplicate_payloads_fail (tests.test_dispatch.DispatchTests) ... ok
+test_request_shape_unknown_provider_and_tamper_fail_without_receipt (tests.test_dispatch.DispatchTests) ... ok
+test_unpaired_unicode_surrogate_is_a_clean_cli_error (tests.test_dispatch.DispatchTests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.453s
+
+OK

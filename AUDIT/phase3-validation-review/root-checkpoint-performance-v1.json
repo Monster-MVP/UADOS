@@ -1,0 +1,33 @@
+{
+  "reviewer": "Phase3-Validation-Reviewer",
+  "session": "S000012",
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6"
+  },
+  "workload": {
+    "database_bytes": 500891648,
+    "events": 372,
+    "root_project": "/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work"
+  },
+  "elapsed": {
+    "checkpoint_seconds": 8.654955290999998,
+    "verify_seconds": 8.8113085
+  },
+  "signature_verified": true,
+  "covers_current_head": true,
+  "current_audit_ok": true,
+  "signed_history_ok": false,
+  "signed_loss_count": 4,
+  "checkpoint_pin": "d6259c0d058d9ef913d232daaa6255dcc466c6c452a8fab14f7e3bad571c25e8",
+  "ephemeral_keys_external": true,
+  "ephemeral_directory_deleted": true,
+  "repetitions": 1,
+  "limits": [
+    "Single observed local sample, not scalability/throughput assurance or hosted-platform result.",
+    "Signed assertion preserves four legacy missing originals; no recreation of missing evidence.",
+    "Root audit locks and cryptographic subprocess timeout do not bound total workload or lock acquisition time."
+  ],
+  "database_unchanged": true,
+  "events_export_unchanged": true
+}

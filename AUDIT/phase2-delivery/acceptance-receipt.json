@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-13",
+  "ok": true,
+  "tests": 75,
+  "frozen_checks": 260,
+  "packaged_assets": 48,
+  "clone_projects": 8,
+  "current_audit_ok": true,
+  "history_ok": false,
+  "legacy_lost_versions": [
+    {
+      "path": "AUDIT/phase2-validation-manifest.json",
+      "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-docs-integration-validation.json",
+      "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-distribution-final.json",
+      "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-distribution-final.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-validation-manifest-v2.json",
+      "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+      ]
+    }
+  ],
+  "real_plan_debate": "D000003",
+  "consensus_rendering_note": "Event259 supplied risks as string via direct Python API. N000005 preserves full risks without changing the event; result consensus will use CLI list flags. Compatible alternative analyses remain accepted as limits.",
+  "phase1_events_preserved": 37,
+  "provider_invocations": 0,
+  "files": [
+    {
+      "path": "AUDIT/phase2-delivery/acceptance-tests.txt",
+      "sha256": "1211f0dc68371f99ec9bb2c36423db8acdee6229080b6e2d3588f0b2f5f24bbe",
+      "bytes": 7201
+    },
+    {
+      "path": "AUDIT/phase2-delivery/acceptance-distribution.json",
+      "sha256": "d73d032eb19e0e9eb8cb66a22d2d5804936325029995e15980ae7f8fe2ae19fd",
+      "bytes": 12330
+    },
+    {
+      "path": "AUDIT/phase2-delivery/acceptance-hashes.json",
+      "sha256": "0878b8ad69cf6ea7e11cf07897f217964bb4fe5068d99c8de6998b0ab04587fe",
+      "bytes": 74741
+    },
+    {
+      "path": "AUDIT/phase2-delivery/acceptance-research.json",
+      "sha256": "b5722207f0824c68283e75b6f8b4d11f8fe8372e2342fea59985cfa330f0f1bb",
+      "bytes": 889
+    },
+    {
+      "path": "AUDIT/phase2-delivery/acceptance-audit.json",
+      "sha256": "1119ba8aabf59f9831d7f912086000e0c651728b0cf5ba3519d93da6f92e6875",
+      "bytes": 5415
+    }
+  ],
+  "remaining_risks": [
+    "Four pre-archive legacy evidence versions are unavailable; current proof is newly executed and archived.",
+    "Manifest dependency hashes were explicitly verified; no automatic transitive manifest enforcement is claimed.",
+    "Local labels/capabilities remain unauthenticated; no external providers/hosted CI.",
+    "Synthetic oracleWLS is known-method reproduction with overlapnovelty; conditional uncertainty, not real-world scientific validation."
+  ]
+}

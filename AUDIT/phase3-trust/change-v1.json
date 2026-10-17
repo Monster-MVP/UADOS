@@ -1,0 +1,10 @@
+{
+  "problem": "The local consistency hash chain is not authenticated against an external trust anchor and can be recomputed by a full-workspace writer.",
+  "background": "Phase1/2 established SQLite schema1, protocol2, evidence archives and current/history audits. Preserve those stable components and legacy evidence loss findings.",
+  "alternatives": ["Retain unsigned local consistency only", "Add cryptography dependency or external identity service", "Use optional OpenSSH SSHSIG externally pinned checkpoints"],
+  "decision": "Add a separate trust module and thin optional CLI using OpenSSH, explicit external policies/keys and pinned checkpoint digest verification.",
+  "impact": "Adds explicit authenticated checkpoint verification without changing schema, protocol, generated views or historical events; requires ssh-keygen only for trust commands.",
+  "risk": "External pin/key-policy security is an operator trust assumption; checkpoint principals do not authenticate agent labels; historical-prefix signatures do not protect later events, and local outputs require external preservation.",
+  "validation": "Real ephemeral-key sign/verify, principal/key/namespace/revocation and pin/ledger-tamper/rollback/paths/timeout failures, zero-event creation, existing full suite and scaffold, independent plan and result review.",
+  "evidence": ["AUDIT/phase3-trust/plan-v1.md", "AUDIT/phase3-baseline-report.md"]
+}

@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "source_hashes": {
+    "src/uados/manifests.py": {
+      "bytes": 14984,
+      "sha256": "e8863d9f3d9385e793c4f391517734831c6e5d5eabcbc289df8d8a78a15417ee"
+    },
+    "src/uados/storage.py": {
+      "bytes": 11851,
+      "sha256": "a818e1a5f6f73ccaed4888e059f0ce09156cacd7ab14b894d157ef24232a5d6d"
+    },
+    "src/uados/project.py": {
+      "bytes": 45486,
+      "sha256": "dc9e0e6357c4421853b5a4542d77871512e0d855412fca666db838cf967db1c4"
+    },
+    "src/uados/protocol.py": {
+      "bytes": 5447,
+      "sha256": "127796155e42b2e21d48b73f1490ed0aa4cdc044815c6e28e126bd20f1989955"
+    },
+    "tests/test_manifests.py": {
+      "bytes": 8830,
+      "sha256": "5374dec28c65f3c59f250a22a57dd447c06f04f7137279c4adc5fd137d11f72a"
+    },
+    "docs/manifests.md": {
+      "bytes": 2295,
+      "sha256": "430773b7dc3c1dcca6f0c19822db2106d2c6587a4a842c888bc2bc83e67b411c"
+    }
+  },
+  "cases": [
+    {
+      "case": "forged_root_kind",
+      "errors": [
+        "Manifest root evidence metadata is malformed: m.uados-manifest.json"
+      ],
+      "passed_rejected": true
+    },
+    {
+      "case": "forged_root_relative_escape",
+      "errors": [
+        "Manifest root evidence metadata is malformed: ../m.uados-manifest.json"
+      ],
+      "passed_rejected": true
+    },
+    {
+      "case": "forged_root_absolute",
+      "errors": [],
+      "passed_rejected": false
+    },
+    {
+      "case": "forged_omitted_dependency",
+      "errors": [
+        "Archived manifest closure differs from stored dependencies: leaf"
+      ],
+      "passed_rejected": true
+    }
+  ],
+  "manifest_tests": {
+    "command": "PYTHONPATH=src python3 -m unittest discover -s tests -p test_manifests.py -v",
+    "exit": 0,
+    "tests": 12,
+    "output_tail": ""
+  }
+}

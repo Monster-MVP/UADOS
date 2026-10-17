@@ -1,0 +1,1 @@
+Observed mean 2.0 from 3 fixed fixture values. This validates arithmetic only; no sampling uncertainty or population claim is supported.

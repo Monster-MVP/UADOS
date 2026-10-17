@@ -1,0 +1,91 @@
+{
+  "ok": true,
+  "event_count": 311,
+  "head_hash": "1afc8c87230a08b7bb23caedc44dfdbb090cd4accc854c1446535ce007e07eb9",
+  "projection_drift": [],
+  "repaired": [],
+  "errors": [],
+  "warnings": [
+    "Completed task scope has changed since validation: T000001",
+    "Completed task scope has changed since validation: T000002",
+    "Completed task scope has changed since validation: T000003",
+    "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+    "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+    "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+    "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)"
+  ],
+  "protocol_version": 2,
+  "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+  "history_ok": false,
+  "historical_evidence_drift": [
+    {
+      "path": "AUDIT/phase2-validation-manifest.json",
+      "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-docs-integration-validation.json",
+      "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-distribution-final.json",
+      "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-distribution-final.json"
+      ]
+    },
+    {
+      "path": "AUDIT/phase2-validation-manifest-v2.json",
+      "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+      "snapshot": null,
+      "problems": [
+        "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+      ]
+    }
+  ],
+  "archived_originals": [],
+  "evidence_records_checked": 67,
+  "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+  "improvement_candidates": [
+    {
+      "problem": "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+      "fingerprint": "15aad5014f1077043d157f90de49849f361474af0f82af1995d02025c7498e51",
+      "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+      "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+      "implementation": "Proposed only; no source modification or automated remediation.",
+      "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+    },
+    {
+      "problem": "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+      "fingerprint": "70170f87d750178e6143f765f47933ecbcd4903b8795b1491d0ea307065aadd1",
+      "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+      "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+      "implementation": "Proposed only; no source modification or automated remediation.",
+      "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+    },
+    {
+      "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+      "fingerprint": "b839caad31cf2fbeb53ab53b148e8b50b087b3f0f4a50e5c190d154f99a9d650",
+      "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+      "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+      "implementation": "Proposed only; no source modification or automated remediation.",
+      "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+    },
+    {
+      "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)",
+      "fingerprint": "ae30cfcf41368fe057ef01a5fc2538fde5fd0c3635836565490d034e53821781",
+      "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+      "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+      "implementation": "Proposed only; no source modification or automated remediation.",
+      "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+    }
+  ]
+}

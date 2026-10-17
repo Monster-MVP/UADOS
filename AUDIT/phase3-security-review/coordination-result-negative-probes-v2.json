@@ -1,0 +1,28 @@
+{
+  "benchmark": {
+    "bytes_unchanged": {
+      "events.jsonl": true,
+      "ledger.sqlite3": true,
+      "state.json": true
+    },
+    "event_count": 1,
+    "head_hash_matches": true,
+    "ledger_mutated": false
+  },
+  "probes": {
+    "token_huge_issued": {
+      "exception": "OverflowError",
+      "message": "int too large to convert to float"
+    },
+    "token_unhashable_resource": {
+      "exception": "InvalidLeaseError",
+      "message": "Lease resource must be a bounded nonempty string."
+    },
+    "ttl_huge_int": {
+      "exception": "InvalidLeaseError",
+      "message": "Lease TTL must be finite, positive and bounded."
+    }
+  },
+  "purpose": "D000016 independent hardened negative/no-mutation probes",
+  "source_sha256": "e8bab0eff0694e61cdbc49d30ff41e6f601cbeb837004d6059f13cffac66525c"
+}

@@ -1,0 +1,23 @@
+{
+  "purpose": "D000013 challenge refresh and exact report acknowledgement evidence",
+  "session": "S000011",
+  "agent": "Phase3-Security-Reviewer",
+  "debate": "D000013",
+  "task_revision": 4,
+  "report_hash": "72a0b275a2e23e78ffa5cecc85d4cc081fe66b0c0a48ce12b271f0490e5e4261",
+  "report_path": "PROJECT_MEMORY/session_reports/S000011-72a0b275a2e2.md",
+  "report_file_bytes": 34084,
+  "report_file_sha256": "16703e419a01081e1d4e45e01ee1fbacc1292d7c1624a1eb380715125dfead5b",
+  "context_fingerprint": null,
+  "report_summary": {
+    "phase": null,
+    "protocol_version": null,
+    "runtime": null,
+    "known_risks": [],
+    "recommended_next_actions": [],
+    "read_instruction": null
+  },
+  "refresh_event_sequence": null,
+  "ack_event_sequence": null,
+  "observed_at_utc": "2026-10-13T17:16:23.934992+00:00"
+}

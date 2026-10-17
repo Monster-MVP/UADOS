@@ -1,0 +1,13 @@
+Command: ["/Library/Developer/CommandLineTools/usr/bin/python3", "-m", "unittest", "discover", "-s", "tests", "-v"]
+Exit: 0
+test_input_bounds (test_app.Behavior) ... ok
+test_prompt_injection_is_plain_data (test_app.Behavior) ... ok
+test_read_tool (test_app.Behavior) ... ok
+test_retrieval_with_source (test_app.Behavior) ... ok
+test_unknown_question_abstains (test_app.Behavior) ... ok
+test_write_and_untrusted_role_rejected (test_app.Behavior) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

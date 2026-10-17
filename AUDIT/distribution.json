@@ -1,0 +1,76 @@
+{
+  "ok": true,
+  "command": [
+    "python3",
+    "scripts/verify_distribution.py",
+    "--python",
+    ".venv/bin/python"
+  ],
+  "wheel": "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/dist/uados-1.0.0-py3-none-any.whl",
+  "wheel_sha256": "2a67e760e8389902d3263dde018065bb04276a0602d0a9862a9950f7d10ef265",
+  "packaged_assets": 33,
+  "wheel_matches_current_package_source": true,
+  "installed_import": "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/.venv/lib/python3.9/site-packages/uados/__init__.py",
+  "installed_audit": {
+    "errors": [],
+    "event_count": 4,
+    "head_hash": "6654d306f98cfe104decfac5cfa7b17433b916bacd2c09dfaed19d494d3b8a73",
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+    "ok": true,
+    "projection_drift": [],
+    "repaired": [],
+    "warnings": []
+  },
+  "real_local_git_clone": true,
+  "git_file_count": 269,
+  "rebuild": {
+    "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-distribution-kgryn2_g/clone",
+    "event_count": 25,
+    "rebuilt": true
+  },
+  "clone_audits": {
+    "repository": {
+      "ok": true,
+      "event_count": 25,
+      "head_hash": "6048b5511570a29b42d26e3ee590cb92b8db251b223b50650fb045032dcd2339",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [
+        "Completed task scope has changed since validation: T000001"
+      ],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    },
+    "software": {
+      "ok": true,
+      "event_count": 23,
+      "head_hash": "b587b958d05dd4dfa08c95d1f91fd87e98c0992b620c11051a0cbf4b341c33da",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    },
+    "research": {
+      "ok": true,
+      "event_count": 11,
+      "head_hash": "0a3b14fc2428df06405ea267d413fb40c765966442f8eef9aba4ba588b641bac",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    },
+    "hybrid": {
+      "ok": true,
+      "event_count": 33,
+      "head_hash": "9c10b62a02e00615334cac55c2b72978575054e5e49c9bbb60e43ec0e6e18aab",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor."
+    }
+  },
+  "note": "Temporary commit/clone only; no remote writes. Historical scope-change warnings are retained for inspection."
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "Independent disposable mechanical probes",
+  "not_real_debate": true,
+  "results": {
+    "new_incomplete_role_plan_cannot_reuse_old_consensus": {
+      "observed_error": "Protocol2 major work requires current three-round plan consensus from two independent reviewers.",
+      "passed": true
+    }
+  }
+}

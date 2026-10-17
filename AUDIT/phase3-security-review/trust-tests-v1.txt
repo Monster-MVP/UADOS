@@ -1,0 +1,20 @@
+test_concurrent_cli_publication_has_one_winner_and_valid_bundle (test_trust.Trust) ... ok
+test_duplicate_noncanonical_unknown_bool_and_nonfinite_payloads (test_trust.Trust) ... ok
+test_external_pin_rejects_substituted_legitimate_checkpoint (test_trust.Trust) ... ok
+test_historical_prefix_explicit_and_current_requirement (test_trust.Trust) ... ok
+test_latest_external_pin_rejects_truncated_ledger (test_trust.Trust) ... ok
+test_live_audit_failure_does_not_invalidate_historical_signature_claim (test_trust.Trust) ... ok
+test_marker_missing_corrupt_signature_and_size_limits (test_trust.Trust) ... ok
+test_missing_tool_timeout_failure_cleanup_and_audit_race (test_trust.Trust) ... ok
+test_operator_key_rotation_and_policy_digest (test_trust.Trust) ... ok
+test_output_immutable_and_internal_paths_rejected (test_trust.Trust) ... ok
+test_real_current_checkpoint_and_no_ledger_mutation (test_trust.Trust) ... ok
+test_rehashed_forged_ledger_rejected_by_anchor (test_trust.Trust) ... ok
+test_signed_inconsistent_state_and_project_rejected (test_trust.Trust) ... ok
+test_symlink_and_path_traversal_rejected (test_trust.Trust) ... ok
+test_wrong_identity_key_namespace_and_revocation_rejected (test_trust.Trust) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.694s
+
+OK

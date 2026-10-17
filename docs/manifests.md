@@ -1,0 +1,11 @@
+# Recursive evidence manifests
+
+Evidence paths ending in `.uados-manifest.json` opt into a strict local dependency contract. The manifest is canonical UTF-8 JSON with exactly `format`, `version` and a nonempty `files` list. Each entry names one project-relative file and supplies its SHA-256, byte count and `kind` (`file` or another reserved-suffix `manifest`). Paths do not expand directories or globs and cannot point at metadata, generated views, symlinks or traversal paths.
+
+When a manifest is registered through any existing plan, review, task, experiment or decision evidence argument, UADOS validates the complete graph before publishing snapshots or committing the event. Nested manifests use the same format. Shared nodes are deduplicated; conflicting declarations, cycles, malformed JSON, path aliases and bounded depth/node/manifest/file/aggregate limits fail the operation. The bytes that are hashed are the bytes that receive immutable content-addressed snapshots.
+
+The root evidence record carries `manifest_version: 1` and a deterministic flat `dependencies` list. Current gates reconstruct the declaration graph from each manifest's immutable archived snapshot and compare the exact path/hash/byte/kind closure. A changed leaf therefore invalidates its root even when the old snapshots remain intact. Historical records use their own archived manifest bytes; a later live file is never substituted for an old declaration. Export includes current dependencies and archived versions, and a matching newer UADOS runtime is required to enforce the metadata.
+
+Ordinary evidence and historical records without this metadata remain opaque and keep their previous behavior. The feature provides local byte consistency and retention. It does not authenticate sources, protect arbitrary operating-system writers, provide filesystem-wide atomic snapshots, or establish remote freshness or scientific completeness. Valid snapshots created before a later ledger/commit failure can remain as unreferenced content-addressed objects for operator cleanup; no partial evidence record is committed.
+
+The graph limits are ingestion safeguards, not production throughput guarantees. Keep manifests small and review their declared dependencies as part of the task or experiment acceptance criteria.

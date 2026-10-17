@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "passed": true,
+  "cases": [
+    {
+      "case": "all_three_actual_inodes_fsynced_before_publication_complete_last",
+      "passed": true,
+      "published": [
+        {
+          "file": "checkpoint.json",
+          "source": "checkpoint.json",
+          "size": 489,
+          "fsynced_before_publish": true
+        },
+        {
+          "file": "checkpoint.json.sig",
+          "source": "signature-durable",
+          "size": 326,
+          "fsynced_before_publish": true
+        },
+        {
+          "file": "COMPLETE",
+          "source": "COMPLETE",
+          "size": 175,
+          "fsynced_before_publish": true
+        }
+      ]
+    },
+    {
+      "case": "frozen_byte_policy_copy_survives_mutation_of_original",
+      "passed": true
+    },
+    {
+      "case": "next_operation_uses_now_revoked_authorization",
+      "passed": true
+    },
+    {
+      "case": "frozen_disk_failure_preserves_explicit_incomplete_then_refuses_verify_and_retry",
+      "passed": true
+    }
+  ],
+  "trust_source_sha256": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+  "actual_root_proof_keys": [
+    "created",
+    "environment",
+    "ephemeral_private_key_recorded",
+    "ledger_unchanged",
+    "procedure",
+    "temporary_resources_removed_on_exit",
+    "verified"
+  ],
+  "limits": [
+    "Real signatures with deleted outside-project ephemeral keys. Fsync/link spies call real OS operations; public-policy replacement and disk failure are explicit controlled hooks.",
+    "No sudden power-loss test, Windows/Linux host validation, protected key enrollment, external newest-pin service, hostile OS-writer guarantee or real provider dispatch."
+  ]
+}

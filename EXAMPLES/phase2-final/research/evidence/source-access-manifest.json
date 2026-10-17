@@ -1,0 +1,96 @@
+{
+  "reviewer": "Phase2-Research-Reviewer",
+  "review_kind": "Independent Round 1 and Round 2 research plan review",
+  "date": "2026-10-12",
+  "task": "T000004",
+  "implementation_authorship": "None. This reviewer inspected the existing runtime and plan, and did not author maintained implementation or tests.",
+  "inspected": [
+    "AUDIT/phase2-design-review.json",
+    "src/uados/research.py",
+    "src/uados/project.py",
+    "src/uados/context.py",
+    "scripts/run_examples.py",
+    "RESEARCH_MANAGEMENT/publication.md",
+    "RESEARCH_MANAGEMENT/reproducibility.md",
+    "RESEARCH_MANAGEMENT/data_management.md",
+    "MASTER_AGENT_WORKFLOW.md",
+    "PROJECT_MEMORY/tasks.md"
+  ],
+  "round1": {
+    "solution": "Add immutable structured literature access records, seven-field research ideas, hypothesis-to-experiment provenance links and independent fingerprint-bound novelty reviews around the existing runner.",
+    "assumptions": [
+      "Trusted contributor labels cannot authenticate reading, independent control or scientific judgment.",
+      "A local evidence hash verifies local consistency rather than literature completeness or source authenticity.",
+      "Fixture experiments validate workflow behavior without establishing instrument, materials or publication claims."
+    ],
+    "risks": [
+      "Unavailable or abstract-only literature can be mistaken for full scientific coverage.",
+      "Duplicate source identifiers or correlated handbook sections can inflate apparent evidence breadth.",
+      "A rerun can accidentally rebind an interpretation if the interpretation cites only an experiment and not its exact run."
+    ]
+  },
+  "round2": [
+    {
+      "challenge": "Could two source records be the same publication or one handbook split into several URLs?",
+      "resolution": "Reject duplicate stable identifiers. Preserve scope and source relationships, and state that distinct identifiers do not establish independent studies or exhaustive literature coverage. Candidate status remains provisional within the reviewed corpus."
+    },
+    {
+      "challenge": "Could a missing source or an abstract-only corpus support a positive novelty verdict?",
+      "resolution": "Candidate must fail closed for unsupported access or missing/changed source evidence. Preserve unavailable states and allow overlap or inconclusive. A source-count threshold is an operational minimum, not proof of scientific novelty."
+    },
+    {
+      "challenge": "Could a failed process be interpreted as a rejected scientific hypothesis, or an old claim silently attach to a new run?",
+      "resolution": "A supported or refuted hypothesis outcome should cite the exact experiment and run plus analysis evidence, with a successful noninvalidated run. Failure, timeout and invalidation remain operational findings or inconclusive scientific interpretations."
+    },
+    {
+      "challenge": "Could metadata or evidence change while a novelty review still appears current?",
+      "resolution": "Bind the verdict to the idea, selected sources, access and local evidence fingerprints; changed or missing inputs require a new review."
+    },
+    {
+      "challenge": "Could the synthetic calibration fixture be advertised as scientific innovation or real biosensor validation?",
+      "resolution": "Use transparent overlap against known WLS, disclose synthetic measurements and oracle variance, and make no wetlab, instrument or publication-acceptance claim."
+    },
+    {
+      "challenge": "Does label switching establish independent review or commercial product compatibility?",
+      "resolution": "New scenario labels and logical days simulate lifecycle mechanics. Actual separate model-agent review is recorded separately. Fresh processes, export/rebuild and recovery assertions establish portable context behavior; no external agent product invocation is claimed."
+    }
+  ],
+  "primary_sources": [
+    {
+      "identifier": "nist:handbook:pmd143",
+      "title": "NIST e-Handbook 4.1.4.3 Weighted Least Squares Regression",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd143.htm",
+      "access": "full_text",
+      "accessed_date": "2026-10-12",
+      "source_group": "NIST Engineering Statistics e-Handbook",
+      "observed_scope": "Primary full-text HTML page opened successfully with the web tool. Publication/update date not displayed.",
+      "claim": "Weighted least squares gives greater influence to observations with lower error variance.",
+      "limitation": "The theory assumes known weights. Estimated weights based on few replicates can be unreliable, and outlier sensitivity remains."
+    },
+    {
+      "identifier": "nist:handbook:mpc365",
+      "title": "NIST e-Handbook 2.3.6.5 Data analysis and model validation",
+      "url": "https://www.itl.nist.gov/div898/handbook/mpc/section3/mpc365.htm",
+      "access": "full_text",
+      "accessed_date": "2026-10-12",
+      "source_group": "NIST Engineering Statistics e-Handbook",
+      "observed_scope": "Primary full-text HTML page opened successfully with the web tool. Publication/update date not displayed.",
+      "claim": "Calibration fitting requires model validation and residual diagnostics, with lack-of-fit testing when replicates permit it.",
+      "limitation": "A fitted calibration curve or an R-squared value alone does not establish a valid measurement model."
+    },
+    {
+      "identifier": "nist:handbook:pmd432",
+      "title": "NIST e-Handbook 4.4.3.2 Weighted Least Squares",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmd/section4/pmd432.htm",
+      "access": "full_text",
+      "accessed_date": "2026-10-12",
+      "source_group": "NIST Engineering Statistics e-Handbook",
+      "observed_scope": "Primary full-text HTML page opened successfully with the web tool. Publication/update date not displayed.",
+      "claim": "Weighted least squares minimizes the sum of weighted squared response residuals.",
+      "limitation": "The fitting objective alone does not establish that chosen weights, data or model assumptions are appropriate."
+    }
+  ],
+  "source_evidence_limit": "This file preserves reviewed URLs, access scope and paraphrased observations, not archived original HTML bytes. Its hash cannot authenticate the source pages or prove that they remain unchanged. The three pages are related handbook sections, not three independent primary studies.",
+  "verdict": "approve plan",
+  "reason": "The additive design preserves the transactional core, scientific uncertainty and evidence access distinctions. Its stated safeguards and realistic validation plan answer the research challenges above; independent result review must verify that they were actually implemented."
+}

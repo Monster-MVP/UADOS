@@ -1,0 +1,68 @@
+{
+  "checks": {
+    "event_count_818": true,
+    "ok": true,
+    "governance_rejected": true,
+    "legacy_losses_4": true,
+    "schema_check": true,
+    "snapshot_pairs_match": true,
+    "frozen_81_match": true
+  },
+  "files": [
+    {
+      "path": "AUDIT/phase3-corrective-checkpoint/preserved-baseline-check-v1.json",
+      "bytes": 38,
+      "sha256": "8716f0517733ba161e4866c9e74a210eece473771cab815526f48cb76af421bf"
+    },
+    {
+      "path": "AUDIT/phase3-corrective-checkpoint/snapshot-hashes-v1.json",
+      "bytes": 652,
+      "sha256": "4b359ff38a8a8384028c9248489005adc5e6aff3d85c21127851919491a477a4"
+    },
+    {
+      "path": "AUDIT/phase3-corrective-checkpoint/standard-handover-attempt-v1.json",
+      "bytes": 540,
+      "sha256": "b935a6aac6ac2e1ba207b8fbd8341d91bf33781a935ecf99affcc7ad2a895277"
+    },
+    {
+      "path": "AUDIT/phase3-corrective-checkpoint/state-shape-check-v1.json",
+      "bytes": 154,
+      "sha256": "d2687dd17b675078f6bc4a5d94b6a1dbe3fe3090dff040310ea267b1dd2b3ccc"
+    },
+    {
+      "path": "AUDIT/phase3-corrective-checkpoint/stream-audit-procedure-v1.py",
+      "bytes": 6584,
+      "sha256": "f178e4730ff87c4498b37a0e4e7bf3881196698004b4e8204303b1b0813bba40"
+    },
+    {
+      "path": "AUDIT/phase3-corrective-checkpoint/stream-audit-result-v1.json",
+      "bytes": 2692,
+      "sha256": "57e8d1822e38fc31f00b6d461c29dffc94a01268d820ac1e2f8f067d59026cad"
+    },
+    {
+      "path": "AUDIT/phase3-final-report-v1.md",
+      "bytes": 6924,
+      "sha256": "ff1cf146536b48c6bdd618b03c298e515d0134cbc4995e0d7f97cbda133a1054"
+    },
+    {
+      "path": "AUDIT/phase3-corrective-plan-v1.md",
+      "bytes": 3313,
+      "sha256": "c3813fd7496658eae6826f86577cad8e26d5f48a8b4957d64660911ffff3a747"
+    },
+    {
+      "path": "PROJECT_MEMORY/notes/phase3-coordination-correction-2026-10-14.md",
+      "bytes": 2651,
+      "sha256": "d23f2145079a9bd9bfd0b8048e9d538e6fa6864b8a66534024aee21e5dda703a"
+    },
+    {
+      "path": "AUDIT/phase3-security-review/coordination-process-review-v1.md",
+      "bytes": 22225,
+      "sha256": "639bde52a3a09673a5f460c60675e5a5c1d0fd958126c7e07d9f3f5855450026"
+    },
+    {
+      "path": "AUDIT/phase3-validation-review/coordination-process-review-v1.md",
+      "bytes": 11275,
+      "sha256": "7a364c13e2ba65075a246269a9412d8ea5ebfb00a8d64335ca933ab1169429b1"
+    }
+  ]
+}

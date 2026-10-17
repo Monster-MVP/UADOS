@@ -1,0 +1,19 @@
+{
+  "method": "SHA256 of both complete files after locked copy",
+  "pairs": [
+    {
+      "name": "ledger.sqlite3",
+      "original_sha256": "db7cf4f693a5f43d04df2c206614ccadae6741cce2dc294d3766aa53d5671693",
+      "snapshot_sha256": "db7cf4f693a5f43d04df2c206614ccadae6741cce2dc294d3766aa53d5671693",
+      "equal": true,
+      "seconds": 123.264662666
+    },
+    {
+      "name": "events.jsonl",
+      "original_sha256": "f423a7215637ec974ee257d273db74ecd9d7278e9eddd463bd3d985efbc909a0",
+      "snapshot_sha256": "f423a7215637ec974ee257d273db74ecd9d7278e9eddd463bd3d985efbc909a0",
+      "equal": true,
+      "seconds": 130.90587900000003
+    }
+  ]
+}

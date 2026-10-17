@@ -1,0 +1,386 @@
+{
+  "baseline": "AUDIT/phase2-baseline.json",
+  "modified_maintained": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "before": "82e9dfebb3c33a97737739ea9a17d2fb28d92f2a26aea7aadf7279e235ec3745",
+      "after": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f"
+    },
+    {
+      "path": "AGENTS.md",
+      "before": "b998a7a6b21ccedef6c5ba301d9d0050e7cd79125deaa0deb47ba96a85f3c190",
+      "after": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4"
+    },
+    {
+      "path": "DEVELOPMENT_LOG.md",
+      "before": "f37b3a1513cebc55bd9896108ae43bdeade34fd98d39713e5aa45a7952030415",
+      "after": "79031c68edc5629767f81f16bbf5cff58a19504783a6817e93a5d2173ab9c137"
+    },
+    {
+      "path": "ENGINEERING_RULES/README.md",
+      "before": "2adca99161d176b7233596aae79e64480837f9cc6135e2c4bbbce6fe0fa75f9f",
+      "after": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9"
+    },
+    {
+      "path": "ENGINEERING_RULES/quality.md",
+      "before": "13ba448b52ea9254a9ace33c6db6a08a3fb40be58950733e8d8843edb3eee697",
+      "after": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207"
+    },
+    {
+      "path": "MASTER_AGENT_WORKFLOW.md",
+      "before": "ae40d99fe9e990afcca9f1dbddcb3895f8f4854f9e9ff0b6e424df1f10c11419",
+      "after": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/README.md",
+      "before": "9800d16c4088a8e898bb211ea9e3c48a51e0db1de8e7e8d9a8c0494854923051",
+      "after": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md",
+      "before": "af41314aaf918011045b9771834b2d13ff10e379937044f120a6520f437280a5",
+      "after": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/roles.md",
+      "before": "d0ea20c27e5b1b1258f85561182569adb00266f0644e6b5fa2e9c689bac2ddff",
+      "after": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6"
+    },
+    {
+      "path": "PROJECT_MEMORY/architecture.md",
+      "before": "186eb56711d099d0df14ab688b4f40e67145ccab55eeac94d11de9dc10d5971e",
+      "after": "3ef060dc56de1709068f7230031d219186ca3f55f44c8eae6cbc4af2fc26a76a"
+    },
+    {
+      "path": "PROJECT_MEMORY/knowledge.md",
+      "before": "4c5af9db22f706506e7ce5b1aec0abb6ea18409992e0c200c0bc51c1ddb41b06",
+      "after": "a6464eac3503650418ad738f81bfe83fff7ad45cf495adcb241d6bd9a323a42a"
+    },
+    {
+      "path": "PROJECT_MEMORY/tasks.md",
+      "before": "d10873fae628b74d919af637af92d50f6a15f5844550041c1941302c2f75d9e8",
+      "after": "4753667b4c416c8847366425c636c76987c5223febd3367250e162a236b05722"
+    },
+    {
+      "path": "PROJECT_STATE.md",
+      "before": "7297809245ef57037a167d69eda44ed1024fc39b7686145d0a4df3db834f3b38",
+      "after": "ef30b5ef6729b7418c802e9708abc4f99e041c0f5fa5c37d303fce5d6c54e8c6"
+    },
+    {
+      "path": "README.md",
+      "before": "ddcb16ab7d76f0ba2c20df186a8d1f08a16fc926ac3685dd76f919d69a308c3e",
+      "after": "72dce756ae174347f2d2a661feefb7e86250991de198878e73cd06ee982b6368"
+    },
+    {
+      "path": "SESSION_HANDOVER.md",
+      "before": "dcf33c4c6a2b02aa2e0a9413ec0f8f40bf0710a36345846a9982585b08877b2b",
+      "after": "c8cd42fbff97ec0f1dcf4d3b17fc6453fe57745fe8aba88a9327a9c63c870959"
+    },
+    {
+      "path": "docs/architecture.md",
+      "before": "9aca629cd3f4c3461a6d627fcac3ee36ffaa7cf8ed8830146f520c133868eaa3",
+      "after": "4709d8ccc9a65398028eba8c06f4aee76cd77072cbd4acf7b17f18620e65883e"
+    },
+    {
+      "path": "docs/requirements.md",
+      "before": "e4db4d372ae01da93066775242cbe80012cca888a51fa48125c45a56b1f724c7",
+      "after": "82024754f8c94117217770bfc62349df939b2989ef06db9f84350389d467551a"
+    },
+    {
+      "path": "scripts/run_examples.py",
+      "before": "e42146b5fbaf9af7aa66473ecaa99633df240a48da7254e31a721a71c8e09e00",
+      "after": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b"
+    },
+    {
+      "path": "scripts/verify_distribution.py",
+      "before": "d7d38eface09529f5933a61b6f647974ff54aa3819f3e2cb57d705db97b30879",
+      "after": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf"
+    },
+    {
+      "path": "scripts/verify_scaffold.py",
+      "before": "c97fe99edea8748b98f5629bbcb48f506330ae037f80075a01529934aeb328ba",
+      "after": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6"
+    },
+    {
+      "path": "setup.cfg",
+      "before": "df28556948964d9f1aef4f810a7df9cc0fdb86883b7b157b4e93f0d4a5893f50",
+      "after": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1"
+    },
+    {
+      "path": "src/uados/__init__.py",
+      "before": "7a8d899b8d3da6f9723a4538898b13d53e4b01d8f2703291066588450603f40a",
+      "after": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf"
+    },
+    {
+      "path": "src/uados/assets/AGENTS.md",
+      "before": "b998a7a6b21ccedef6c5ba301d9d0050e7cd79125deaa0deb47ba96a85f3c190",
+      "after": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md",
+      "before": "2adca99161d176b7233596aae79e64480837f9cc6135e2c4bbbce6fe0fa75f9f",
+      "after": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9"
+    },
+    {
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md",
+      "before": "13ba448b52ea9254a9ace33c6db6a08a3fb40be58950733e8d8843edb3eee697",
+      "after": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207"
+    },
+    {
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md",
+      "before": "ae40d99fe9e990afcca9f1dbddcb3895f8f4854f9e9ff0b6e424df1f10c11419",
+      "after": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md",
+      "before": "9800d16c4088a8e898bb211ea9e3c48a51e0db1de8e7e8d9a8c0494854923051",
+      "after": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md",
+      "before": "af41314aaf918011045b9771834b2d13ff10e379937044f120a6520f437280a5",
+      "after": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md",
+      "before": "d0ea20c27e5b1b1258f85561182569adb00266f0644e6b5fa2e9c689bac2ddff",
+      "after": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6"
+    },
+    {
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md",
+      "before": "2a60934c89342dccf118143213e265333409c40e1efaf83da05f5ab79905cbc0",
+      "after": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb"
+    },
+    {
+      "path": "src/uados/assets/README.md",
+      "before": "14fd6c26870d3e3223d43450535f50d8fdb4ac06266b2a3b6dd8658264ceea48",
+      "after": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "before": "de13918fb3f4e846c1b04e1950e235d32645c339ddf9a4e0d7f3a5a25f697676",
+      "after": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93"
+    },
+    {
+      "path": "src/uados/context.py",
+      "before": "eb7ebc31b058b155e8a6b2e831eb1c4b7131574403556bccb3612ac0453bb25c",
+      "after": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43"
+    },
+    {
+      "path": "src/uados/project.py",
+      "before": "840c33e673626a8aa0ed23abb4897e4077a4a53c8d0207eb3cac1cf952fa70c9",
+      "after": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433"
+    },
+    {
+      "path": "src/uados/research.py",
+      "before": "ef9c1d2c774fd876beb4c00b2a7f00a8123c93498d661f8eeb0afc3c7df49af7",
+      "after": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3"
+    },
+    {
+      "path": "src/uados/storage.py",
+      "before": "8fde4348890c1102cf5222b6125dc6fd3bb404aef51ec84bf61b4f0d8cdec14b",
+      "after": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca"
+    },
+    {
+      "path": "tests/test_adversarial.py",
+      "before": "2bf1072a708fd85de303406035b45940e80799a1a425fe893bb2061049e1d1db",
+      "after": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a"
+    },
+    {
+      "path": "tests/test_workflows.py",
+      "before": "c7b038384abf03306351228744a639a7379123ce28120853a794596995d38ca2",
+      "after": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56"
+    }
+  ],
+  "added_maintained": [
+    {
+      "path": ".agent/compatibility.md",
+      "sha256": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42"
+    },
+    {
+      "path": ".agent/handover_protocol.md",
+      "sha256": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119"
+    },
+    {
+      "path": ".agent/memory_update_protocol.md",
+      "sha256": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341"
+    },
+    {
+      "path": ".agent/startup_protocol.md",
+      "sha256": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1"
+    },
+    {
+      "path": ".agent/task_execution_protocol.md",
+      "sha256": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2"
+    },
+    {
+      "path": ".cursor/rules/uados.md",
+      "sha256": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f"
+    },
+    {
+      "path": ".cursor/rules/uados.mdc",
+      "sha256": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7"
+    },
+    {
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "sha256": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88"
+    },
+    {
+      "path": "CHANGE_REQUESTS/CR000001.md",
+      "sha256": "a98e6afb89f30177dc9605586f6ab9b2d8b45ef95d40e663ce69775c1b784927"
+    },
+    {
+      "path": "CHANGE_REQUESTS/CR000002.md",
+      "sha256": "eea391241c1f78eb7660ba36e880911c9f64db78367043c35a1b7d960ab6cabb"
+    },
+    {
+      "path": "CHANGE_REQUESTS/CR000003.md",
+      "sha256": "0c28b72e99b326be22c1da1cdb2985ade147236c28c4eee809edcf973c1e915e"
+    },
+    {
+      "path": "CHANGE_REQUESTS/CR000004.md",
+      "sha256": "8885c25eeccb429897cce4c260ce88c97d6c1b89ebdc95b0de283b76667c3b22"
+    },
+    {
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "sha256": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f"
+    },
+    {
+      "path": "CONSENSUS_DECISION.md",
+      "sha256": "d781cc5efc530643d47a4a69ec54863d2d7e444cd76f57211449182e788563fe"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md",
+      "sha256": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "sha256": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "sha256": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md",
+      "sha256": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1"
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/role_plans.md",
+      "sha256": "17f0ed779fc4e32915d8e224bd81715935852e8ea84089725df7d65b015c6174"
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/HYPOTHESES.md",
+      "sha256": "9f326467c9e5476f81899ee0ce1eac0856df0631c45b5fa41957594c77160a47"
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/LITERATURE_GAP_ANALYSIS.md",
+      "sha256": "280b2777dfa0226659b570c4513beae4cfc8dd15c8a2654d6b3df9804e4be03a"
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/NOVELTY_AUDIT.md",
+      "sha256": "83841aa1755e4afc01d338d0f37568f2af728d47502866475a2ec40db645b674"
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/RESEARCH_DECISION_RECORD.md",
+      "sha256": "1d84ccb7c6e303d2aa92d02b7fc57ba1140f50af528c3f245f0642b74a8268fb"
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md",
+      "sha256": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d"
+    },
+    {
+      "path": "SYSTEM_IMPROVEMENT_LOG.md",
+      "sha256": "d4fd336d7ca50e1c26cb320e935a42bf5b2beb5064221ddd50155d88f52f3834"
+    },
+    {
+      "path": "docs/adr/0002-phase2-governance.md",
+      "sha256": "2b0c4758fa84481b3044dc92d545119f9e09a12fc9b09db00e5cf40679d82ff1"
+    },
+    {
+      "path": "scripts/run_phase2_scenarios.py",
+      "sha256": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66"
+    },
+    {
+      "path": "src/uados/assets/.agent/compatibility.md",
+      "sha256": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42"
+    },
+    {
+      "path": "src/uados/assets/.agent/handover_protocol.md",
+      "sha256": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119"
+    },
+    {
+      "path": "src/uados/assets/.agent/memory_update_protocol.md",
+      "sha256": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341"
+    },
+    {
+      "path": "src/uados/assets/.agent/startup_protocol.md",
+      "sha256": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1"
+    },
+    {
+      "path": "src/uados/assets/.agent/task_execution_protocol.md",
+      "sha256": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2"
+    },
+    {
+      "path": "src/uados/assets/.cursor/rules/uados.md",
+      "sha256": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f"
+    },
+    {
+      "path": "src/uados/assets/.cursor/rules/uados.mdc",
+      "sha256": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7"
+    },
+    {
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "sha256": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88"
+    },
+    {
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "sha256": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718"
+    },
+    {
+      "path": "src/uados/assets/CLAUDE.md",
+      "sha256": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md",
+      "sha256": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "sha256": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "sha256": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490"
+    },
+    {
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md",
+      "sha256": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1"
+    },
+    {
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md",
+      "sha256": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d"
+    },
+    {
+      "path": "src/uados/governance.py",
+      "sha256": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6"
+    },
+    {
+      "path": "src/uados/orchestration.py",
+      "sha256": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e"
+    },
+    {
+      "path": "src/uados/protocol.py",
+      "sha256": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701"
+    },
+    {
+      "path": "tests/test_phase2.py",
+      "sha256": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41"
+    }
+  ],
+  "generated": "CLI-owned Markdown/JSON projections, content-addressed archives, executable example fixtures and audit outputs are retained separately."
+}

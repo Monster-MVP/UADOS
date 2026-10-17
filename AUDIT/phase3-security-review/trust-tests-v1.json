@@ -1,0 +1,37 @@
+{
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "date": "2026-10-13",
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_trust.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 1.775607584,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.9.6",
+  "source_before": {
+    "src/uados/trust.py": "3813cb8765612a60676ea4caf3b32b731062f9a3317a1b615540008cda1fc0c9",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "f6d090c316b07430a5c07d5e6344d5e15acc41544a5ca864d1bd7bb27b64eb97",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_after": {
+    "src/uados/trust.py": "3813cb8765612a60676ea4caf3b32b731062f9a3317a1b615540008cda1fc0c9",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "f6d090c316b07430a5c07d5e6344d5e15acc41544a5ca864d1bd7bb27b64eb97",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_unchanged": true,
+  "raw_evidence": "AUDIT/phase3-security-review/trust-tests-v1.txt",
+  "limits": [
+    "Integration tests executed against disposable projects, external ephemeral keys and real host OpenSSH; timeout/unavailable/audit-race injection is explicitly mocked in individual tests."
+  ]
+}

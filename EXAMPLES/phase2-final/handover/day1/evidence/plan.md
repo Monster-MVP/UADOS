@@ -1,0 +1,1 @@
+Two equally weighted tasks. Day1 completes one and blocks second on missing external dataset; logical time labels only.

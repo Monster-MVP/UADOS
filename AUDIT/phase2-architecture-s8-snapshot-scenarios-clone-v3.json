@@ -1,0 +1,161 @@
+{
+  "actual_local_git_clone": true,
+  "archives": {
+    "handover/day1": {
+      "problems": [],
+      "promised_snapshots_checked": 2
+    },
+    "handover/day30": {
+      "problems": [],
+      "promised_snapshots_checked": 2
+    },
+    "research": {
+      "problems": [],
+      "promised_snapshots_checked": 7
+    },
+    "software": {
+      "problems": [],
+      "promised_snapshots_checked": 2
+    }
+  },
+  "audits": {
+    "handover/day1": {
+      "archived_originals": [],
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "errors": [],
+      "event_count": 15,
+      "evidence_records_checked": 2,
+      "head_hash": "24fda371c05ba2eea093abc8fb3bf488c92505ede66cb3b3314a7b6cb5f217a1",
+      "historical_evidence_drift": [],
+      "history_ok": true,
+      "improvement_candidates": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "ok": true,
+      "projection_drift": [],
+      "protocol_version": 2,
+      "repaired": [],
+      "warnings": []
+    },
+    "handover/day30": {
+      "archived_originals": [],
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "errors": [],
+      "event_count": 18,
+      "evidence_records_checked": 2,
+      "head_hash": "1fc97f21ef7f89f9218573eaa178df42b3c446cfd193db40b3b095b0c8ea6ddd",
+      "historical_evidence_drift": [],
+      "history_ok": true,
+      "improvement_candidates": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "ok": true,
+      "projection_drift": [],
+      "protocol_version": 2,
+      "repaired": [],
+      "warnings": []
+    },
+    "research": {
+      "archived_originals": [],
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "errors": [],
+      "event_count": 111,
+      "evidence_records_checked": 7,
+      "head_hash": "fb9fab4af766e46b5ef0f2e621c7da65a661a1716ba7cc56b8a643eb98775e4d",
+      "historical_evidence_drift": [],
+      "history_ok": true,
+      "improvement_candidates": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "ok": true,
+      "projection_drift": [],
+      "protocol_version": 2,
+      "repaired": [],
+      "warnings": []
+    },
+    "software": {
+      "archived_originals": [],
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "errors": [],
+      "event_count": 92,
+      "evidence_records_checked": 2,
+      "head_hash": "8ac990251be6cc48c07153d34b4a435a5005514b7e64e2f88abcecb15bbac8b8",
+      "historical_evidence_drift": [],
+      "history_ok": true,
+      "improvement_candidates": [],
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "ok": true,
+      "projection_drift": [],
+      "protocol_version": 2,
+      "repaired": [],
+      "warnings": []
+    }
+  },
+  "command_log": [
+    {
+      "command": [
+        "git",
+        "init",
+        "--initial-branch=main"
+      ],
+      "cwd": "/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/snapshot",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "add",
+        "--all"
+      ],
+      "cwd": "/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/snapshot",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "user.name=Independent S8 review",
+        "-c",
+        "user.email=s8-review@localhost",
+        "commit",
+        "-m",
+        "Disposable snapshot-aware scenario clone"
+      ],
+      "cwd": "/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/snapshot",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "clone",
+        "--quiet",
+        "/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/snapshot",
+        "/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/clone"
+      ],
+      "cwd": "/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0",
+      "exit_code": 0
+    }
+  ],
+  "freshest_snapshot_scenarios": "EXAMPLES/phase2-snapshot-validation",
+  "limitation": "Independent supplement: maintained verify_distribution.py lists older EXAMPLES/phase2-final projects in its eight audited roots. This specifically checks newer snapshot-aware projects without altering frozen source/receipt.",
+  "ok": true,
+  "rebuilds": {
+    "handover/day1": {
+      "event_count": 15,
+      "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/clone/scenarios/handover/day1",
+      "rebuilt": true
+    },
+    "handover/day30": {
+      "event_count": 18,
+      "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/clone/scenarios/handover/day30",
+      "rebuilt": true
+    },
+    "research": {
+      "event_count": 111,
+      "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/clone/scenarios/research",
+      "rebuilt": true
+    },
+    "software": {
+      "event_count": 92,
+      "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-s8-current-scenarios-jpyvbjs0/clone/scenarios/software",
+      "rebuilt": true
+    }
+  }
+}

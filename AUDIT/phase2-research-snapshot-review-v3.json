@@ -1,0 +1,103 @@
+{
+  "reviewer": "Phase2-Research-Reviewer",
+  "date": "2026-10-13",
+  "independence": "This reviewer authored no maintained implementation or tests; source/evidence inspection, exact command reproduction, and targeted test execution were independent.",
+  "manifest": {
+    "path": "AUDIT/phase2-delivery/frozen-manifest.json",
+    "sha256": "a48f8994ae1508f8feb6fe5ccae637273893c2888e64263ac4050955fae742a9",
+    "files_checked": 81,
+    "changed_or_missing": []
+  },
+  "research": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "src/calibration.py",
+      "config.json",
+      "data/design.json"
+    ],
+    "cwd": "/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/EXAMPLES/phase2-snapshot-validation/research",
+    "exit": 0,
+    "exact_recorded_output_match": true,
+    "exact_HER_binding": true,
+    "live_and_archive_hashes_match": true,
+    "proof_records_checked": 6,
+    "repetitions": 200,
+    "seed": 73,
+    "median_rmse_ratio": 0.7938114563766927,
+    "conditional_bootstrap_interval": [
+      0.715706307871708,
+      0.852870340691968
+    ],
+    "novelty": "overlap",
+    "source_groups": [
+      "NIST Engineering Statistics e-Handbook"
+    ],
+    "limits": [
+      "Synthetic known linear model",
+      "Oracle variance weights",
+      "Holdout evaluates noiseless mean response",
+      "Bootstrap interval conditional on this design",
+      "Known WLS reproduction; no novelty or wetlab claim"
+    ]
+  },
+  "targeted_tests": {
+    "command": "python3: unittest.TestSuite of 12 explicit test_phase2.Phase2 research/source/novelty/hypothesis/snapshot cases",
+    "evidence": "AUDIT/phase2-research-snapshot-review-v3-tests.txt",
+    "passed": 12,
+    "duration_seconds": 6.133,
+    "output": "OK"
+  },
+  "live_audit_snapshot": {
+    "event_count": 225,
+    "ok": true,
+    "history_ok": false,
+    "errors": [],
+    "historical_losses": [
+      {
+        "path": "AUDIT/phase2-validation-manifest.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest.json"
+        ],
+        "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-docs-integration-validation.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+        ],
+        "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-distribution-final.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-distribution-final.json"
+        ],
+        "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-validation-manifest-v2.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+        ],
+        "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+        "snapshot": null
+      }
+    ],
+    "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability"
+  },
+  "code_inspection": [
+    "check_evidence validates promised snapshot and live source path; archive availability does not bypass current approval.",
+    "research idea_fingerprint, validate_hypothesis and conclude_hypothesis call current source/hash checks; full_text and candidate status remain scoped declarations.",
+    "New snapshot hashes and exact binary bytes are verified; corrupt promised archives are integrity errors, legacy missing originals are explicit historical loss."
+  ],
+  "remaining_limits": [
+    "One NIST handbook corpus and known WLS overlap; no systematic literature search, instrument, wetlab or publication claim.",
+    "Bootstrap interval and median improvement conditional on chosen synthetic/oracle design; does not establish general superiority.",
+    "Four pre-archive Phase2 original versions remain unavailable: current ok=true does not mean history_ok=true.",
+    "Local trusted labels do not authenticate independent providers; hosted OS/CI and commercial-client invocation unexecuted."
+  ],
+  "judgment": "Ready for bounded local Phase2 plan acceptance with current/historical distinction and later independent result debate. No approval of global novelty, scientific validity beyond fixture, or recovered legacy bytes."
+}

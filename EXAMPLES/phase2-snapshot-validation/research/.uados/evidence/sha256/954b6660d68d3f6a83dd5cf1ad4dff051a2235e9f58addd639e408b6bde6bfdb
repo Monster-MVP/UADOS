@@ -1,0 +1,1 @@
+Reproduce known weighted least squares on a synthetic heteroscedastic linear calibration. Predefine median holdout RMSE ratio < 0.90 versus OLS, 200 repeats, seed73, bootstrap uncertainty. Use actual accessed NIST manifest; same handbook is correlated evidence, no novelty claim.

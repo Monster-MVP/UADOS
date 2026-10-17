@@ -1,0 +1,69 @@
+{
+  "kind": "Independent disposable mechanical probes",
+  "not_real_debate": true,
+  "results": {
+    "author_replan_cannot_revoke_other_active_lease": {
+      "observed_error": "Replanning cannot revoke another active lease; the owner must hand over or replan first.",
+      "passed": true
+    },
+    "change_evidence_before_result": {
+      "observed_error": "Evidence changed: cr.txt",
+      "passed": true
+    },
+    "dissent_replacement": {
+      "passed": true,
+      "replacing_dissenter_without_replan": {
+        "observed_error": "Resolve the previous dissent in its debate, or explicitly replan with a recorded reason before opening another.",
+        "passed": true
+      },
+      "veto_blocks_consensus": {
+        "observed_error": "Unresolved dissent or different selected approaches prevent consensus. Keep objections and resolve them explicitly.",
+        "passed": true
+      }
+    },
+    "maintained_cr_prefix_is_reviewed": {
+      "missing_from_review_scope": [],
+      "passed": true
+    },
+    "new_incomplete_role_plan_cannot_reuse_old_consensus": {
+      "observed_error": "Protocol2 major work requires current three-round plan consensus from two independent reviewers.",
+      "passed": true
+    },
+    "research_policy_change_invalidates_consensus": {
+      "observed_error": "Protocol2 major work requires current three-round plan consensus from two independent reviewers.",
+      "passed": true
+    },
+    "revoked_capability_before_open": {
+      "observed_error": "An assigned agent no longer declares its required capability.",
+      "passed": true
+    },
+    "root_scope_self_reference": {
+      "audit": {
+        "errors": [],
+        "event_count": 132,
+        "head_hash": "e2bf2272d120f3e0c263504bc6a366ac7f79be779a23f30b370a15e4a6d00ed8",
+        "improvement_candidates": [],
+        "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+        "ok": true,
+        "projection_drift": [],
+        "protocol_version": 2,
+        "repaired": [],
+        "warnings": []
+      },
+      "completed_status": "done",
+      "passed": true
+    },
+    "same_plan_revision_bypasses_dissent": {
+      "observed_error": "Retain dissent and use explicit task replan with a resolution reason before replacing the plan.",
+      "passed": true
+    },
+    "unassigned_implementer_claim": {
+      "observed_error": "Execution requires assignment to a selected nonreview implementation role with current capability; replan before changing implementers.",
+      "passed": true
+    },
+    "veto_after_earlier_consensus": {
+      "observed_error": "Independent review requested changes; resolve or rework the proposal.",
+      "passed": true
+    }
+  }
+}

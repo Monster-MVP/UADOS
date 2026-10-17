@@ -1,0 +1,6 @@
+{
+  "snapshot_event": 818,
+  "ok": true,
+  "errors": [],
+  "method": "Exact load_ledger supported schema/protocol and required state field type checks"
+}

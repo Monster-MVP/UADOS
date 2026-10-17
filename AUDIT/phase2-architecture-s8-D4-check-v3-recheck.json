@@ -1,0 +1,2682 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "AUDIT/phase2-architecture-s8-D4-check.py"
+  ],
+  "current_audit": {
+    "archived_originals": [],
+    "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+    "errors": [],
+    "event_count": 269,
+    "evidence_records_checked": 61,
+    "head_hash": "954171e134fe280935d3da1275fad811d4d94863563aa82d609797ef3766a179",
+    "historical_evidence_drift": [
+      {
+        "path": "AUDIT/phase2-validation-manifest.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest.json"
+        ],
+        "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-docs-integration-validation.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+        ],
+        "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-distribution-final.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-distribution-final.json"
+        ],
+        "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+        "snapshot": null
+      },
+      {
+        "path": "AUDIT/phase2-validation-manifest-v2.json",
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+        ],
+        "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+        "snapshot": null
+      }
+    ],
+    "history_ok": false,
+    "improvement_candidates": [
+      {
+        "fingerprint": "15aad5014f1077043d157f90de49849f361474af0f82af1995d02025c7498e51",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause."
+      },
+      {
+        "fingerprint": "70170f87d750178e6143f765f47933ecbcd4903b8795b1491d0ea307065aadd1",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause."
+      },
+      {
+        "fingerprint": "b839caad31cf2fbeb53ab53b148e8b50b087b3f0f4a50e5c190d154f99a9d650",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause."
+      },
+      {
+        "fingerprint": "ae30cfcf41368fe057ef01a5fc2538fde5fd0c3635836565490d034e53821781",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause."
+      }
+    ],
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+    "ok": true,
+    "projection_drift": [],
+    "protocol_version": 2,
+    "repaired": [],
+    "warnings": [
+      "Completed task scope has changed since validation: T000001",
+      "Completed task scope has changed since validation: T000002",
+      "Completed task scope has changed since validation: T000003",
+      "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+      "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+      "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+      "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)"
+    ]
+  },
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "fresh260_checks": [
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.agent/compatibility.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.agent/handover_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.agent/memory_update_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.agent/startup_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.agent/task_execution_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.mdc"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/AGENTS.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/AUDIT/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/CLAUDE.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/EXAMPLES/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/bootstrap.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/challenge.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/handover.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/implement.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/research.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/adr.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/experiment.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/extension.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/handover.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/literature.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/review.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/rfc.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/task.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/assets/VERSION_CONTROL/README.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "tests/test_adversarial.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "tests/test_workflows.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "scripts/run_examples.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "scripts/run_phase2_scenarios.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "scripts/uados.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "scripts/verify_distribution.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "scripts/verify_scaffold.py"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "setup.cfg"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": ".github/workflows/ci.yml"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-tests-v3.txt"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-runtime-validation-v3.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-docs-v3.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-scaffold-v3.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-distribution-v3-final.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-baseline-preservation-v3.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "EXAMPLES/phase2-snapshot-validation/summary.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-final-report.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/self_review.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/scenario_test_report.md"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-modified-files.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-architecture-s8-snapshot-probe-v1.json"
+    },
+    {
+      "kind": "frozen",
+      "ok": true,
+      "path": "AUDIT/phase2-architecture-s8-snapshot-export-probe-v1.json"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "AUDIT/phase2-tests-v3.txt"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "AUDIT/phase2-docs-v3.json"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "AUDIT/phase2-scaffold-v3.json"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "scripts/verify_distribution.py"
+    },
+    {
+      "kind": "runtime",
+      "ok": true,
+      "path": "scripts/run_phase2_scenarios.py"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".agent/compatibility.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".agent/handover_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".agent/memory_update_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".agent/startup_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".agent/task_execution_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".cursor/rules/uados.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": ".cursor/rules/uados.mdc"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "AGENTS.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "CLAUDE.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "ENGINEERING_RULES/README.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "ENGINEERING_RULES/quality.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "README.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "docs/adr/0002-phase2-governance.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "docs/architecture.md"
+    },
+    {
+      "kind": "maintained-docs",
+      "ok": true,
+      "path": "docs/requirements.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/compatibility.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/handover_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/memory_update_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/startup_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/task_execution_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.mdc"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/AGENTS.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/AUDIT/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/CLAUDE.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/EXAMPLES/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/bootstrap.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/challenge.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/handover.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/implement.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/research.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/adr.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/experiment.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/extension.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/handover.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/literature.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/review.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/rfc.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/task.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/VERSION_CONTROL/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "tests/test_adversarial.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "tests/test_workflows.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/compatibility.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/handover_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/memory_update_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/startup_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.agent/task_execution_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.mdc"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/AGENTS.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/AUDIT/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/CLAUDE.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/EXAMPLES/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/bootstrap.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/challenge.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/handover.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/implement.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/research.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/adr.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/experiment.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/extension.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/handover.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/literature.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/review.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/rfc.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/task.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/assets/VERSION_CONTROL/README.md"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "tests/test_adversarial.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "kind": "reviewer-tested-source",
+      "ok": true,
+      "path": "tests/test_workflows.py"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/README.md"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/distribution.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/document-links.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/examples-and-scaffold.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/final-audit.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/independent-review.md"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/installed-package.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/result-review.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/reviewer-distribution.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/reviewer-tests.txt"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/tests-result.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/tests.txt"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "AUDIT/validation.json"
+    },
+    {
+      "kind": "phase1-proof",
+      "ok": true,
+      "path": "docs/adr/0001-local-ledger.md"
+    }
+  ],
+  "frozen81_checks": [
+    {
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.agent/compatibility.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.agent/handover_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.agent/memory_update_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.agent/startup_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.agent/task_execution_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.mdc"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/AGENTS.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/AUDIT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/CLAUDE.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/EXAMPLES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/bootstrap.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/challenge.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/implement.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/research.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/adr.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/experiment.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/extension.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/literature.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/review.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/rfc.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/task.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/assets/VERSION_CONTROL/README.md"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "ok": true,
+      "path": "tests/test_adversarial.py"
+    },
+    {
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "ok": true,
+      "path": "tests/test_workflows.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/run_examples.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/run_phase2_scenarios.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/uados.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/verify_distribution.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/verify_scaffold.py"
+    },
+    {
+      "ok": true,
+      "path": "setup.cfg"
+    },
+    {
+      "ok": true,
+      "path": ".github/workflows/ci.yml"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-tests-v3.txt"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-runtime-validation-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-docs-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-scaffold-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-distribution-v3-final.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-baseline-preservation-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/phase2-snapshot-validation/summary.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-final-report.md"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/self_review.md"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/scenario_test_report.md"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-modified-files.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-architecture-s8-snapshot-probe-v1.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-architecture-s8-snapshot-export-probe-v1.json"
+    }
+  ],
+  "installed_matches_current_source": true,
+  "limits": [
+    "Four legacy original versions remain irrecoverable; this validates current revision, not complete historical preservation.",
+    "Hashes of nested manifests were explicitly recomputed; ordinary evidence registration does not supply transitive enforcement.",
+    "Full75suite already independently ran against same source; no claim of reexecuting it in this script.",
+    "Native products, hosted CI, authenticated identities and scientific external validity remain unvalidated."
+  ],
+  "maintained_docs27_checks": [
+    {
+      "ok": true,
+      "path": ".agent/compatibility.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/handover_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/memory_update_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/startup_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/task_execution_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".cursor/rules/uados.md"
+    },
+    {
+      "ok": true,
+      "path": ".cursor/rules/uados.mdc"
+    },
+    {
+      "ok": true,
+      "path": "AGENTS.md"
+    },
+    {
+      "ok": true,
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "ok": true,
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "ok": true,
+      "path": "CLAUDE.md"
+    },
+    {
+      "ok": true,
+      "path": "ENGINEERING_RULES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "ENGINEERING_RULES/quality.md"
+    },
+    {
+      "ok": true,
+      "path": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "README.md"
+    },
+    {
+      "ok": true,
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/adr/0002-phase2-governance.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/requirements.md"
+    }
+  ],
+  "ok": true,
+  "original184_files_checks": [
+    {
+      "ok": true,
+      "path": "AUDIT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/distribution.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/document-links.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/examples-and-scaffold.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/final-audit.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/independent-review.md"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/installed-package.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/result-review.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/reviewer-distribution.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/reviewer-tests.txt"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/tests-result.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/tests.txt"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/validation.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/.uados/events.jsonl"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/.uados/runs/E000001/R000001/stderr.txt"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/.uados/runs/E000001/R000001/stdout.txt"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/.uados/state.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/AGENTS.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/AUDIT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/DECISION_RECORD.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/DEVELOPMENT_LOG.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/ENGINEERING_RULES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/ENGINEERING_RULES/security.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/ENGINEERING_RULES/software.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/EXAMPLES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/knowledge.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000001-4063c695db78.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000001-b273cf1a9ced.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000001-bcd7bc52c719.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000002-9d52d6b92090.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000002-cc7814a097e2.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000003-45ee67e92daf.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000004-9f24f7756d29.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/session_reports/S000004-a91475f38155.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_MEMORY/tasks.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROJECT_STATE.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROMPTS/bootstrap.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROMPTS/challenge.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROMPTS/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROMPTS/implement.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/PROMPTS/research.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/RESEARCH_MANAGEMENT/experiments.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/SESSION_HANDOVER.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/adr.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/experiment.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/extension.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/literature.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/review.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/rfc.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/TEMPLATES/task.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/VERSION_CONTROL/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/app.py"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/dataset.csv"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/evidence/analysis.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/evidence/design-review.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/evidence/tests.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/study-config.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/hybrid/study.py"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/.uados/events.jsonl"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/.uados/runs/E000001/R000001/stderr.txt"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/.uados/runs/E000001/R000001/stdout.txt"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/.uados/state.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/AGENTS.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/AUDIT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/DECISION_RECORD.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/DEVELOPMENT_LOG.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/ENGINEERING_RULES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/ENGINEERING_RULES/security.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/ENGINEERING_RULES/software.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/EXAMPLES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_MEMORY/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_MEMORY/knowledge.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_MEMORY/session_reports/S000001-17d7897273e1.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_MEMORY/session_reports/S000001-7890bec5b310.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_MEMORY/tasks.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROJECT_STATE.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROMPTS/bootstrap.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROMPTS/challenge.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROMPTS/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROMPTS/implement.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/PROMPTS/research.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/RESEARCH_MANAGEMENT/experiments.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/SESSION_HANDOVER.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/adr.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/experiment.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/extension.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/literature.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/review.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/rfc.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/TEMPLATES/task.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/VERSION_CONTROL/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/dataset.csv"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/evidence/analysis.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/study-config.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/research/study.py"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/.uados/events.jsonl"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/.uados/state.json"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/AGENTS.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/AUDIT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/DECISION_RECORD.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/DEVELOPMENT_LOG.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/ENGINEERING_RULES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/ENGINEERING_RULES/security.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/ENGINEERING_RULES/software.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/EXAMPLES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/knowledge.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/session_reports/S000001-4fbfc3adde7b.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/session_reports/S000001-56c6ad29d2c0.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/session_reports/S000001-bae348354b9c.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/session_reports/S000002-8e16a45d3a0c.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/session_reports/S000002-b56b185879fb.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/session_reports/S000003-baa51656ad57.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_MEMORY/tasks.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROJECT_STATE.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROMPTS/bootstrap.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROMPTS/challenge.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROMPTS/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROMPTS/implement.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/PROMPTS/research.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/RESEARCH_MANAGEMENT/experiments.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/SESSION_HANDOVER.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/adr.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/experiment.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/extension.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/handover.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/literature.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/review.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/rfc.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/TEMPLATES/task.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/VERSION_CONTROL/README.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/app.py"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/evidence/design-review.md"
+    },
+    {
+      "ok": true,
+      "path": "EXAMPLES/generated/software/evidence/tests.json"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/notes/initial-understanding.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000001-4fd5aeebdedf.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000001-89575e35d94e.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000001-a54c3f4ee9a1.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000001-c175a1c93c5a.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000001-d477510c26da.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000001-fc708a8d83ce.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000002-ae8904877d62.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000002-b551c0a7af1f.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/session_reports/S000003-f15c15f08768.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/adr/0001-local-ledger.md"
+    }
+  ],
+  "original37_event_hashes_unchanged": true,
+  "receipt_files": [
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-delivery/acceptance-tests.txt"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-delivery/acceptance-distribution.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-delivery/acceptance-hashes.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-delivery/acceptance-research.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-delivery/acceptance-audit.json"
+    }
+  ],
+  "runtime16_checks": [
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-tests-v3.txt"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-docs-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-scaffold-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/verify_distribution.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/run_phase2_scenarios.py"
+    }
+  ],
+  "session_label": "Phase2-Architecture-Reviewer",
+  "source_same_as_independent75test_run": true,
+  "submitted_scope_unchanged": true,
+  "task_live_and_snapshot_evidence_problems": [],
+  "task_revision": 12,
+  "wheel_matches_current_source": true,
+  "wheel_matches_receipt": true,
+  "wheel_sha256": "dbfc02dcb8ee8a73bbc053a59b0a2b85ab6c9465f09112ff238e4727a4356090"
+}

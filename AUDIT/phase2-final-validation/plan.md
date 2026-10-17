@@ -1,0 +1,5 @@
+# T000006 final acceptance plan
+
+Implementation: run the final source, documentation, scenario, package, clone and historical-evidence checks from the frozen Phase2 workspace; preserve exact commands and outputs under AUDIT and verify no generated view drift. The task has no product code change. Alternatives were (1) accept root self-reported checks, or (2) require a fresh protocol2 task with declared architecture/research/testing roles, three debate rounds and independent result review. Select (2) because labels and root authorship cannot establish independence.
+
+Validation: execute the 68-test suite, all independent boundary probes, the three scenario fixtures, documentation checks, wheel installation and disposable Git clone; inspect the research reproduction and baseline event/hash evidence. Record failures and limitations, then conduct a second three-round result debate over the immutable validation manifest before completion. Evidence: phase2 validation manifest, distribution report, scenario summary/report, independent architecture and research reviews, and preserved Phase1 baseline.

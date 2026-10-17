@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/run_phase2_scenarios.py", line 294, in <module>
+    main()
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/run_phase2_scenarios.py", line 285, in main
+    results = {"software": software(destination / "software"), "research": research(destination / "research"), "handover": handover(destination / "handover")}
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/scripts/run_phase2_scenarios.py", line 255, in handover
+    p.export(day30, include=["evidence/failed-attempt.json"])
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/src/uados/project.py", line 595, in export
+    sources = {relative: safe_path(self.root, relative) for relative in files}
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/src/uados/project.py", line 595, in <dictcomp>
+    sources = {relative: safe_path(self.root, relative) for relative in files}
+  File "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/src/uados/storage.py", line 192, in safe_path
+    raise UadosError("Project file is unavailable: %s" % relative)
+uados.storage.UadosError: Project file is unavailable: data

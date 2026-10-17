@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "event_count": 92,
+  "head_hash": "87540243553a9b3730a64cfa946482c9b9a681308590a1431d9bf6dab9af0c59",
+  "projection_drift": [],
+  "repaired": [],
+  "errors": [],
+  "warnings": [],
+  "protocol_version": 2,
+  "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+  "improvement_candidates": []
+}

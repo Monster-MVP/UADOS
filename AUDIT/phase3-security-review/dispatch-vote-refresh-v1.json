@@ -1,0 +1,31 @@
+{
+  "purpose": "D000013 vote refresh and exact report acknowledgement evidence",
+  "session": "S000011",
+  "agent": "Phase3-Security-Reviewer",
+  "debate": "D000013",
+  "task_revision": 4,
+  "report_hash": "cc21b1c96df8a1bce4c4809f9bb18cdea993d81f589bbc20f90b2c90b05d7f9e",
+  "report_path": "PROJECT_MEMORY/session_reports/S000011-cc21b1c96df8.md",
+  "report_file_bytes": 34084,
+  "report_file_sha256": "7dc193a9d28d0b33eeb852aadadc3e7914423507f5ce7c57928a2d4a200155e1",
+  "context_fingerprint": "206f55fb1df770ac6985a7095cabbb77fcfd09edfab3997958ac1176d4eb6731",
+  "report_summary": {
+    "phase": "execution",
+    "protocol_version": 2,
+    "runtime": "Codex",
+    "known_risks": [
+      "T000009: major work requires independent plan and result reviews",
+      "Contributor labels/capabilities are declarations, not authenticated identity or expertise",
+      "Novelty judgments remain provisional; source access and scientific claims need substantive review"
+    ],
+    "recommended_next_actions": [
+      "T000009: Phase3 provider-neutral dispatch receipts"
+    ],
+    "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension."
+  },
+  "refresh_event_sequence": 608,
+  "refresh_event_hash": "2fd88a1762e51d50c0449fdd45b4d18d2cb1bcff5630199baf91b6e05da60776",
+  "ack_event_sequence": 610,
+  "ack_event_hash": "8ea251560fec45b89c1aae9e8768163dfd280fa6c4a1ebe7027364d8e07c7876",
+  "observed_at_utc": "2026-10-13T17:29:32.432770+00:00"
+}

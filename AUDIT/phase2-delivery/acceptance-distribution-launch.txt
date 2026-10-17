@@ -1,0 +1,248 @@
+{
+  "ok": true,
+  "command": [
+    "python3",
+    "scripts/verify_distribution.py",
+    "--python",
+    ".venv/bin/python"
+  ],
+  "wheel": "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/dist/uados-1.1.0-py3-none-any.whl",
+  "wheel_sha256": "dbfc02dcb8ee8a73bbc053a59b0a2b85ab6c9465f09112ff238e4727a4356090",
+  "packaged_assets": 48,
+  "wheel_matches_current_package_source": true,
+  "installed_import": "/Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work/.venv/lib/python3.9/site-packages/uados/__init__.py",
+  "installed_audit": {
+    "archived_originals": [],
+    "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+    "errors": [],
+    "event_count": 4,
+    "evidence_records_checked": 0,
+    "head_hash": "4326276d60d27212f059cfd7f7dcac8bc131669fa99b8f06a17ca014daaf3d8d",
+    "historical_evidence_drift": [],
+    "history_ok": true,
+    "improvement_candidates": [],
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+    "ok": true,
+    "projection_drift": [],
+    "protocol_version": 2,
+    "repaired": [],
+    "warnings": []
+  },
+  "real_local_git_clone": true,
+  "git_file_count": 1807,
+  "rebuild": {
+    "project": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-distribution-iswowm9j/clone",
+    "event_count": 263,
+    "rebuilt": true
+  },
+  "clone_audits": {
+    "repository": {
+      "ok": true,
+      "event_count": 263,
+      "head_hash": "ff4e8df160774655eb0e42cf3d9be87b40ad83cb0d6d8a1220e474b92236ea8e",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [
+        "Completed task scope has changed since validation: T000001",
+        "Completed task scope has changed since validation: T000002",
+        "Completed task scope has changed since validation: T000003",
+        "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+        "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+        "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+        "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)"
+      ],
+      "protocol_version": 2,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": false,
+      "historical_evidence_drift": [
+        {
+          "path": "AUDIT/phase2-validation-manifest.json",
+          "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+          "snapshot": null,
+          "problems": [
+            "Evidence changed: AUDIT/phase2-validation-manifest.json"
+          ]
+        },
+        {
+          "path": "AUDIT/phase2-docs-integration-validation.json",
+          "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+          "snapshot": null,
+          "problems": [
+            "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+          ]
+        },
+        {
+          "path": "AUDIT/phase2-distribution-final.json",
+          "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+          "snapshot": null,
+          "problems": [
+            "Evidence changed: AUDIT/phase2-distribution-final.json"
+          ]
+        },
+        {
+          "path": "AUDIT/phase2-validation-manifest-v2.json",
+          "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+          "snapshot": null,
+          "problems": [
+            "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+          ]
+        }
+      ],
+      "archived_originals": [],
+      "evidence_records_checked": 55,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "improvement_candidates": [
+        {
+          "problem": "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+          "fingerprint": "15aad5014f1077043d157f90de49849f361474af0f82af1995d02025c7498e51",
+          "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+          "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+          "implementation": "Proposed only; no source modification or automated remediation.",
+          "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+        },
+        {
+          "problem": "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+          "fingerprint": "70170f87d750178e6143f765f47933ecbcd4903b8795b1491d0ea307065aadd1",
+          "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+          "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+          "implementation": "Proposed only; no source modification or automated remediation.",
+          "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+        },
+        {
+          "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+          "fingerprint": "b839caad31cf2fbeb53ab53b148e8b50b087b3f0f4a50e5c190d154f99a9d650",
+          "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+          "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+          "implementation": "Proposed only; no source modification or automated remediation.",
+          "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+        },
+        {
+          "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)",
+          "fingerprint": "ae30cfcf41368fe057ef01a5fc2538fde5fd0c3635836565490d034e53821781",
+          "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+          "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+          "implementation": "Proposed only; no source modification or automated remediation.",
+          "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+        }
+      ]
+    },
+    "software": {
+      "ok": true,
+      "event_count": 23,
+      "head_hash": "b587b958d05dd4dfa08c95d1f91fd87e98c0992b620c11051a0cbf4b341c33da",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 1,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 2,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability"
+    },
+    "research": {
+      "ok": true,
+      "event_count": 11,
+      "head_hash": "0a3b14fc2428df06405ea267d413fb40c765966442f8eef9aba4ba588b641bac",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 1,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 5,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability"
+    },
+    "hybrid": {
+      "ok": true,
+      "event_count": 33,
+      "head_hash": "9c10b62a02e00615334cac55c2b72978575054e5e49c9bbb60e43ec0e6e18aab",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 1,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 7,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability"
+    },
+    "phase2/software": {
+      "ok": true,
+      "event_count": 92,
+      "head_hash": "87540243553a9b3730a64cfa946482c9b9a681308590a1431d9bf6dab9af0c59",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 2,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 2,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "improvement_candidates": []
+    },
+    "phase2/research": {
+      "ok": true,
+      "event_count": 111,
+      "head_hash": "c3f7bd202692a32afac329e54c1fffc4e2803f89a2bebfa4af564757ebe2f179",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 2,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 7,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "improvement_candidates": []
+    },
+    "phase2/handover/day1": {
+      "ok": true,
+      "event_count": 15,
+      "head_hash": "7c863491cb5cb95a711524af3a26cf79c28542c098caaaaa353f110b226b13d8",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 2,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 2,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "improvement_candidates": []
+    },
+    "phase2/handover/day30": {
+      "ok": true,
+      "event_count": 18,
+      "head_hash": "63d82c53c2bcf8b2585498a235eb4a500c6ac20f8ce445744e443fb032e11e61",
+      "projection_drift": [],
+      "repaired": [],
+      "errors": [],
+      "warnings": [],
+      "protocol_version": 2,
+      "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+      "history_ok": true,
+      "historical_evidence_drift": [],
+      "archived_originals": [],
+      "evidence_records_checked": 2,
+      "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+      "improvement_candidates": []
+    }
+  },
+  "note": "Temporary commit/clone only; no remote writes. Historical scope-change warnings are retained for inspection."
+}

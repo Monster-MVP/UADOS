@@ -1,0 +1,1 @@
+Challenge: would signed values or zero fail? Use Python integer addition; no conversion or hidden state. Test negative and zero cases.

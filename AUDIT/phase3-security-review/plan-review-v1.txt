@@ -1,0 +1,63 @@
+Independent Phase 3 security / architecture plan review
+Date: 2026-10-13 Asia/Shanghai
+Contributor: Phase3-Security-Reviewer, actual independent child model, S000011.
+Implementation authorship: none. Reviewed T000007 plan before implementation.
+
+Inspected authority and applicable files: MASTER_AGENT_WORKFLOW.md, AGENTS.md,
+.agent startup/task/memory/handover/compatibility protocols, PROJECT_STATE.md,
+SESSION_HANDOVER.md, PROJECT_MEMORY README/architecture/tasks and current task,
+relevant DEVELOPMENT_LOG/DECISION_RECORD entries, ENGINEERING_RULES security,
+quality and software policies, MULTI_AGENT_SYSTEM README/debate/review/consensus,
+CHANGE_REQUESTS policy, Phase3 baseline report, plan-v1.md, change-v1.json,
+plan-clarifications-v1.txt, and actual project/storage lock/ledger/audit methods.
+Exact issued Understanding Reports were inspected; stale-context refusals were
+preserved in tool outputs, refresh report sections compared, current exact hash
+a827b376d171b9dff48fc71c228ed4df57fbd0370045abada024e669fe6c1b3d acknowledged
+at event332 and declared architecture/security registration recorded event333.
+
+Independent findings and planned acceptance conditions:
+1. Sign a deterministic, bounded, versioned canonical payload covering principal,
+   namespace/protocol, first-event identity, event head and complete state digest.
+   Require operator-supplied external SHA256 pin and separately authorized key
+   policy; signature validity alone must not be reported as trusted authorization.
+2. A signed audit summary is the signer's assertion of observed file checks at
+   capture time. Historical event bytes cannot prove past live-file availability.
+   Verify bound ledger prefix/state exactly, separately compute current audit,
+   explicitly disclose historical-prefix signatures and require-current failures.
+3. Avoid nested locks: existing Project.audit acquires project_lock. Reopen ledger
+   under lock afterward and reject a differing audit count/head. Hold capture lock
+   through sign/publish; the lock still cannot stop arbitrary editor/OS writers.
+4. Keys, allowed-signers/revocations and trusted pins are external operator inputs.
+   Snapshot public policy and payload bytes for subprocess verification to avoid
+   check/use ambiguity, never archive private key contents. Key rotation requires
+   new policy/key, new signed bundle and new externally distributed pin. Revocation
+   must actually use OpenSSH -r, not merely record a revoked metadata label.
+5. Strict payload parsing should reject duplicate JSON keys, nonfinite values,
+   unsupported fields/types/versions, excessive size, broken signatures, bad pins,
+   unauthorized principals/keys, wrong namespace, aliases/symlinks and unsafe
+   output destinations. Subprocesses must use argv/no shell and bounded timeout.
+6. Rehash-forged local histories, truncated rollback and changed state must fail
+   against unchanged authorized signatures and pins. Signing and verification
+   must preserve ledger events/projections and never overwrite an output bundle.
+
+Actual independent evidence: openssh-plan-probe-v1.json contains 11 executed
+temporary-key commands with host OpenSSH. Correct authorized verification and
+operator policy/key rotation succeed; wrong principal, namespace, bytes, revoked
+key and policy key fail. All keys/policies were generated outside projects and
+removed. No private key bytes are recorded. Primary API verified from official
+OpenBSD ssh-keygen manual https://man.openbsd.org/ssh-keygen.1 on 2026-10-13.
+These are host API checks, not yet UADOS integration evidence.
+
+Alternative: an authenticated remote timestamp/append-only identity service gives
+stronger global freshness and key lifecycle, preferable for mutually untrusted
+distributed deployment; it introduces credentials/service/deployment ownership.
+Pure-Python cryptography creates unnecessary maintenance/correctness risk. An
+optional external OpenSSH boundary is appropriate for this bounded additive task
+provided current/history and external-policy limitations remain explicit.
+
+Plan judgment: the clarification resolves the audit-attestation and lock-capture
+issues at design level. Approve the bounded plan only after real debate challenge
+disposition; integration code and all failure paths still require result review.
+Do not claim authenticated agent labels, secure operator pin distribution, remote
+latest-head knowledge, per-event signatures, distributed coordination, provider
+dispatch, protected OS storage or all production Phase3 goals are complete.

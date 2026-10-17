@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-14",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "source_sha256": "2468a5b97a25b5b67c3940e3b2de81b67d63b21082037432af48ff298644fe0a",
+  "cases": [
+    {
+      "case": "bad_timestamp",
+      "rejected": true,
+      "error": "Dispatch receipt timestamps need timezone offsets and ordered observations."
+    },
+    {
+      "case": "dotdot_existing_receipt",
+      "rejected": true,
+      "error": "Dispatch receipt paths must be external and contain no '..'."
+    },
+    {
+      "case": "internal_parent_symlink",
+      "rejected": true,
+      "error": "Dispatch receipt paths must be external and contain no '..'."
+    },
+    {
+      "case": "external_parent_symlink_run",
+      "rejected": true,
+      "error": "Dispatch receipt paths must not contain symlinks."
+    },
+    {
+      "case": "surrogate_cli",
+      "exit": 2,
+      "traceback": false,
+      "receipt_exists": false
+    }
+  ],
+  "ledger_unchanged": true
+}

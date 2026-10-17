@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "source_hash": "172c5f25589b218b19070e60ff29c9ab493f4dec2bab86d09b463d503b7ae169",
+  "cases": [
+    {
+      "case": "root_kind",
+      "errors": [
+        "Manifest root evidence metadata is malformed: m.uados-manifest.json"
+      ],
+      "passed_rejected": true
+    },
+    {
+      "case": "absolute_root",
+      "errors": [
+        "Manifest root evidence metadata is malformed: /m.uados-manifest.json"
+      ],
+      "passed_rejected": true
+    },
+    {
+      "case": "parent_root",
+      "errors": [
+        "Manifest root evidence metadata is malformed: ../m.uados-manifest.json"
+      ],
+      "passed_rejected": true
+    }
+  ]
+}

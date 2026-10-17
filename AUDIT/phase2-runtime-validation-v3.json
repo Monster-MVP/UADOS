@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-13",
+  "tests": 75,
+  "passed": true,
+  "files": [
+    {
+      "path": "AUDIT/phase2-tests-v3.txt",
+      "sha256": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "bytes": 7201
+    },
+    {
+      "path": "AUDIT/phase2-docs-v3.json",
+      "sha256": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "bytes": 16254
+    },
+    {
+      "path": "AUDIT/phase2-scaffold-v3.json",
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "bytes": 89
+    },
+    {
+      "path": "src/uados/__init__.py",
+      "sha256": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "bytes": 84
+    },
+    {
+      "path": "src/uados/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "bytes": 48
+    },
+    {
+      "path": "src/uados/cli.py",
+      "sha256": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "bytes": 21913
+    },
+    {
+      "path": "src/uados/context.py",
+      "sha256": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "bytes": 11871
+    },
+    {
+      "path": "src/uados/governance.py",
+      "sha256": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "bytes": 16830
+    },
+    {
+      "path": "src/uados/orchestration.py",
+      "sha256": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "bytes": 21815
+    },
+    {
+      "path": "src/uados/project.py",
+      "sha256": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "bytes": 44193
+    },
+    {
+      "path": "src/uados/protocol.py",
+      "sha256": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "bytes": 4848
+    },
+    {
+      "path": "src/uados/research.py",
+      "sha256": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "bytes": 11856
+    },
+    {
+      "path": "src/uados/storage.py",
+      "sha256": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "bytes": 11393
+    },
+    {
+      "path": "tests/test_phase2.py",
+      "sha256": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "bytes": 30352
+    },
+    {
+      "path": "scripts/verify_distribution.py",
+      "sha256": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "bytes": 6388
+    },
+    {
+      "path": "scripts/run_phase2_scenarios.py",
+      "sha256": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "bytes": 22895
+    }
+  ],
+  "history_limit": "Historical overwritten legacy bytes are explicitly reported and cannot be reconstructed by new snapshots."
+}

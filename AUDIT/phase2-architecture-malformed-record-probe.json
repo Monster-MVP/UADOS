@@ -1,0 +1,19 @@
+{
+  "command_shape": [
+    "python3",
+    "-m",
+    "uados",
+    "--project",
+    "TEMP",
+    "research",
+    "source",
+    "--session",
+    "ISSUED",
+    "--record",
+    "record.json"
+  ],
+  "input_error": "evidence array contains number 7",
+  "exit_code": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/__main__.py\", line 3, in <module>\n    raise SystemExit(main())\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/cli.py\", line 346, in main\n    result = dispatch(args)\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/cli.py\", line 330, in dispatch\n    return gov.add_source(project, args.session, *read_record(project, args.record, (\"title\", \"identifier\", \"url\", \"claim\", \"limitation\", \"access\", \"evidence\", \"corpus\")))\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/governance.py\", line 110, in add_source\n    return project.mutate(\"research.source\", title, operation, session_id)\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/project.py\", line 221, in mutate\n    result = operation(state, events, session)\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/governance.py\", line 108, in operation\n    \"evidence\": evidence_files(project.root, evidence), \"agent\": session[\"agent\"], \"accessed_at\": now()}\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/storage.py\", line 197, in evidence_files\n    path = safe_path(root, relative)\n  File \"/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/src/uados/storage.py\", line 178, in safe_path\n    raw = Path(relative)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py\", line 1072, in __new__\n    self = cls._from_parts(args, init=False)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py\", line 697, in _from_parts\n    drv, root, parts = self._parse_args(args)\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py\", line 681, in _parse_args\n    a = os.fspath(a)\nTypeError: expected str, bytes or os.PathLike object, not int\n",
+  "passed": false
+}

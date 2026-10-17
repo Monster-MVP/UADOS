@@ -1,0 +1,34 @@
+Independent adversarial challenge to D000005-A001
+Phase3-Security-Reviewer / S000011, 2026-10-13.
+
+Failure mechanism: a valid old authorized checkpoint and its old external pin can
+be replayed with a ledger truncated exactly to that historical head. If the caller
+accepts any previously known digest, require-current can succeed in the truncated
+workspace; there is no service proving a globally latest head. Equally, an old
+signature may be rejected by a current revoked-key policy even though it was once
+authorized. A signed occurred-at field is an assertion, not a trusted timestamp.
+These cases affect freshness and retrospective authorization, not SSHSIG math.
+
+Unsupported assumption: externally supplied means the pin is necessarily fresh,
+the revocation policy necessarily has historical validity semantics, or project
+lock makes arbitrary editor changes to evidence impossible. The signed payload
+cannot independently reconstruct original live-byte availability in an old audit.
+
+Alternative: protect newest pins and versioned signer/revocation policies in an
+authenticated external append-only service for distributed/untrusted deployment.
+For this bounded local task, explicitly define caller-selected policy semantics,
+no global latest-head or trusted time guarantee, independently re-audit now, and
+reject a ledger mutation between audit and capture through exact head comparison.
+
+Missing result evidence: actual integration tests must show an externally pinned
+newer checkpoint rejects a truncated/rehashed ledger, historical-prefix allowance
+is explicitly disclosed, require-current fails when later valid events remain,
+revoked and unauthorized key/principal fail, replacement policy is used verbatim,
+and a raced CLI mutation produces an error without publishing a partial bundle.
+Real host SSHSIG authority/revocation/namespace evidence is already executed in
+openssh-plan-probe-v1.json. No production keys or credentials were used.
+
+Disposition at plan stage: plan-v1 and frozen plan-clarifications-v1 resolve the
+semantic issue by external operator ownership, no distributed latest guarantee,
+separate signed attestation/current audit, and non-nested audit+head capture. Result
+approval remains contingent on actual observed failure-path integration evidence.

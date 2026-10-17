@@ -1,0 +1,68 @@
+{
+  "task": "T000010",
+  "date": "2026-10-14",
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "full_suite": "116 tests passed; AUDIT/phase3-coordination/tests-v1.txt",
+  "focused_suite": "5 tests passed; AUDIT/phase3-coordination/coordination-tests-v1.txt",
+  "scaffold": "passed; 16 required paths, 4 events, 47 packaged Markdown files",
+  "benchmark": "AUDIT/phase3-coordination/benchmark-v1.json; read-only, 714 events, no ledger mutation",
+  "files": [
+    {
+      "path": "src/uados/coordination.py",
+      "bytes": 8068,
+      "sha256": "948e969061b468fd85a10d0f631fb4ee6e7800b7e9bf9b710d65ec97026ca631"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 24942,
+      "sha256": "5dd73b853a5cd287f3b541680150ec98d6ff0d758be79d684e77c271a0ce34fc"
+    },
+    {
+      "path": "tests/test_coordination.py",
+      "bytes": 3815,
+      "sha256": "c0b6ddf8c4fc117be98e1b77d01551792f54978dcfd74a1416fd6e082116e3ca"
+    },
+    {
+      "path": "docs/coordination.md",
+      "bytes": 1552,
+      "sha256": "6f03a397cbe8a226ee9100bc305bb69a671813487bd70272b73aa7fd45736dd0"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/plan-v1.md",
+      "bytes": 2089,
+      "sha256": "626354707e70a264258211516fca367ee29eae54b41cf02ca7a12b9137472e1f"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/change-v1.json",
+      "bytes": 1602,
+      "sha256": "abcb8b899185d53c8ba3c25d4f85e2a8c7d5d639becb56ad8947a08a4df214d6"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/tests-v1.txt",
+      "bytes": 10882,
+      "sha256": "19f2f7d5297ab1be51650a2980abe4b83fff45bea30f856a4e2f90b979cead39"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/coordination-tests-v1.txt",
+      "bytes": 578,
+      "sha256": "cf081109b5ad8c472182c327e647f072897261998b44f323c065d4ffe6a3d0e7"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/scaffold-v1.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    },
+    {
+      "path": "AUDIT/phase3-coordination/benchmark-v1.json",
+      "bytes": 422,
+      "sha256": "2c9847fda1dba7f529de9116ddca329568d11b2869ee377636b2348cd75c5ad0"
+    }
+  ],
+  "limits": [
+    "process-local reference backend only; no cross-host or durable coordination",
+    "fencing tokens require future protected-resource enforcement",
+    "benchmark is a local SQLite size/timing baseline, not a capacity or reliability claim",
+    "no authenticated identity, synchronized clocks, partition handling, remote availability or arbitrary-writer protection"
+  ]
+}

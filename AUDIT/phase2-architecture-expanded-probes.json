@@ -1,0 +1,50 @@
+{
+  "kind": "Independent disposable mechanical probes",
+  "not_real_debate": true,
+  "results": {
+    "change_evidence_before_result": {
+      "observed_error": "Evidence changed: cr.txt",
+      "passed": true
+    },
+    "dissent_replacement": {
+      "passed": true,
+      "replacing_dissenter_without_replan": {
+        "observed_error": "Resolve the previous dissent in its debate, or explicitly replan with a recorded reason before opening another.",
+        "passed": true
+      },
+      "veto_blocks_consensus": {
+        "observed_error": "Unresolved dissent or different selected approaches prevent consensus. Keep objections and resolve them explicitly.",
+        "passed": true
+      }
+    },
+    "revoked_capability_before_open": {
+      "observed_error": "An assigned agent no longer declares its required capability.",
+      "passed": true
+    },
+    "root_scope_self_reference": {
+      "audit": {
+        "errors": [],
+        "event_count": 132,
+        "head_hash": "a948e6b94b1fcaa72e499c3296f81db4389509ea59c19a9c63c0eb09a5b3eedd",
+        "improvement_candidates": [],
+        "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+        "ok": true,
+        "projection_drift": [],
+        "protocol_version": 2,
+        "repaired": [],
+        "warnings": []
+      },
+      "completed_status": "done",
+      "passed": true
+    },
+    "same_plan_revision_bypasses_dissent": {
+      "exception": "UadosError",
+      "message": "Retain dissent and use explicit task replan with a resolution reason before replacing the plan.",
+      "passed": false
+    },
+    "veto_after_earlier_consensus": {
+      "observed_error": "Independent review requested changes; resolve or rework the proposal.",
+      "passed": true
+    }
+  }
+}

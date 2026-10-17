@@ -1,0 +1,19 @@
+{
+  "problem": "UADOS task leases are local workflow records, but there is no explicit pluggable lease/fencing contract or measured SQLite history baseline for future multi-host coordination.",
+  "background": "Phase 3 trust, recursive evidence manifests and fake-only dispatch receipts are complete. The existing SQLite/event authority and task lease behavior are stable and must remain additive.",
+  "alternatives": [
+    "Keep cooperative local task leases with no coordination boundary",
+    "Add a remote coordination service before defining semantics",
+    "Modify the SQLite authority and task schema directly",
+    "Add an injectable fenced-lease state machine and read-only history benchmark"
+  ],
+  "decision": "Add an explicit reference lease backend with monotonic fencing and injected-clock expiry, plus a read-only SQLite history benchmark; defer durable remote coordination and schema changes.",
+  "impact": "Future adapters can implement the same acquire/renew/release/validate contract, while operators get a reproducible local history baseline without changing current task or ledger behavior.",
+  "risk": "The reference backend is process-local and cannot prove cross-host safety, authenticated identity, durable fencing, clock synchronization, partition behavior or remote availability.",
+  "validation": "Focused state-machine and benchmark no-mutation tests, full regression, scaffold and final audit with explicit local-only limits.",
+  "evidence": [
+    "AUDIT/phase3-coordination/plan-v1.md",
+    "AUDIT/phase3-baseline-report.md",
+    "AUDIT/phase3-final-audit-v1.json"
+  ]
+}

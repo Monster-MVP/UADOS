@@ -1,0 +1,33 @@
+{
+  "reviewer": "Phase2-Research-Reviewer",
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "src/calibration.py",
+    "config.json",
+    "data/design.json"
+  ],
+  "cwd": "/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/EXAMPLES/phase2-final/research",
+  "returncode": 0,
+  "stdout_matches_recorded_analysis": true,
+  "repetitions": 200,
+  "seed": 73,
+  "median_rmse_ratio": 0.7938114563766927,
+  "bootstrap_median_interval_95": [
+    0.715706307871708,
+    0.852870340691968
+  ],
+  "exact_hypothesis_run_binding": true,
+  "registered_input_output_hashes_match": true,
+  "limits": [
+    "Synthetic known linear model",
+    "Oracle variance weights",
+    "Holdout evaluates noiseless mean response",
+    "Bootstrap interval conditional on this design",
+    "Known WLS reproduction; no novelty or wetlab claim"
+  ],
+  "source_groups": [
+    "NIST Engineering Statistics e-Handbook"
+  ],
+  "idea_novelty_verdict": "overlap",
+  "verdict_scope": "Independent reproduction and content inspection only; not final task approval"
+}

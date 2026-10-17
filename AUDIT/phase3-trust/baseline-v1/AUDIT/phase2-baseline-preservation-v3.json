@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "original_events": 37,
+  "phase1_historical_files_checked": 14,
+  "modified_maintained": 38,
+  "new_maintained": 47,
+  "phase2_historical_loss": "Reported separately in current audit; Phase1 preservation does not imply all Phase2 bytes survived."
+}

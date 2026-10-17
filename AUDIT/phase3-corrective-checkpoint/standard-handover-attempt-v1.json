@@ -1,0 +1,10 @@
+{
+  "command": "PYTHONMALLOC=malloc python3 scripts/uados.py --project . session close S000010 (corrective summary, next, blockers and failed approach recorded in the attempted argv)",
+  "session": "S000010",
+  "result": "terminated after approximately20minutes without an event commit",
+  "signal": 15,
+  "head_after_termination": 818,
+  "session_status_after_termination": "active",
+  "hand_over_completed": false,
+  "reason": "Full-state history and projection runtime resource limitation. No bypass runner was used for this attempt."
+}

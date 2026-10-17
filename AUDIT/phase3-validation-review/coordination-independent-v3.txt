@@ -1,0 +1,10 @@
+test_benchmark_is_read_only_and_cli_matches (test_coordination.CoordinationTests) ... ok
+test_clock_and_input_bounds_fail_closed (test_coordination.CoordinationTests) ... ok
+test_contention_expiry_takeover_and_monotonic_fencing (test_coordination.CoordinationTests) ... ok
+test_renew_release_and_exact_expiry (test_coordination.CoordinationTests) ... ok
+test_resources_are_isolated_and_forged_tokens_fail (test_coordination.CoordinationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 6.769s
+
+OK

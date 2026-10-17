@@ -1,0 +1,52 @@
+{
+  "independent_mechanical_fixture": true,
+  "results": {
+    "archive_versions_and_recovery": {
+      "audit_current_errors": [
+        "Evidence changed: evidence.txt"
+      ],
+      "copies_present": true,
+      "export": {
+        "destination": "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/tmpcj9pqnyh/exported",
+        "event_count": 8,
+        "file_count": 69,
+        "note": "Available scopes, current evidence, historical snapshots and context copied. Missing legacy originals are disclosed, never invented. Use --include for other dependencies; inspect for private data before sharing.",
+        "unavailable_scopes": [],
+        "unrecoverable_historical_evidence": []
+      },
+      "passed": true,
+      "rebuild_preserved": true,
+      "snapshots_distinct": true
+    },
+    "current_gate_rejects_live_edit": {
+      "error": "Evidence changed: proof.txt",
+      "passed": true,
+      "snapshot_still_valid": true
+    },
+    "existing_corrupt_snapshot_is_rejected": {
+      "corruption_preserved_for_diagnosis": true,
+      "error": "Existing evidence snapshot is corrupt: .uados/evidence/sha256/5644ad8c71696cf2299d7f40a6bee17ff85bd4a057291e2e58e4f94e8898f36f",
+      "passed": true
+    },
+    "historical_snapshot_missing_is_error": {
+      "errors_after_delete": [
+        "Evidence snapshot unavailable: Project file is unavailable: .uados/evidence/sha256/c06df876aa87624fd8819af9402e00f4ef02ccee1e2a86071cbbdfb096f75859"
+      ],
+      "passed": true,
+      "preserved_originals": 1
+    },
+    "legacy_lost_original_warns_honestly": {
+      "export_disclosure": [
+        {
+          "path": "plan.txt",
+          "sha256": "4cfd78256b052de39f8b98762636fe32ccee026a9b7dbab72a1c485c45009e80"
+        }
+      ],
+      "history_ok": false,
+      "passed": true,
+      "warnings": [
+        "Unrecoverable historical evidence: plan.txt (SHA-256 4cfd78256b052de39f8b98762636fe32ccee026a9b7dbab72a1c485c45009e80)"
+      ]
+    }
+  }
+}

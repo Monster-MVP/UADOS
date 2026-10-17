@@ -1,0 +1,556 @@
+usage: - [-h] [--version] [--project PROJECT]
+         {init,status,rebuild-ledger,context,audit,upgrade,adapter,export,session,task,agent,roles,debate,change,note,decision,experiment,research,improvement}
+         ...
+
+Universal Agentic Development Operating System
+
+positional arguments:
+  {init,status,rebuild-ledger,context,audit,upgrade,adapter,export,session,task,agent,roles,debate,change,note,decision,experiment,research,improvement}
+    init                Initialize a project without overwriting existing
+                        files
+    status              Read durable state and report projection drift
+    rebuild-ledger      Reconstruct a missing local database from validated
+                        JSON exports
+    context             Read context manifest or full context documents
+    audit               Check ledger, memory and referenced evidence
+    upgrade             Explicitly enable protocol2, preserving history and
+                        legacy tasks
+    adapter             Generate a central-workflow bootstrap packet for a
+                        supported runtime
+    export              Create a portable context/evidence project directory
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --project PROJECT     Project root; place this before the command
+{
+  "parser_forms": [
+    {
+      "argv": [
+        "--help"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "status"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "audit"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "init",
+        "/path/to/new-project",
+        "--name",
+        "My project",
+        "--objective",
+        "Describe the intended outcome",
+        "--mode",
+        "auto"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "start",
+        "--agent",
+        "AGENT_ID"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "acknowledge",
+        "SESSION_ID",
+        "--report-hash",
+        "REPORT_HASH"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "status"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "context"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "session",
+        "start",
+        "--agent",
+        "Builder",
+        "--runtime",
+        "Codex"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "session",
+        "acknowledge",
+        "SESSION_ID",
+        "--report-hash",
+        "REPORT_HASH"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "task",
+        "add",
+        "--session",
+        "SESSION_ID",
+        "--title",
+        "Observable outcome",
+        "--description",
+        "Acceptance criteria",
+        "--risk",
+        "routine",
+        "--scope",
+        "src/component"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "task",
+        "plan",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID",
+        "--implementation",
+        "Steps and recovery",
+        "--validation",
+        "Checks and expected outcomes",
+        "--evidence",
+        "evidence/plan.md"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        "/path/to/new-project",
+        "task",
+        "claim",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "start",
+        "--agent",
+        "AGENT_ID"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "acknowledge",
+        "SESSION_ID",
+        "--report-hash",
+        "REPORT_HASH"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "task",
+        "add",
+        "--session",
+        "SESSION_ID",
+        "--title",
+        "Describe the observable outcome",
+        "--description",
+        "Problem and acceptance criteria",
+        "--risk",
+        "routine",
+        "--scope",
+        "src/component"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "task",
+        "plan",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID",
+        "--implementation",
+        "Steps, assumptions, alternatives and recovery",
+        "--validation",
+        "Checks, inputs and expected outcomes",
+        "--evidence",
+        "evidence/plan.md"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "task",
+        "record",
+        "TASK_ID",
+        "--session",
+        "SESSION_ID",
+        "--summary",
+        "What changed, why, and what validation established",
+        "--evidence",
+        "evidence/validation.txt"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "session",
+        "close",
+        "SESSION_ID",
+        "--summary",
+        "Current status, completed work and validation",
+        "--next",
+        "First concrete next action with task/evidence paths"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "analysis",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--solution",
+        "Independent proposed approach",
+        "--assumption",
+        "Explicit assumption",
+        "--risk",
+        "Concrete failure mode",
+        "--alternative",
+        "Reasoned alternative",
+        "--evidence",
+        "evidence/analysis.md"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "advance",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "challenge",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--target",
+        "OTHER_ANALYSIS_ID",
+        "--failure",
+        "How this could fail",
+        "--unsupported",
+        "Unsupported assumption",
+        "--alternative",
+        "Better choice under stated conditions",
+        "--missing-evidence",
+        "What would resolve the challenge",
+        "--evidence",
+        "evidence/challenge.md"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "advance",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "vote",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--select",
+        "SELECTED_ANALYSIS_ID",
+        "--verdict",
+        "approve",
+        "--reason",
+        "Evidence-backed disposition of challenges",
+        "--evidence",
+        "evidence/review.md"
+      ],
+      "passed": true
+    },
+    {
+      "argv": [
+        "--project",
+        ".",
+        "debate",
+        "consensus",
+        "DEBATE_ID",
+        "--session",
+        "SESSION_ID",
+        "--select",
+        "SELECTED_ANALYSIS_ID",
+        "--reason",
+        "Selection and rejected alternatives",
+        "--risk",
+        "Remaining risk and its disposition"
+      ],
+      "passed": true
+    }
+  ],
+  "root_package_pairs": [
+    {
+      "path": "MASTER_AGENT_WORKFLOW.md",
+      "equal": true
+    },
+    {
+      "path": "AGENTS.md",
+      "equal": true
+    },
+    {
+      "path": "CLAUDE.md",
+      "equal": true
+    },
+    {
+      "path": "PROJECT_MEMORY/README.md",
+      "equal": true
+    },
+    {
+      "path": ".cursor/rules/uados.mdc",
+      "equal": true
+    },
+    {
+      "path": ".cursor/rules/uados.md",
+      "equal": true
+    },
+    {
+      "path": "VERSION_CONTROL/README.md",
+      "equal": true
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/publication.md",
+      "equal": true
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/data_management.md",
+      "equal": true
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/README.md",
+      "equal": true
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md",
+      "equal": true
+    },
+    {
+      "path": "RESEARCH_MANAGEMENT/reproducibility.md",
+      "equal": true
+    },
+    {
+      "path": "AUDIT/README.md",
+      "equal": true
+    },
+    {
+      "path": "ENGINEERING_RULES/extensions.md",
+      "equal": true
+    },
+    {
+      "path": "ENGINEERING_RULES/software.md",
+      "equal": true
+    },
+    {
+      "path": "ENGINEERING_RULES/quality.md",
+      "equal": true
+    },
+    {
+      "path": "ENGINEERING_RULES/README.md",
+      "equal": true
+    },
+    {
+      "path": "ENGINEERING_RULES/security.md",
+      "equal": true
+    },
+    {
+      "path": "PROMPTS/implement.md",
+      "equal": true
+    },
+    {
+      "path": "PROMPTS/challenge.md",
+      "equal": true
+    },
+    {
+      "path": "PROMPTS/research.md",
+      "equal": true
+    },
+    {
+      "path": "PROMPTS/bootstrap.md",
+      "equal": true
+    },
+    {
+      "path": "PROMPTS/handover.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/extension.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/experiment.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/rfc.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/literature.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/task.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/review.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/adr.md",
+      "equal": true
+    },
+    {
+      "path": "TEMPLATES/handover.md",
+      "equal": true
+    },
+    {
+      "path": ".agent/handover_protocol.md",
+      "equal": true
+    },
+    {
+      "path": ".agent/task_execution_protocol.md",
+      "equal": true
+    },
+    {
+      "path": ".agent/memory_update_protocol.md",
+      "equal": true
+    },
+    {
+      "path": ".agent/compatibility.md",
+      "equal": true
+    },
+    {
+      "path": ".agent/startup_protocol.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/README.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/roles.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md",
+      "equal": true
+    },
+    {
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md",
+      "equal": true
+    },
+    {
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md",
+      "equal": true
+    },
+    {
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md",
+      "equal": true
+    }
+  ],
+  "scaffold_exit": 0,
+  "scaffold_stdout": "{\n  \"ok\": true,\n  \"required_paths\": 16,\n  \"events\": 4,\n  \"packaged_markdown_files\": 47\n}\n",
+  "all_pairs_equal": true
+}

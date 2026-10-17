@@ -1,0 +1,670 @@
+{
+  "docs_nested_checks": [
+    {
+      "ok": true,
+      "path": ".agent/compatibility.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/handover_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/memory_update_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/startup_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".agent/task_execution_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": ".cursor/rules/uados.md"
+    },
+    {
+      "ok": true,
+      "path": ".cursor/rules/uados.mdc"
+    },
+    {
+      "ok": true,
+      "path": "AGENTS.md"
+    },
+    {
+      "ok": true,
+      "path": "CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "ok": true,
+      "path": "CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "ok": true,
+      "path": "CLAUDE.md"
+    },
+    {
+      "ok": true,
+      "path": "ENGINEERING_RULES/README.md"
+    },
+    {
+      "ok": true,
+      "path": "ENGINEERING_RULES/quality.md"
+    },
+    {
+      "ok": true,
+      "path": "MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "ok": true,
+      "path": "MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "ok": true,
+      "path": "PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "README.md"
+    },
+    {
+      "ok": true,
+      "path": "RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/adr/0002-phase2-governance.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/architecture.md"
+    },
+    {
+      "ok": true,
+      "path": "docs/requirements.md"
+    }
+  ],
+  "frozen_checks": [
+    {
+      "actual_sha256": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "expected_sha256": "81f14fd1b36e562bb609e68f9bbb8a84796ca3a2537d88df578bf050fb8ad8cf",
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "actual_sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "expected_sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "actual_sha256": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "expected_sha256": "4121541a3964a8f2c4390480e441dc3a4418cec5ae2f840eca318aeb88902c42",
+      "ok": true,
+      "path": "src/uados/assets/.agent/compatibility.md"
+    },
+    {
+      "actual_sha256": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "expected_sha256": "abb63724e0985dbba69e6f7e661ba85e133a7cb4c9db762de241a17ef9d53119",
+      "ok": true,
+      "path": "src/uados/assets/.agent/handover_protocol.md"
+    },
+    {
+      "actual_sha256": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "expected_sha256": "d0852185f050c7c0ea3e41ae5598bfba1b48772d15dfca59d14b35fcf0024341",
+      "ok": true,
+      "path": "src/uados/assets/.agent/memory_update_protocol.md"
+    },
+    {
+      "actual_sha256": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "expected_sha256": "b09f0a0477230df8860f3101208c311ffe3e16df933f1ff31ceb64703b9c7da1",
+      "ok": true,
+      "path": "src/uados/assets/.agent/startup_protocol.md"
+    },
+    {
+      "actual_sha256": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "expected_sha256": "d2bb5191c7d185dc75fee7531bf7c46091402e16b127a30b0f910dd0d465fad2",
+      "ok": true,
+      "path": "src/uados/assets/.agent/task_execution_protocol.md"
+    },
+    {
+      "actual_sha256": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "expected_sha256": "60cdea1105bc6f56d46d35b5239aa2bf6b555eb22e3f3156cd724413e9746c1f",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.md"
+    },
+    {
+      "actual_sha256": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "expected_sha256": "39dee64d3721279b375d6184d53393b3ea40d6a1e2138f1686a3e83e242d6be7",
+      "ok": true,
+      "path": "src/uados/assets/.cursor/rules/uados.mdc"
+    },
+    {
+      "actual_sha256": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "expected_sha256": "6aaf746a9aa0020957a6bc411be4eeade19cc21cd0bf3e595e3a36a16bb757e4",
+      "ok": true,
+      "path": "src/uados/assets/AGENTS.md"
+    },
+    {
+      "actual_sha256": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "expected_sha256": "c8109774c90d32e8ec661ac0abbccd44fc09ce5d468c2756e6f65f565a5997c1",
+      "ok": true,
+      "path": "src/uados/assets/AUDIT/README.md"
+    },
+    {
+      "actual_sha256": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "expected_sha256": "1f6f41e1008eb255bfe3a75dc7d37cd77dad69ffaf2b6e2ae9eca0a22ea02a88",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CHANGE_POLICY.md"
+    },
+    {
+      "actual_sha256": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "expected_sha256": "c36cec87160c9cc558c6fac8ee4e4f265c5b3e72490895265de04eeee0ea3718",
+      "ok": true,
+      "path": "src/uados/assets/CHANGE_REQUESTS/CR_TEMPLATE.md"
+    },
+    {
+      "actual_sha256": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "expected_sha256": "3035628557c2538d65f0dbfe1bdce30d6feb142c5de57a86173e8026b92f176f",
+      "ok": true,
+      "path": "src/uados/assets/CLAUDE.md"
+    },
+    {
+      "actual_sha256": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "expected_sha256": "73fade4b64fd82c4906302c2dc5f89aaebecec4d3a862f064d8b31603fafe7a9",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/README.md"
+    },
+    {
+      "actual_sha256": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "expected_sha256": "990d7df72be4021d6af6cc3b4f369a3f2824e76cd53972894ba2ea54a61bed1e",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/extensions.md"
+    },
+    {
+      "actual_sha256": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "expected_sha256": "72ae0a58d8e021cc61b535bd73188181c7e40eefcad0a4149e6fc5717f167207",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/quality.md"
+    },
+    {
+      "actual_sha256": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "expected_sha256": "811d446bc0c127785070d7f12db83388855a6c3684eb042626fa12cd48ddffa4",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/security.md"
+    },
+    {
+      "actual_sha256": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "expected_sha256": "4846b692a6cd574ff02c64a31571d3994ca0a685ab6d9474fedd27f8271e1a7d",
+      "ok": true,
+      "path": "src/uados/assets/ENGINEERING_RULES/software.md"
+    },
+    {
+      "actual_sha256": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "expected_sha256": "622fe2548a7d5e630dbade1cdc717cbdf495ef8bd4c506cd3a9938ddcecf98ce",
+      "ok": true,
+      "path": "src/uados/assets/EXAMPLES/README.md"
+    },
+    {
+      "actual_sha256": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "expected_sha256": "70e0c6813e1bd8ed1e70113d4d0fb7c2f0f7a5a537cc7201eb76615a54db4363",
+      "ok": true,
+      "path": "src/uados/assets/MASTER_AGENT_WORKFLOW.md"
+    },
+    {
+      "actual_sha256": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "expected_sha256": "cb022259dd43fc50e08fe5711bf45037715073a1bc20c49d92c27abe5bbb2343",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/README.md"
+    },
+    {
+      "actual_sha256": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "expected_sha256": "0966347eb9d9a44ff59f3a6724f24dc1ca92db7ce6f6e417448e987021660d7a",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/agent_selection.md"
+    },
+    {
+      "actual_sha256": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "expected_sha256": "e7b48c578898049f22f0836b014c251d1255f58d3d8eebbd180dbb16f39c8301",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/consensus_protocol.md"
+    },
+    {
+      "actual_sha256": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "expected_sha256": "57edf5f4bf09b4a5f75c4dde513a353a8a5bc68b03bc0952dc431ad9b65b3490",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/debate_protocol.md"
+    },
+    {
+      "actual_sha256": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "expected_sha256": "ebd2af949594247e54140c0e31ae02c5711d79e241b8abedf2fc9c6bf3b68fcb",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/review_protocol.md"
+    },
+    {
+      "actual_sha256": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "expected_sha256": "3039ca10c9d3287ce125467713309f608cbb2c0212a0e1491fac50f3323c49d1",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/role_generator.md"
+    },
+    {
+      "actual_sha256": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "expected_sha256": "c88115bcbe5f08e904c75334c0b61dab55b7fbe8cd30a815e2659e1a98b7d0d6",
+      "ok": true,
+      "path": "src/uados/assets/MULTI_AGENT_SYSTEM/roles.md"
+    },
+    {
+      "actual_sha256": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "expected_sha256": "a6e7b2f65323a5e9200583c575efb4423b744aeb529581f4bea60ea9fd465e1a",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/README.md"
+    },
+    {
+      "actual_sha256": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "expected_sha256": "9da3efe3d5b841619243b088bdbde86040797a5794bf4376307ef00938d6cefb",
+      "ok": true,
+      "path": "src/uados/assets/PROJECT_MEMORY/architecture.md"
+    },
+    {
+      "actual_sha256": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "expected_sha256": "a128259a8bbbe11a49c4f6f059a32f02d60d2f5539f28d22b37a456d6b37cf7b",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/bootstrap.md"
+    },
+    {
+      "actual_sha256": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "expected_sha256": "80ab3ed6970b254bcacff22a16e44f2c8b3f696ab0c6d8fe780eba9727d2a7aa",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/challenge.md"
+    },
+    {
+      "actual_sha256": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "expected_sha256": "7f1e0dd2446f9c5ce487416fdf1b488e39181c7fd43d31bbc3e2ac07ead35bf7",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/handover.md"
+    },
+    {
+      "actual_sha256": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "expected_sha256": "5f4904dcf5bdb62bd3962340e286ebb9016aab7b7339906fdaf72409a61aecbd",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/implement.md"
+    },
+    {
+      "actual_sha256": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "expected_sha256": "628805520881e7a2d50063e17cfe2f6b501bbfc8b412e46812cec32670ac127b",
+      "ok": true,
+      "path": "src/uados/assets/PROMPTS/research.md"
+    },
+    {
+      "actual_sha256": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "expected_sha256": "125de817d694a1ff0b6085dbe44e1357df4414ed09f69ef4698765a404884b16",
+      "ok": true,
+      "path": "src/uados/assets/README.md"
+    },
+    {
+      "actual_sha256": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "expected_sha256": "6788febce313b26b89f0f9b8a9b7f3fb50700b1d0066e09ac17e4cdb139dad96",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/README.md"
+    },
+    {
+      "actual_sha256": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "expected_sha256": "29d6810947ef5141b7bb4a15e03bcd107eb56554dbaf85599d090f71686de3f8",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/data_management.md"
+    },
+    {
+      "actual_sha256": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "expected_sha256": "9c7e55f80c0e8c0beaf37bafd67a61a4fc006658500e4681c48835355ebfa88d",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/innovation_policy.md"
+    },
+    {
+      "actual_sha256": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "expected_sha256": "1dc4fc7430ee3d3c30b0d5af69e96db3734b0115edf44462d83703aa8ad38cc0",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/publication.md"
+    },
+    {
+      "actual_sha256": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "expected_sha256": "78279ffba7ec3a8bc3dda02941539e7821fb4128c1ea5d782d587d4e70879f19",
+      "ok": true,
+      "path": "src/uados/assets/RESEARCH_MANAGEMENT/reproducibility.md"
+    },
+    {
+      "actual_sha256": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "expected_sha256": "60442c0bb24408554657be637dbe65ecddc2ceaba1b377f11c49cc564b539c44",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/adr.md"
+    },
+    {
+      "actual_sha256": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "expected_sha256": "73cf2917a3c27a2a3190c8cacb498b831df6b4e0ae129b2ea19013cb0ce261b6",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/experiment.md"
+    },
+    {
+      "actual_sha256": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "expected_sha256": "9c24f9657579cbf608c9f96530d93f4ec1d789a1bfded63ce4a9bb0867341afd",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/extension.md"
+    },
+    {
+      "actual_sha256": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "expected_sha256": "b6ac9d0e234eaf16a8934b02fb9af3770a63f421718cbe41192c336bcf73c967",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/handover.md"
+    },
+    {
+      "actual_sha256": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "expected_sha256": "906c5c8049fc3d8837c21de5a785bad8921388e501be52cc36a38069a82d64cb",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/literature.md"
+    },
+    {
+      "actual_sha256": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "expected_sha256": "c9ce6bc2a39059066973623ee83380708046a7ddc8fb79b58401408cbf75c111",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/review.md"
+    },
+    {
+      "actual_sha256": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "expected_sha256": "1f61b17575fda59028c1229344a73e16c33209c9555e4a8bbc5095c2057cb1c7",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/rfc.md"
+    },
+    {
+      "actual_sha256": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "expected_sha256": "e7d7ae6f82811c73fa54d7a712edff9e0af15259eb8f122fe997e1919fb31df1",
+      "ok": true,
+      "path": "src/uados/assets/TEMPLATES/task.md"
+    },
+    {
+      "actual_sha256": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "expected_sha256": "4fa4a93879f3cdbbd7715378f51a1bf2d9af1cd21aecca78a08239444ef9aa02",
+      "ok": true,
+      "path": "src/uados/assets/VERSION_CONTROL/README.md"
+    },
+    {
+      "actual_sha256": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "expected_sha256": "33adfa5b555f612cb41567ff01904da717205b66549235892c123d893dc54b93",
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "actual_sha256": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "expected_sha256": "fc38f72858802d6d04666b60df911439dd877af99bcfbf8fae1d44f304313a43",
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "actual_sha256": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "expected_sha256": "627d7f82b1ad76bd709907ab2d2a0d29a32b8cd70c27e9d604645dcde06d27e6",
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "actual_sha256": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "expected_sha256": "f71dfa1581c92f051ef85e456cb73c15e457527f840ea4c24793ef191f6f9c3e",
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "actual_sha256": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "expected_sha256": "51eb4d39754dddad657fd631f05c6f34ac8915befd3544f07c3096526631d433",
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "actual_sha256": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "expected_sha256": "d00373bae1bc89d6ccb052d865c0c3766de96d65a56754f7f4be8e22b2aef701",
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "actual_sha256": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "expected_sha256": "4ef840fde627c3fee56d2be2a6b44c908b143a0f6fc7fc9d0c5553ac4306adb3",
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "actual_sha256": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "expected_sha256": "e9e48096a4f0f6963eadb134d6051fc87314e4a187be82880ee13aff66c9e1ca",
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "actual_sha256": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "expected_sha256": "b463ecb3f9c4faddbe6b17b3af94e64a9d7c5e6b3d256b937fdf89056b1d353a",
+      "ok": true,
+      "path": "tests/test_adversarial.py"
+    },
+    {
+      "actual_sha256": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "expected_sha256": "d65e13bca3c4fa2832923787090a19ae1f2e17636dea3ed607634c31044d6b41",
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "actual_sha256": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "expected_sha256": "346cd0a673188004af160b7f03a46122057022e1045cee5e376a01fcdff03d56",
+      "ok": true,
+      "path": "tests/test_workflows.py"
+    },
+    {
+      "actual_sha256": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b",
+      "expected_sha256": "4960056cba37b9da276eb0a4f4582b59014894be5e3136498431daae499bd83b",
+      "ok": true,
+      "path": "scripts/run_examples.py"
+    },
+    {
+      "actual_sha256": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "expected_sha256": "7cbea7a78231c0b029e011977ff22cc1723ea14563a44b1cf752bbf816403c66",
+      "ok": true,
+      "path": "scripts/run_phase2_scenarios.py"
+    },
+    {
+      "actual_sha256": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf",
+      "expected_sha256": "48e50b98d84fc76b98a64d41ed96beac21d8dd7fffcceb58ed2e4d01db4739cf",
+      "ok": true,
+      "path": "scripts/uados.py"
+    },
+    {
+      "actual_sha256": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "expected_sha256": "df5a0358e018eaa8a048454796e0b0b1f6474cdaf131f20787ff140c337e0baf",
+      "ok": true,
+      "path": "scripts/verify_distribution.py"
+    },
+    {
+      "actual_sha256": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6",
+      "expected_sha256": "e08d41ad59162a64e165fefa2f56293259c245c3403da335c2b245287273c7d6",
+      "ok": true,
+      "path": "scripts/verify_scaffold.py"
+    },
+    {
+      "actual_sha256": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1",
+      "expected_sha256": "bcdf0963b2125cc6b753a86172d7415ec5e6d3610e64801d56812921e0ebc5a1",
+      "ok": true,
+      "path": "setup.cfg"
+    },
+    {
+      "actual_sha256": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f",
+      "expected_sha256": "aba583f14001385f864380cbaad9f2ac42d1e8275b9567d251558a04983fbe5f",
+      "ok": true,
+      "path": ".github/workflows/ci.yml"
+    },
+    {
+      "actual_sha256": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "expected_sha256": "010adb9f2b9c979722614d771ccafa3e5daca09308f826b0ae8e9460121857cd",
+      "ok": true,
+      "path": "AUDIT/phase2-tests-v3.txt"
+    },
+    {
+      "actual_sha256": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "expected_sha256": "44a26858ad909755392cc1d07fb9b2765c726809fee52078cb326386c757db36",
+      "ok": true,
+      "path": "AUDIT/phase2-runtime-validation-v3.json"
+    },
+    {
+      "actual_sha256": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "expected_sha256": "34e90317e67a3b8175720ff56e617f6f39369c5e2a2bb7b0a1cfc0f684d29ced",
+      "ok": true,
+      "path": "AUDIT/phase2-docs-v3.json"
+    },
+    {
+      "actual_sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "expected_sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "ok": true,
+      "path": "AUDIT/phase2-scaffold-v3.json"
+    },
+    {
+      "actual_sha256": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "expected_sha256": "3f13c9b5f00c377034cbda1640dc838012961eed843bcaa7416afc203d92af91",
+      "ok": true,
+      "path": "AUDIT/phase2-distribution-v3-final.json"
+    },
+    {
+      "actual_sha256": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268",
+      "expected_sha256": "208b7c05279eda6b4b9e6c440d1b4287ca85a3084d85c7a4808ac772c12a7268",
+      "ok": true,
+      "path": "AUDIT/phase2-baseline-preservation-v3.json"
+    },
+    {
+      "actual_sha256": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3",
+      "expected_sha256": "ee54ec1064398bf0c8e87c795b5dce0a1c398b2b91a345b6d678d488ec886ad3",
+      "ok": true,
+      "path": "EXAMPLES/phase2-snapshot-validation/summary.json"
+    },
+    {
+      "actual_sha256": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "expected_sha256": "91ffcdfa812269e48a5ff272492becc3a8c4857e2dc88934c761197155988175",
+      "ok": true,
+      "path": "AUDIT/phase2-final-report.md"
+    },
+    {
+      "actual_sha256": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "expected_sha256": "64fd9f3e3ff1e7a499144eeac9df3d75f1cd8005d5346f5bef7db0b481fffe2b",
+      "ok": true,
+      "path": "AUDIT/self_review.md"
+    },
+    {
+      "actual_sha256": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "expected_sha256": "09106c8a111ec6273455a568bdf28fb8c3e8fb8cba3adb71004da7a992d777de",
+      "ok": true,
+      "path": "AUDIT/scenario_test_report.md"
+    },
+    {
+      "actual_sha256": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "expected_sha256": "830d1f9702bac518c88692c5171e27065600862ebd9f88f1d70a35b7b401b397",
+      "ok": true,
+      "path": "AUDIT/phase2-modified-files.json"
+    },
+    {
+      "actual_sha256": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f",
+      "expected_sha256": "66a42e5a38ebbdad57c4c68eefbee0e09931568a07b90c5ed4daff71a48fce9f",
+      "ok": true,
+      "path": "AUDIT/phase2-architecture-s8-snapshot-probe-v1.json"
+    },
+    {
+      "actual_sha256": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24",
+      "expected_sha256": "e8018bad8f24567fa0b92aa1f06d386bdbfd10e472fda6511ebe752bb6c70b24",
+      "ok": true,
+      "path": "AUDIT/phase2-architecture-s8-snapshot-export-probe-v1.json"
+    }
+  ],
+  "manifest_sha256": "a48f8994ae1508f8feb6fe5ccae637273893c2888e64263ac4050955fae742a9",
+  "note": "Point-in-time independently executed nested validation; automatic evidence hashing alone does not perform these checks.",
+  "ok": true,
+  "runtime_nested_checks": [
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-tests-v3.txt"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-docs-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "AUDIT/phase2-scaffold-v3.json"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/__init__.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/__main__.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/cli.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/context.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/governance.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/orchestration.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/project.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/protocol.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/research.py"
+    },
+    {
+      "ok": true,
+      "path": "src/uados/storage.py"
+    },
+    {
+      "ok": true,
+      "path": "tests/test_phase2.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/verify_distribution.py"
+    },
+    {
+      "ok": true,
+      "path": "scripts/run_phase2_scenarios.py"
+    }
+  ],
+  "tested_source_current": true
+}

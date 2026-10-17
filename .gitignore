@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+.DS_Store
+**/.uados/lock
+**/.uados/ledger.sqlite3-journal
+**/.uados/ledger.sqlite3-wal
+**/.uados/ledger.sqlite3-shm
+# Exclude runtime ledger, large event journals and state
+**/.uados/ledger.sqlite3
+/.uados/
+.uados/runs/
+# Small fixture output evidence under EXAMPLES/generated is intentionally retained.
+

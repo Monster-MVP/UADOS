@@ -1,0 +1,175 @@
+{
+  "reviewer": "Phase3-Validation-Reviewer",
+  "session": "S000012",
+  "stage": "plan",
+  "observed_at": "2026-10-13T06:56:21.929285+00:00",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "ssh_keygen": "/usr/bin/ssh-keygen",
+    "ssh_version": {
+      "command": [
+        "/usr/bin/ssh",
+        "-V"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "OpenSSH_10.3p1, LibreSSL 3.3.6\n",
+      "seconds": 0.007108208000000005
+    }
+  },
+  "ephemeral_key_fingerprint": "256 SHA256:qaez7KYrw8aU4outUkYsMJG1FOldmE5kdVXp4rAGa8Y emonster@MonsterdeMac-mini.local (ED25519)",
+  "private_keys_external": true,
+  "ephemeral_directory_removed": true,
+  "checks": [
+    {
+      "name": "real_ed25519_signature",
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "sign",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/ephemeral",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Signing file /private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json\nWrite signature to /private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig\n",
+      "seconds": 0.008955875000000002
+    },
+    {
+      "name": "valid_signature",
+      "expected_success": true,
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/allowed",
+        "-I",
+        "phase3-test-reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig"
+      ],
+      "returncode": 0,
+      "stdout": "Good \"uados-checkpoint@uados.local\" signature for phase3-test-reviewer with ED25519 key SHA256:qaez7KYrw8aU4outUkYsMJG1FOldmE5kdVXp4rAGa8Y\n",
+      "stderr": "",
+      "seconds": 0.008415417000000008
+    },
+    {
+      "name": "wrong_principal",
+      "expected_success": false,
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/allowed",
+        "-I",
+        "unauthorized-reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig"
+      ],
+      "returncode": 255,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "",
+      "seconds": 0.009177707999999993
+    },
+    {
+      "name": "wrong_public_key",
+      "expected_success": false,
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/wrong",
+        "-I",
+        "phase3-test-reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig"
+      ],
+      "returncode": 255,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "",
+      "seconds": 0.010300832999999995
+    },
+    {
+      "name": "wrong_namespace",
+      "expected_success": false,
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/allowed",
+        "-I",
+        "phase3-test-reviewer",
+        "-n",
+        "unrelated-protocol",
+        "-s",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig"
+      ],
+      "returncode": 255,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "Couldn't verify signature: namespace does not match\r\n",
+      "seconds": 0.009502291999999996
+    },
+    {
+      "name": "tampered_payload",
+      "expected_success": false,
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/allowed",
+        "-I",
+        "phase3-test-reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig"
+      ],
+      "returncode": 255,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "Signature verification failed: incorrect signature\r\n",
+      "seconds": 0.009772124999999993
+    },
+    {
+      "name": "revoked_key",
+      "expected_success": false,
+      "command": [
+        "/usr/bin/ssh-keygen",
+        "-Y",
+        "verify",
+        "-f",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/allowed",
+        "-I",
+        "phase3-test-reviewer",
+        "-n",
+        "uados-checkpoint@uados.local",
+        "-s",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/checkpoint.json.sig",
+        "-r",
+        "/private/var/folders/xy/88szym4n3pj12cj8d54jh6lm0000gp/T/uados-independent-ssh-probe-x_egusbw/revoked"
+      ],
+      "returncode": 255,
+      "stdout": "Could not verify signature.\n",
+      "stderr": "",
+      "seconds": 0.009731750000000011
+    }
+  ],
+  "limits": [
+    "Host capability probe uses real OpenSSH, not a UADOS checkpoint implementation test.",
+    "No production keys, providers or hosted CI used."
+  ]
+}

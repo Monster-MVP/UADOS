@@ -1,0 +1,57 @@
+{
+  "task": "T000009",
+  "date": "2026-10-14",
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "full_suite": "111 tests passed; AUDIT/phase3-dispatch/tests-v2.txt",
+  "dispatch_suite": "8 tests passed; AUDIT/phase3-dispatch/dispatch-tests-v2.txt",
+  "scaffold": "passed; 16 required paths, 4 events, 47 packaged Markdown files",
+  "files": [
+    {
+      "path": "src/uados/dispatch.py",
+      "bytes": 8802,
+      "sha256": "2468a5b97a25b5b67c3940e3b2de81b67d63b21082037432af48ff298644fe0a"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 24521,
+      "sha256": "0e30e70d44653a8f43f3574fc59ff11a3ea057014834b8d6eb100a35a1c26545"
+    },
+    {
+      "path": "tests/test_dispatch.py",
+      "bytes": 7494,
+      "sha256": "0547ffe243d52166d1a1ba03c28f840c5d400f2936be2337256df7aec9c3b654"
+    },
+    {
+      "path": "docs/dispatch.md",
+      "bytes": 2210,
+      "sha256": "18b77d16ea8cb49c38b16af0a3a98b25b547e917591da23dec25bd1944f5a948"
+    },
+    {
+      "path": "AUDIT/phase3-dispatch/tests-v2.txt",
+      "bytes": 10432,
+      "sha256": "eecdf44df3c7426bbeae7fda8384f8306a6950777b5e49af4e85a7046ea4f725"
+    },
+    {
+      "path": "AUDIT/phase3-dispatch/dispatch-tests-v2.txt",
+      "bytes": 908,
+      "sha256": "3d25e75e885cce43b01988d7f57b8764a363858db8ef405fed9b8c555f35ba01"
+    },
+    {
+      "path": "AUDIT/phase3-dispatch/scaffold-v2.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    }
+  ],
+  "limits": [
+    "fake adapter only; no real provider/network/credentials",
+    "external receipt is operator-custody local output and rejects traversal/symlink paths",
+    "receipt hashes bind local bytes, not provider identity or scientific quality",
+    "timestamps are bounded timezone-aware local clock observations; no authenticity claim"
+  ],
+  "hardening": [
+    "verify_receipt applies the same external-path custody policy as run_dispatch",
+    "receipt timestamps require timezone offsets and ordered observations",
+    "malformed Unicode including unpaired surrogates returns clean UadosError/CLI exit 2"
+  ]
+}

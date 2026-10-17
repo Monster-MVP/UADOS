@@ -1,0 +1,10 @@
+{
+  "problem": "Opaque manifest evidence does not enforce referenced source bytes transitively; prior validation required manual nested checks.",
+  "background": "UADOS has stable evidence snapshots, live gates, history audits and export/rebuild. Preserve schema1, protocols and signed T7 checkpoint boundary.",
+  "alternatives": ["Keep manual manifest checks", "Flatten dependencies into top-level evidence only", "Introduce a new evidence registry/schema", "Add opt-in bounded manifest closure metadata through existing evidence hooks"],
+  "decision": "Use strict version1 reserved-suffix manifests with exact hash/byte entries, bounded cycle-safe closure and optional dependency metadata on root evidence records.",
+  "impact": "Existing plan/review/run/audit/export paths enforce captured dependency bytes; singular experiment config retains closure; ordinary and old evidence remains unchanged.",
+  "risk": "Local hashes and project lock do not prove authenticity or protect arbitrary OS writers; metadata needs matching newer runtime and graph size limits; failed commits can leave harmless orphan snapshot objects.",
+  "validation": "Nested/shared graph snapshots, strict malformed/path/size/cycle/conflict refusal, zero partial events, leaf mutation workflow gates, history corruption and export/rebuild retention, full91regression and independent plan/result debate.",
+  "evidence": ["AUDIT/phase3-manifests/plan-v1.md", "AUDIT/phase3-baseline-report.md"]
+}

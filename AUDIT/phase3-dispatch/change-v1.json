@@ -1,0 +1,10 @@
+{
+  "problem": "Provider-neutral role packets have no executable adapter or tamper-evident request/response receipt.",
+  "background": "Phase2 orchestration deliberately avoids provider invocation; trust and recursive evidence increments are complete and must remain stable.",
+  "alternatives": ["Keep packet-only orchestration", "Invoke arbitrary provider CLIs", "Add a hosted dispatch service", "Add a strict local fake adapter and receipt boundary"],
+  "decision": "Add a canonical bounded request/receipt interface with only a deterministic local fake provider; defer real clients and credentials.",
+  "impact": "Teams can validate dispatch receipt mechanics and register receipts as ordinary evidence without ledger/schema migration or provider claims.",
+  "risk": "Fake execution does not establish provider compatibility, model identity, network reliability or organizational authorization; external receipt paths remain local operator custody.",
+  "validation": "Real CLI request/receipt/tamper/overwrite/path/unknown-provider tests, no-ledger-mutation failure checks, full regression and scaffold.",
+  "evidence": ["AUDIT/phase3-dispatch/plan-v1.md", "AUDIT/phase3-baseline-report.md"]
+}

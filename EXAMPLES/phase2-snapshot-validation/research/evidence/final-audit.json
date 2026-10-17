@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "event_count": 111,
+  "head_hash": "fb9fab4af766e46b5ef0f2e621c7da65a661a1716ba7cc56b8a643eb98775e4d",
+  "projection_drift": [],
+  "repaired": [],
+  "errors": [],
+  "warnings": [],
+  "protocol_version": 2,
+  "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+  "history_ok": true,
+  "historical_evidence_drift": [],
+  "archived_originals": [],
+  "evidence_records_checked": 7,
+  "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+  "improvement_candidates": []
+}

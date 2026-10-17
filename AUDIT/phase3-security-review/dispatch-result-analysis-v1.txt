@@ -1,0 +1,15 @@
+Independent T000009 result analysis by Phase3-Security-Reviewer, S000011, 2026-10-14.
+
+I inspected validation-v1, dispatch.py, CLI/tests/docs and ran disposable-project probes against source hash a3a4df82eded244ede71eff0a410a6df3eb72e3bc281f0c4c45b927fb286c42a. The fake adapter correctly uses no subprocess/network/credential APIs in source inspection, produces deterministic response hashes, leaves the project ledger unchanged, and rejects ordinary internal output, existing output and request drift in the supplied tests.
+
+Blocking findings for submitted revision3:
+
+1. verify_receipt accepts a receipt path containing `..` when the normalized path exists. `_external_output` is only used when the receipt path does not exist; the existing-path branch uses `Path(receipt).absolute()` and only checks `is_relative_to(project.root)`, so `base/sub/../receipt.json` verifies successfully. The result probe dispatch-result-probes-v2.json records this.
+
+2. verify_receipt accepts a project-internal receipt through an external symlinked parent. The existing-path branch checks `receipt_path.is_relative_to(project.root)` lexically but does not resolve the final path or reject symlink ancestors. A symlink `alias -> project` permits `alias/copied.json` to verify successfully. The same probe records this. This violates the plan’s internal/symlink path boundary and can read mutable project files as external custody.
+
+3. Timestamp validation is only nonempty string and length bounded. A receipt with started_at/ended_at `bad` verifies successfully. If timestamps are intended as observation metadata, they should still use a strict documented format or the schema must explicitly say arbitrary opaque labels are accepted.
+
+4. A valid canonical JSON request containing an escaped unpaired surrogate raises raw UnicodeEncodeError while `_fake` canonicalizes input, instead of returning a controlled UadosError/CLI failure. This is a malformed-input robustness gap and can bypass the documented explicit failure contract.
+
+The source/tests do support deterministic fake-only mechanics and no ledger mutation, but these path and malformed-input issues require changes and fresh result debate/evidence. I request changes; no provider identity, network delivery, credentials, authorization, remote custody, retry/idempotency or scientific quality claim is supported.

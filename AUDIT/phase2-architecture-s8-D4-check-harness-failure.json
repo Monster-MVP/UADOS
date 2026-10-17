@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "AUDIT/phase2-architecture-s8-D4-check.py"
+  ],
+  "exit_code": 1,
+  "error": "ValueError: too many values to unpack (expected 2)",
+  "root_cause": "Independent verifier incorrectly unpacked Project.read(); API returns state,events,projection drift. No runtime product failure.",
+  "correction": "New versioned verifier unpacks all three values; initial script/output preserved."
+}

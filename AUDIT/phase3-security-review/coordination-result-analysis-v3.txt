@@ -1,0 +1,13 @@
+# T000010 / D000017 independent security result analysis
+
+Reviewer: Phase3-Security-Reviewer (S000011)
+Task revision: 5 (hardening-v3)
+Verdict: approve, bounded to the recorded local contract
+
+Revision 5 resolves the prior result blockers. The source hash `416431156f6152019f0e42cbe0ef5069e5829b8c8dc855a38378b9446cb7fa8c` matches validation-v3. `_ttl` and the new finite-number helper convert oversized integers to `InvalidLeaseError`; `_complete` validates resource, holder, nonce and backend strings before map access and validates huge issued_at/expires_at values without raw overflow. My direct probes confirm clean rejection for huge TTL, huge issued_at, huge expires_at and unhashable resource. Evidence: `AUDIT/phase3-security-review/coordination-result-negative-probes-v3.json` (SHA-256 `4ae0d011b28bb9596b36fceebbda665baf59a95a45d679d1aa0c692d843a89d4`).
+
+The focused coordination suite passes 5/5 (coordination-tests-v3). It covers contention, expiry takeover, monotonic fencing, renewal/release stale rejection, exact expiry, rollback/NaN clocks, resource isolation and malformed inputs. The independent temporary-project benchmark probe confirms SQLite URI `mode=ro`, `ledger_mutated:false`, unchanged ledger/state/events bytes, matching event head and event count. Validation-v3 records 116 full tests, 5 focused tests, scaffold and benchmark-v3; the full suite is local macOS/Python evidence and took 424.353s.
+
+Approval scope and limits
+
+Approve only the additive process-local `MemoryLeaseBackend` semantics and read-only SQLite history baseline at revision 5. Fencing numbers remain opaque cooperative values that a future protected resource must enforce. The implementation does not authenticate holder identity, make tokens non-forgeable, persist fences durably, coordinate across hosts, synchronize clocks, survive crashes or partitions, ensure remote availability, exclude arbitrary OS writers or integrate task leases/schema. Benchmark timing is a local observation and not a capacity, reliability or distributed-safety claim. Any durable/remote adapter or protected-resource enforcement requires a separately reviewed task.

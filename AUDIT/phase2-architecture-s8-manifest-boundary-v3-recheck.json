@@ -1,0 +1,10 @@
+{
+  "claim_succeeded_after_out_of_scope_change": true,
+  "independent_mechanical_fixture": true,
+  "manifest_bytes_unchanged": true,
+  "mechanism": "Declared acceptance scope and ordinary evidence protect manifest bytes; referenced sibling implementation hashes require explicit independent rechecking.",
+  "not_real_debate": true,
+  "passed": true,
+  "resolution_for_actual_T6": "No claim of automatic recursive manifest enforcement. Recheck all81 listed hashes and tested source equality at final result acceptance; reject any mismatch.",
+  "subordinate_source_hash_changed": true
+}

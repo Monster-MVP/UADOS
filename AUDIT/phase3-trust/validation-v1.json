@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-13",
+  "task": "T000007",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 0,
+      "tests": 91,
+      "seconds": 86.654,
+      "output": "AUDIT/phase3-trust/tests-v1.txt"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/verify_scaffold.py"
+      ],
+      "exit": 0,
+      "output": "AUDIT/phase3-trust/scaffold-v1.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "src/uados/trust.py",
+      "bytes": 12910,
+      "sha256": "3813cb8765612a60676ea4caf3b32b731062f9a3317a1b615540008cda1fc0c9"
+    },
+    {
+      "path": "src/uados/cli.py",
+      "bytes": 23591,
+      "sha256": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8"
+    },
+    {
+      "path": "tests/test_trust.py",
+      "bytes": 13989,
+      "sha256": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1"
+    },
+    {
+      "path": "docs/trust.md",
+      "bytes": 6370,
+      "sha256": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+    },
+    {
+      "path": "AUDIT/phase3-trust/tests-v1.txt",
+      "bytes": 8502,
+      "sha256": "177f6f935631f2829d39b130567ef73aeedcf7afdfa81532f5e1cf8ce122fe9d"
+    },
+    {
+      "path": "AUDIT/phase3-trust/scaffold-v1.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7"
+    },
+    {
+      "path": "AUDIT/phase3-trust/root-anchor-v1.json",
+      "bytes": 10728,
+      "sha256": "fb132759443e8fc92b4d4d41ef948b9b13c912df710dd0e35cbd46e14fd4b06c"
+    }
+  ],
+  "legacy_frozen_preservation": {
+    "count": 81,
+    "path": "AUDIT/phase3-trust/baseline-v1/preserved-manifest.json",
+    "original_byte_preserved": true,
+    "evolved_maintained_file": "src/uados/cli.py"
+  },
+  "scope": "Optional source-checkout SSHSIG trust commands; not a new published release or complete Phase3",
+  "limits": [
+    "External newest pin and authorization/revocation policy remain operator trust",
+    "No agent-label enrollment, provider invocation, hosted CI or distributed latest-state claim",
+    "Signed audit is historical signer assertion; current audit separate",
+    "Four Phase2 historical originals remain lost and disclosed"
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-13",
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "task": "T000008",
+  "revision": 4,
+  "result_fingerprint": "526e86f1ad639d5b200c67daeb1be3e51fec7e54f1f0b7b59bf7875fe01d98b1",
+  "scope_count": 22,
+  "scope_matches_submission": true,
+  "validation_v3_files": [
+    {
+      "path": "src/uados/manifests.py",
+      "bytes": 15033,
+      "sha256": "172c5f25589b218b19070e60ff29c9ab493f4dec2bab86d09b463d503b7ae169",
+      "matches": true
+    },
+    {
+      "path": "src/uados/storage.py",
+      "bytes": 11851,
+      "sha256": "a818e1a5f6f73ccaed4888e059f0ce09156cacd7ab14b894d157ef24232a5d6d",
+      "matches": true
+    },
+    {
+      "path": "src/uados/project.py",
+      "bytes": 45486,
+      "sha256": "dc9e0e6357c4421853b5a4542d77871512e0d855412fca666db838cf967db1c4",
+      "matches": true
+    },
+    {
+      "path": "src/uados/protocol.py",
+      "bytes": 5447,
+      "sha256": "127796155e42b2e21d48b73f1490ed0aa4cdc044815c6e28e126bd20f1989955",
+      "matches": true
+    },
+    {
+      "path": "tests/test_manifests.py",
+      "bytes": 8830,
+      "sha256": "5374dec28c65f3c59f250a22a57dd447c06f04f7137279c4adc5fd137d11f72a",
+      "matches": true
+    },
+    {
+      "path": "docs/manifests.md",
+      "bytes": 2295,
+      "sha256": "430773b7dc3c1dcca6f0c19822db2106d2c6587a4a842c888bc2bc83e67b411c",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-manifests/tests-v5.txt",
+      "bytes": 9670,
+      "sha256": "811390740f866ffeb9d5d22901a7f5a8541fc18cdcd156c135343d9dac956331",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-manifests/manifest-tests-v3.txt",
+      "bytes": 1266,
+      "sha256": "e4879a1824f8a0dd9d70a672e4324cfa4011ae1b9eba36a95f1bd28ddcfcc8f3",
+      "matches": true
+    },
+    {
+      "path": "AUDIT/phase3-manifests/scaffold-v2.json",
+      "bytes": 89,
+      "sha256": "00e4b0ecb625c65c25bf2d0a38ec62555e7ed4e121313f180c879f68fec36ef7",
+      "matches": true
+    }
+  ],
+  "all_task_debate_evidence_live_and_snapshot_valid": true,
+  "audit": {
+    "ok": true,
+    "event_count": 500,
+    "head_hash": "a85ae1fce3d1aac9e98488c2e8a334fcb0c68d0d99f4401fe304e45ee8f44443",
+    "projection_drift": [],
+    "repaired": [],
+    "errors": [],
+    "warnings": [
+      "Completed task scope has changed since validation: T000001",
+      "Completed task scope has changed since validation: T000002",
+      "Completed task scope has changed since validation: T000003",
+      "Completed task scope has changed since validation: T000004",
+      "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+      "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+      "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+      "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)"
+    ],
+    "protocol_version": 2,
+    "integrity_limit": "Local consistency check; the hash chain is not authenticated against a trusted external anchor.",
+    "history_ok": false,
+    "historical_evidence_drift": [
+      {
+        "path": "AUDIT/phase2-validation-manifest.json",
+        "sha256": "425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest.json"
+        ]
+      },
+      {
+        "path": "AUDIT/phase2-docs-integration-validation.json",
+        "sha256": "654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-docs-integration-validation.json"
+        ]
+      },
+      {
+        "path": "AUDIT/phase2-distribution-final.json",
+        "sha256": "2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-distribution-final.json"
+        ]
+      },
+      {
+        "path": "AUDIT/phase2-validation-manifest-v2.json",
+        "sha256": "d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2",
+        "snapshot": null,
+        "problems": [
+          "Evidence changed: AUDIT/phase2-validation-manifest-v2.json"
+        ]
+      }
+    ],
+    "archived_originals": [],
+    "evidence_records_checked": 114,
+    "audit_scope": "ok covers current bindings and all promised snapshots; history_ok separately covers legacy original-byte availability",
+    "improvement_candidates": [
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-distribution-final.json (SHA-256 2599c1967f4d51a0f8ce2d9d5caacb3f39f4715352614eab22d49bbf66bd09b2)",
+        "fingerprint": "15aad5014f1077043d157f90de49849f361474af0f82af1995d02025c7498e51",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      },
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-docs-integration-validation.json (SHA-256 654231d0eb41dee4af1288d16050a0c6609bd204e0f30ddf73e7e8fcc2d1228d)",
+        "fingerprint": "70170f87d750178e6143f765f47933ecbcd4903b8795b1491d0ea307065aadd1",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      },
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest-v2.json (SHA-256 d9d42df957c88598421c7e2a0e4e104383d8dcd722b5e23162e45c7689b18ca2)",
+        "fingerprint": "b839caad31cf2fbeb53ab53b148e8b50b087b3f0f4a50e5c190d154f99a9d650",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      },
+      {
+        "problem": "Unrecoverable historical evidence: AUDIT/phase2-validation-manifest.json (SHA-256 425d16dfeb34addeea1f6178bf5832955137e25d350e382d25feeaa7bdfe8e3c)",
+        "fingerprint": "ae30cfcf41368fe057ef01a5fc2538fde5fd0c3635836565490d034e53821781",
+        "root_cause": "Undetermined; investigate the recorded condition before assigning cause.",
+        "improvement": "Restore missing evidence or context, resolve ownership/run state, or add a bounded workflow rule after review.",
+        "implementation": "Proposed only; no source modification or automated remediation.",
+        "future_prevention": "Preserve a reproducer and validate an owned change before marking the finding resolved."
+      }
+    ]
+  },
+  "source_limits": [
+    "Independent bounded metadata and patched limit probes bind final172c5f source; full103 root run and focused12 reviewers cover final revision.",
+    "Growing-file, power-loss, arbitrary OS writer, remote freshness/authenticity and large-history throughput remain unvalidated or excluded.",
+    "Only declared graph consistency and retention; ordinary opaque evidence unchanged; matching newer runtime required."
+  ]
+}

@@ -1,0 +1,523 @@
+{
+  "adoption_preserved": [],
+  "counters": {
+    "N": 1,
+    "S": 3,
+    "T": 1
+  },
+  "decisions": [],
+  "experiments": {},
+  "handovers": [
+    {
+      "agent": "Example-Builder",
+      "at": "2026-10-12T09:01:03.306941+00:00",
+      "blockers": [],
+      "failed": [
+        "Implicit integer coercion rejected"
+      ],
+      "next": [
+        "Decide whether to expand the numeric contract"
+      ],
+      "released": [],
+      "session": "S000001",
+      "summary": "Reviewed function complete"
+    },
+    {
+      "agent": "Example-Reviewer",
+      "at": "2026-10-12T09:01:03.315120+00:00",
+      "blockers": [],
+      "failed": [],
+      "next": [
+        "Review any future contract expansion"
+      ],
+      "released": [],
+      "session": "S000002",
+      "summary": "Independent review complete"
+    },
+    {
+      "agent": "Example-Successor",
+      "at": "2026-10-12T09:01:03.346262+00:00",
+      "blockers": [],
+      "failed": [],
+      "next": [
+        "Await the next requested feature"
+      ],
+      "released": [],
+      "session": "S000003",
+      "summary": "Recovered completed work and rejected approach"
+    }
+  ],
+  "mode": "software",
+  "mode_detection": {
+    "confidence": "default-low",
+    "override": true,
+    "research_evidence": [],
+    "selected": "software",
+    "software_evidence": []
+  },
+  "name": "Portable software example",
+  "notes": [
+    {
+      "agent": "Example-Builder",
+      "at": "2026-10-12T09:01:03.296805+00:00",
+      "body": "Rejected coercing arguments to int: it silently truncates fractions and changes caller semantics",
+      "id": "N000001",
+      "kind": "failure",
+      "title": "Rejected approach"
+    }
+  ],
+  "objective": "Implement a reviewed function and hand off to another agent",
+  "phase": "maintenance",
+  "review_quorum": 1,
+  "schema_version": 1,
+  "sessions": {
+    "S000001": {
+      "acknowledged": true,
+      "agent": "Example-Builder",
+      "closed_at": "2026-10-12T09:01:03.306935+00:00",
+      "context_fingerprint": "45f931ab31b2f69a5eab2ffcb4a902ce491d99ac8a5cbe875b75ddde9f3a04ad",
+      "current_report_hash": "4fbfc3adde7b95375a42314c1df66c3176114b35b5ca885ca48339a3f019b185",
+      "id": "S000001",
+      "reports": [
+        {
+          "content": {
+            "agent": "Example-Builder",
+            "architecture": "# Project architecture and resource map\n\nThis is a maintained document. Replace the prompts with project facts as they become known. Label proposed designs and unverified assumptions; do not fill gaps with invented components.\n\n## Objective and system boundary\n\n- Outcome the project must deliver:\n- Intended users or research question:\n- Included responsibilities:\n- External systems and excluded responsibilities:\n- Current phase and next milestone (reference `PROJECT_STATE.md`):\n\n## Components and information flow\n\n| Component or research stage | Responsibility | Inputs and outputs | Owner or task | Failure boundary |\n| --- | --- | --- | --- | --- |\n| To be established | | | | |\n\nDocument interface contracts, data formats and paths. Include a small diagram when it resolves an ambiguity. For a research project, describe the path from acquisition and preprocessing to experiment, analysis and publication; for software, describe request/data flow and persistent state.\n\n## Decisions and constraints\n\nLink applicable ADRs or decision IDs. Record why the current architecture fits the workload, what alternatives were rejected, and which observations would trigger reconsideration.\n\n- Compatibility and environment constraints:\n- Data consistency or measurement assumptions:\n- Security and privacy boundaries:\n- Performance or resource budgets:\n- Known limitations and unresolved questions:\n\n## Available resources\n\n| Resource | Version or identifier | Access and availability | Reproduction or replacement |\n| --- | --- | --- | --- |\n| Runtime / dependencies | | | |\n| Compute / instruments | | | |\n| Data / external service | | | |\n\nAvailability is a current observation, not a permanent guarantee. State who can authorize access and how to detect an unavailable resource. Keep credentials and confidential raw values outside this document.\n\n## Validation and recovery\n\nReference the project's meaningful validation commands, experiment protocols, backup procedure and recovery limitations. Update this map when boundaries change, and record the rationale through a tracked decision rather than silently replacing the historical explanation.\n",
+            "available_resources": [
+              "AGENTS.md",
+              "AUDIT/README.md",
+              "DECISION_RECORD.md",
+              "DEVELOPMENT_LOG.md",
+              "ENGINEERING_RULES/README.md",
+              "ENGINEERING_RULES/extensions.md",
+              "ENGINEERING_RULES/quality.md",
+              "ENGINEERING_RULES/security.md",
+              "ENGINEERING_RULES/software.md",
+              "MASTER_AGENT_WORKFLOW.md",
+              "MULTI_AGENT_SYSTEM/README.md",
+              "MULTI_AGENT_SYSTEM/review_protocol.md",
+              "MULTI_AGENT_SYSTEM/roles.md",
+              "PROJECT_MEMORY/README.md",
+              "PROJECT_MEMORY/architecture.md",
+              "PROJECT_MEMORY/knowledge.md",
+              "PROJECT_MEMORY/tasks.md",
+              "PROJECT_STATE.md",
+              "README.md",
+              "RESEARCH_MANAGEMENT/README.md",
+              "RESEARCH_MANAGEMENT/data_management.md",
+              "RESEARCH_MANAGEMENT/experiments.md",
+              "RESEARCH_MANAGEMENT/publication.md",
+              "RESEARCH_MANAGEMENT/reproducibility.md",
+              "SESSION_HANDOVER.md",
+              "VERSION_CONTROL/README.md"
+            ],
+            "completed_tasks": [],
+            "context_fingerprint": "35761428e93f00d61256335d6b0730da6d7282d1d05406dc2849756189b964a9",
+            "current_problems": [],
+            "decisions": [],
+            "failed_approaches": [],
+            "known_risks": [],
+            "latest_handover": null,
+            "mode": "software",
+            "objective": "Implement a reviewed function and hand off to another agent",
+            "phase": "planning",
+            "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension.",
+            "recommended_next_actions": [
+              "Review the latest handover; define the next task with scope, dependencies and acceptance evidence."
+            ],
+            "title": "PROJECT UNDERSTANDING REPORT"
+          },
+          "hash": "bae348354b9cd4f26cb50612e65b4b0c4a29bc08a81019cd7bfb339e94649486",
+          "path": "PROJECT_MEMORY/session_reports/S000001-bae348354b9c.md"
+        },
+        {
+          "content": {
+            "agent": "Example-Builder",
+            "architecture": "# Project architecture and resource map\n\nThis is a maintained document. Replace the prompts with project facts as they become known. Label proposed designs and unverified assumptions; do not fill gaps with invented components.\n\n## Objective and system boundary\n\n- Outcome the project must deliver:\n- Intended users or research question:\n- Included responsibilities:\n- External systems and excluded responsibilities:\n- Current phase and next milestone (reference `PROJECT_STATE.md`):\n\n## Components and information flow\n\n| Component or research stage | Responsibility | Inputs and outputs | Owner or task | Failure boundary |\n| --- | --- | --- | --- | --- |\n| To be established | | | | |\n\nDocument interface contracts, data formats and paths. Include a small diagram when it resolves an ambiguity. For a research project, describe the path from acquisition and preprocessing to experiment, analysis and publication; for software, describe request/data flow and persistent state.\n\n## Decisions and constraints\n\nLink applicable ADRs or decision IDs. Record why the current architecture fits the workload, what alternatives were rejected, and which observations would trigger reconsideration.\n\n- Compatibility and environment constraints:\n- Data consistency or measurement assumptions:\n- Security and privacy boundaries:\n- Performance or resource budgets:\n- Known limitations and unresolved questions:\n\n## Available resources\n\n| Resource | Version or identifier | Access and availability | Reproduction or replacement |\n| --- | --- | --- | --- |\n| Runtime / dependencies | | | |\n| Compute / instruments | | | |\n| Data / external service | | | |\n\nAvailability is a current observation, not a permanent guarantee. State who can authorize access and how to detect an unavailable resource. Keep credentials and confidential raw values outside this document.\n\n## Validation and recovery\n\nReference the project's meaningful validation commands, experiment protocols, backup procedure and recovery limitations. Update this map when boundaries change, and record the rationale through a tracked decision rather than silently replacing the historical explanation.\n",
+            "available_resources": [
+              "AGENTS.md",
+              "AUDIT/README.md",
+              "DECISION_RECORD.md",
+              "DEVELOPMENT_LOG.md",
+              "ENGINEERING_RULES/README.md",
+              "ENGINEERING_RULES/extensions.md",
+              "ENGINEERING_RULES/quality.md",
+              "ENGINEERING_RULES/security.md",
+              "ENGINEERING_RULES/software.md",
+              "MASTER_AGENT_WORKFLOW.md",
+              "MULTI_AGENT_SYSTEM/README.md",
+              "MULTI_AGENT_SYSTEM/review_protocol.md",
+              "MULTI_AGENT_SYSTEM/roles.md",
+              "PROJECT_MEMORY/README.md",
+              "PROJECT_MEMORY/architecture.md",
+              "PROJECT_MEMORY/knowledge.md",
+              "PROJECT_MEMORY/tasks.md",
+              "PROJECT_STATE.md",
+              "README.md",
+              "RESEARCH_MANAGEMENT/README.md",
+              "RESEARCH_MANAGEMENT/data_management.md",
+              "RESEARCH_MANAGEMENT/experiments.md",
+              "RESEARCH_MANAGEMENT/publication.md",
+              "RESEARCH_MANAGEMENT/reproducibility.md",
+              "SESSION_HANDOVER.md",
+              "VERSION_CONTROL/README.md"
+            ],
+            "completed_tasks": [],
+            "context_fingerprint": "d5a7a9d0664c9940e39d9b371ae45052d21c55e951218f8a89e29fe34df82aa4",
+            "current_problems": [],
+            "decisions": [],
+            "failed_approaches": [],
+            "known_risks": [
+              "T000001: major work requires independent plan and result reviews"
+            ],
+            "latest_handover": null,
+            "mode": "software",
+            "objective": "Implement a reviewed function and hand off to another agent",
+            "phase": "planning",
+            "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension.",
+            "recommended_next_actions": [
+              "T000001: Add integers"
+            ],
+            "title": "PROJECT UNDERSTANDING REPORT"
+          },
+          "hash": "56c6ad29d2c00623932f50ecb0dca793b8dc7fe2e4c118bb9a6c6195a03567ce",
+          "path": "PROJECT_MEMORY/session_reports/S000001-56c6ad29d2c0.md"
+        },
+        {
+          "content": {
+            "agent": "Example-Builder",
+            "architecture": "# Project architecture and resource map\n\nThis is a maintained document. Replace the prompts with project facts as they become known. Label proposed designs and unverified assumptions; do not fill gaps with invented components.\n\n## Objective and system boundary\n\n- Outcome the project must deliver:\n- Intended users or research question:\n- Included responsibilities:\n- External systems and excluded responsibilities:\n- Current phase and next milestone (reference `PROJECT_STATE.md`):\n\n## Components and information flow\n\n| Component or research stage | Responsibility | Inputs and outputs | Owner or task | Failure boundary |\n| --- | --- | --- | --- | --- |\n| To be established | | | | |\n\nDocument interface contracts, data formats and paths. Include a small diagram when it resolves an ambiguity. For a research project, describe the path from acquisition and preprocessing to experiment, analysis and publication; for software, describe request/data flow and persistent state.\n\n## Decisions and constraints\n\nLink applicable ADRs or decision IDs. Record why the current architecture fits the workload, what alternatives were rejected, and which observations would trigger reconsideration.\n\n- Compatibility and environment constraints:\n- Data consistency or measurement assumptions:\n- Security and privacy boundaries:\n- Performance or resource budgets:\n- Known limitations and unresolved questions:\n\n## Available resources\n\n| Resource | Version or identifier | Access and availability | Reproduction or replacement |\n| --- | --- | --- | --- |\n| Runtime / dependencies | | | |\n| Compute / instruments | | | |\n| Data / external service | | | |\n\nAvailability is a current observation, not a permanent guarantee. State who can authorize access and how to detect an unavailable resource. Keep credentials and confidential raw values outside this document.\n\n## Validation and recovery\n\nReference the project's meaningful validation commands, experiment protocols, backup procedure and recovery limitations. Update this map when boundaries change, and record the rationale through a tracked decision rather than silently replacing the historical explanation.\n",
+            "available_resources": [
+              "AGENTS.md",
+              "AUDIT/README.md",
+              "DECISION_RECORD.md",
+              "DEVELOPMENT_LOG.md",
+              "ENGINEERING_RULES/README.md",
+              "ENGINEERING_RULES/extensions.md",
+              "ENGINEERING_RULES/quality.md",
+              "ENGINEERING_RULES/security.md",
+              "ENGINEERING_RULES/software.md",
+              "MASTER_AGENT_WORKFLOW.md",
+              "MULTI_AGENT_SYSTEM/README.md",
+              "MULTI_AGENT_SYSTEM/review_protocol.md",
+              "MULTI_AGENT_SYSTEM/roles.md",
+              "PROJECT_MEMORY/README.md",
+              "PROJECT_MEMORY/architecture.md",
+              "PROJECT_MEMORY/knowledge.md",
+              "PROJECT_MEMORY/tasks.md",
+              "PROJECT_STATE.md",
+              "README.md",
+              "RESEARCH_MANAGEMENT/README.md",
+              "RESEARCH_MANAGEMENT/data_management.md",
+              "RESEARCH_MANAGEMENT/experiments.md",
+              "RESEARCH_MANAGEMENT/publication.md",
+              "RESEARCH_MANAGEMENT/reproducibility.md",
+              "SESSION_HANDOVER.md",
+              "VERSION_CONTROL/README.md"
+            ],
+            "completed_tasks": [],
+            "context_fingerprint": "e146d3a16526fd950506254b1c4906d38d5be4c19b3a7c2f5eac9d903794faa9",
+            "current_problems": [],
+            "decisions": [],
+            "failed_approaches": [],
+            "known_risks": [
+              "T000001: major work requires independent plan and result reviews"
+            ],
+            "latest_handover": null,
+            "mode": "software",
+            "objective": "Implement a reviewed function and hand off to another agent",
+            "phase": "execution",
+            "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension.",
+            "recommended_next_actions": [
+              "T000001: Add integers"
+            ],
+            "title": "PROJECT UNDERSTANDING REPORT"
+          },
+          "hash": "4fbfc3adde7b95375a42314c1df66c3176114b35b5ca885ca48339a3f019b185",
+          "path": "PROJECT_MEMORY/session_reports/S000001-4fbfc3adde7b.md"
+        }
+      ],
+      "started_at": "2026-10-12T09:01:03.106038+00:00",
+      "status": "closed"
+    },
+    "S000002": {
+      "acknowledged": true,
+      "agent": "Example-Reviewer",
+      "closed_at": "2026-10-12T09:01:03.315115+00:00",
+      "context_fingerprint": "e146d3a16526fd950506254b1c4906d38d5be4c19b3a7c2f5eac9d903794faa9",
+      "current_report_hash": "8e16a45d3a0cfc6811a1bcf8079050d03d8b716210c25d747492113ad77097c9",
+      "id": "S000002",
+      "reports": [
+        {
+          "content": {
+            "agent": "Example-Reviewer",
+            "architecture": "# Project architecture and resource map\n\nThis is a maintained document. Replace the prompts with project facts as they become known. Label proposed designs and unverified assumptions; do not fill gaps with invented components.\n\n## Objective and system boundary\n\n- Outcome the project must deliver:\n- Intended users or research question:\n- Included responsibilities:\n- External systems and excluded responsibilities:\n- Current phase and next milestone (reference `PROJECT_STATE.md`):\n\n## Components and information flow\n\n| Component or research stage | Responsibility | Inputs and outputs | Owner or task | Failure boundary |\n| --- | --- | --- | --- | --- |\n| To be established | | | | |\n\nDocument interface contracts, data formats and paths. Include a small diagram when it resolves an ambiguity. For a research project, describe the path from acquisition and preprocessing to experiment, analysis and publication; for software, describe request/data flow and persistent state.\n\n## Decisions and constraints\n\nLink applicable ADRs or decision IDs. Record why the current architecture fits the workload, what alternatives were rejected, and which observations would trigger reconsideration.\n\n- Compatibility and environment constraints:\n- Data consistency or measurement assumptions:\n- Security and privacy boundaries:\n- Performance or resource budgets:\n- Known limitations and unresolved questions:\n\n## Available resources\n\n| Resource | Version or identifier | Access and availability | Reproduction or replacement |\n| --- | --- | --- | --- |\n| Runtime / dependencies | | | |\n| Compute / instruments | | | |\n| Data / external service | | | |\n\nAvailability is a current observation, not a permanent guarantee. State who can authorize access and how to detect an unavailable resource. Keep credentials and confidential raw values outside this document.\n\n## Validation and recovery\n\nReference the project's meaningful validation commands, experiment protocols, backup procedure and recovery limitations. Update this map when boundaries change, and record the rationale through a tracked decision rather than silently replacing the historical explanation.\n",
+            "available_resources": [
+              "AGENTS.md",
+              "AUDIT/README.md",
+              "DECISION_RECORD.md",
+              "DEVELOPMENT_LOG.md",
+              "ENGINEERING_RULES/README.md",
+              "ENGINEERING_RULES/extensions.md",
+              "ENGINEERING_RULES/quality.md",
+              "ENGINEERING_RULES/security.md",
+              "ENGINEERING_RULES/software.md",
+              "MASTER_AGENT_WORKFLOW.md",
+              "MULTI_AGENT_SYSTEM/README.md",
+              "MULTI_AGENT_SYSTEM/review_protocol.md",
+              "MULTI_AGENT_SYSTEM/roles.md",
+              "PROJECT_MEMORY/README.md",
+              "PROJECT_MEMORY/architecture.md",
+              "PROJECT_MEMORY/knowledge.md",
+              "PROJECT_MEMORY/tasks.md",
+              "PROJECT_STATE.md",
+              "README.md",
+              "RESEARCH_MANAGEMENT/README.md",
+              "RESEARCH_MANAGEMENT/data_management.md",
+              "RESEARCH_MANAGEMENT/experiments.md",
+              "RESEARCH_MANAGEMENT/publication.md",
+              "RESEARCH_MANAGEMENT/reproducibility.md",
+              "SESSION_HANDOVER.md",
+              "VERSION_CONTROL/README.md"
+            ],
+            "completed_tasks": [],
+            "context_fingerprint": "92acae7507e1d56447ec804e266659f06c550c3c50653e4e1ec23c339d7fc8c7",
+            "current_problems": [],
+            "decisions": [],
+            "failed_approaches": [],
+            "known_risks": [
+              "T000001: major work requires independent plan and result reviews"
+            ],
+            "latest_handover": null,
+            "mode": "software",
+            "objective": "Implement a reviewed function and hand off to another agent",
+            "phase": "planning",
+            "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension.",
+            "recommended_next_actions": [
+              "T000001: Add integers"
+            ],
+            "title": "PROJECT UNDERSTANDING REPORT"
+          },
+          "hash": "b56b185879fba555d2bd9589949b08b791a73c65b0a77e196b429aa6b2036c46",
+          "path": "PROJECT_MEMORY/session_reports/S000002-b56b185879fb.md"
+        },
+        {
+          "content": {
+            "agent": "Example-Reviewer",
+            "architecture": "# Project architecture and resource map\n\nThis is a maintained document. Replace the prompts with project facts as they become known. Label proposed designs and unverified assumptions; do not fill gaps with invented components.\n\n## Objective and system boundary\n\n- Outcome the project must deliver:\n- Intended users or research question:\n- Included responsibilities:\n- External systems and excluded responsibilities:\n- Current phase and next milestone (reference `PROJECT_STATE.md`):\n\n## Components and information flow\n\n| Component or research stage | Responsibility | Inputs and outputs | Owner or task | Failure boundary |\n| --- | --- | --- | --- | --- |\n| To be established | | | | |\n\nDocument interface contracts, data formats and paths. Include a small diagram when it resolves an ambiguity. For a research project, describe the path from acquisition and preprocessing to experiment, analysis and publication; for software, describe request/data flow and persistent state.\n\n## Decisions and constraints\n\nLink applicable ADRs or decision IDs. Record why the current architecture fits the workload, what alternatives were rejected, and which observations would trigger reconsideration.\n\n- Compatibility and environment constraints:\n- Data consistency or measurement assumptions:\n- Security and privacy boundaries:\n- Performance or resource budgets:\n- Known limitations and unresolved questions:\n\n## Available resources\n\n| Resource | Version or identifier | Access and availability | Reproduction or replacement |\n| --- | --- | --- | --- |\n| Runtime / dependencies | | | |\n| Compute / instruments | | | |\n| Data / external service | | | |\n\nAvailability is a current observation, not a permanent guarantee. State who can authorize access and how to detect an unavailable resource. Keep credentials and confidential raw values outside this document.\n\n## Validation and recovery\n\nReference the project's meaningful validation commands, experiment protocols, backup procedure and recovery limitations. Update this map when boundaries change, and record the rationale through a tracked decision rather than silently replacing the historical explanation.\n",
+            "available_resources": [
+              "AGENTS.md",
+              "AUDIT/README.md",
+              "DECISION_RECORD.md",
+              "DEVELOPMENT_LOG.md",
+              "ENGINEERING_RULES/README.md",
+              "ENGINEERING_RULES/extensions.md",
+              "ENGINEERING_RULES/quality.md",
+              "ENGINEERING_RULES/security.md",
+              "ENGINEERING_RULES/software.md",
+              "MASTER_AGENT_WORKFLOW.md",
+              "MULTI_AGENT_SYSTEM/README.md",
+              "MULTI_AGENT_SYSTEM/review_protocol.md",
+              "MULTI_AGENT_SYSTEM/roles.md",
+              "PROJECT_MEMORY/README.md",
+              "PROJECT_MEMORY/architecture.md",
+              "PROJECT_MEMORY/knowledge.md",
+              "PROJECT_MEMORY/tasks.md",
+              "PROJECT_STATE.md",
+              "README.md",
+              "RESEARCH_MANAGEMENT/README.md",
+              "RESEARCH_MANAGEMENT/data_management.md",
+              "RESEARCH_MANAGEMENT/experiments.md",
+              "RESEARCH_MANAGEMENT/publication.md",
+              "RESEARCH_MANAGEMENT/reproducibility.md",
+              "SESSION_HANDOVER.md",
+              "VERSION_CONTROL/README.md"
+            ],
+            "completed_tasks": [],
+            "context_fingerprint": "e8046682cb2fc9a90828ee456e41e810d4700dcd2ad15002b51bae1ab3b624c6",
+            "current_problems": [],
+            "decisions": [],
+            "failed_approaches": [],
+            "known_risks": [
+              "T000001: major work requires independent plan and result reviews"
+            ],
+            "latest_handover": null,
+            "mode": "software",
+            "objective": "Implement a reviewed function and hand off to another agent",
+            "phase": "execution",
+            "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension.",
+            "recommended_next_actions": [
+              "T000001: Add integers"
+            ],
+            "title": "PROJECT UNDERSTANDING REPORT"
+          },
+          "hash": "8e16a45d3a0cfc6811a1bcf8079050d03d8b716210c25d747492113ad77097c9",
+          "path": "PROJECT_MEMORY/session_reports/S000002-8e16a45d3a0c.md"
+        }
+      ],
+      "started_at": "2026-10-12T09:01:03.135837+00:00",
+      "status": "closed"
+    },
+    "S000003": {
+      "acknowledged": true,
+      "agent": "Example-Successor",
+      "closed_at": "2026-10-12T09:01:03.346257+00:00",
+      "context_fingerprint": "d9e7c3358b4fa0e389439a2bccde201073b49d3d86e8eb6b4785f6a5dd12ad3d",
+      "id": "S000003",
+      "reports": [
+        {
+          "content": {
+            "agent": "Example-Successor",
+            "architecture": "# Project architecture and resource map\n\nThis is a maintained document. Replace the prompts with project facts as they become known. Label proposed designs and unverified assumptions; do not fill gaps with invented components.\n\n## Objective and system boundary\n\n- Outcome the project must deliver:\n- Intended users or research question:\n- Included responsibilities:\n- External systems and excluded responsibilities:\n- Current phase and next milestone (reference `PROJECT_STATE.md`):\n\n## Components and information flow\n\n| Component or research stage | Responsibility | Inputs and outputs | Owner or task | Failure boundary |\n| --- | --- | --- | --- | --- |\n| To be established | | | | |\n\nDocument interface contracts, data formats and paths. Include a small diagram when it resolves an ambiguity. For a research project, describe the path from acquisition and preprocessing to experiment, analysis and publication; for software, describe request/data flow and persistent state.\n\n## Decisions and constraints\n\nLink applicable ADRs or decision IDs. Record why the current architecture fits the workload, what alternatives were rejected, and which observations would trigger reconsideration.\n\n- Compatibility and environment constraints:\n- Data consistency or measurement assumptions:\n- Security and privacy boundaries:\n- Performance or resource budgets:\n- Known limitations and unresolved questions:\n\n## Available resources\n\n| Resource | Version or identifier | Access and availability | Reproduction or replacement |\n| --- | --- | --- | --- |\n| Runtime / dependencies | | | |\n| Compute / instruments | | | |\n| Data / external service | | | |\n\nAvailability is a current observation, not a permanent guarantee. State who can authorize access and how to detect an unavailable resource. Keep credentials and confidential raw values outside this document.\n\n## Validation and recovery\n\nReference the project's meaningful validation commands, experiment protocols, backup procedure and recovery limitations. Update this map when boundaries change, and record the rationale through a tracked decision rather than silently replacing the historical explanation.\n",
+            "available_resources": [
+              "AGENTS.md",
+              "AUDIT/README.md",
+              "DECISION_RECORD.md",
+              "DEVELOPMENT_LOG.md",
+              "ENGINEERING_RULES/README.md",
+              "ENGINEERING_RULES/extensions.md",
+              "ENGINEERING_RULES/quality.md",
+              "ENGINEERING_RULES/security.md",
+              "ENGINEERING_RULES/software.md",
+              "MASTER_AGENT_WORKFLOW.md",
+              "MULTI_AGENT_SYSTEM/README.md",
+              "MULTI_AGENT_SYSTEM/review_protocol.md",
+              "MULTI_AGENT_SYSTEM/roles.md",
+              "PROJECT_MEMORY/README.md",
+              "PROJECT_MEMORY/architecture.md",
+              "PROJECT_MEMORY/knowledge.md",
+              "PROJECT_MEMORY/tasks.md",
+              "PROJECT_STATE.md",
+              "README.md",
+              "RESEARCH_MANAGEMENT/README.md",
+              "RESEARCH_MANAGEMENT/data_management.md",
+              "RESEARCH_MANAGEMENT/experiments.md",
+              "RESEARCH_MANAGEMENT/publication.md",
+              "RESEARCH_MANAGEMENT/reproducibility.md",
+              "SESSION_HANDOVER.md",
+              "VERSION_CONTROL/README.md"
+            ],
+            "completed_tasks": [
+              "T000001: Add integers"
+            ],
+            "context_fingerprint": "d9e7c3358b4fa0e389439a2bccde201073b49d3d86e8eb6b4785f6a5dd12ad3d",
+            "current_problems": [],
+            "decisions": [],
+            "failed_approaches": [
+              {
+                "agent": "Example-Builder",
+                "at": "2026-10-12T09:01:03.296805+00:00",
+                "body": "Rejected coercing arguments to int: it silently truncates fractions and changes caller semantics",
+                "id": "N000001",
+                "kind": "failure",
+                "title": "Rejected approach"
+              }
+            ],
+            "known_risks": [],
+            "latest_handover": {
+              "agent": "Example-Reviewer",
+              "at": "2026-10-12T09:01:03.315120+00:00",
+              "blockers": [],
+              "failed": [],
+              "next": [
+                "Review any future contract expansion"
+              ],
+              "released": [],
+              "session": "S000002",
+              "summary": "Independent review complete"
+            },
+            "mode": "software",
+            "objective": "Implement a reviewed function and hand off to another agent",
+            "phase": "maintenance",
+            "read_instruction": "Read this report AND its listed source documents before acknowledgement. Automated inventory is not proof of comprehension.",
+            "recommended_next_actions": [
+              "Review the latest handover; define the next task with scope, dependencies and acceptance evidence."
+            ],
+            "title": "PROJECT UNDERSTANDING REPORT"
+          },
+          "hash": "baa51656ad57d970611b494dd6940b93a494ca840014cd757cb9dd8aeff22781",
+          "path": "PROJECT_MEMORY/session_reports/S000003-baa51656ad57.md"
+        }
+      ],
+      "started_at": "2026-10-12T09:01:03.326186+00:00",
+      "status": "closed"
+    }
+  },
+  "tasks": {
+    "T000001": {
+      "accepted_plan": "98e0ac6e943fdce7f36bb42fabaf5c909450dcba5568af2a16c2c7568a85356c",
+      "accepted_plan_reviewers": [
+        "Example-Reviewer"
+      ],
+      "author": "Example-Builder",
+      "blocker": null,
+      "completed_at": "2026-10-12T09:01:03.281778+00:00",
+      "completion_fingerprint": "9e45524a85929836e19e0669ec3201562e2526c3d974678e3848580a0e6df509",
+      "depends": [],
+      "description": "Return integer sums; validate zero, negatives and mixed signs",
+      "evidence": [
+        {
+          "bytes": 82,
+          "path": "evidence/tests.json",
+          "sha256": "6ca862f31c29393bff322bf8b078de6d6be52e06196e21c80a9317502b032af5"
+        }
+      ],
+      "id": "T000001",
+      "implementer": "Example-Builder",
+      "lease_until": null,
+      "owner": null,
+      "reviews": [
+        {
+          "agent": "Example-Reviewer",
+          "at": "2026-10-12T09:01:03.154073+00:00",
+          "challenge": "Challenged numeric edge cases and state mutation; simple pure function addresses them",
+          "evidence": [
+            {
+              "bytes": 134,
+              "path": "evidence/design-review.md",
+              "sha256": "9b31a3ad44b6652c4c43dc33ddea5abc12e00b9e8f98afe19a759f9586436f2a"
+            }
+          ],
+          "fingerprint": "98e0ac6e943fdce7f36bb42fabaf5c909450dcba5568af2a16c2c7568a85356c",
+          "session": "S000002",
+          "stage": "plan",
+          "verdict": "approve"
+        },
+        {
+          "agent": "Example-Reviewer",
+          "at": "2026-10-12T09:01:03.245419+00:00",
+          "challenge": "Inspected implementation and independently checked edge case evidence; no stateful behavior",
+          "evidence": [
+            {
+              "bytes": 82,
+              "path": "evidence/tests.json",
+              "sha256": "6ca862f31c29393bff322bf8b078de6d6be52e06196e21c80a9317502b032af5"
+            }
+          ],
+          "fingerprint": "9e45524a85929836e19e0669ec3201562e2526c3d974678e3848580a0e6df509",
+          "session": "S000002",
+          "stage": "result",
+          "verdict": "approve"
+        }
+      ],
+      "revision": 2,
+      "risk": "major",
+      "scope": [
+        "app.py"
+      ],
+      "status": "done",
+      "submission_files": {
+        "app.py": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772"
+      },
+      "title": "Add integers",
+      "work": [
+        {
+          "agent": "Example-Builder",
+          "at": "2026-10-12T09:01:03.212497+00:00",
+          "kind": "implementation",
+          "summary": "Implemented integer addition; verified zero and negative cases"
+        }
+      ]
+    }
+  }
+}

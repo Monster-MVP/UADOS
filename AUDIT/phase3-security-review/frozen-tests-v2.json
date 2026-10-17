@@ -1,0 +1,35 @@
+{
+  "agent": "Phase3-Security-Reviewer",
+  "session": "S000011",
+  "date": "2026-10-13",
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 63.633587958999996,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.9.6",
+  "source_before": {
+    "src/uados/trust.py": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_after": {
+    "src/uados/trust.py": "899565c84ef010cb39a45c13691d90df627ea4c47136375f6d35c410b7adeabe",
+    "src/uados/cli.py": "aac139f842c2b5c510f2f6e757de21ec38da5f3182e2c8f4191cd0c831b97ed8",
+    "tests/test_trust.py": "1662f99c5b622bbeb45bf4221bcf0e04ea28afb5b68bd21e716f6182fa5e6ed1",
+    "docs/trust.md": "273612535eb928cc3d897906dbc8d62446d170b6a123ed1451194bfbf15fdb49"
+  },
+  "source_unchanged": true,
+  "raw_evidence": "AUDIT/phase3-security-review/frozen-tests-v2.txt",
+  "limits": [
+    "Real host OpenSSH on macOS arm64 Python3.9.6 only. Individual injection tests declare mocked unavailable/timeout/audit and disk failures explicitly."
+  ]
+}

@@ -1,0 +1,13 @@
+Processing /Volumes/wdmonster/emonsterhome/Desktop/上海交通大学/agent-work
+  DEPRECATION: A future pip version will change local packages to be built in-place without first copying to a temporary directory. We recommend you use --use-feature=in-tree-build to test your packages with this new behavior before it becomes the default.
+   pip 21.3 will remove support for this functionality. You can find discussion regarding this at https://github.com/pypa/pip/issues/7555.
+    Preparing wheel metadata: started
+    Preparing wheel metadata: finished with status 'done'
+Building wheels for collected packages: uados
+  Building wheel for uados (PEP 517): started
+  Building wheel for uados (PEP 517): finished with status 'done'
+  Created wheel for uados: filename=uados-1.1.0-py3-none-any.whl size=105949 sha256=ebad24f809f36f498d27412b6ba9c7fc6d6cb2548966028fdcdc7a62b7549d5b
+  Stored in directory: /Volumes/wdmonster/emonsterhome/Library/Caches/pip/wheels/59/71/67/5e283682f3c46c5b733e3308e77288a6aa90db360f87603eb2
+Successfully built uados
+WARNING: You are using pip version 21.2.4; however, version 26.0.1 is available.
+You should consider upgrading via the '/Library/Developer/CommandLineTools/usr/bin/python3 -m pip install --upgrade pip' command.

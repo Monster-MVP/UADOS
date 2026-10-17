@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-17T09:30:00Z",
+  "benchmark_type": "bounded_memory_streaming_replay",
+  "ledger_path": "/Volumes/wdmonster/emonsterhome/Desktop/\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66/agent-work/.uados/ledger.sqlite3",
+  "ledger_size_bytes": 2901082112,
+  "event_count": 818,
+  "head_hash": "71986e50f91df1ba2076920fe6a61f48f0e9b07f026365c94611c5e3a11a69db",
+  "elapsed_seconds": 13.817,
+  "peak_memory_bytes": 56451189,
+  "peak_memory_mb": 53.84,
+  "current_memory_mb": 11.31,
+  "throughput_events_per_sec": 59.2,
+  "throughput_mb_per_sec": 200.24,
+  "verification_verdict": "PASSED",
+  "cryptographic_guarantee": "100% SHA-256 rolling chain verified across all 818 events with O(1) memory bound"
+}

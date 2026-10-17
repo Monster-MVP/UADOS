@@ -1,0 +1,6 @@
+---
+description: UADOS project lifecycle entry
+alwaysApply: true
+---
+
+Before editing implementation or running a substantive experiment, explicitly open `MASTER_AGENT_WORKFLOW.md` from the project root and follow its recorded lifecycle. Open the applicable `.agent/` protocols referenced there. This instruction is always applied; referenced files are not assumed to be inlined. The master workflow is the single UADOS lifecycle authority. Client discovery details are in `.agent/compatibility.md`.
