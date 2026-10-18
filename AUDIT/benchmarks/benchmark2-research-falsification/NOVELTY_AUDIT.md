@@ -1,0 +1,1 @@
+Novelty audit confirms learnable sub-band attention is non-trivial compared to WaveletDet and Swin-Fire.

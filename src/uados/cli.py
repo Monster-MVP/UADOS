@@ -71,6 +71,16 @@ def parser():
     coordination_sub = coordination.add_subparsers(dest="action", required=True)
     coordination_sub.add_parser("benchmark", help="Measure local SQLite history without mutation")
 
+    bundle_cmd = commands.add_parser("review-bundle", help="Cross-session resilient review bundle boundary").add_subparsers(dest="action", required=True)
+    bundle_create = bundle_cmd.add_parser("create", help="Create a review bundle for offline/cross-session review")
+    bundle_create.add_argument("task_id")
+    bundle_create.add_argument("--session", required=True)
+    bundle_create.add_argument("--output", required=True, help="Project-relative path to write the bundle JSON")
+    bundle_create.add_argument("--reason", default="upstream_rate_limit_429", help="Reason for creating bundle")
+    bundle_create.add_argument("--test-cmd", default="python3 -m unittest discover -s tests", help="Test reproduction command")
+    bundle_verify = bundle_cmd.add_parser("verify", help="Verify integrity of an exported review bundle against current files")
+    bundle_verify.add_argument("bundle", help="Project-relative path to bundle JSON")
+
     session = commands.add_parser("session").add_subparsers(dest="action", required=True)
     start = session.add_parser("start")
     start.add_argument("--agent", required=True)
@@ -274,6 +284,11 @@ def dispatch(args):
     if args.command == "coordination":
         from .coordination import benchmark_history
         return benchmark_history(project)
+    if args.command == "review-bundle":
+        from .resilience import create_review_bundle, verify_review_bundle
+        if args.action == "create":
+            return create_review_bundle(project, args.session, args.task_id, args.output, args.reason, args.test_cmd)
+        return verify_review_bundle(project, args.bundle)
     if args.command == "status":
         state, events, drift = project.read()
         return {"name": state["name"], "objective": state["objective"], "mode": state["mode"], "phase": state["phase"], "event_count": len(events), "tasks": state["tasks"], "experiments": state["experiments"], "active_sessions": [s["id"] for s in state["sessions"].values() if s["status"] == "active"], "projection_drift": drift}

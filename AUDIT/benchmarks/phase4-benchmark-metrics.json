@@ -1,0 +1,234 @@
+{
+  "benchmark1": {
+    "status": "PASSED",
+    "task_id": "T000001",
+    "bundle_id": "RB-a8ca1673893eed68",
+    "audit_ok": true
+  },
+  "benchmark2": {
+    "status": "PASSED",
+    "idea_id": "IDEA000001",
+    "hypothesis_id": "H000001",
+    "hypothesis_verdict": "supported",
+    "mAP50_gain": "+4.6%",
+    "p_value": 0.0032,
+    "audit_ok": true
+  },
+  "benchmark3": {
+    "status": "PASSED",
+    "claim_count": 3,
+    "reviewers_accepted": 3,
+    "final_decision": "ACCEPT",
+    "audit_ok": true
+  },
+  "timing_records": [
+    {
+      "operation": "B1_Project_Init",
+      "elapsed_seconds": 0.0225
+    },
+    {
+      "operation": "B1_AgentA_Start",
+      "elapsed_seconds": 0.0085
+    },
+    {
+      "operation": "B1_AgentA_Ack",
+      "elapsed_seconds": 0.0121
+    },
+    {
+      "operation": "B1_Task_Add",
+      "elapsed_seconds": 0.0156
+    },
+    {
+      "operation": "B1_Task_Plan",
+      "elapsed_seconds": 0.0147
+    },
+    {
+      "operation": "B1_Task_Claim",
+      "elapsed_seconds": 0.0146
+    },
+    {
+      "operation": "B1_Task_Record",
+      "elapsed_seconds": 0.0267
+    },
+    {
+      "operation": "B1_Bundle_Create",
+      "elapsed_seconds": 0.0032
+    },
+    {
+      "operation": "B1_AgentA_Close",
+      "elapsed_seconds": 0.0057
+    },
+    {
+      "operation": "B1_Dev2_Start",
+      "elapsed_seconds": 0.0108
+    },
+    {
+      "operation": "B1_Dev2_Ack",
+      "elapsed_seconds": 0.0115
+    },
+    {
+      "operation": "B1_Dev2_Claim",
+      "elapsed_seconds": 0.0193
+    },
+    {
+      "operation": "B1_AgentB_Start",
+      "elapsed_seconds": 0.0148
+    },
+    {
+      "operation": "B1_AgentB_Ack",
+      "elapsed_seconds": 0.0118
+    },
+    {
+      "operation": "B1_Bundle_Verify",
+      "elapsed_seconds": 0.0002
+    },
+    {
+      "operation": "B1_Task_Review",
+      "elapsed_seconds": 0.0283
+    },
+    {
+      "operation": "B1_Dev2_Refresh",
+      "elapsed_seconds": 0.0135
+    },
+    {
+      "operation": "B1_Dev2_ReAck",
+      "elapsed_seconds": 0.0176
+    },
+    {
+      "operation": "B1_Task_Complete",
+      "elapsed_seconds": 0.0321
+    },
+    {
+      "operation": "B1_Project_Audit",
+      "elapsed_seconds": 0.0366
+    },
+    {
+      "operation": "B2_Project_Init",
+      "elapsed_seconds": 0.0328
+    },
+    {
+      "operation": "B2_PI_Start",
+      "elapsed_seconds": 0.0092
+    },
+    {
+      "operation": "B2_PI_Ack",
+      "elapsed_seconds": 0.0089
+    },
+    {
+      "operation": "B2_Source1_Add",
+      "elapsed_seconds": 0.0151
+    },
+    {
+      "operation": "B2_Source2_Add",
+      "elapsed_seconds": 0.0168
+    },
+    {
+      "operation": "B2_Source3_Add",
+      "elapsed_seconds": 0.0158
+    },
+    {
+      "operation": "B2_Source4_Add",
+      "elapsed_seconds": 0.0161
+    },
+    {
+      "operation": "B2_Idea_Add",
+      "elapsed_seconds": 0.0255
+    },
+    {
+      "operation": "B2_Hypothesis_Add",
+      "elapsed_seconds": 0.0225
+    },
+    {
+      "operation": "B2_NoveltyRev_Start",
+      "elapsed_seconds": 0.0108
+    },
+    {
+      "operation": "B2_NoveltyRev_Ack",
+      "elapsed_seconds": 0.0137
+    },
+    {
+      "operation": "B2_Novelty_Review",
+      "elapsed_seconds": 0.0227
+    },
+    {
+      "operation": "B2_PI_Refresh",
+      "elapsed_seconds": 0.0137
+    },
+    {
+      "operation": "B2_PI_ReAck",
+      "elapsed_seconds": 0.0138
+    },
+    {
+      "operation": "B2_Exp_Add",
+      "elapsed_seconds": 0.0252
+    },
+    {
+      "operation": "B2_Exp_Run",
+      "elapsed_seconds": 0.1716
+    },
+    {
+      "operation": "B2_PI_PostRun_Refresh",
+      "elapsed_seconds": 0.0186
+    },
+    {
+      "operation": "B2_PI_PostRun_Ack",
+      "elapsed_seconds": 0.0225
+    },
+    {
+      "operation": "B2_Exp_Conclude",
+      "elapsed_seconds": 0.0235
+    },
+    {
+      "operation": "B2_Hypothesis_Outcome",
+      "elapsed_seconds": 0.032
+    },
+    {
+      "operation": "B2_Project_Audit",
+      "elapsed_seconds": 0.022
+    },
+    {
+      "operation": "B3_Project_Init",
+      "elapsed_seconds": 0.0237
+    },
+    {
+      "operation": "B3_Author_Start",
+      "elapsed_seconds": 0.0086
+    },
+    {
+      "operation": "B3_Author_Ack",
+      "elapsed_seconds": 0.0087
+    },
+    {
+      "operation": "B3_Author_Refresh",
+      "elapsed_seconds": 0.0099
+    },
+    {
+      "operation": "B3_Author_ReAck",
+      "elapsed_seconds": 0.0096
+    },
+    {
+      "operation": "B3_Task_Add",
+      "elapsed_seconds": 0.0172
+    },
+    {
+      "operation": "B3_Task_Plan",
+      "elapsed_seconds": 0.0181
+    },
+    {
+      "operation": "B3_Task_Claim",
+      "elapsed_seconds": 0.0162
+    },
+    {
+      "operation": "B3_Task_Record",
+      "elapsed_seconds": 0.0277
+    },
+    {
+      "operation": "B3_Task_Complete",
+      "elapsed_seconds": 0.0282
+    },
+    {
+      "operation": "B3_Project_Audit",
+      "elapsed_seconds": 0.0295
+    }
+  ]
+}

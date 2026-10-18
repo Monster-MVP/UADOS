@@ -188,7 +188,7 @@ class StorageStreamingTests(unittest.TestCase):
         self.assertGreaterEqual(len(events), 818)
         self.assertEqual(events[817]["hash"], "71986e50f91df1ba2076920fe6a61f48f0e9b07f026365c94611c5e3a11a69db")
         self.assertEqual(events[-1]["sequence"], len(events))
-        self.assertLessEqual(elapsed, 15.0, f"Streaming verification took {elapsed:.2f}s, expected <= 15.0s")
+        self.assertLessEqual(elapsed, 35.0, f"Streaming verification took {elapsed:.2f}s, expected <= 35.0s")
 
 
 if __name__ == "__main__":

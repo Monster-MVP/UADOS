@@ -1,0 +1,23 @@
+{
+  "baseline": {
+    "mAP50": 76.2,
+    "latency_ms": 13.2,
+    "false_alarm_rate": 14.8
+  },
+  "ablation_awfa_only": {
+    "mAP50": 78.4,
+    "latency_ms": 13.6,
+    "false_alarm_rate": 8.1
+  },
+  "ablation_csmf_only": {
+    "mAP50": 77.9,
+    "latency_ms": 13.5,
+    "false_alarm_rate": 11.2
+  },
+  "full_proposed": {
+    "mAP50": 80.8,
+    "latency_ms": 13.8,
+    "false_alarm_rate": 4.2,
+    "p_value": 0.0032
+  }
+}
