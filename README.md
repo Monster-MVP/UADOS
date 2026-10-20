@@ -43,24 +43,66 @@
 
 ## 2. 环境准备与快速启动
 
-### 2.1 运行方式选择
+### 2.1 安装方式选择：如何让本机所有 Coding Agent 均可全局调用？
 
-你可以直接使用源码中的脚本，也可以通过标准 pip 本地安装命令：
+UADOS 本身**零外部依赖**（纯 Python 3.9+ 标准库构建）。但在多项目开发中，如果仅仅在当前仓库激活局部虚拟环境，其他目录下的 Coding Agent（如 Claude Code, Cursor, Codex）执行 `uados` 时就会报错 `command not found`。
 
-#### 方式一：直接运行脚本（无需安装，即下即用）
+为了让**本机所有 Agent 在任意目录、任何新终端里都能随处调用 `uados`**，推荐以下全局可用安装方式：
+
+#### 🌟 方式一：虚拟环境 + 系统全局软链接（最推荐，零冲突且支持热更新）
+在克隆的 UADOS 仓库中创建环境，采用可编辑模式安装，并将 CLI 软链接到系统全局 `PATH`：
+```bash
+cd /path/to/UADOS
+
+# 1. 创建隔离环境并安装（-e 可编辑模式：以后更新仓库源码后无需重装，立即生效）
+python3 -m venv .venv
+.venv/bin/pip install -e .
+
+# 2. 软链接到系统 PATH（macOS / Linux）
+sudo ln -sf $(pwd)/.venv/bin/uados /usr/local/bin/uados
+```
+*Windows 用户：可将 `.venv\Scripts` 路径添加到系统用户环境变量 `Path` 中。*
+
+#### 方式二：使用现代工具 `uv tool` 或 `pipx` 全局安装
+若本地安装有现代 Python 包管理器 `uv` 或 `pipx`，可直接一键全局安装隔离 CLI：
+```bash
+cd /path/to/UADOS
+
+# 使用 uv 全局安装（推荐，极快且自动隔离）：
+uv tool install .
+
+# 或使用 pipx：
+pipx install .
+```
+
+#### 方式三：免 pip 纯脚本包装器（利用纯标准库特性）
+由于 UADOS 完全不依赖任何第三方包，你甚至不需要安装虚拟环境，直接把包装脚本写入 `/usr/local/bin`：
+```bash
+sudo tee /usr/local/bin/uados > /dev/null << 'EOF'
+#!/bin/bash
+exec python3 /path/to/UADOS/scripts/uados.py "$@"
+EOF
+
+sudo chmod +x /usr/local/bin/uados
+```
+*(请将脚本中的 `/path/to/UADOS` 替换为你的真实克隆路径)*
+
+#### 方式四：免安装直接运行脚本
+如果不进行任何安装，也可以随时直接调用源码脚本：
 ```bash
 python3 scripts/uados.py --help
 ```
 
-#### 方式二：在虚拟环境中安装 CLI（推荐）
-```bash
-python3 -m venv .venv
-source .venv/bin/activate       # Windows 用户运行: .venv\Scripts\activate
-pip install .
-uados --help
-```
+---
 
-> **提示**：后文示例中均以 `python3 scripts/uados.py` 或安装后的 `uados` 为例。在多项目环境下，可通过 `--project /path/to/project` 指定工作区根目录（默认当前目录 `.`）。
+#### 🔍 验证是否真正“全局可用”
+配置完成后，新开一个终端窗口（**无需激活任何虚拟环境**），在你的用户主目录执行验证：
+```bash
+cd ~
+which uados
+uados --version
+```
+如果能正确打印路径（如 `/usr/local/bin/uados` 或 `~/.local/bin/uados`）和版本号，即表明**全局安装彻底成功**！后续你在任意路径启动 Claude Code、Cursor 或 Codex，它们都能直接识别并驱动 UADOS。
 
 ### 2.2 项目初始化
 
