@@ -182,8 +182,117 @@ sequenceDiagram
 4. 提交证据、闭环任务并生成会话交接记录。
 ```
 
-#### 场景 3：OpenAI Codex / 外部脚本编排模式
-若通过 API 脚本批量派发任务，只需向模型系统提示词（System Prompt）中注入 `MASTER_AGENT_WORKFLOW.md`，并将 `uados` CLI 作为标准 Bash 工具供模型调用即可。
+#### 场景 3：OpenAI Codex 专项实操指南（CLI、API 脚本与多实例辩论）
+
+OpenAI Codex（以及采用 OpenAI API / GPT-4o / o1 代码模型的智能体）在工业界被广泛使用。UADOS 针对 Codex 的指令加载行为和工具调用机制进行了深度适配。
+
+##### 1. Codex 的自动发现机制（`AGENTS.md`）
+OpenAI Codex 规范要求在仓库根目录下识别 `AGENTS.md` 文件。在通过 `uados init` 初始化的项目中，根目录已预置好 `AGENTS.md`，其内容直接锚定核心工作流：
+- **自动加载**：Codex 进入工作区时，会由根目录向上自动读取 `AGENTS.md` 作为系统最高指令（System Instructions）；
+- **主规约导航**：`AGENTS.md` 明确要求 Codex 在动工前必须读取 `MASTER_AGENT_WORKFLOW.md` 并严格遵循 `uados` CLI 状态机；
+- **指令集大小优化**：Codex 的合并指令集默认存在约 32 KiB 的大小上限。UADOS 的适配器设计保证了入口规约高度精简，避免上下文溢出。
+
+##### 2. 使用 Codex CLI 命令行交互（终端实战）
+若你使用终端中的 `codex` 命令行客户端进行交互式开发：
+
+**步骤 A：进入项目目录并启动 Codex**
+```bash
+cd /path/to/your-uados-project
+codex
+```
+
+**步骤 B：输入初始握手指令（Bootstrap Prompt）**
+在 Codex 提示符下输入以下自然语言指令：
+```text
+请遵循本项目 AGENTS.md 与 UADOS 规范：
+1. 首先执行终端命令：uados session start --agent codex-worker --runtime Codex；
+2. 读取生成的项目理解报告（Understanding Report），并使用其中的 report-hash 执行 uados session acknowledge；
+3. 查看当前待办任务，准备开始工作。
+```
+Codex 会自动调用本地 Shell 执行这两条命令，完成身份注册与状态机握手。
+
+**步骤 C：下达具体编码研发任务（Full-Lifecycle Prompt）**
+```text
+请在 UADOS 规约下完成以下功能开发：
+- 任务目标：在 src/models/encoder.py 中实现带残差连接的时序特征编码器 TransformerEncoder；
+- 测试要求：在 tests/test_encoder.py 中编写单测，测试输入形状 [batch, seq_len, dim] 的正向传播与梯度更新；
+- 执行约束：
+  1. 执行 uados task add 创建 routine 任务，限定 --scope src/models/encoder.py --scope tests/test_encoder.py；
+  2. 录入实施和验证方案并执行 uados task plan；
+  3. 执行 uados task claim 认领任务；
+  4. 编写代码与单测，运行 pytest 将实际测试输出重定向保存到 evidence/test_encoder.txt；
+  5. 执行 uados task record 登记真实测试证据；
+  6. 执行 uados task complete 归档任务，并执行 uados session close 生成交接文档。
+```
+Codex 会全自动在终端串行执行上述每个环节，直至交接报告落盘。
+
+##### 3. 使用 OpenAI Python SDK 自动化编排 Codex
+如果你希望通过 Python 代码自动化驱动 OpenAI 模型（如 `gpt-4o` 或 `o1`），只需将 `uados` CLI 包装为标准 Function Calling 工具：
+
+```python
+import subprocess
+import json
+from openai import OpenAI
+
+client = OpenAI()
+
+# 1. 定义 UADOS 执行工具供模型调用
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "run_uados_command",
+            "description": "执行 UADOS 系统的 CLI 命令以管理会话、任务租约、提交证据等",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "cmd": {
+                        "type": "string",
+                        "description": "要执行的具体 uados 命令，例如：uados session start --agent codex-01"
+                    }
+                },
+                "required": ["cmd"]
+            }
+        }
+    }
+]
+
+def execute_uados(cmd: str) -> str:
+    # 安全执行本地 uados 命令并捕获输出
+    res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    return res.stdout if res.returncode == 0 else f"Error: {res.stderr}"
+
+# 2. 读取 UADOS 生成的 Codex 专属引导上下文包
+bootstrap = json.loads(subprocess.check_output(
+    "python3 scripts/uados.py adapter --runtime Codex --agent Codex-Agent", shell=True
+))
+
+# 3. 构造 System Prompt 并启动模型
+system_prompt = f"""
+你是一个严格遵循 UADOS 操作系统规约的高级软件工程师。
+主规约文件：{bootstrap['central_workflow']}
+系统指示：{bootstrap['instruction']}
+启动参数：{' '.join(bootstrap['startup_argv'])}
+请使用 run_uados_command 工具执行状态机操作。开工前必须先完成 session start 与 acknowledge！
+"""
+
+messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "user", "content": "请实现数据预处理模块中的归一化算子并完成闭环测试。"}
+]
+
+# 之后通过 Chat Completions API 循环分发 tool_calls 并反馈结果即可实现全自动研发闭环
+```
+
+##### 4. 多 Codex 实例的“对抗性辩论”（Multi-Codex Review）
+当执行架构重构或核心改动（`major` 任务）时，可利用不同的 Codex 实例（或赋予不同 System Prompt）分别扮演：
+- **Codex-Implementer（实施者）**：负责提出变更申请（`change propose`）和编写实现；
+- **Codex-Reviewer（独立审查员）**：通过 `uados debate packet <DEBATE_ID> --agent Codex-Reviewer` 提取只读审查包，使用独立上下文专门挑刺并提出 `debate challenge`；
+- 这种双 Codex 实例隔离的模式，能彻底杜绝同一个 Agent “既当运动员又当裁判员”的自欺欺人行为。
+
+##### 5. Codex 常见边界与排错
+- **Hash 错误重试**：若 Codex 报错 `Context stale: report hash mismatch`，提示其执行 `uados session refresh <SESSION_ID>` 并使用新输出的 Hash 重新签名；
+- **会话中断接管**：若前一个 Codex 会话超时或中断导致租约未释放，新 Codex 可使用 `uados task claim <TASK_ID> --takeover-reason "前序会话中断接管"` 强制接管并继续推进。
 
 ---
 
