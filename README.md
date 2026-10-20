@@ -15,13 +15,14 @@
 - [1. 为什么“只用 UADOS”？](#1-为什么只用-uados)
 - [2. 环境准备与快速启动](#2-环境准备与快速启动)
 - [3. 核心机制：六步闭环工作流](#3-核心机制六步闭环工作流)
-- [4. 实战场景 A：常规软件研发全流程（Routine Task）](#4-实战场景-a常规软件研发全流程routine-task)
-- [5. 实战场景 B：重大架构变更与多角色辩论（Major Task）](#5-实战场景-b重大架构变更与多角色辩论major-task)
-- [6. 实战场景 C：科学研究与假设实验（Research Workflow）](#6-实战场景-c科学研究与假设实验research-workflow)
-- [7. 实战场景 D：知识沉淀、系统审计与自进化](#7-实战场景-d知识沉淀系统审计与自进化)
-- [8. 关键规则与双层文件架构](#8-关键规则与双层文件架构)
-- [9. 完整 CLI 速查手册 (Cheat Sheet)](#9-完整-cli-速查手册-cheat-sheet)
-- [10. 常见问题与避坑指南 (FAQ)](#10-常见问题与避坑指南-faq)
+- [4. 智能体指挥模式：如何用自然语言让 Coding Agent 全自动驱动 UADOS？](#4-智能体指挥模式如何用自然语言让-coding-agent-全自动驱动-uados)
+- [5. 实战场景 A：常规软件研发全流程（Routine Task）](#5-实战场景-a常规软件研发全流程routine-task)
+- [6. 实战场景 B：重大架构变更与多角色辩论（Major Task）](#6-实战场景-b重大架构变更与多角色辩论major-task)
+- [7. 实战场景 C：科学研究与假设实验（Research Workflow）](#7-实战场景-c科学研究与假设实验research-workflow)
+- [8. 实战场景 D：知识沉淀、系统审计与自进化](#8-实战场景-d知识沉淀系统审计与自进化)
+- [9. 关键规则与双层文件架构](#9-关键规则与双层文件架构)
+- [10. 完整 CLI 速查手册 (Cheat Sheet)](#10-完整-cli-速查手册-cheat-sheet)
+- [11. 常见问题与避坑指南 (FAQ)](#11-常见问题与避坑指南-faq)
 
 ---
 
@@ -110,7 +111,106 @@ flowchart TD
 
 ---
 
-## 4. 实战场景 A：常规软件研发全流程（Routine Task）
+## 4. 智能体指挥模式：如何用自然语言让 Coding Agent 全自动驱动 UADOS？
+
+UADOS 的核心定位是 **“AI 软件工程与科学研究的治理操作系统（Agentic OS）”**。这意味着：**你不需要手动敲击繁琐的 CLI 命令，而是作为“架构师 / 产品主管”，用自然语言给 Coding Agent（如 Claude Code, OpenAI Codex, Cursor 等）下发需求，由 Agent 自主调用 UADOS CLI 完成全流程闭环开发。**
+
+### 4.1 核心工作原理（主管-工人模式）
+
+在经过 `uados init` 初始化的项目中，根目录已经为各类 Agent 预置了治理入口（如 `CLAUDE.md`、`AGENTS.md`、`.cursor/rules/uados.mdc`）。Agent 读取这些入口后，会自动理解 UADOS 的生命周期约束：
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as 用户 (技术主管/PM)
+    participant Agent as Coding Agent (Claude/Codex/Cursor)
+    participant OS as UADOS CLI (状态机与事务账本)
+    participant Code as 代码库与测试 (src / tests / evidence)
+
+    User->>Agent: 🗣️ 自然语言需求: "帮我实现XX功能并包含单测，遵循UADOS规范"
+    Note over Agent: 识别项目规约，自动按规范开工
+    Agent->>OS: 1. uados session start --agent <ID>
+    OS-->>Agent: 颁发 Understanding Report 与 Hash
+    Agent->>OS: 2. uados session acknowledge <ID> --report-hash <HASH>
+    Agent->>OS: 3. uados task add --risk routine --scope <PATH>
+    Agent->>OS: 4. uados task plan --implementation ... --validation ...
+    Agent->>OS: 5. uados task claim <TASK_ID> (获取排他写租约)
+    Agent->>Code: 6. 编写业务代码与测试用例
+    Agent->>Code: 7. 运行本地测试并重定向输出至 evidence/
+    Agent->>OS: 8. uados task record <TASK_ID> --evidence evidence/test.txt
+    Agent->>OS: 9. uados task complete <TASK_ID> (闭环归档)
+    Agent->>OS: 10. uados session close --summary ... --next ... (生成交接文档)
+    Agent-->>User: 🎯 汇报任务完成，提交测试证据与交接记录
+```
+
+---
+
+### 4.2 为什么通过 UADOS 托管 Agent，远胜于让 Agent“裸跑”？
+
+| 治理维度 | 裸跑（普通 Agent 直接在项目写代码） | 通过 UADOS 托管 |
+| :--- | :--- | :--- |
+| **记忆连续性** | 窗口一关或上下文过长被截断，Agent 就会失忆、推翻重来。 | 事务性 SQLite 账本，毫秒级跨会话断点续做。 |
+| **代码保护区** | Agent 经常误改公共模块或历史代码，导致老功能无故崩溃。 | `--scope` 强制租约锁，未声明路径的文件拒绝修改。 |
+| **真实性检验** | Agent 常有“单测都过了”的幻觉声明，实际根本没跑或报错。 | 强制提交实际命令输出文件作为 `evidence` 审计凭据。 |
+| **重大架构变更** | Agent 随意引入高风险冷门三方库或破坏性架构调整。 | 强制发起 `change propose`，多角色对抗性辩论投票。 |
+| **交付完整度** | 只有散落代码，缺少架构推导记录与交接说明。 | 代码、测试用例、ADR 决策、交接报告全套自动交付。 |
+
+---
+
+### 4.3 主流 Coding Agent 的 Prompt 实战模板
+
+启动你的 Coding Agent 后，你只需将类似下面的指令粘贴给它，它就会全自动完成任务：
+
+#### 场景 1：Claude Code 终端模式
+```text
+请遵循本项目的 UADOS 规约帮我实现一个新功能：
+1. 需求：在 src/api/auth.py 中实现 JWT Token 的签发与校验逻辑，并在 tests/test_auth.py 中编写测试。
+2. 请自主完成全套 UADOS 闭环生命周期：
+   - 启动 session 并 acknowledge 理解报告；
+   - 创建 task 并划定 scope，录入 implementation/validation plan；
+   - 认领 task 后开始编写代码和单测；
+   - 运行 pytest 并将实际输出重定向保存到 evidence/test_auth.txt；
+   - 登记证据、完成 task，并规范提交 session close 交接报告。
+```
+
+#### 场景 2：Cursor (Composer / Agent 模式)
+```text
+@uados.mdc 请按照系统生命周期规范帮我重构数据缓存模块：
+1. 启动会话并签署 report hash；
+2. 为本次重构创建任务，只在声明的 src/cache/ 作用域内操作；
+3. 运行基准性能测试与单元测试，将输出保存至 evidence 目录；
+4. 提交证据、闭环任务并生成会话交接记录。
+```
+
+#### 场景 3：OpenAI Codex / 外部脚本编排模式
+若通过 API 脚本批量派发任务，只需向模型系统提示词（System Prompt）中注入 `MASTER_AGENT_WORKFLOW.md`，并将 `uados` CLI 作为标准 Bash 工具供模型调用即可。
+
+---
+
+### 4.4 跨 Agent 无缝接力（断点续传）实战
+
+在开发复杂大型应用时，经常会遇到**模型额度耗尽、上下文超长换窗口、或在 Claude Code 与 Codex 之间切换**的情况。在 UADOS 下，切换 Agent 没有任何沟通成本：
+
+1. **前序 Agent 离场**：
+   前序 Agent 结束前运行：
+   ```bash
+   uados session close <SESSION_ID> --summary "完成认证模块，下步需集成到路由" --next "实现用户登录接口"
+   ```
+   UADOS 会自动将当前状态编译汇总到 `SESSION_HANDOVER.md` 与 `PROJECT_STATE.md`。
+
+2. **新 Agent 登场接力**：
+   你打开全新的窗口或启动另一个模型（例如 Codex）：
+   > **你的指令**：`"请接续当前项目进度，阅读最新交接文档并执行下一步工作。"`
+   新 Agent 仅需执行：
+   ```bash
+   uados session start --agent codex-worker
+   uados session acknowledge <NEW_SESSION_ID> --report-hash <NEW_HASH>
+   ```
+   新 Agent 会在 1 秒钟内完全继承前任的工作成果与设计上下文，实现**无缝断点续传**！
+
+---
+
+## 5. 实战场景 A：常规软件研发全流程（Routine Task）
 
 本场景演示如何只用 UADOS 完成一个常规功能特性（如：增加时序平滑处理函数）。
 
@@ -230,7 +330,7 @@ python3 scripts/uados.py session close ses_01J7K8... \
 
 ---
 
-## 5. 实战场景 B：重大架构变更与多角色辩论（Major Task）
+## 6. 实战场景 B：重大架构变更与多角色辩论（Major Task）
 
 对于架构改动、公共 API 变更、核心存储层迁移等高风险工作（Protocol 2 规范下的 `major` 任务），UADOS 要求执行**变更申请（Change Request）**以及**两名以上独立评审员的对抗性辩论与共识投票**。
 
@@ -343,7 +443,7 @@ python3 scripts/uados.py debate consensus deb_plan_01 --session ses_major_01 \
 
 ---
 
-## 6. 实战场景 C：科学研究与假设实验（Research Workflow）
+## 7. 实战场景 C：科学研究与假设实验（Research Workflow）
 
 UADOS 专为严谨科研设计，涵盖“文献溯源 -> 创新点挖掘 -> 提出可证伪假说 -> 新颖性独立审计 -> 实验代码执行追踪 -> 科研结论落地”完整科研生命周期。
 
@@ -446,7 +546,7 @@ python3 scripts/uados.py research outcome hypo_01 \
 
 ---
 
-## 7. 实战场景 D：知识沉淀、系统审计与自进化
+## 8. 实战场景 D：知识沉淀、系统审计与自进化
 
 ### 7.1 记录架构与技术决策（ADR）
 不要让关键决策散落在对话或口头沟通中：
@@ -497,7 +597,7 @@ python3 scripts/uados.py improvement --record evidence/imp_fix.json --session se
 
 ---
 
-## 8. 关键规则与双层文件架构
+## 9. 关键规则与双层文件架构
 
 理解哪些文件可以手动编辑，哪些文件绝不可手改，是顺畅使用 UADOS 的关键。
 
@@ -526,7 +626,7 @@ python3 scripts/uados.py improvement --record evidence/imp_fix.json --session se
 
 ---
 
-## 9. 完整 CLI 速查手册 (Cheat Sheet)
+## 10. 完整 CLI 速查手册 (Cheat Sheet)
 
 | 模块 | 子命令 | 关键参数 | 说明 |
 | :--- | :--- | :--- | :--- |
@@ -567,7 +667,7 @@ python3 scripts/uados.py improvement --record evidence/imp_fix.json --session se
 
 ---
 
-## 10. 常见问题与避坑指南 (FAQ)
+## 11. 常见问题与避坑指南 (FAQ)
 
 ### Q1: 执行命令提示 `Context stale: report hash mismatch`，为什么？
 **解答**：这代表在你执行当前操作之前，其他协作者或操作已改变了账本状态，使你之前阅读的“项目理解报告”过时了。
