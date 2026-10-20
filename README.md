@@ -1,182 +1,595 @@
-# UADOS v1.0
+# UADOS 用户全流程指南：如何仅使用 UADOS 管理与推进项目
 
-Universal Agentic Development Operating System: an executable, agent-independent framework for software, scientific research and hybrid projects. Project knowledge remains in the workspace when the human or AI contributor changes.
+**UADOS (Universal Agentic Development Operating System)** 是一个完全可独立执行、不依赖特定大模型平台或私有 SaaS 编排工具的**通用智能体开发与操作操作系统**。
 
-This repository extends the working **Part 1** implementation with **Phase 2** runtime protocols, dynamic role planning, staged adversarial consensus, change management and research innovation records. It contains a Python CLI, transactional project ledger, workflow gates, durable memory, independent review protocol, research runner, templates, agent prompts, working examples and CI configuration. Runtime dependencies: **Python 3.9+ standard library only**.
+它仅依靠 **Python 3.9+ 标准库**，通过内置的事务性 SQLite 账本、哈希事件链和严格的工作流状态机，为软件工程、科学研究及混合项目提供全生命周期的上下文记忆、任务租约、多角色对抗性辩论、独立同行评审、实验可复现性以及跨会话无缝交接。
 
-## Use it now
+本指南专为希望**完全脱离第三方框架，仅通过原生 `uados` CLI 命令完成全流程项目研发与科学实验**的开发者和研究人员编写。
 
-From this checkout, installation is optional:
+> 🇬🇧 **English documentation**: See [README_EN.md](README_EN.md) (The original English specification & quickstart).
 
-```sh
+---
+
+## 目录
+
+- [1. 为什么“只用 UADOS”？](#1-为什么只用-uados)
+- [2. 环境准备与快速启动](#2-环境准备与快速启动)
+- [3. 核心机制：六步闭环工作流](#3-核心机制六步闭环工作流)
+- [4. 实战场景 A：常规软件研发全流程（Routine Task）](#4-实战场景-a常规软件研发全流程routine-task)
+- [5. 实战场景 B：重大架构变更与多角色辩论（Major Task）](#5-实战场景-b重大架构变更与多角色辩论major-task)
+- [6. 实战场景 C：科学研究与假设实验（Research Workflow）](#6-实战场景-c科学研究与假设实验research-workflow)
+- [7. 实战场景 D：知识沉淀、系统审计与自进化](#7-实战场景-d知识沉淀系统审计与自进化)
+- [8. 关键规则与双层文件架构](#8-关键规则与双层文件架构)
+- [9. 完整 CLI 速查手册 (Cheat Sheet)](#9-完整-cli-速查手册-cheat-sheet)
+- [10. 常见问题与避坑指南 (FAQ)](#10-常见问题与避坑指南-faq)
+
+---
+
+## 1. 为什么“只用 UADOS”？
+
+很多团队在尝试利用 AI 智能体或多协作者进行长期项目开发时，常遇到三大痛点：
+1. **上下文遗忘**：新会话或换人后，无法获知前序进展与历史决断。
+2. **缺乏状态机约束**：AI 容易直接上手乱改代码，缺少先审后写、测试验证与代码范围约束。
+3. **平台锁定**：强依赖某些商业云服务或重量级 Python 框架，安装配置繁重，无法在断网/离线环境下运行。
+
+**UADOS 提供了终极纯净解法**：
+- **零外部依赖**：仅需 Python 3.9+ 原生环境，不需要 `pip install` 任何第三方包，无网络调用。
+- **事务性账本**：所有状态变更均以 ACID 事务提交于 `.uados/ledger.sqlite3`，具备 SHA256 哈希事件链防篡改审计。
+- **自动投影视图**：自动同步生成 `PROJECT_STATE.md`、`DEVELOPMENT_LOG.md`、`SESSION_HANDOVER.md` 等人类/Agent 极易阅读的 Markdown 状态视图。
+- **状态机门禁**：未经理解报告确认不可动工、未经计划批准不可认领、重大改动必须有多角色对抗性辩论投票。
+
+---
+
+## 2. 环境准备与快速启动
+
+### 2.1 运行方式选择
+
+你可以直接使用源码中的脚本，也可以通过标准 pip 本地安装命令：
+
+#### 方式一：直接运行脚本（无需安装，即下即用）
+```bash
 python3 scripts/uados.py --help
-python3 scripts/uados.py status
-python3 scripts/uados.py audit
-python3 scripts/uados.py init /path/to/new-project --name "My project" --objective "Describe the intended outcome" --mode auto
 ```
 
-For an installed `uados` command, use a virtual environment:
-
-```sh
+#### 方式二：在虚拟环境中安装 CLI（推荐）
+```bash
 python3 -m venv .venv
-.venv/bin/python -m pip install .
-.venv/bin/uados --help
+source .venv/bin/activate       # Windows 用户运行: .venv\Scripts\activate
+pip install .
+uados --help
 ```
 
-On Windows, the corresponding interpreter and command are under `.venv/Scripts/`. Build tooling may be installed by pip; the runtime requires no third-party libraries, API keys or network service.
+> **提示**：后文示例中均以 `python3 scripts/uados.py` 或安装后的 `uados` 为例。在多项目环境下，可通过 `--project /path/to/project` 指定工作区根目录（默认当前目录 `.`）。
 
-For an existing repository, add `--adopt` to initialization. It preserves existing maintained files, reports them for integration, and refuses collisions with generated state. Inspect and integrate existing README/AGENTS instructions.
+### 2.2 项目初始化
 
-## What is executable
+#### 初始化一个全新的工程
+```bash
+# 模式支持: software (软件), research (科研), hybrid (混合), auto (自动识别)
+python3 scripts/uados.py init /path/to/my-project \
+  --name "AI-Analytics-Engine" \
+  --objective "构建一套基于因果推断的高效时序数据分析引擎" \
+  --mode software \
+  --protocol-version 2
+```
 
-| Capability | Runtime behavior |
-| --- | --- |
-| Context before action | Understanding Report, exact report-hash acknowledgement and stale-context rejection |
-| Project memory | Transactional state/event history, readable Markdown and JSON, decisions, lessons and failures |
-| Task management | Dependencies, ownership leases, declared scope overlap checks, explained work and validation evidence |
-| Independent review | Major-task plan/result approvals; protocol-2 major work also requires staged debate with at least two independent reviewers |
-| Planning and change control | Evidence-backed task plans and seven-field major change requests with alternatives |
-| Dynamic orchestration | Capability declarations, generated role coverage, transparent assignments and provider-neutral dispatch packets |
-| Adversarial consensus | Independent analysis, challenge, vote and evidence-bound consensus, preserving dissent |
-| Approval relevance | Scoped code, policy and evidence fingerprints invalidate stale approvals |
-| Research | Explicit argv execution, input/config/code hashes, seed/runtime metadata, captured output, timeout and recovery |
-| Research innovation | Source access/coverage, seven-field ideas, separate falsifiable hypotheses and independent provisional novelty verdicts |
-| Improvement | Read-only audit with explicit deduplicated proposed-improvement recording; fixes require owned reviewed work |
-| Interpretation | Scientific conclusions and analysis evidence are recorded separately from process success |
-| Handover | Completed work, design rationale, failures, blockers and actionable next steps survive agent changes |
-| Recovery | Projection repair, portable export and validated reconstruction of a missing ledger after Git clone |
+#### 接管既有项目（Adoption）
+如果你已有既有 Git 仓库，只需添加 `--adopt` 参数，UADOS 会保留现有代码与说明文件，并生成基础治理脚手架：
+```bash
+cd /path/to/existing-repo
+python3 /path/to/scripts/uados.py init . \
+  --name "Legacy-Project" \
+  --objective "重构核心模块并建立规范" \
+  --adopt
+```
+
+### 2.3 查看状态与审计
+随时随地检查当前工作区一致性：
+```bash
+# 检查账本与视图是否有漂移
+python3 scripts/uados.py status
+
+# 执行完整性审计（验证账本、事件链与证据文件）
+python3 scripts/uados.py audit
+```
+
+---
+
+## 3. 核心机制：六步闭环工作流
 
 ```mermaid
-flowchart LR
-    A[Read project context] --> B[Understanding report]
-    B --> C[Acknowledge current report]
-    C --> D[Define task and review major plan]
-    D --> E[Claim and execute]
-    E --> F[Record evidence and review result]
-    F --> G[Complete and hand over]
-    G --> A
+flowchart TD
+    A[1. 启动会话并阅读报告<br/>session start & acknowledge] --> B[2. 定义任务与录入计划<br/>task add & task plan]
+    B --> C{是否为重大任务 Major?}
+    C -- 是 --> D[3. 角色指派与对抗性辩论<br/>roles & debate plan]
+    C -- 否 --> E[4. 认领任务并执行编写<br/>task claim & code]
+    D --> E
+    E --> F[5. 记录证据与结果评审<br/>task record & review/debate result]
+    F --> G[6. 完成任务与会话交接<br/>task complete & session close]
 ```
 
-`--project ROOT` precedes the command. Tracked actions take `--session SESSION_ID`. See [the master workflow](MASTER_AGENT_WORKFLOW.md) for commands and [worked examples](EXAMPLES/README.md) for complete workflows. Use `context --full` to retrieve the governed documents for an agent adapter.
+---
 
-## Verify and explore
+## 4. 实战场景 A：常规软件研发全流程（Routine Task）
 
-```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/verify_scaffold.py
-python3 scripts/run_examples.py --output /path/to/new-example-directory
+本场景演示如何只用 UADOS 完成一个常规功能特性（如：增加时序平滑处理函数）。
+
+### 第一步：开启会话并确认上下文（Context Before Action）
+
+UADOS 强制要求“行动前必先建立上下文”。
+
+```bash
+# 1. 启动会话，指定你的标识（人名或 Agent 标识）
+python3 scripts/uados.py session start --agent dev-alice
+```
+命令输出示例：
+```json
+{
+  "session_id": "ses_01J7K8...",
+  "report_path": "PROJECT_MEMORY/session_reports/ses_01J7K8...md",
+  "report_hash": "a1b2c3d4e5f6...",
+  "acknowledged": false
+}
 ```
 
-The checked-in [software](EXAMPLES/generated/software/PROJECT_STATE.md), [research](EXAMPLES/generated/research/RESEARCH_MANAGEMENT/experiments.md) and [hybrid](EXAMPLES/generated/hybrid/PROJECT_STATE.md) examples are initialized projects with real fixture execution and handover history. Their contributor labels are scripted demonstrations; the actual separate-agent implementation review is recorded in [the independent audit](AUDIT/independent-review.md).
+此时打开 `PROJECT_MEMORY/session_reports/ses_01J7K8...md`（即 **项目理解报告 Project Understanding Report**），查看当前工程目标、已完成进展、已知风险和下一步建议。
 
-Read [architecture](docs/architecture.md), [requirements and acceptance scenarios](docs/requirements.md), [the storage ADR](docs/adr/0001-local-ledger.md) and [the Phase 2 ADR](docs/adr/0002-phase2-governance.md). The repository itself is initialized with UADOS: its live work, decisions and handover are in the same files used by downstream projects.
+```bash
+# 2. 确认理解报告（必须传入精确的 report-hash）
+python3 scripts/uados.py session acknowledge ses_01J7K8... --report-hash a1b2c3d4e5f6...
+```
+*注：如果其他协作者在中途修改了状态，导致上下文陈旧，系统会拒绝操作。此时只需执行 `session refresh ses_...` 获取最新 hash 并重新 acknowledge 即可。*
 
-## Operating limits
+---
 
-Version 1 targets trusted collaborators sharing a local workspace. CLI gates cannot prevent direct editor writes, prove comprehension, authenticate agent identities, or authenticate a rewritten hash chain. Declared scope must cover the relevant implementation. Experiments preserve provenance and evidence; seed application, external data/environment restoration and scientific validity remain contributor responsibilities.
+### 第二步：添加任务并录入实现与验证计划
 
-The CI matrix is configured for Linux, macOS and Windows on Python 3.9, 3.12 and 3.14. Phase 1 validation and platform limits are recorded in `AUDIT/validation.json`; Phase 2 results are recorded separately in its new final report; configured CI is not evidence that hosted CI has run. No remote repository, service or deployment is provisioned.
+在写代码之前，先定义任务、划定影响范围（Scope）并制定验证计划。
 
-## Project workspace guide
+```bash
+# 1. 创建任务 (指定风险级别为 routine，限定影响作用域)
+python3 scripts/uados.py task add --session ses_01J7K8... \
+  --title "实现指数移动平均平滑算法" \
+  --description "在 src/preprocess/smooth.py 中提供 EMA 平滑函数，并通过单元测试" \
+  --risk routine \
+  --scope src/preprocess/smooth.py \
+  --scope tests/test_smooth.py
+```
+系统会返回任务 ID，例如 `task_01J7...`。
 
-UADOS keeps a project's decisions, tasks, evidence and handovers inside the project so another human or agent can continue the work. This scaffold supports software, research and hybrid projects. The Python CLI records structured work; the maintained documents explain how the team should carry it out.
+```bash
+# 2. 准备实施与验证计划文档
+mkdir -p evidence
+cat << 'EOF' > evidence/plan_ema.md
+# EMA 算法实施计划
+1. 在 src/preprocess/smooth.py 中实现 `exponential_moving_average` 函数，支持 alpha 参数校验。
+2. 边界处理：空数组、NaN 处理及单点输入。
+3. 验证方案：在 tests/test_smooth.py 编写针对边界值与已知算例的单测，执行 pytest/unittest 确保 100% 覆盖。
+EOF
 
-Start with `MASTER_AGENT_WORKFLOW.md`, `PROJECT_STATE.md`, `SESSION_HANDOVER.md`, `DEVELOPMENT_LOG.md`, `DECISION_RECORD.md` and `PROJECT_MEMORY/`. Then read the rules for the work you plan to perform.
-
-## Two kinds of project files
-
-The authoritative record is `.uados/ledger.sqlite3`. UADOS commits current state and its hash-chained event together in one SQLite transaction. It generates these readable projections from that record:
-
-- `PROJECT_STATE.md`: objective, mode, phase, work and blockers.
-- `DEVELOPMENT_LOG.md`: durable action history.
-- `DECISION_RECORD.md`: problems, alternatives, decisions and reasons.
-- `SESSION_HANDOVER.md`: the latest recorded stopping point and next actions.
-- `PROJECT_MEMORY/tasks.md`, `PROJECT_MEMORY/knowledge.md` and `RESEARCH_MANAGEMENT/experiments.md`: structured tasks, recorded notes and experiment records.
-- `PROJECT_MEMORY/session_reports/`: issued Understanding Reports.
-- `.uados/state.json` and `.uados/events.jsonl`: machine-readable projections.
-- `CONSENSUS_DECISION.md`, `MULTI_AGENT_SYSTEM/role_plans.md` and `CHANGE_REQUESTS/CR*.md` records: role, debate and change views. The maintained `CR_TEMPLATE.md` is the exception.
-- `RESEARCH_MANAGEMENT/LITERATURE_GAP_ANALYSIS.md`, `NOVELTY_AUDIT.md`, `RESEARCH_DECISION_RECORD.md` and `HYPOTHESES.md`: research evidence and provisional novelty views.
-- `SYSTEM_IMPROVEMENT_LOG.md`: proposed audit improvements and their recorded disposition.
-
-Do not edit those generated files manually. Use the CLI to change their source record. Write free-form knowledge in `PROJECT_MEMORY/notes/` or maintained policies, and link evidence through tracked actions. `audit --repair` rebuilds projections; it does not repair a damaged ledger or recover missing evidence.
-
-## Navigation
-
-| Location | Purpose |
-| --- | --- |
-| `MASTER_AGENT_WORKFLOW.md` | Single lifecycle authority |
-| `.agent/` | Startup, task, memory, handover and compatibility guidance |
-| `CHANGE_REQUESTS/` | Structured major changes and maintained worksheet |
-| `PROJECT_MEMORY/` | Architecture, tasks, durable notes and lessons |
-| `ENGINEERING_RULES/` | Software, quality, security and extension policies |
-| `MULTI_AGENT_SYSTEM/` | Roles and independent adversarial review |
-| `RESEARCH_MANAGEMENT/` | Hypotheses, experiment records, data and publication |
-| `VERSION_CONTROL/` | Git, evidence retention and optional CI/release practices |
-| `AUDIT/` | Consistency checks and recovery |
-| `TEMPLATES/` | Reusable task, ADR, review and research records |
-| `PROMPTS/` | Agent entry and execution instructions |
-| `EXAMPLES/` | Worked workflows with expected outcomes |
-
-## Start a session
-
-Run from an environment with UADOS installed, replacing `AGENT_ID` with the team's stable label for the current contributor:
-
-```sh
-python -m uados --project . session start --agent AGENT_ID
+# 3. 提交任务计划到账本
+python3 scripts/uados.py task plan task_01J7... --session ses_01J7K8... \
+  --implementation "编写 EMA 函数与入参合法性断言" \
+  --validation "运行单元测试，比对预设基准输出" \
+  --evidence evidence/plan_ema.md
 ```
 
-Read the Understanding Report, verify it against the project files, and acknowledge the session using the session ID and report hash printed by the CLI:
+---
 
-```sh
-python -m uados --project . session acknowledge SESSION_ID --report-hash REPORT_HASH
-python -m uados --project . status
-python -m uados --project . context
+### 第三步：认领任务租约（Task Claim）
+
+拥有批准计划后，方可认领租约。租约机制可确保同一路径范围（Scope）不会被多个会话同时冲突篡改：
+
+```bash
+python3 scripts/uados.py task claim task_01J7... --session ses_01J7K8... --lease-minutes 60
 ```
 
-Pass `--session SESSION_ID` to tracked work commands. If another contributor changes recorded work or maintained context, refresh the session, read the replacement report and acknowledge its new hash before proceeding.
+---
 
-UADOS operates in a trusted local workspace. It checks its own tracked commands, but cannot prevent an editor from changing a file or prove that an agent read a document. Agent labels support ownership and distinct-reviewer checks; they do not authenticate people or models. External authentication, protected branches, secret storage, CI and deployment are team integrations, not services provided by this scaffold.
+### 第四步：编写代码并运行验证
 
-## Adoption and portability
+现在可安全修改业务代码与测试文件：
+1. 编辑 `src/preprocess/smooth.py`
+2. 编辑 `tests/test_smooth.py`
+3. 运行测试并将结果保存为真实可信的证据文件：
 
-For an existing repository, initialize with `init PATH --name ... --objective ... --mode ... --adopt`. Adoption preserves colliding maintained files such as an existing README or AGENTS instructions and reports `preserved_files`; inspect and integrate their content with this workflow. Existing generated-state collisions remain an error. Initialization without adoption refuses collisions, and neither form silently replaces maintained instructions.
-
-`export PATH` creates an initialized portable directory at a new destination outside the project. It includes the ledger, maintained/generated memory and recorded scopes, evidence and experiment inputs/outputs. Repeat `--include PATH` for additional project-relative dependencies. Inspect privacy-sensitive content before sharing; installed environments and external resources may need separate restoration.
-
-After a Git clone that contains consistent `.uados/events.jsonl` and `.uados/state.json` but no local database, use `python -m uados --project . rebuild-ledger`, then audit. Reconstruction validates exported history and only creates a missing database. It does not overwrite a current ledger or authenticate the exported record. See `VERSION_CONTROL/README.md` for what must be versioned together.
-
-## Project mode
-
-Initialization with `--mode auto` looks for software signals such as source files or package manifests, and research signals such as notebooks, bibliography/LaTeX files or experiment/dataset directories. Both signals select hybrid; research alone selects research; software or an empty project selects software. The empty-project choice has low confidence. Inspect the recorded detection evidence in `PROJECT_STATE.md`; explicitly choose `--mode software`, `--mode research` or `--mode hybrid` during initialization when the heuristic does not reflect the intended workflow. Detection is a starting classification, not a scientific assessment or automatic reclassification after every edit.
-
-
-## Phase 2 operation and compatibility
-
-Fresh projects use workflow protocol 2. Existing projects upgrade explicitly; ledger schema/history and legacy task gates remain intact. Protocol-2 tasks require recorded implementation and validation plans with evidence before claim. Major work adds change control, generated role coverage and staged plan/result debate alongside independent approvals. Consult the master workflow and operation-specific CLI help for the structured inputs; do not reuse a legacy approval as protocol-2 consensus.
-
-The common client contract is [AGENTS.md](AGENTS.md), [CLAUDE.md](CLAUDE.md) and [Cursor's always-applied rule](.cursor/rules/uados.mdc), each pointing to the central master. [Compatibility details](.agent/compatibility.md) distinguish documented native loader behavior from tested local behavior. Cursor's requested plain `.md` reference is supplied alongside the `.mdc` file its loader recognizes. Qoder and ZCode use root AGENTS instructions; automatic file imports are not assumed. The host performs actual independent model dispatch; UADOS supplies agent-neutral packets and records.
-
-Phase 2 acceptance artifacts are `AUDIT/scenario_test_report.md`, `AUDIT/phase2-final-report.md` and `AUDIT/self_review.md` when the validation run has produced them. The scenario runner uses local CLI execution and logical day labels for agent switching; it does not prove real commercial-client invocation or 30 elapsed days. Historical examples/evidence remain protocol-1 snapshots and are not rewritten to imitate Phase 2 compliance.
-
-Remaining integration work includes authenticated contributor identity, real provider/native-client dispatch tests, external evidence anchoring, distributed coordination, larger-history performance, hosted cross-platform validation and domain-specific research search/design checks. Novelty verdicts are provisional evidence assessments rather than publication guarantees.
-
-
-For a routine protocol-2 task, prepare a readable `evidence/plan.md`, then use the IDs printed by each operation:
-
-```sh
-python -m uados --project /path/to/new-project session start --agent Builder --runtime Codex
-python -m uados --project /path/to/new-project session acknowledge SESSION_ID --report-hash REPORT_HASH
-python -m uados --project /path/to/new-project task add --session SESSION_ID --title "Observable outcome" --description "Acceptance criteria" --risk routine --scope src/component
-python -m uados --project /path/to/new-project task plan TASK_ID --session SESSION_ID --implementation "Steps and recovery" --validation "Checks and expected outcomes" --evidence evidence/plan.md
-python -m uados --project /path/to/new-project task claim TASK_ID --session SESSION_ID
+```bash
+# 执行测试并将实际控制台输出保存为证据
+python3 -m unittest tests/test_smooth.py > evidence/val_ema.txt 2>&1
 ```
 
-Implement the owned scope, execute meaningful checks and preserve their output. Refresh/acknowledge if governed context changed. Submit `task record TASK_ID --session SESSION_ID --summary ... --evidence evidence/validation.md`, audit, then `task complete TASK_ID --session SESSION_ID` and close the session with actual status/next steps. Major work uses the master's additional change/role/debate stages before claim and completion.
+---
 
-Run the complete Phase 2 local scenarios from this repository with:
+### 第五步：登记完成证据并完成任务
 
-```sh
-python3 scripts/run_phase2_scenarios.py --output /path/to/new-phase2-scenario-directory
+UADOS 要求证据必须来自实际运行产出，不可虚构：
+
+```bash
+# 1. 提交验证证据与摘要
+python3 scripts/uados.py task record task_01J7... --session ses_01J7K8... \
+  --summary "已完成 EMA 平滑实现，10 个单测全部通过，浮点误差小于 1e-6" \
+  --evidence evidence/val_ema.txt
+
+# 2. 标记任务完成
+python3 scripts/uados.py task complete task_01J7... --session ses_01J7K8...
 ```
 
-The output destination must be new. Read the emitted scenario evidence and its limits; a script's artificial reviewer labels exercise gates without proving real model independence. Separate model reviews of this implementation are recorded in the Phase 2 audit evidence.
+---
+
+### 第六步：规范交接与关闭会话（Session Close）
+
+会话结束时，必须留下结构化的交接总结，供下一个协作者无缝接续：
+
+```bash
+python3 scripts/uados.py session close ses_01J7K8... \
+  --summary "完成了 EMA 平滑算法的核心实现与单元测试" \
+  --next "下一步：在 pipeline 中集成 EMA 平滑算子并进行基准性能测试"
+```
+
+关闭后，UADOS 会自动重新编译生成 `SESSION_HANDOVER.md` 与 `PROJECT_STATE.md`。
+
+---
+
+## 5. 实战场景 B：重大架构变更与多角色辩论（Major Task）
+
+对于架构改动、公共 API 变更、核心存储层迁移等高风险工作（Protocol 2 规范下的 `major` 任务），UADOS 要求执行**变更申请（Change Request）**以及**两名以上独立评审员的对抗性辩论与共识投票**。
+
+### 5.1 流程总览
+
+1. `task add --risk major` 创建重大任务
+2. 提交规范的变更请求 JSON（`change propose`）
+3. 注册参与智能体/协作者的能力（`agent register`）
+4. 动态生成角色规划与分配（`roles generate` / `assign`）
+5. 开启**方案辩论（Plan Debate）**并经过独立评审投票达成共识（`debate open` -> `analysis` -> `challenge` -> `vote` -> `consensus`）
+6. 认领并编码实施
+7. 开启**结果辩论（Result Debate）**完成代码与证据审计
+8. 任务完成与交接
+
+### 5.2 逐步操作演示
+
+#### 1. 启动会话并创建重大任务
+```bash
+python3 scripts/uados.py session start --agent lead-architect
+# 假设会话 ID: ses_major_01, report-hash: b2c3...
+python3 scripts/uados.py session acknowledge ses_major_01 --report-hash b2c3...
+
+python3 scripts/uados.py task add --session ses_major_01 \
+  --title "迁移账本存储引擎为 WAL 高性能模式" \
+  --description "改造底层的 SQLite 存储层，引入 WAL 模式与连接池，以支撑并发只读" \
+  --risk major \
+  --scope src/storage.py
+# 获得任务 ID: task_major_01
+```
+
+#### 2. 编写并提交变更请求（Change Request）
+准备 `evidence/cr_storage.json`，必须包含完整规范的 7 个字段与备选方案：
+```json
+{
+  "problem": "高并发读取历史事件时由于排他锁导致读超时",
+  "proposal": "在 SQLite 连接初始化时显式开启 PRAGMA journal_mode=WAL 并调大 busy_timeout",
+  "scope": ["src/storage.py"],
+  "alternatives": [
+    "保持 DELETE 模式并增加外部文件锁重试",
+    "引入外部 Redis 缓存（增加外部依赖，违反零依赖原则）"
+  ],
+  "risks": ["Windows 文件锁在部分网络共享驱动器上对 WAL 存在兼容性限制"],
+  "rollback": "若出现损坏，通过 PRAGMA journal_mode=DELETE 还原回滚",
+  "evidence": ["evidence/benchmark_lock.txt"]
+}
+```
+
+```bash
+# 提交并建立任务计划
+python3 scripts/uados.py task plan task_major_01 --session ses_major_01 \
+  --implementation "修改 DatabaseConnection 设置 WAL 模式" \
+  --validation "多线程读写压力测试脚本验证无锁等待错误" \
+  --evidence evidence/benchmark_lock.txt
+
+# 提出变更提案
+python3 scripts/uados.py change propose task_major_01 \
+  --record evidence/cr_storage.json \
+  --session ses_major_01
+```
+
+#### 3. 注册协作者能力与角色分配
+```bash
+# 注册参与者的能力 (至少需要不同的审核视角)
+python3 scripts/uados.py agent register --session ses_major_01 --capability architecture --capability testing
+
+# 为重大任务生成角色规划
+python3 scripts/uados.py roles generate task_major_01 --session ses_major_01
+# 获得角色规划 ID: role_plan_01
+
+# 指派角色（至少需要两位独立于任务作者的评审角色）
+python3 scripts/uados.py roles assign role_plan_01 --role reviewer_1 --agent reviewer-bob --session ses_major_01
+python3 scripts/uados.py roles assign role_plan_01 --role reviewer_2 --agent reviewer-carol --session ses_major_01
+```
+
+#### 4. 方案阶段辩论（Plan Debate）
+```bash
+# 1. 开启计划辩论
+python3 scripts/uados.py debate open task_major_01 --roles role_plan_01 --stage plan --session ses_major_01
+# 获得辩论 ID: deb_plan_01
+
+# 2. 协作者获取只读上下文数据包
+python3 scripts/uados.py debate packet deb_plan_01 --agent reviewer-bob
+
+# 3. 独立评审员提交独立分析
+python3 scripts/uados.py debate analysis deb_plan_01 --session ses_major_01 \
+  --solution "赞同开启 WAL 模式，但需显式设置 wal_checkpoint" \
+  --assumption "本地文件系统为本地磁盘而非 NFS" \
+  --risk "异常断电可能导致 WAL 文件未合并" \
+  --alternative "使用 MEMORY 临时表（但丢持久性）" \
+  --evidence evidence/sqlite_doc.txt
+
+# 4. 推进辩论轮次并进行共识投票
+python3 scripts/uados.py debate advance deb_plan_01 --session ses_major_01
+
+python3 scripts/uados.py debate vote deb_plan_01 --session ses_major_01 \
+  --select "WAL 方案并配合定期 checkpoint 机制" \
+  --verdict approve \
+  --reason "技术风险可控，备选方案明确" \
+  --evidence evidence/sqlite_doc.txt
+
+# 5. 达成最终方案共识
+python3 scripts/uados.py debate consensus deb_plan_01 --session ses_major_01 \
+  --select "实施方案：WAL+定期 Checkpoint" \
+  --reason "全员投票通过，无遗留未化解风险" \
+  --risk "需做好断电恢复保护测试"
+```
+
+共识达成后，任务自动解锁，即可执行 `task claim` -> 编码 -> `task record`。
+在完成任务前，再对实施结果开启 `debate open ... --stage result` 进行结果辩论，全体验收投票通过后方可调用 `task complete`。
+
+---
+
+## 6. 实战场景 C：科学研究与假设实验（Research Workflow）
+
+UADOS 专为严谨科研设计，涵盖“文献溯源 -> 创新点挖掘 -> 提出可证伪假说 -> 新颖性独立审计 -> 实验代码执行追踪 -> 科研结论落地”完整科研生命周期。
+
+### 6.1 登记文献依据（Literature Source）
+创建 `evidence/src_attention.json`：
+```json
+{
+  "source_id": "vaswani2017attention",
+  "title": "Attention Is All You Need",
+  "authors": ["Vaswani et al."],
+  "year": 2017,
+  "access": "full_text",
+  "summary": "提出 Transformer 架构，自注意力机制完全替代循环与卷积网络",
+  "evidence": ["evidence/vaswani2017.pdf"]
+}
+```
+```bash
+python3 scripts/uados.py research source --record evidence/src_attention.json --session ses_res_01
+```
+
+### 6.2 登记研究创新点（Research Idea）与假说（Hypothesis）
+创建 `evidence/idea_linear_attn.json`：
+```json
+{
+  "title": "基于低秩分解的线性复杂度自注意力算子",
+  "existing_work": "标准自注意力机制具有 O(N^2) 计算和显存复杂度",
+  "limitation": "现有线性注意力在因果掩码模式下精度下降严重",
+  "gap": "缺乏在长序列下兼顾因果约束与常数级推断缓存的方法",
+  "innovation": "结合状态空间衰减核的核化注意力算子",
+  "contribution": "显存复杂度降低至 O(1)，长上下文评测保持困惑度相当",
+  "publication_target": "ICML / NeurIPS",
+  "sources": ["vaswani2017attention"],
+  "evidence": ["evidence/idea_notes.md"]
+}
+```
+```bash
+python3 scripts/uados.py research idea --record evidence/idea_linear_attn.json --session ses_res_01
+# 获得 idea ID: idea_01
+```
+
+创建可证伪假说 `evidence/hypo_linear.json`：
+```json
+{
+  "idea_id": "idea_01",
+  "prediction": "在序列长度达到 8192 时，新算子显存占用降低 60% 以上，且验证集困惑度上升不超过 0.5",
+  "rejection_criterion": "显存降低幅度小于 50% 或困惑度上升超过 1.0",
+  "test_method": "在相同数据集与固定随机种子（seed 42）下运行比对脚本",
+  "evidence": ["evidence/experiment_design.md"]
+}
+```
+```bash
+python3 scripts/uados.py research hypothesis --record evidence/hypo_linear.json --session ses_res_01
+# 获得 hypothesis ID: hypo_01
+```
+
+### 6.3 新颖性独立审计（Novelty Audit）
+在动手实验前，必须有独立审计断言新颖性：
+```bash
+python3 scripts/uados.py research novelty idea_01 \
+  --verdict candidate \
+  --challenge "虽然与某某论文类似，但其核化方案引入了新的因果衰减因子，具备差异" \
+  --evidence evidence/literature_comparison.pdf \
+  --session ses_res_01
+```
+
+### 6.4 登记与运行科研实验（Experiment Add & Run）
+UADOS 记录确切的调用参数、配置哈希、数据集哈希、随机种子和文件快照，执行进程并捕获标准输出：
+
+```bash
+# 1. 注册实验
+python3 scripts/uados.py experiment add --session ses_res_01 \
+  --title "核化注意力与标准注意力长文本显存/PPL对比" \
+  --hypothesis "新注意力在保持性能的同时降低长文本显存" \
+  --hypothesis-id hypo_01 \
+  --command-json '["python3", "run_benchmark.py", "--seq-len", "8192"]' \
+  --config '{"batch_size": 4, "precision": "fp16", "lr": 1e-4}' \
+  --dataset "data/benchmark_wikitext.bin" \
+  --seed 42 \
+  --scope src/attention.py \
+  --scope run_benchmark.py
+# 获得 experiment ID: exp_01
+
+# 2. 运行实验（具备超时监控机制）
+python3 scripts/uados.py experiment run exp_01 --timeout 1800 --session ses_res_01
+
+# 3. 记录科研解释结论
+python3 scripts/uados.py experiment conclude exp_01 --session ses_res_01 \
+  --conclusion "实验成功执行，实测显存由 14.2GB 下降至 5.1GB (降低64%)，PPL 仅上升 0.21" \
+  --evidence evidence/exp_01_result.json
+
+# 4. 闭环判定假说验证结果
+python3 scripts/uados.py research outcome hypo_01 \
+  --experiment exp_01 \
+  --run 1 \
+  --verdict supported \
+  --reason "各项指标均满足预期，未触发拒斥准则" \
+  --evidence evidence/exp_01_result.json \
+  --session ses_res_01
+```
+
+---
+
+## 7. 实战场景 D：知识沉淀、系统审计与自进化
+
+### 7.1 记录架构与技术决策（ADR）
+不要让关键决策散落在对话或口头沟通中：
+```bash
+python3 scripts/uados.py decision add --session ses_01 \
+  --title "采用纯标准库构建 CLI" \
+  --problem "第三方库升级与系统打包破坏环境稳定性" \
+  --decision "完全使用 Python 内置 argparse、sqlite3 与 json 库" \
+  --reason "保证所有操作系统均能即下即用，无依赖冲突与版本陷阱" \
+  --risk "无法使用某些高级三方 UI 库（如 rich），终端输出需保持文本清晰规范" \
+  --alternatives "Click 库" \
+  --alternatives "Typer 库" \
+  --evidence docs/adr/0001-local-ledger.md
+```
+
+### 7.2 记录技术笔记与教训（Notes）
+```bash
+# 记录踩坑或经验，kind 支持: technical (技术), lesson (经验), failure (失败记录), research (科研)
+python3 scripts/uados.py note --session ses_01 \
+  --title "macOS 文件描述符限制处理经验" \
+  --body "在 macOS 下并发批量读写时需注意 ulimit -n 默认限制为 256，测试前需调大。" \
+  --kind lesson
+```
+
+### 7.3 系统审计与自动改进（Continuous Self-Improvement）
+执行全面安全与合规审计：
+```bash
+# 检查是否存在漂移或破坏
+python3 scripts/uados.py audit
+
+# 记录审计发现的待改进项
+python3 scripts/uados.py audit --record --session ses_01
+```
+你还可以手动提报改进项 `evidence/imp_fix.json`：
+```json
+{
+  "problem": "部分老旧测试用例在 Windows 下路径斜杠匹配偶发失败",
+  "root_cause": "部分代码直接使用硬编码 '/' 拼接而非 pathlib.Path",
+  "improvement": "统一改用 pathlib.Path 与 os.path 处理跨平台路径",
+  "implementation": "修改 tests 目录下的路径校验逻辑",
+  "prevention": "在 CI 流程中加入跨平台路径检查",
+  "evidence": ["evidence/windows_path_error.txt"]
+}
+```
+```bash
+python3 scripts/uados.py improvement --record evidence/imp_fix.json --session ses_01
+```
+
+---
+
+## 8. 关键规则与双层文件架构
+
+理解哪些文件可以手动编辑，哪些文件绝不可手改，是顺畅使用 UADOS 的关键。
+
+```
+项目根目录/
+├── .uados/                          [不可手改: 系统存储区]
+│   ├── ledger.sqlite3               # 唯一真理来源 (SQLite 事务账本)
+│   ├── state.json                   # 机器可读状态快照
+│   └── events.jsonl                 # 哈希链条式事件全量日志
+│
+├── PROJECT_STATE.md                 [不可手改: 自动投影]
+├── DEVELOPMENT_LOG.md               [不可手改: 自动投影]
+├── DECISION_RECORD.md               [不可手改: 自动投影]
+├── SESSION_HANDOVER.md              [不可手改: 自动投影]
+├── CONSENSUS_DECISION.md            [不可手改: 自动投影]
+├── SYSTEM_IMPROVEMENT_LOG.md        [不可手改: 自动投影]
+├── PROJECT_MEMORY/tasks.md          [不可手改: 自动投影]
+│
+├── src/                             [自由编辑: 你的代码与资产]
+├── tests/                           [自由编辑: 测试代码]
+├── evidence/                        [自由编辑: 验证输出与支撑材料]
+└── MASTER_AGENT_WORKFLOW.md         [自由编辑: 团队维护的工作流与规约]
+```
+
+> **铁律**：永远不要手动编辑上述标注为 `[不可手改]` 的文件！任何直接的手动修改都会导致 `status` 和 `audit` 检测到哈希漂移（Drift）。如果意外损坏，请使用 `python3 scripts/uados.py audit --repair` 从 SQLite 账本重新生成投影文件。
+
+---
+
+## 9. 完整 CLI 速查手册 (Cheat Sheet)
+
+| 模块 | 子命令 | 关键参数 | 说明 |
+| :--- | :--- | :--- | :--- |
+| **项目生命周期** | `init` | `path --name NAME --objective OBJ [--mode MODE] [--adopt]` | 初始化或接管项目 |
+| | `status` | - | 查看当前状态与视图一致性 |
+| | `audit` | `[--repair] [--record --session SES]` | 审计账本、修复视图或记录改进 |
+| | `rebuild-ledger` | - | 从合法的 json/jsonl 恢复损坏的账本 |
+| **会话管理** | `session start` | `--agent AGENT [--runtime RUNTIME]` | 启动新会话 |
+| | `session acknowledge`| `SES_ID --report-hash HASH` | 签署并确认上下文理解报告 |
+| | `session refresh` | `SES_ID` | 当外部状态变化时刷新报告与哈希 |
+| | `session close` | `SES_ID --summary "..." --next "..."` | 完成交接并关闭当前会话 |
+| **任务管理** | `task add` | `--session SES --title "..." --risk routine\|major --scope PATH` | 创建新任务 |
+| | `task plan` | `TASK_ID --session SES --implementation "..." --validation "..." --evidence PATH` | 登记实施与验证方案 |
+| | `task claim` | `TASK_ID --session SES [--lease-minutes M]` | 认领工作任务租约 |
+| | `task record` | `TASK_ID --session SES --summary "..." --evidence PATH` | 登记实施结果与可信证据 |
+| | `task review` | `TASK_ID --session SES --stage plan\|result --verdict approve\|request_changes` | 独立同行审查签字 |
+| | `task complete` | `TASK_ID --session SES` | 验收通过，闭环任务 |
+| | `task block` | `TASK_ID --session SES --reason "..."` | 标记阻塞原因与等待条件 |
+| **变更与辩论** | `change propose` | `TASK_ID --record JSON_PATH --session SES` | 提出重大变更申请 (CR) |
+| | `agent register` | `--session SES --capability CAP` | 声明协作者技能角色 |
+| | `roles generate` | `TASK_ID --session SES` | 动态规划辩论角色需求 |
+| | `roles assign` | `ROLE_PLAN_ID --role ROLE --agent AGENT --session SES` | 明确指派辩论席位 |
+| | `debate open` | `TASK_ID --roles ROLE_PLAN_ID --stage plan\|result --session SES` | 开启对抗性辩论 |
+| | `debate analysis` | `DEB_ID --session SES --solution "..." --assumption "..." --risk "..."` | 提交独立多维度分析 |
+| | `debate challenge`| `DEB_ID --session SES --target AGENT --failure "..." --evidence PATH` | 提出针对性技术质疑 |
+| | `debate vote` | `DEB_ID --session SES --select "..." --verdict approve\|request_changes` | 正式表决投票 |
+| | `debate consensus`| `DEB_ID --session SES --select "..." --reason "..." --risk "..."` | 达成权威共识决断 |
+| **科研管理** | `research source` | `--record JSON_PATH --session SES` | 录入前沿参考文献 |
+| | `research idea` | `--record JSON_PATH --session SES` | 沉淀核心创新点提案 |
+| | `research hypothesis`| `--record JSON_PATH --session SES` | 建立可证伪科学假说 |
+| | `research novelty`| `IDEA_ID --verdict candidate\|overlap --challenge "..." --evidence PATH` | 独立新颖性评定 |
+| | `experiment add` | `--session SES --title "..." --command-json '["..."]' --seed N --scope PATH` | 注册确定性实验 |
+| | `experiment run` | `EXP_ID --session SES [--timeout SECONDS]` | 隔离执行并捕获实验输出 |
+| | `experiment conclude`| `EXP_ID --session SES --conclusion "..." --evidence PATH` | 产出科研解释 |
+| | `research outcome` | `HYPO_ID --experiment EXP_ID --run 1 --verdict supported\|refuted` | 判定假说验证结论 |
+| **知识沉淀** | `decision add` | `--session SES --problem "..." --decision "..." --reason "..." --alternatives ...` | 记录架构决策 (ADR) |
+| | `note` | `--session SES --title "..." --body "..." [--kind technical\|lesson\|failure]` | 登记技术心得与失败记录 |
+
+---
+
+## 10. 常见问题与避坑指南 (FAQ)
+
+### Q1: 执行命令提示 `Context stale: report hash mismatch`，为什么？
+**解答**：这代表在你执行当前操作之前，其他协作者或操作已改变了账本状态，使你之前阅读的“项目理解报告”过时了。
+**解法**：执行 `python3 scripts/uados.py session refresh <SESSION_ID>`，打开新生成的报告确认最新进展，然后带上新的 report-hash 重新执行 `session acknowledge <SESSION_ID> --report-hash <NEW_HASH>`。
+
+### Q2: 为什么 `task claim` 失败，提示路径范围冲突？
+**解答**：UADOS 具有排他作用域（Scope Lease）保护。如果另一个任务正在进行且其声明的 `--scope` 与你的任务路径有交集（甚至是父子目录重叠），系统会阻断认领以避免代码冲突覆盖。
+**解法**：等待对方任务完成（`task complete`）释放租约，或协调修改任务的 `--scope` 范围。
+
+### Q3: 为什么 `task claim` 提示需要先录入计划（Plan required）？
+**解答**：Protocol 2 规定任何任务在认领开工前，都必须通过 `task plan` 提供实施计划、验证标准和证据路径。严禁“未想清楚就动笔”。
+
+### Q4: 重大任务（Major Task）为什么无法调用 `task complete`？
+**解答**：重大任务在计划阶段必须通过 `debate consensus`（或独立的 `task review`），并在代码完成后再次通过结果阶段辩论（`stage: result`）的全体同意投票。缺少任何一步共识投票，系统都会严格阻断任务完成。
+
+### Q5: 意外删除了 `PROJECT_STATE.md` 或 Markdown 视图文件怎么办？
+**解答**：无需慌张，真正的真理储存在 `.uados/ledger.sqlite3`。只需执行：
+```bash
+python3 scripts/uados.py audit --repair
+```
+系统会在毫秒级瞬间完美重构所有 Markdown 投影文件。
+
+---
+
+**使用 UADOS，让每一行代码改动皆有依据，每一次架构权衡皆有记录，每一场学术探索皆可追溯！**
