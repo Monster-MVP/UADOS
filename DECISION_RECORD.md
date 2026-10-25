@@ -98,3 +98,36 @@ Intermediate events omit nested state dictionaries in streaming mode; full state
 
 Review task: Routine decision; no major task linked.
 
+## ADR000004 — Correct ADR000003: streaming engine wired into all load paths in 2.1.0, not in 3.2
+
+Status: accepted. Author: ZCode-Remediation-Lead.
+
+### Problem
+
+ADR000003 claimed the bounded-memory streaming ledger engine was deployed while status/audit/export/mutations/trust still used full-state materialization; the 2.97GB ledger needed 73.9s and 3.83GB peak RSS per audit and every mutation rewrote the whole journal.
+
+### Decision
+
+2.1.0 digest-only events: every event carries state_digest, full-state snapshots embed only when the harvestable evidence set changes or every 100 events; streaming loads on every path; session report contents live on disk instead of state; compact rewrites legacy ledges with timestamped backups (production result: 3.0GB to 27MB journal, audit 1.05s/55MB, historical harvest preserved at 178 records).
+
+### Rationale
+
+Verified on a full project copy first; production compact completed with backups ledger.pre-compact-20261025T120943Z.*; 142 tests green including mixed-format chains, compaction idempotence and digest-anchored rebuild.
+
+### Risk and revisit conditions
+
+Compaction rehashes the chain: pre-compaction trust checkpoints become historical prefixes; rollback to 2.0.0 binaries on a compacted ledger is unsupported; rebuild of digest-only tails requires events.jsonl plus state.json.
+
+### Alternatives considered
+
+- Keep full-state events and rely on faster hardware
+- Append-only journal with O(1) drift tracking
+- Per-event state deltas with replay-on-rebuild
+
+### Evidence
+
+- `AUDIT/2026-10-25-remediation/validation.md` (SHA-256 `fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200`)
+- `AUDIT/2026-10-25-adversarial-audit/report.md` (SHA-256 `373239ddb398e1de55c4d65926d72788a30a6d3c3b9836329dbc3e903566bff3`)
+
+Review task: Routine decision; no major task linked.
+

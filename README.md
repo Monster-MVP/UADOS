@@ -784,7 +784,19 @@ python3 scripts/uados.py improvement --record evidence/imp_fix.json --session se
 | **项目生命周期** | `init` | `path --name NAME --objective OBJ [--mode MODE] [--adopt]` | 初始化或接管项目 |
 | | `status` | - | 查看当前状态与视图一致性 |
 | | `audit` | `[--repair] [--record --session SES]` | 审计账本、修复视图或记录改进 |
-| | `rebuild-ledger` | - | 从合法的 json/jsonl 恢复损坏的账本 |
+| | `rebuild-ledger` | - | 从导出恢复缺失的账本（2.1.0 起 digest-only 尾事件需配合 `.uados/state.json`） |
+| | `compact` | - | **2.1.0**：重写账本为 digest-only 事件+收割快照；原始字节保留在带时间戳备份 |
+| | `context` | `[--full]` | 读取上下文清单或全部上下文文档 |
+| | `upgrade` | `--session SES --task TASK` | 显式启用 protocol2（保留历史与遗留任务） |
+| | `adapter` | `--runtime RUNTIME [--agent ID]` | 生成指定运行时的引导/上下文引导包 |
+| | `export` | `PATH [--include PATH]` | 导出可移植的上下文/证据项目目录 |
+| **可信与分发边界** | `trust checkpoint` | `--output DIR --principal ID --key KEY` | 用外部 SSHSIG 密钥签署账本检查点 |
+| | `trust verify` | `--bundle DIR --principal ID --expected-sha256 HASH --allowed-signers FILE` | 验证外部锚定的检查点 |
+| | `dispatch run` | `--request JSON --output FILE` | 运行确定性本地适配器并生成分发回执 |
+| | `dispatch verify` | `--request JSON --receipt FILE` | 验证本地分发回执 |
+| | `coordination benchmark` | - | 只读测量本地 SQLite 历史（O(1) 内存流式验证） |
+| | `review-bundle create` | `TASK_ID --session SES --output PATH [--reason R]` | 导出跨会话评审清单（含目标文件 SHA-256） |
+| | `review-bundle verify` | `PATH` | 校验评审清单；源文件变动 1 字节即拒绝 |
 | **会话管理** | `session start` | `--agent AGENT [--runtime RUNTIME]` | 启动新会话 |
 | | `session acknowledge`| `SES_ID --report-hash HASH` | 签署并确认上下文理解报告 |
 | | `session refresh` | `SES_ID` | 当外部状态变化时刷新报告与哈希 |
@@ -815,6 +827,7 @@ python3 scripts/uados.py improvement --record evidence/imp_fix.json --session se
 | | `research outcome` | `HYPO_ID --experiment EXP_ID --run 1 --verdict supported\|refuted` | 判定假说验证结论 |
 | **知识沉淀** | `decision add` | `--session SES --problem "..." --decision "..." --reason "..." --alternatives ...` | 记录架构决策 (ADR) |
 | | `note` | `--session SES --title "..." --body "..." [--kind technical\|lesson\|failure]` | 登记技术心得与失败记录 |
+| | `improvement` | `--record JSON_PATH --session SES` | 记录审计发现的待改进项（proposed，待任务化） |
 
 ---
 
@@ -839,7 +852,10 @@ python3 scripts/uados.py improvement --record evidence/imp_fix.json --session se
 ```bash
 python3 scripts/uados.py audit --repair
 ```
-系统会在毫秒级瞬间完美重构所有 Markdown 投影文件。
+系统会依据账本重新生成所有 Markdown 投影文件。耗时取决于账本规模：2.1.0 起 audit 全程流式、有界内存（本项目 836 事件实测约 1 秒）；更早的全量实现在大账本上可能需要数十秒到数分钟。
+
+### Q6: 账本（`.uados/events.jsonl` / `ledger.sqlite3`）越用越大怎么办？
+**解答**：2.0.0 及更早版本每个事件内嵌完整状态，账本呈 O(N×S) 增长（本项目曾达 2.97GB）。2.1.0 起事件默认只携带 `state_digest`，仅在证据集合变化或每 100 个事件时嵌入快照；对旧账本执行一次 `compact` 即可重写为新格式（本项目实测 2.97GB → 27MB，audit 73.9s/3.83GB → 1.05s/55MB）。compact 会把原始 `ledger.sqlite3` 与 `events.jsonl` 复制为 `.uados/` 下带时间戳的备份，且在账本末尾追加 `ledger.compact` 事件如实记录前一头哈希；压缩后哈希链是一条新链，此前外部锚定（trust checkpoint）将视为历史前缀。
 
 ---
 

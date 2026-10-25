@@ -106,12 +106,39 @@ def create_schema(connection):
     )
 
 
+# Events written since 2.1.0 carry "state_digest" (SHA-256 of the canonical
+# resulting state) on every event and embed the full "state" only on snapshot
+# events: when an evidence-bearing collection changes or every SNAPSHOT_INTERVAL
+# events. Legacy events embedding full state remain loadable and verifiable.
+SNAPSHOT_INTERVAL = 100
+
+
+def state_digest_value(state):
+    return hashlib.sha256(canonical(state).encode("utf-8")).hexdigest()
+
+
+def harvest_fingerprint(state):
+    """Digest over the evidence records audit/export harvest from a state.
+
+    A snapshot is embedded exactly when this fingerprint changes, so historical
+    evidence harvesting coverage is equivalent to full per-event states while
+    metadata-only events stay digest-only.
+    """
+    from .protocol import all_evidence
+    return digest(all_evidence(state))
+
+
 def streaming_load_ledger(connection, keep_events=False):
     """Verify full cryptographic chain with strictly bounded O(1) memory.
 
     When keep_events is True, returns full event objects including nested state.
     When keep_events is False (default), returns lightweight event headers while
     retaining O(1) memory overhead, with the latest state verified against the ledger.
+
+    Accepts legacy events embedding a full state, snapshot events embedding both
+    "state" and "state_digest", and digest-only events carrying "state_digest".
+    The committed state row must match the final event's embedded state or its
+    state digest.
     """
     try:
         check = connection.execute("PRAGMA quick_check").fetchone()[0]
@@ -139,6 +166,7 @@ def streaming_load_ledger(connection, keep_events=False):
         previous = "0" * 64
         count = 0
         last_state = None
+        last_digest = None
         last_raw = None
         cursor = connection.execute("SELECT sequence,value FROM events ORDER BY sequence")
         for sequence, raw in cursor:
@@ -163,6 +191,8 @@ def streaming_load_ledger(connection, keep_events=False):
                     if not isinstance(event, dict):
                         raise UadosError("Event %d must be a JSON object." % sequence)
                     event.pop("hash", None)
+                    last_state = event.get("state")
+                    last_digest = event.get("state_digest")
                     last_raw = raw
                 else:
                     event = json.loads(raw)
@@ -174,6 +204,8 @@ def streaming_load_ledger(connection, keep_events=False):
                     else:
                         event.pop("hash", None)
                     last_state = event.get("state")
+                    last_digest = event.get("state_digest")
+                    last_raw = raw
             else:
                 event = json.loads(raw)
                 if not isinstance(event, dict):
@@ -184,6 +216,8 @@ def streaming_load_ledger(connection, keep_events=False):
                 else:
                     event.pop("hash", None)
                 last_state = event.get("state")
+                last_digest = event.get("state_digest")
+                last_raw = raw
 
             if sequence != count or event.get("sequence") != sequence:
                 raise UadosError("The event sequence is broken.")
@@ -209,8 +243,18 @@ def streaming_load_ledger(connection, keep_events=False):
         if not keep_events and count and last_state is None and last_raw is not None:
             last_ev = json.loads(last_raw)
             last_state = last_ev.get("state")
+            if last_state is None and last_digest is None:
+                last_digest = last_ev.get("state_digest")
 
-        if not count or canonical(last_state) != canonical(state):
+        if not count:
+            raise UadosError("The state disagrees with the committed event history.")
+        if last_state is not None:
+            agrees = canonical(last_state) == canonical(state)
+        elif last_digest is not None:
+            agrees = last_digest == state_digest_value(state)
+        else:
+            agrees = False
+        if not agrees:
             raise UadosError("The state disagrees with the committed event history.")
         if not keep_events and events:
             events[-1]["state"] = state
@@ -234,13 +278,103 @@ def event_header(events, kind, actor, summary):
     }
 
 
-def commit_event(connection, state, header):
-    event = dict(header, state=state)
+def commit_event(connection, state, header, snapshot=True):
+    """Append an event; the full state is embedded only on snapshot events.
+
+    Every event carries state_digest so the committed state row remains
+    verifiable against the final event without per-event state copies.
+    """
+    event = dict(header)
+    event["state_digest"] = state_digest_value(state)
+    if snapshot:
+        event["state"] = state
     event["hash"] = digest(event)
     connection.execute("INSERT INTO events(sequence,value) VALUES (?,?)", (event["sequence"], canonical(event)))
     connection.execute("INSERT OR REPLACE INTO state(id,value) VALUES (1,?)", (canonical(state),))
     connection.commit()
     return event
+
+
+def event_header_view(event):
+    """Header-only projection of a committed event for bounded-memory use."""
+    header = {key: event[key] for key in ("sequence", "occurred_at", "kind", "actor", "summary", "previous_hash", "hash") if key in event}
+    header.setdefault("summary", "")
+    return header
+
+
+def iter_event_states(connection):
+    """Yield (sequence, state) for events embedding a full state, row by row.
+
+    Digest-only events are skipped cheaply; this keeps audit/export historical
+    evidence harvesting O(1) in memory regardless of journal volume.
+    """
+    try:
+        cursor = connection.execute("SELECT sequence,value FROM events ORDER BY sequence")
+        for sequence, raw in cursor:
+            if ',"state":' not in raw:
+                continue
+            event = json.loads(raw)
+            if not isinstance(event, dict):
+                raise UadosError("Event %d must be a JSON object." % sequence)
+            state = event.get("state")
+            if state is not None:
+                yield sequence, state
+    except sqlite3.DatabaseError as exc:
+        raise UadosError("Unreadable ledger: %s" % exc) from exc
+
+
+def iter_journal_lines(connection):
+    """Yield the canonical event journal one line at a time."""
+    try:
+        cursor = connection.execute("SELECT value FROM events ORDER BY sequence")
+        for (raw,) in cursor:
+            yield raw + "\n"
+    except sqlite3.DatabaseError as exc:
+        raise UadosError("Unreadable ledger: %s" % exc) from exc
+
+
+def event_anchor(connection, sequence):
+    """Return {hash, state_sha256} for one event without loading the chain.
+
+    state_sha256 is the event's state_digest when present, otherwise the
+    digest of its embedded snapshot state; both anchor the same value.
+    """
+    try:
+        row = connection.execute("SELECT value FROM events WHERE sequence=?", (sequence,)).fetchone()
+    except sqlite3.DatabaseError as exc:
+        raise UadosError("Unreadable ledger: %s" % exc) from exc
+    if row is None:
+        return None
+    try:
+        event = json.loads(row[0])
+    except ValueError as exc:
+        raise UadosError("Unreadable ledger: %s" % exc) from exc
+    anchor = event.get("state_digest")
+    if anchor is None and "state" in event:
+        anchor = state_digest_value(event["state"])
+    return {"hash": event.get("hash"), "state_sha256": anchor}
+
+
+def atomic_write_lines(path, lines):
+    """Atomic replace with streamed content, mirroring atomic_write durability."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=".uados-write-", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
+            for line in lines:
+                stream.write(line)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+        if os.name == "posix":
+            directory_fd = os.open(str(path.parent), os.O_RDONLY)
+            try:
+                os.fsync(directory_fd)
+            finally:
+                os.close(directory_fd)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
 
 
 IGNORED_PARTS = {".git", ".uados", "__pycache__", "node_modules", ".venv", "venv", ".pytest_cache", ".DS_Store"}

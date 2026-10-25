@@ -44,3 +44,9 @@ Implemented streaming_load_ledger in src/uados/storage.py to resolve O(N*|State|
 
 Recorded by Principal-Governance-Maintainer at 2026-10-17T03:55:58.207987+00:00.
 
+## N000008 — Phase 4 governance backfill: commits bypassed the ledger (failure)
+
+Independent adversarial audit (AUDIT/2026-10-25-adversarial-audit/report.md) established that git commits f75e1d5, c2f1f84, 84dacc2 and four README commits (2026-10-17..20, incl. resilience.py, Phase 4 benchmarks, v2.0.0 version bump and both production-readiness reports) were implemented without any UADOS task/plan/review/debate records - the ledger counters stopped at T:10 with the last implementation event on 2026-10-17T04:03Z. Corrigenda were prepended to AUDIT/phase4-benchmark-report.md and AUDIT/v2-production-review.md without altering original bytes. Remediation itself is tracked as T000011; the benchmark suite was relocated to sandbox-only artifacts in 2.1.0.
+
+Recorded by ZCode-Remediation-Lead at 2026-10-25T12:13:03.018690+00:00.
+

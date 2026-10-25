@@ -96,14 +96,14 @@ class StorageStreamingTests(unittest.TestCase):
                 with self.assertRaises(UadosError):
                     streaming_load_ledger(conn)
 
-            # 3. Tamper with inner state in event 2 without updating hash
+            # 3. Tamper with inner state in the snapshot event 1 without updating hash
             with sqlite3.connect(ledger_path) as conn:
                 # restore event 3
                 conn.execute("UPDATE events SET value=? WHERE sequence=3", (raw3,))
-                raw2 = conn.execute("SELECT value FROM events WHERE sequence=2").fetchone()[0]
-                ev2 = json.loads(raw2)
-                ev2["state"]["objective"] = "corrupted-objective"
-                conn.execute("UPDATE events SET value=? WHERE sequence=2", (canonical(ev2),))
+                raw1 = conn.execute("SELECT value FROM events WHERE sequence=1").fetchone()[0]
+                ev1 = json.loads(raw1)
+                ev1["state"]["objective"] = "corrupted-objective"
+                conn.execute("UPDATE events SET value=? WHERE sequence=1", (canonical(ev1),))
                 conn.commit()
 
             with sqlite3.connect(ledger_path) as conn:

@@ -79,10 +79,24 @@ class BackoffConfig:
             raise ResilienceError("max_attempts must be >= 1.")
 
 
+def _parse_retry_after(message: str) -> Optional[float]:
+    import re
+    match = re.search(r"retry[-_]after[:=\s]+([0-9.]+)", message.lower())
+    if not match:
+        return None
+    try:
+        parsed = float(match.group(1))
+    except ValueError:
+        return None
+    if math.isfinite(parsed) and parsed >= 0:
+        return parsed
+    return None
+
+
 def classify_error(exc: BaseException) -> Tuple[bool, Optional[float], str]:
     """Inspect an exception to determine retryability, retry-after delay, and category."""
     if isinstance(exc, RateLimitError):
-        return True, None, "rate_limit"
+        return True, _parse_retry_after(str(exc)), "rate_limit"
     if isinstance(exc, (TransientError, ServiceUnavailableError, TimeoutError, ConnectionError)):
         return True, None, "transient_network"
 
@@ -91,17 +105,7 @@ def classify_error(exc: BaseException) -> Tuple[bool, Optional[float], str]:
 
     # Check for HTTP status codes and standard rate limit keywords
     if any(k in msg for k in ("429", "rate limit", "rate_limit", "quota exceeded", "resource_exhausted", "too many requests")):
-        # Look for Retry-After: <seconds> pattern
-        import re
-        match = re.search(r"retry[-_]after[:=\s]+([0-9.]+)", msg)
-        if match:
-            try:
-                parsed = float(match.group(1))
-                if math.isfinite(parsed) and parsed >= 0:
-                    retry_after = parsed
-            except ValueError:
-                pass
-        return True, retry_after, "rate_limit_429"
+        return True, _parse_retry_after(msg), "rate_limit_429"
 
     if any(k in msg for k in ("503", "service unavailable", "overloaded", "bad gateway", "502", "gateway timeout", "504")):
         return True, None, "service_unavailable_503"
@@ -142,7 +146,10 @@ def retry_with_backoff(
         started_at = get_time()
         try:
             return func()
-        except BaseException as exc:
+        except Exception as exc:
+            # KeyboardInterrupt/SystemExit are BaseException, not Exception:
+            # interrupts must propagate unwrapped instead of being retried or
+            # converted into PermanentError.
             retryable = False
             category = "unknown"
             delay: Optional[float] = None

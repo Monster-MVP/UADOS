@@ -301,7 +301,14 @@ class AdversarialWorkflowTests(unittest.TestCase):
         self.project.close_session(session, "Preserved reasoning for a successor", ["Challenge the revised approach"], failed=["Initial approach failed"])
         before_state, before_events, _ = self.project.read()
         (self.root / ".uados" / "ledger.sqlite3").unlink()
+        # Since 2.1.0, digest-only journal tails rebuild from the journal plus
+        # the exported state.json (both live in .uados and every export); the
+        # journal alone no longer carries the current state for such tails.
+        saved_state = (self.root / ".uados" / "state.json").read_bytes()
         (self.root / ".uados" / "state.json").unlink()
+        with self.assertRaises(UadosError):
+            Project.rebuild_ledger(self.root)
+        (self.root / ".uados" / "state.json").write_bytes(saved_state)
         Project.rebuild_ledger(self.root)
         restored = Project(self.root)
         state, events, drift = restored.read()

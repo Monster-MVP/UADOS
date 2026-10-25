@@ -11,10 +11,13 @@ from typing import Any, Dict, Set
 
 from .context import (REQUIRED_DIRECTORIES, context_bundle, maintained_context,
                       render_views, report_markdown, understanding_report)
-from .storage import (UadosError, atomic_write, canonical, commit_event, connect,
-                      create_schema, digest, evidence_files, event_header,
-                      file_hash, load_ledger, now, project_lock, safe_path,
-                      scope_snapshot, snapshot_problems, streaming_load_ledger)
+from .storage import (UadosError, atomic_write, atomic_write_lines, canonical,
+                      commit_event, connect, create_schema, digest,
+                      event_header_view, harvest_fingerprint, evidence_files,
+                      event_header, file_hash, iter_event_states,
+                      iter_journal_lines, load_ledger, now, project_lock,
+                      safe_path, scope_snapshot, snapshot_problems,
+                      state_digest_value, streaming_load_ledger, SNAPSHOT_INTERVAL)
 from .protocol import all_evidence, current_evidence, extend_state, task_version, version
 
 
@@ -56,29 +59,58 @@ def next_id(state, prefix):
 
 
 def projection_map(state, events):
+    """Small in-memory views. The event journal streams separately."""
     result = render_views(state, events)
     result[".uados/state.json"] = json.dumps(state, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
-    result[".uados/events.jsonl"] = "".join(canonical(e) + "\n" for e in events)
     for session in state["sessions"].values():
-        for report in session["reports"]:
-            result[report["path"]] = report_markdown(report["content"], report["hash"])
+        entries = session.get("reports", [])
+        report = session.get("report")
+        if report is not None and entries:
+            report_hash = session.get("current_report_hash") or entries[-1]["hash"]
+            result[entries[-1]["path"]] = report_markdown(report, report_hash)
+            continue
+        legacy = [entry for entry in entries if "content" in entry]
+        if legacy:
+            result[legacy[-1]["path"]] = report_markdown(legacy[-1]["content"], legacy[-1]["hash"])
     return result
 
 
-def projection_drift(root, state, events):
+def journal_drift(root, connection):
+    """Stream-compare .uados/events.jsonl against the committed rows."""
+    path = safe_path(root, ".uados/events.jsonl", allow_missing=True)
+    if not path.is_file():
+        return [".uados/events.jsonl"]
+    try:
+        with path.open("r", encoding="utf-8", newline="") as stream:
+            for line in iter_journal_lines(connection):
+                if stream.readline() != line:
+                    return [".uados/events.jsonl"]
+            if stream.read(1):
+                return [".uados/events.jsonl"]
+    except (OSError, UnicodeError, UadosError):
+        return [".uados/events.jsonl"]
+    return []
+
+
+def projection_drift(root, state, events, connection=None):
     drift = []
     for relative, content in projection_map(state, events).items():
         path = safe_path(root, relative, allow_missing=True)
         if not path.is_file() or path.read_bytes() != content.encode("utf-8"):
             drift.append(relative)
+    if connection is not None:
+        drift.extend(journal_drift(root, connection))
     return drift
 
 
-def write_projections(root, state, events):
+def write_projections(root, state, events, connection=None):
     for relative, content in projection_map(state, events).items():
         path = safe_path(root, relative, allow_missing=True)
         if not path.is_file() or path.read_bytes() != content.encode("utf-8"):
             atomic_write(path, content)
+    if connection is not None:
+        if journal_drift(root, connection):
+            atomic_write_lines(safe_path(root, ".uados/events.jsonl", allow_missing=True), iter_journal_lines(connection))
 
 
 def check_evidence(root, records):
@@ -112,7 +144,13 @@ class Project:
 
     @classmethod
     def rebuild_ledger(cls, root):
-        """Recover a missing local database from a complete, validated Git export."""
+        """Recover a missing local database from a complete, validated export.
+
+        Streams the journal row by row so large histories rebuild in bounded
+        memory. The final event anchors the state: either its embedded snapshot
+        state or, for digest-only tails, the exported state.json verified
+        against the final event's state_digest.
+        """
         root = Path(root).resolve()
         metadata = root / ".uados"
         if not metadata.is_dir() or metadata.is_symlink():
@@ -123,14 +161,30 @@ class Project:
                 raise UadosError("rebuild-ledger only reconstructs a missing database; it never overwrites history.")
             journal = safe_path(root, ".uados/events.jsonl")
             try:
-                events = [json.loads(line) for line in journal.read_text(encoding="utf-8").splitlines()]
-                if not events:
+                count = 0
+                last_event = None
+                with journal.open("r", encoding="utf-8") as stream:
+                    for line in stream:
+                        if not line.endswith("\n"):
+                            raise UadosError("The exported event journal is truncated.")
+                        event = json.loads(line)
+                        if not isinstance(event, dict):
+                            raise UadosError("Every exported event must be a JSON object.")
+                        count += 1
+                        if event.get("sequence") != count:
+                            raise UadosError("The event sequence is broken.")
+                        last_event = event
+                if last_event is None:
                     raise UadosError("The exported event journal is empty.")
-                if not all(isinstance(event, dict) for event in events):
-                    raise UadosError("Every exported event must be a JSON object.")
-                state = events[-1]["state"]
                 exported_state = safe_path(root, ".uados/state.json", allow_missing=True)
-                if exported_state.is_file() and canonical(json.loads(exported_state.read_text(encoding="utf-8"))) != canonical(state):
+                state = last_event.get("state")
+                if state is None:
+                    if "state_digest" not in last_event or not exported_state.is_file():
+                        raise UadosError("Digest-only journals rebuild from .uados/state.json anchored by the final event.")
+                    state = json.loads(exported_state.read_text(encoding="utf-8"))
+                    if state_digest_value(state) != last_event["state_digest"]:
+                        raise UadosError("Exported state and event history disagree; recover a consistent Git revision.")
+                elif exported_state.is_file() and canonical(json.loads(exported_state.read_text(encoding="utf-8"))) != canonical(state):
                     raise UadosError("Exported state and event history disagree; recover a consistent Git revision.")
             except (ValueError, KeyError, TypeError) as exc:
                 raise UadosError("Exported event history is unreadable: %s" % exc) from exc
@@ -139,18 +193,143 @@ class Project:
             try:
                 with sqlite3.connect(temporary) as connection:
                     create_schema(connection)
-                    connection.executemany("INSERT INTO events(sequence,value) VALUES (?,?)", [(event["sequence"], canonical(event)) for event in events])
+
+                    def canonical_rows():
+                        with journal.open("r", encoding="utf-8") as stream:
+                            sequence = 0
+                            for line in stream:
+                                sequence += 1
+                                yield (sequence, canonical(json.loads(line)))
+
+                    connection.executemany("INSERT INTO events(sequence,value) VALUES (?,?)", canonical_rows())
                     connection.execute("INSERT INTO state(id,value) VALUES (1,?)", (canonical(state),))
                     connection.commit()
-                    recovered_state, recovered_events = load_ledger(connection)
+                    recovered_state, recovered_events = streaming_load_ledger(connection, keep_events=False)
                 with open(temporary, "rb") as stream:
                     os.fsync(stream.fileno())
                 os.replace(temporary, ledger)
-                write_projections(root, recovered_state, recovered_events)
+                with connect(root) as connection:
+                    write_projections(root, recovered_state, recovered_events, connection)
             finally:
                 if os.path.exists(temporary):
                     os.unlink(temporary)
-        return {"project": str(root), "event_count": len(events), "rebuilt": True}
+        return {"project": str(root), "event_count": count, "rebuilt": True}
+
+    @classmethod
+    def compact(cls, root):
+        """Rewrite the ledger with digest-only events plus harvest snapshots.
+
+        Legacy events embedding a full state are re-issued as header +
+        state_digest; a compact snapshot (evidence collections only) is kept
+        wherever the harvestable evidence set changed or on the snapshot
+        cadence, so audit/export historical harvesting stays equivalent. The
+        appended ledger.compact event embeds the full pruned state (closed
+        sessions keep only report path/hash) and records the previous head.
+        The original ledger and journal are copied to timestamped backups
+        beside the database before the verified swap. Event hashes after the
+        rewrite form a new chain; external anchors pinning the previous head
+        become historical prefixes.
+        """
+        root = Path(root).resolve()
+        metadata = root / ".uados"
+        ledger = metadata / "ledger.sqlite3"
+        if not ledger.is_file() or ledger.is_symlink():
+            raise UadosError("compact requires an existing local ledger.")
+        journal = metadata / "events.jsonl"
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        backup_ledger = metadata / ("ledger.pre-compact-%s.sqlite3" % stamp)
+        backup_journal = metadata / ("events.pre-compact-%s.jsonl" % stamp)
+        with project_lock(root), connect(root) as connection:
+            state, events = streaming_load_ledger(connection, keep_events=False)
+            previous_head = events[-1]["hash"]
+            previous_count = len(events)
+            previous_bytes = journal.stat().st_size if journal.is_file() else 0
+            from .protocol import COLLECTIONS
+            evidence_names = COLLECTIONS + ("tasks", "decisions", "experiments")
+
+            previous_harvest = None
+            previous_hash = "0" * 64
+            rows = []
+            snapshot_count = 0
+            cursor = connection.execute("SELECT value FROM events ORDER BY sequence")
+            for (raw,) in cursor:
+                old = json.loads(raw)
+                if not isinstance(old, dict):
+                    raise UadosError("Event %s must be a JSON object." % old.get("sequence"))
+                new = dict(event_header_view(old))
+                new.pop("hash", None)
+                old_state = old.get("state")
+                if old_state is not None:
+                    harvest = harvest_fingerprint(old_state)
+                    keep = harvest != previous_harvest or new["sequence"] % SNAPSHOT_INTERVAL == 0
+                    previous_harvest = harvest
+                    new["state_digest"] = state_digest_value(old_state)
+                    if keep:
+                        new["state"] = {name: old_state[name] for name in evidence_names if name in old_state}
+                        snapshot_count += 1
+                else:
+                    if "state_digest" not in old:
+                        raise UadosError("Event %s carries neither state nor state_digest." % new["sequence"])
+                    new["state_digest"] = old["state_digest"]
+                new["previous_hash"] = previous_hash
+                new["hash"] = digest(new)
+                previous_hash = new["hash"]
+                rows.append((new["sequence"], canonical(new)))
+
+            final_state = json.loads(canonical(state))
+            pruned_reports = 0
+            for session in final_state["sessions"].values():
+                entries = session.get("reports", [])
+                if session.get("status") == "active":
+                    if session.get("report") is None:
+                        legacy = [entry for entry in entries if "content" in entry]
+                        if legacy:
+                            session["report"] = legacy[-1]["content"]
+                            session.setdefault("current_report_hash", legacy[-1]["hash"])
+                else:
+                    pruned_reports += 1
+                    session.pop("report", None)
+                    session.pop("current_report_hash", None)
+                session["reports"] = [{"path": entry["path"], "hash": entry["hash"]} for entry in entries]
+            final_state["compaction"] = {"at": now(), "previous_head": previous_head, "previous_events": previous_count,
+                                         "previous_journal_bytes": previous_bytes, "snapshots": snapshot_count,
+                                         "pruned_closed_sessions": pruned_reports,
+                                         "note": "Digest-only event format with harvest snapshots; original ledger and journal preserved in timestamped backups."}
+
+            header = event_header([], "ledger.compact", "system",
+                                  "Compacted %d events (previous head %s) into digest-only format with %d snapshots; backups ledger.pre-compact-%s.sqlite3 and events.pre-compact-%s.jsonl" % (previous_count, previous_head, snapshot_count, stamp, stamp))
+            header["sequence"] = previous_count + 1
+            header["previous_hash"] = previous_hash
+            final_event = dict(header, state=final_state, state_digest=state_digest_value(final_state))
+            final_event["hash"] = digest(final_event)
+            rows.append((final_event["sequence"], canonical(final_event)))
+
+            fd, temporary = tempfile.mkstemp(prefix=".compact-", suffix=".sqlite3", dir=str(metadata))
+            os.close(fd)
+            try:
+                with sqlite3.connect(temporary) as fresh:
+                    create_schema(fresh)
+                    fresh.executemany("INSERT INTO events(sequence,value) VALUES (?,?)", rows)
+                    fresh.execute("INSERT INTO state(id,value) VALUES (1,?)", (canonical(final_state),))
+                    fresh.commit()
+                    streaming_load_ledger(fresh, keep_events=False)
+                with open(temporary, "rb") as stream:
+                    os.fsync(stream.fileno())
+                shutil.copy2(ledger, backup_ledger)
+                if journal.is_file():
+                    shutil.copy2(journal, backup_journal)
+                os.replace(temporary, ledger)
+                with connect(root) as fresh:
+                    recovered_state, recovered_events = streaming_load_ledger(fresh, keep_events=False)
+                    write_projections(root, recovered_state, recovered_events, fresh)
+            finally:
+                if os.path.exists(temporary):
+                    os.unlink(temporary)
+        new_bytes = journal.stat().st_size if journal.is_file() else 0
+        return {"project": str(root), "previous_events": previous_count, "new_events": previous_count + 1,
+                "snapshots": snapshot_count, "previous_journal_bytes": previous_bytes, "new_journal_bytes": new_bytes,
+                "previous_head": previous_head, "new_head": final_event["hash"],
+                "backup_ledger": backup_ledger.name, "backup_journal": backup_journal.name if journal.is_file() else None}
 
     @classmethod
     def initialize(cls, root, name, objective, mode="auto", adopt=False, protocol_version=2):
@@ -194,13 +373,13 @@ class Project:
             create_schema(connection)
             connection.execute("BEGIN IMMEDIATE")
             event = commit_event(connection, state, event_header([], "project.init", "system", "Initialized %s in %s mode" % (name, state["mode"])))
-            write_projections(root, state, [event])
+            write_projections(root, state, [event_header_view(event)], connection)
         return cls(root)
 
     def read(self, strict=False):
         with project_lock(self.root), connect(self.root) as connection:
-            state, events = load_ledger(connection)
-            drift = projection_drift(self.root, state, events)
+            state, events = streaming_load_ledger(connection, keep_events=False)
+            drift = projection_drift(self.root, state, events, connection)
             if strict and drift:
                 raise UadosError("Generated views differ from the ledger; inspect them, then run audit --repair: " + ", ".join(drift))
             return state, events, drift
@@ -218,12 +397,13 @@ class Project:
     def mutate(self, kind, summary, operation, session_id=None, gate=True, advance=True):
         with project_lock(self.root), connect(self.root) as connection:
             connection.execute("BEGIN IMMEDIATE")
-            state, events = load_ledger(connection)
-            drift = projection_drift(self.root, state, events)
+            state, events = streaming_load_ledger(connection, keep_events=False)
+            drift = projection_drift(self.root, state, events, connection)
             if drift:
                 raise UadosError("Generated views are stale or edited. Inspect and run audit --repair: " + ", ".join(drift))
             session = self._session(state, events, session_id) if gate else state["sessions"].get(session_id)
             actor = session["agent"] if session else "system"
+            fingerprint_before = harvest_fingerprint(state)
             result = operation(state, events, session)
             if result and result.pop("_no_event", False):
                 connection.rollback()
@@ -231,10 +411,14 @@ class Project:
             header = event_header(events, kind, actor, summary)
             if advance and session and session["status"] == "active":
                 session["context_fingerprint"] = context_bundle(self.root, state, events + [header])["fingerprint"]
-            event = commit_event(connection, state, header)
-            events.append(event)
+            # Full state is embedded only when the harvestable evidence set
+            # changed or on the periodic snapshot cadence; every event still
+            # carries the state digest that anchors the committed state row.
+            snapshot = harvest_fingerprint(state) != fingerprint_before or header["sequence"] % SNAPSHOT_INTERVAL == 0
+            event = commit_event(connection, state, header, snapshot=snapshot)
+            events.append(event_header_view(event))
             try:
-                write_projections(self.root, state, events)
+                write_projections(self.root, state, events, connection)
             except (OSError, UnicodeError, UadosError) as exc:
                 raise UadosError("Event %d committed, but projections failed. Do not repeat the action; run audit --repair. %s" % (event["sequence"], exc)) from exc
             return dict(result or {}, event_sequence=event["sequence"])
@@ -251,7 +435,9 @@ class Project:
                 report["runtime"] = runtime
                 report_hash = digest(report)
             path = "PROJECT_MEMORY/session_reports/%s-%s.md" % (session_id, report_hash[:12])
-            state["sessions"][session_id] = {"id": session_id, "agent": agent, "runtime": runtime, "status": "active", "started_at": now(), "acknowledged": False, "context_fingerprint": report["context_fingerprint"], "reports": [{"path": path, "hash": report_hash, "content": report}]}
+            # Report bytes live on disk under PROJECT_MEMORY/session_reports/;
+            # state keeps only the current content so it can be re-projected.
+            state["sessions"][session_id] = {"id": session_id, "agent": agent, "runtime": runtime, "status": "active", "started_at": now(), "acknowledged": False, "context_fingerprint": report["context_fingerprint"], "reports": [{"path": path, "hash": report_hash}], "report": report, "current_report_hash": report_hash}
             return {"session": session_id, "report_hash": report_hash, "report_path": path, "report": report}
         return self.mutate("session.start", "Started session for " + agent, operation, gate=False, advance=False)
 
@@ -265,7 +451,10 @@ class Project:
             path = "PROJECT_MEMORY/session_reports/%s-%s.md" % (session_id, report_hash[:12])
             session.update(acknowledged=False, context_fingerprint=report["context_fingerprint"])
             if not any(r["hash"] == report_hash for r in session["reports"]):
-                session["reports"].append({"path": path, "hash": report_hash, "content": report})
+                session["reports"].append({"path": path, "hash": report_hash})
+            # Replace the retained current report; superseded report files
+            # remain on disk as historical artifacts without state copies.
+            session["report"] = report
             # The most recently issued hash is explicit, even if a previous report is identical.
             session["current_report_hash"] = report_hash
             return {"session": session_id, "report_hash": report_hash, "report_path": path, "report": report}
@@ -296,6 +485,10 @@ class Project:
                     task.update(status="pending", owner=None, lease_until=None)
                     task["work"].append({"kind": "handover", "summary": summary, "at": now(), "agent": session["agent"]})
             session.update(status="closed", closed_at=now())
+            # Closed sessions retain only report paths/hashes; the current
+            # report content is no longer needed for projection.
+            session.pop("report", None)
+            session.pop("current_report_hash", None)
             state["handovers"].append({"session": session_id, "agent": session["agent"], "at": now(), "summary": summary, "next": list(next_actions), "blockers": list(blockers), "failed": list(failed), "released": released})
             if version(state) >= 2:
                 state["handovers"][-1]["project_snapshot"] = {"phase": state["phase"], "mode": state["mode"],
@@ -528,12 +721,12 @@ class Project:
 
     def audit(self, repair=False):
         with project_lock(self.root), connect(self.root) as connection:
-            state, events = load_ledger(connection)
-            drift = projection_drift(self.root, state, events)
+            state, events = streaming_load_ledger(connection, keep_events=False)
+            drift = projection_drift(self.root, state, events, connection)
             repaired = list(drift) if repair else []
             if repair:
-                write_projections(self.root, state, events)
-                drift = projection_drift(self.root, state, events)
+                write_projections(self.root, state, events, connection)
+                drift = projection_drift(self.root, state, events, connection)
             errors = []
             try:
                 context_bundle(self.root, state, events)
@@ -575,10 +768,11 @@ class Project:
             key = lambda record: (record["path"], record["sha256"], record.get("snapshot"), canonical(record.get("dependencies", [])) if record.get("manifest_version") is not None else None)
             active_keys = {key(record) for record in active_records}
             history: Dict[Any, Any] = {}
-            for event in events:
-                if "state" in event:
-                    for record in all_evidence(event["state"]):
-                        history.setdefault(key(record), record)
+            # Historical evidence harvesting streams snapshot states row by
+            # row instead of materializing every embedded event state.
+            for _, snapshot_state in iter_event_states(connection):
+                for record in all_evidence(snapshot_state):
+                    history.setdefault(key(record), record)
             historical_drift = []
             archived_originals = []
             for identifier, record in history.items():
@@ -617,10 +811,11 @@ class Project:
         if destination.exists() or destination.is_relative_to(self.root):
             raise UadosError("Export destination must be a new directory outside the project.")
         with project_lock(self.root), connect(self.root) as connection:
-            state, events = load_ledger(connection)
-            if projection_drift(self.root, state, events):
+            state, events = streaming_load_ledger(connection, keep_events=False)
+            if projection_drift(self.root, state, events, connection):
                 raise UadosError("Repair generated views before exporting.")
             files = set(projection_map(state, events)) | set(maintained_context(self.root))
+            files.add(".uados/events.jsonl")
             unavailable_scopes: Set[str] = set()
             def include_recorded_scope(scopes):
                 snapshot = scope_snapshot(self.root, scopes)
@@ -638,7 +833,7 @@ class Project:
             historical_key = lambda record: (record["path"], record["sha256"], record.get("snapshot"), canonical(record.get("dependencies", [])) if record.get("manifest_version") is not None else None)
             active_keys = {historical_key(record) for record in active_records}
             historical_records = { historical_key(record): record
-                for event in events if "state" in event for record in all_evidence(event["state"]) }
+                for _, snapshot_state in iter_event_states(connection) for record in all_evidence(snapshot_state) }
             unavailable_history = []
             for identifier, record in historical_records.items():
                 if record.get("manifest_version") is not None:

@@ -1,5 +1,17 @@
 # UADOS Phase 4 — 实战基准总报告、跨会话抗限流审查闭环与 v2.0.0 黄金发版报告
 
+> ## ⚠️ 更正声明（Corrigendum，2026-10-25）
+>
+> 本报告以下表述与事实不符，经 2026-10-25 独立对抗式审计（`AUDIT/2026-10-25-adversarial-audit/report.md`）与所有者批准予以更正。原文按证据不可篡改原则保留，阅读时以本声明为准：
+>
+> 1. **"三大真实研发场景端到端基准实战"并非真实实验。** Benchmark 2 的全部科研数值（YOLOv8-Fire mAP50 76.2→80.8、p=0.0032、Jetson Orin 延迟/FPS、误报率等）是 `tests/test_phase4_benchmarks.py` 中的硬编码常量，内嵌脚本 `train_eval.py` 仅把这些常量写入 JSON（`B2_Exp_Run` 实测 0.28 秒，无任何训练/评测）；Benchmark 3 的三位审稿人评分与 rebuttal 叙事、Benchmark 1 的"企业级核心组件"（4 行函数）同为编写好的夹具。它们验证的是 **UADOS 生命周期记账本身的自动化**，不构成任何算法/科研结论。
+> 2. **"Production Gold Release / v2.0.0 黄金发版"定级撤回。** Phase 4 代码与本文档未经过 UADOS 自身的任务/评审门（账本计数停在 T:10，无任何对应事件）；生产账本在当时仍有 2.97GB 的 O(N×S) 膨胀缺陷，audit 需 73.9s/3.83GB。
+> 3. **自相矛盾的数据。** 第四节表格"单操作最大耗时 0.2339s (B2_Exp_Run)"与同目录 `phase4-benchmark-metrics.json` 实际记录（0.2836s）不一致；"50 项操作"实为 52 条。原因是测试每次运行都会覆写该 JSON（该缺陷已在 2.1.0 修复：测试产物只写入沙盒）。
+> 4. **"pyright 0 错误 0 警告"无证据工件**，仓库中不存在任何 pyright 配置或输出。
+> 5. resilience（退避/评审包）与 review-bundle CLI 的实现本身经审计验证有效（单字节防篡改校验真实成立），属本报告被夸大叙事掩盖的真实交付。
+>
+> 后续修复与治理补记见账本 T000011 与 `AUDIT/2026-10-25-remediation/`。
+
 **项目名称**：UADOS (Universal Accountable Development Operating System)  
 **发布版本**：v2.0.0 (Production Gold Release)  
 **基准日期**：2026-10-18  

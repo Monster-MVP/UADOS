@@ -1,8 +1,8 @@
-# UADOS v1.0
+# UADOS v2.1.0
 
 Universal Agentic Development Operating System: an executable, agent-independent framework for software, scientific research and hybrid projects. Project knowledge remains in the workspace when the human or AI contributor changes.
 
-This repository extends the working **Part 1** implementation with **Phase 2** runtime protocols, dynamic role planning, staged adversarial consensus, change management and research innovation records. It contains a Python CLI, transactional project ledger, workflow gates, durable memory, independent review protocol, research runner, templates, agent prompts, working examples and CI configuration. Runtime dependencies: **Python 3.9+ standard library only**.
+This repository extends the working **Part 1** implementation with **Phase 2** runtime protocols, dynamic role planning, staged adversarial consensus, change management and research innovation records, **Phase 3** trust checkpoints, recursive dependency manifests, provider-neutral dispatch receipts and coordination boundaries, **Phase 4** adaptive backoff with cross-session review bundles, and the **2.1.0** digest-only ledger event format with streaming verification and `compact` (see the Chinese `README.md` §10/§11 for the full command reference). It contains a Python CLI, transactional project ledger, workflow gates, durable memory, independent review protocol, research runner, templates, agent prompts, working examples and CI configuration. Runtime dependencies: **Python 3.9+ standard library only**.
 
 ## Use it now
 

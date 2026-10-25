@@ -8,7 +8,7 @@
 
 **Mode:** software
 
-**Phase:** maintenance
+**Phase:** planning
 
 ## Architecture
 
@@ -26,6 +26,7 @@ Read `PROJECT_MEMORY/architecture.md` and applicable ADRs.
 - T000008: Phase3 evidence foundation: recursive dependency manifests — done
 - T000009: Phase3 provider-neutral dispatch receipts — done
 - T000010: Phase3 distributed coordination boundary — done
+- T000011: Remediate P0 ledger growth and streaming integration, prune session reports, backfill Phase4 governance — pending
 
 ## Blockers
 

@@ -1,5 +1,15 @@
 # UADOS v2.0 生产就绪与系统能力真实性总评估报告 (Production Review)
 
+> ## ⚠️ 更正声明（Corrigendum，2026-10-25）
+>
+> 经 2026-10-25 独立对抗式审计（`AUDIT/2026-10-25-adversarial-audit/report.md`）与所有者批准，本报告以下关键表述与代码事实不符，按证据不可篡改原则保留原文、以本声明为准：
+>
+> 1. **"WAL/PRAGMA 强同步"不成立。** `storage.py` 从未启用 WAL（无 `journal_mode` 设置），仅有 `PRAGMA synchronous=FULL`（storage.py:95）。
+> 2. **"O(1) 流式账本引擎落地、成功攻克 2.90GB 规模账本的 OOM 与死锁瓶颈"不成立。** ADR000003 的 `streaming_load_ledger` 当时只接入只读的 `coordination benchmark` 一个命令；status/audit/export/一切 mutation 与 trust 校验仍走全量加载（当日实测：生产账本 audit 73.9s / 峰值 RSS 3.83GB；变更路径还需全量重写 3GB 投影）。真正接入全路径并使 audit 降至 1.05s/55MB 的是 2.1.0 修复（账本 T000011）。
+> 3. **本报告与 Phase 4 全部工作未经过 UADOS 自身账本的任务/评审门**（账本在 2026-10-17T04:03Z 后无任何实现类事件，而本报告与其后多个提交均在其后落地），"有条件生产就绪"的定级程序不符合项目自身治理要求。
+>
+> 文中引用的 `test_interrupted_write_safety`、失败闭锁与崩溃恢复等经独立复测成立的结论不受本声明影响。
+
 **报告编号**：UADOS-V2-PROD-REVIEW-20261017  
 **评估日期**：2026-10-17  
 **评估基准**：Git Commit `f75e1d59b8670466b7e1a0117578b95f9f615eb7` (Head Event: 826, Head Hash: `46b03a34ba97dd33fa192486068455a5e72f53fb1de987de7ebee576411672c2`)  

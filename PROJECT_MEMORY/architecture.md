@@ -1,4 +1,4 @@
-# UADOS v1.0 Phase 2 architecture
+# UADOS v2.1 architecture
 
 UADOS is a dependency-free Python 3.9+ local operating framework for project memory, acknowledged context, owned tasks, adversarial review, recorded experiments and protocol-versioned governance. It provides executable workflow gates and reusable maintained policies. It does not provision a hosted orchestration, authentication, CI or deployment service.
 
@@ -7,14 +7,21 @@ UADOS is a dependency-free Python 3.9+ local operating framework for project mem
 | Component | Responsibility |
 | --- | --- |
 | `src/uados/cli.py` | Argument parsing, JSON outputs and process exit codes |
-| `src/uados/project.py` | Initialization, mode detection, sessions, tasks, reviews, decisions, audit, export and reconstruction |
-| `src/uados/storage.py` | Canonical hashing, SQLite authority, stable OS lock, atomic projection writes and project-relative evidence paths |
+| `src/uados/project.py` | Initialization, mode detection, sessions, tasks, reviews, decisions, audit, export, reconstruction and ledger compaction |
+| `src/uados/storage.py` | Canonical hashing, digest-only event format with harvest snapshots, O(1)-memory streaming chain verification, SQLite authority, stable OS lock, atomic projection writes and project-relative evidence paths |
 | `src/uados/context.py` | Markdown views, context manifest, Understanding Reports and fingerprints |
 | `src/uados/research.py` | Experiment registration, provenance, execution, recovery and interpretation |
 | `src/uados/protocol.py` | Workflow version, common runtime constants and Phase 2 projections |
 | `src/uados/orchestration.py` | Capability registry, role generation/selection, dispatch packets and staged debate/consensus |
 | `src/uados/governance.py` | Evidence-backed plans, change requests, research/novelty records and proposed improvements |
+| `src/uados/trust.py` | Optional external SSHSIG ledger checkpoints anchored per event |
+| `src/uados/manifests.py` | Recursive `.uados-manifest.json` evidence dependency capture and validation |
+| `src/uados/dispatch.py` | Provider-neutral local dispatch receipt boundary |
+| `src/uados/coordination.py` | Read-only coordination/history boundary with hardened lease validation and the streaming history benchmark |
+| `src/uados/resilience.py` | Adaptive backoff with jitter, transient-error classification and cross-session review bundles |
 | `src/uados/assets/` | Maintained project scaffold: rules, memory guide, templates, prompts and examples |
+
+Since 2.1.0 every ledger event carries a `state_digest`; a full state snapshot is embedded only when the harvestable evidence set changes or every 100 events, and session Understanding Reports are stored on disk instead of accumulating inside `state["sessions"]`. `uados compact` rewrites legacy full-state ledgers to this format (original bytes preserved in timestamped backups) and all load paths — status, audit, export, mutations and trust verification — stream the chain in bounded memory.
 
 Both `python -m uados` and the installed `uados` entry point dispatch to the same implementation. A source checkout can also use `python3 scripts/uados.py` without installation. `--project ROOT` precedes the command. Tracked-work operations take a session ID; read-only status/context operations do not. Initialization detects scaffold collisions; explicit `--adopt` preserves existing maintained instructions, reports them for integration and still rejects generated-state collisions.
 

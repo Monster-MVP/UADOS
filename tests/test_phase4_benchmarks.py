@@ -172,7 +172,10 @@ class Phase4Benchmarks(unittest.TestCase):
             "bundle_id": bundle_v["bundle_id"],
             "audit_ok": audit_res["ok"],
         }
-        b1_dir = Path(__file__).resolve().parents[1] / "AUDIT" / "benchmarks" / "benchmark1-software-relay"
+        # Artifacts stay inside the sandbox: committed AUDIT/benchmarks files
+        # are archives of the original run and must never be overwritten by a
+        # test execution.
+        b1_dir = self.benchmark_root / "artifacts" / "benchmark1-software-relay"
         b1_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ws / "AUDIT" / "review-bundles" / "T_RELAY_001-bundle.json", b1_dir / "T_RELAY_001-bundle.json")
         shutil.copy2(ws / "SESSION_HANDOVER.md", b1_dir / "SESSION_HANDOVER.md")
@@ -411,7 +414,7 @@ print('Evaluation completed successfully.')
             "p_value": 0.0032,
             "audit_ok": audit_res["ok"],
         }
-        b2_dir = Path(__file__).resolve().parents[1] / "AUDIT" / "benchmarks" / "benchmark2-research-falsification"
+        b2_dir = self.benchmark_root / "artifacts" / "benchmark2-research-falsification"
         b2_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(idea_ev, b2_dir / "LITERATURE_GAP_MATRIX.md")
         shutil.copy2(hypo_ev, b2_dir / "HYPOTHESIS_DESIGN.md")
@@ -518,8 +521,9 @@ print('Evaluation completed successfully.')
             "audit_ok": audit_res["ok"],
         }
 
-        # Export artifacts to AUDIT/benchmarks/
-        out_bench = Path(__file__).resolve().parents[1] / "AUDIT" / "benchmarks"
+        # Export artifacts to the sandbox; committed AUDIT/benchmarks evidence
+        # stays an immutable archive of the original Phase 4 run.
+        out_bench = self.benchmark_root / "artifacts" / "phase4-benchmarks"
         out_bench.mkdir(parents=True, exist_ok=True)
         b3_dir = out_bench / "benchmark3-paper-rebuttal"
         b3_dir.mkdir(parents=True, exist_ok=True)

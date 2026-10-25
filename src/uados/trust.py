@@ -13,7 +13,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from .storage import UadosError, canonical, connect, digest, load_ledger, now, project_lock
+from .storage import UadosError, canonical, connect, digest, event_anchor, now, project_lock, streaming_load_ledger
 
 NAMESPACE = "uados-checkpoint@uados.local"
 LIMIT = 256 * 1024
@@ -165,7 +165,7 @@ def create_checkpoint(project, output, principal, key):
     if not audit["ok"]:
         raise UadosError("Current audit failed; no checkpoint can be published.")
     with project_lock(project.root), connect(project.root) as connection:
-        state, events = load_ledger(connection)
+        state, events = streaming_load_ledger(connection, keep_events=False)
         if audit["event_count"] != len(events) or audit["head_hash"] != events[-1]["hash"]:
             raise UadosError("Ledger changed between audit and checkpoint capture; retry the audit.")
         value = {"format": "uados-checkpoint", "version": 1, "namespace": NAMESPACE,
@@ -238,12 +238,12 @@ def verify_checkpoint(project, bundle, principal, expected_sha256, allowed_signe
         _run(command, message)
     value = _payload(message, principal)
     with project_lock(project.root), connect(project.root) as connection:
-        state, events = load_ledger(connection)
+        state, events = streaming_load_ledger(connection, keep_events=False)
         sequence = value["sequence"]
         if sequence > len(events) or value["project_id"] != events[0]["hash"]:
             raise UadosError("Checkpoint project or sequence is missing from this ledger.")
-        event = events[sequence - 1]
-        if value["head_hash"] != event["hash"] or value["state_sha256"] != digest(event["state"]):
+        anchor = event_anchor(connection, sequence)
+        if anchor is None or value["head_hash"] != anchor["hash"] or value["state_sha256"] != anchor["state_sha256"]:
             raise UadosError("Ledger prefix/state differs from the authorized checkpoint.")
         current = sequence == len(events)
         if require_current and not current:

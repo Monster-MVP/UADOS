@@ -14,7 +14,7 @@ from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from uados.project import Project, write_projections
-from uados.storage import UadosError, canonical, digest
+from uados.storage import UadosError, canonical, connect, digest
 from uados import trust
 
 
@@ -129,7 +129,8 @@ class Trust(unittest.TestCase):
         with sqlite3.connect(str(self.root / ".uados/ledger.sqlite3")) as connection:
             connection.execute("UPDATE state SET value=? WHERE id=1", (canonical(state),))
             connection.execute("UPDATE events SET value=? WHERE sequence=?", (canonical(events[-1]), len(events)))
-        write_projections(self.root, state, events)
+        with connect(self.root) as connection:
+            write_projections(self.root, state, events, connection)
         self.assertTrue(self.p.audit()["ok"])
         with self.assertRaisesRegex(UadosError, "prefix/state"):
             self.verify(result)
@@ -138,11 +139,12 @@ class Trust(unittest.TestCase):
         self.p.start_session("Original")
         result = self.create()
         _, events, _ = self.p.read()
-        first = events[0]
         with sqlite3.connect(str(self.root / ".uados/ledger.sqlite3")) as connection:
+            first = json.loads(connection.execute("SELECT value FROM events WHERE sequence=1").fetchone()[0])
             connection.execute("DELETE FROM events WHERE sequence>1")
             connection.execute("UPDATE state SET value=? WHERE id=1", (canonical(first["state"]),))
-        write_projections(self.root, first["state"], [first])
+        with connect(self.root) as connection:
+            write_projections(self.root, first["state"], [first], connection)
         self.assertTrue(self.p.audit()["ok"])
         with self.assertRaisesRegex(UadosError, "project or sequence"):
             self.verify(result, require_current=True)

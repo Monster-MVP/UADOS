@@ -30,6 +30,7 @@ def parser():
     init.add_argument("--protocol-version", type=int, choices=(1, 2), default=2, help="Fresh projects default to protocol2; 1 supports legacy workflow reproduction")
     commands.add_parser("status", help="Read durable state and report projection drift")
     commands.add_parser("rebuild-ledger", help="Reconstruct a missing local database from validated JSON exports")
+    commands.add_parser("compact", help="Rewrite the ledger with digest-only events and harvest snapshots; original bytes are preserved in timestamped backups")
     context = commands.add_parser("context", help="Read context manifest or full context documents")
     context.add_argument("--full", action="store_true")
     audit = commands.add_parser("audit", help="Check ledger, memory and referenced evidence")
@@ -269,6 +270,8 @@ def dispatch(args):
         return {"project": str(project.root), "mode": state["mode"], "protocol_version": state["protocol_version"], "preserved_files": state["adoption_preserved"]}
     if args.command == "rebuild-ledger":
         return Project.rebuild_ledger(args.project)
+    if args.command == "compact":
+        return Project.compact(args.project)
     project = Project(args.project)
     if args.command == "trust":
         from .trust import create_checkpoint, verify_checkpoint

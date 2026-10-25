@@ -393,3 +393,45 @@ Implementation/validation plan:
 - Phase3-Security-Reviewer / result / approve: Approve the selected bounded local coordination approach after all three analyses and challenges. Preserve explicit local-only limits and require new evidence for any durable, authenticated or cross-host adapter. (fingerprint `ccf3c12cb7b25e5ca87e809d1853a90487022c161a8dde072e1e29de05b37e81`)
 - Phase3-Validation-Reviewer / result / approve: Approve the selected bounded local coordination approach after all three analyses and challenges. Preserve explicit local-only limits and require new evidence for any durable, authenticated or cross-host adapter. (fingerprint `ccf3c12cb7b25e5ca87e809d1853a90487022c161a8dde072e1e29de05b37e81`)
 
+## T000011 — Remediate P0 ledger growth and streaming integration, prune session reports, backfill Phase4 governance
+
+Acceptance: (1) new events carry state digests with full-state snapshots only on evidence-relevant changes; (2) audit/status/export/mutation stream the ledger instead of full materialization; (3) session reports stop accumulating content in state and closed-session contents are pruned; (4) a compact operation shrinks the existing 3GB ledger with verified backup and honest ledger.compact event; (5) Phase4 benchmark report and v2 production review receive corrigenda; README/architecture updated; full test suite green. Evidence: AUDIT/2026-10-25-adversarial-audit/report.md
+
+Status: pending; risk: major; revision: 2.
+
+Scope: src/uados, tests, README.md, README_EN.md, PROJECT_MEMORY/architecture.md, docs
+
+Dependencies: none
+
+Workflow protocol: 2. Change request: None. Role plan: None.
+
+Implementation/validation plan:
+
+```json
+{
+  "at": "2026-10-25T11:45:49.198275+00:00",
+  "evidence": [
+    {
+      "bytes": 5677,
+      "path": "AUDIT/2026-10-25-adversarial-audit/report.md",
+      "sha256": "373239ddb398e1de55c4d65926d72788a30a6d3c3b9836329dbc3e903566bff3",
+      "snapshot": ".uados/evidence/sha256/373239ddb398e1de55c4d65926d72788a30a6d3c3b9836329dbc3e903566bff3"
+    }
+  ],
+  "implementation": "Owner-directed remediation of the 2026-10-25 independent adversarial audit findings. Steps: storage.py event format v2 (state_digest + conditional snapshots) with backward-compatible loader; project.py streaming loads, streaming journal projection/drift, report pruning on refresh/close, compact operation; cli.py compact command; resilience.py exception scope fix; tests for all of the above plus phase4 test artifact relocation to temp dirs; then compact the production ledger with backup, close stale sessions S000011/S000012, record corrective decision/notes, update docs. Assumptions: local-only trust model unchanged; hash-chain semantics preserved for legacy events; rollback to 2.0.0 on a compacted ledger is unsupported. Alternatives rejected: per-event deltas (replay complexity), append-only journal + O(1) drift (unnecessary after compaction), dropping embedded states entirely (breaks audit historical evidence harvesting). Recovery: ledger.sqlite3 and events.jsonl are backed up before compact; git tag v2.0.0 pins pre-change source.",
+  "validation": "Full unittest/pytest suite green; new unit tests: digest-only event load, snapshot-on-evidence-change, mixed legacy/new chain, report pruning on close, backoff KeyboardInterrupt propagation, phase4 artifacts written outside the repository; compact verified on a copy of the production ledger first (event count, head semantics, audit ok, journal size); production audit re-run after compact with ok=true; evidence in AUDIT/2026-10-25-remediation/."
+}
+```
+
+### Work and failed approaches
+
+- None recorded.
+
+### Evidence
+
+- None recorded.
+
+### Independent challenges
+
+- None recorded.
+
