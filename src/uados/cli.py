@@ -414,6 +414,11 @@ def main(argv=None):
     except (UadosError, OSError, UnicodeError, sqlite3.DatabaseError) as exc:
         print(json.dumps({"error": str(exc)}, ensure_ascii=False), file=sys.stderr)
         return 2
+    except (KeyError, TypeError) as exc:
+        # Malformed historical records must not surface as raw tracebacks;
+        # report a clean, correctable error instead.
+        print(json.dumps({"error": "Invalid record structure: %s" % exc}, ensure_ascii=False), file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":

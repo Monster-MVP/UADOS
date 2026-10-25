@@ -1,18 +1,24 @@
 """Ledger format 2.1: digest-only events, harvest snapshots, report pruning, compact."""
 
+import hashlib
 import json
+import os
 import sqlite3
+import subprocess
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from uados.project import Project, Project as _P
 from uados.resilience import BackoffConfig, RateLimitError, classify_error, retry_with_backoff
 from uados.storage import (UadosError, canonical, commit_event, connect, create_schema,
-                           digest, event_header, load_ledger, streaming_load_ledger)
+                           digest, event_header, load_ledger, state_digest_value,
+                           streaming_load_ledger)
 
 
 class LedgerFormatV2Tests(unittest.TestCase):
@@ -153,6 +159,87 @@ class LedgerFormatV2Tests(unittest.TestCase):
         self.assertTrue(retryable)
         self.assertEqual(delay, 17.0)
         self.assertEqual(category, "rate_limit")
+
+    def test_compact_backups_are_exclusive_and_survive_same_second_retry(self):
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        first = Project.compact(self.root)
+        first_backup = self.root / ".uados" / first["backup_ledger"]
+        first_bytes = first_backup.read_bytes()
+        # Two compacts within the same wall-clock second: microsecond stamps
+        # keep both backup pairs, and no original bytes are ever overwritten.
+        frozen = datetime(2026, 10, 26, 12, 0, 0, 123456, tzinfo=timezone.utc)
+        with patch("uados.project.datetime") as fake_dt:
+            fake_dt.now.return_value = frozen
+            second = Project.compact(self.root)
+        self.assertNotEqual(first["backup_ledger"], second["backup_ledger"])
+        self.assertEqual(first_backup.read_bytes(), first_bytes)
+        self.assertTrue((self.root / ".uados" / second["backup_ledger"]).is_file())
+        self.assertTrue(self.project.audit()["ok"])
+        # The O_EXCL guard refuses to touch an existing backup path.
+        frozen_stamp = frozen.strftime("%Y%m%dT%H%M%S.%fZ")
+        reserved = self.root / ".uados" / ("ledger.pre-compact-%s.sqlite3" % frozen_stamp)
+        reserved.write_bytes(b"preserved bytes")
+        with patch("uados.project.datetime") as fake_dt:
+            fake_dt.now.return_value = frozen
+            with self.assertRaises(UadosError) as caught:
+                Project.compact(self.root)
+        self.assertIn("refusing", str(caught.exception))
+        self.assertEqual(reserved.read_bytes(), b"preserved bytes")
+
+    def test_compact_refuses_projection_drift(self):
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        (self.root / "PROJECT_STATE.md").write_text("edited generated view", encoding="utf-8")
+        with self.assertRaises(UadosError) as caught:
+            Project.compact(self.root)
+        self.assertIn("audit --repair", str(caught.exception))
+
+    def test_compact_refuses_missing_journal(self):
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        (self.root / ".uados" / "events.jsonl").unlink()
+        with self.assertRaises(UadosError) as caught:
+            Project.compact(self.root)
+        self.assertIn("audit --repair", str(caught.exception))
+
+    def test_compact_post_swap_projection_failure_is_actionable(self):
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        import uados.project as project_module
+        with patch.object(project_module, "write_projections", side_effect=OSError("EIO simulated")):
+            with self.assertRaises(UadosError) as caught:
+                Project.compact(self.root)
+        self.assertIn("compacted", str(caught.exception))
+        self.assertIn("audit --repair", str(caught.exception))
+        # The swapped ledger is the new format and repair restores full health.
+        repaired = self.project.audit(True)
+        self.assertTrue(repaired["ok"])
+        self.assertTrue(repaired["repaired"])
+
+    def test_cli_clean_error_on_malformed_session_state(self):
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        with connect(self.root) as connection:
+            state, events = streaming_load_ledger(connection, keep_events=False)
+            state["sessions"][session["session"]]["reports"] = [{"content": "orphan entry without path/hash"}]
+            forged = json.loads(canonical(state))
+            row = connection.execute("SELECT value FROM events WHERE sequence=?", (len(events),)).fetchone()[0]
+            event = json.loads(row)
+            event["state_digest"] = state_digest_value(forged)
+            if "state" in event:
+                event["state"] = forged
+            event.pop("hash", None)
+            event["hash"] = digest(event)
+            connection.execute("UPDATE events SET value=? WHERE sequence=?", (canonical(event), len(events)))
+            connection.execute("UPDATE state SET value=? WHERE id=1", (canonical(forged),))
+            connection.commit()
+        environment = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[1] / "src"))
+        result = subprocess.run([sys.executable, "-m", "uados", "--project", str(self.root), "status"],
+                                capture_output=True, text=True, env=environment)
+        self.assertEqual(result.returncode, 2)
+        payload = json.loads(result.stderr)
+        self.assertIn("error", payload)
 
 
 if __name__ == "__main__":

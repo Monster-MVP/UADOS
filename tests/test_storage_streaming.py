@@ -184,10 +184,14 @@ class StorageStreamingTests(unittest.TestCase):
             mem_delta_mb = (rss_after - rss_before) / 1024
             peak_mb = rss_after / 1024
 
-        # Assertions: Verify historical event 818 invariant and monotonic chain growth
+        # Assertions: verify chain invariants. The pre-2.1.0 hard-coded hash of
+        # event 818 no longer holds after the documented ledger compaction
+        # (compaction rehashes the chain; see ADR000004), so the anchor here is
+        # structural: loader-verified chain, contiguous sequences, scale.
         self.assertGreaterEqual(len(events), 818)
-        self.assertEqual(events[817]["hash"], "71986e50f91df1ba2076920fe6a61f48f0e9b07f026365c94611c5e3a11a69db")
+        self.assertEqual(events[817]["sequence"], 818)
         self.assertEqual(events[-1]["sequence"], len(events))
+        self.assertEqual(events[-1]["previous_hash"], events[-2]["hash"])
         self.assertLessEqual(elapsed, 35.0, f"Streaming verification took {elapsed:.2f}s, expected <= 35.0s")
 
 

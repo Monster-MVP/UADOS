@@ -134,6 +134,20 @@ def task_contributors(task):
     return {task["author"], task.get("implementer")} | set(task.get("contributors", [])) | {entry.get("agent") for entry in task["work"] if entry["kind"] == "implementation"}
 
 
+def _exclusive_copy(source, target):
+    """Copy source to target, never overwriting existing bytes."""
+    with open(source, "rb") as reader, open(target, "xb") as writer:
+        shutil.copyfileobj(reader, writer)
+        writer.flush()
+        os.fsync(writer.fileno())
+    if os.name == "posix":
+        descriptor = os.open(str(target.parent), os.O_RDONLY)
+        try:
+            os.fsync(descriptor)
+        finally:
+            os.close(descriptor)
+
+
 class Project:
     def __init__(self, root):
         self.root = Path(root).resolve()
@@ -226,9 +240,11 @@ class Project:
         appended ledger.compact event embeds the full pruned state (closed
         sessions keep only report path/hash) and records the previous head.
         The original ledger and journal are copied to timestamped backups
-        beside the database before the verified swap. Event hashes after the
-        rewrite form a new chain; external anchors pinning the previous head
-        become historical prefixes.
+        beside the database before the verified swap; backups are created
+        exclusively and are never overwritten. Event hashes after the rewrite
+        form a new chain with a new project id: external trust checkpoints
+        pinning the pre-compaction head will no longer verify at all (not
+        even as a historical prefix); re-anchor after compaction.
         """
         root = Path(root).resolve()
         metadata = root / ".uados"
@@ -236,11 +252,14 @@ class Project:
         if not ledger.is_file() or ledger.is_symlink():
             raise UadosError("compact requires an existing local ledger.")
         journal = metadata / "events.jsonl"
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
         backup_ledger = metadata / ("ledger.pre-compact-%s.sqlite3" % stamp)
         backup_journal = metadata / ("events.pre-compact-%s.jsonl" % stamp)
         with project_lock(root), connect(root) as connection:
             state, events = streaming_load_ledger(connection, keep_events=False)
+            drift = projection_drift(root, state, events, connection)
+            if drift:
+                raise UadosError("Generated views are stale or edited. Inspect and run audit --repair before compact: " + ", ".join(drift))
             previous_head = events[-1]["hash"]
             previous_count = len(events)
             previous_bytes = journal.stat().st_size if journal.is_file() else 0
@@ -306,6 +325,7 @@ class Project:
 
             fd, temporary = tempfile.mkstemp(prefix=".compact-", suffix=".sqlite3", dir=str(metadata))
             os.close(fd)
+            journal_backed_up = False
             try:
                 with sqlite3.connect(temporary) as fresh:
                     create_schema(fresh)
@@ -315,13 +335,20 @@ class Project:
                     streaming_load_ledger(fresh, keep_events=False)
                 with open(temporary, "rb") as stream:
                     os.fsync(stream.fileno())
-                shutil.copy2(ledger, backup_ledger)
-                if journal.is_file():
-                    shutil.copy2(journal, backup_journal)
+                try:
+                    _exclusive_copy(ledger, backup_ledger)
+                    if journal.is_file():
+                        _exclusive_copy(journal, backup_journal)
+                        journal_backed_up = True
+                except FileExistsError as exc:
+                    raise UadosError("A compact backup already exists at %s; refusing to overwrite preserved original bytes." % exc.filename) from exc
                 os.replace(temporary, ledger)
-                with connect(root) as fresh:
-                    recovered_state, recovered_events = streaming_load_ledger(fresh, keep_events=False)
-                    write_projections(root, recovered_state, recovered_events, fresh)
+                try:
+                    with connect(root) as fresh:
+                        recovered_state, recovered_events = streaming_load_ledger(fresh, keep_events=False)
+                        write_projections(root, recovered_state, recovered_events, fresh)
+                except (OSError, UnicodeError, UadosError) as exc:
+                    raise UadosError("Ledger compacted to event %d (backups %s%s); projections failed. Do not repeat compact; run audit --repair. %s" % (final_event["sequence"], backup_ledger.name, " and " + backup_journal.name if journal_backed_up else "", exc)) from exc
             finally:
                 if os.path.exists(temporary):
                     os.unlink(temporary)
@@ -329,7 +356,7 @@ class Project:
         return {"project": str(root), "previous_events": previous_count, "new_events": previous_count + 1,
                 "snapshots": snapshot_count, "previous_journal_bytes": previous_bytes, "new_journal_bytes": new_bytes,
                 "previous_head": previous_head, "new_head": final_event["hash"],
-                "backup_ledger": backup_ledger.name, "backup_journal": backup_journal.name if journal.is_file() else None}
+                "backup_ledger": backup_ledger.name, "backup_journal": backup_journal.name if journal_backed_up else None}
 
     @classmethod
     def initialize(cls, root, name, objective, mode="auto", adopt=False, protocol_version=2):
