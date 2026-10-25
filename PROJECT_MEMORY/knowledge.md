@@ -50,3 +50,9 @@ Independent adversarial audit (AUDIT/2026-10-25-adversarial-audit/report.md) est
 
 Recorded by ZCode-Remediation-Lead at 2026-10-25T12:13:03.018690+00:00.
 
+## N000009 — Independent adversarial subagent review of f3730b5: 1xP1 and 5xP2/P3 found and fixed (technical)
+
+A dedicated independent reviewer subagent (archived at AUDIT/2026-10-25-remediation/independent-review.md, commit 2978a9d) verified the 2.1.0 remediation: concurrency, compaction-key interactions and large-object boundaries held; it broke compact backup safety (same-second double compact silently overwrote the only original-bytes backups - fixed with microsecond stamps plus O_CREAT|O_EXCL exclusive creation), found silent journal-tamper laundering via compact (fixed with a pre-compact drift refusal matching mutate), a misleading post-swap projection failure (fixed with actionable audit --repair guidance), a dishonest backup_journal return value (fixed), stale SSHSIG anchor docstring semantics (corrected), and raw KeyError tracebacks on malformed legacy records (cli.main now returns clean JSON errors). F7 (compact one-shot memory) and F8 (order-sensitive harvest fingerprint, redundancy-only) accepted as disclosed limitations. Full suite 147 passed; regression tests added for every fix. The reviewer also confirmed the audit surface result: production ledger ok=true, 841 events, 179 evidence records.
+
+Recorded by ZCode-Remediation-Lead at 2026-10-25T16:48:42.716507+00:00.
+
