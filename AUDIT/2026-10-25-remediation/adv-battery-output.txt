@@ -1,0 +1,31 @@
+PASS a0 baseline both modes load
+PASS a1 tampered digest-only summary rejected | The event chain is inconsistent at event 5.
+PASS a2 forged state_digest (rehashed) rejected by state-row anchor | The state disagrees with the committed event history.
+PASS a3 escaped-injection summary keeps both modes consistent
+PASS a4 whitespace-only variance is content-neutral (by design)
+PASS b1 state-row-only tamper rejected | The state disagrees with the committed event history.
+PASS b2 tail without state anchor rejected | The state disagrees with the committed event history.
+PASS c1 transient evidence record present in harvest snapshots | snapshots=5
+PASS c1b current evidence present
+PASS c2 audit ok with history intact | records=4
+PASS d1 compact verifies
+PASS d2 post-compact digest-only tamper rejected | The event chain is inconsistent at event 3.
+PASS d3 deleted middle event rejected | The event sequence is broken.
+PASS d4 rebuild from compacted export equals state | events=14
+PASS d5 audit after rebuild
+PASS d6 second compact + mutations green
+PASS e1 closed session has no report content
+PASS e2 active session keeps only current report
+PASS e3 all report files exist on disk
+PASS e4 zero projection drift
+PASS f1 extra line detected
+PASS f2 missing last line detected
+PASS f3 byte change detected
+PASS f4 missing trailing newline detected
+PASS f5 restored journal drift-free
+PASS g1 KeyboardInterrupt propagates
+PASS g2 typed rate limit parses Retry-After | 12.5
+PASS g3 keyword-gated retry-after parsing | (True, 30.0, 'rate_limit_429')
+PASS g3b no-keyword message stays permanent (by design)
+
+TOTAL 29 / PASS 29 / FAIL 0
