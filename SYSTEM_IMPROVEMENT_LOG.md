@@ -119,3 +119,40 @@
 }
 ```
 
+## IMP000006
+
+```json
+{
+  "agent": "ZCode-Remediation-Lead",
+  "at": "2026-10-31T04:07:05.064580+00:00",
+  "evidence": [
+    {
+      "bytes": 5188,
+      "path": "AUDIT/2026-10-25-remediation/review-A.md",
+      "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+      "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+    },
+    {
+      "bytes": 5554,
+      "path": "AUDIT/2026-10-25-remediation/review-B.md",
+      "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+      "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+    },
+    {
+      "bytes": 5691,
+      "path": "AUDIT/2026-10-25-remediation/independent-review.md",
+      "sha256": "a736a3e0b2a7f2aa6ccdb8a96c736366a820c219bcb77e8a55b03a295cdc8965",
+      "snapshot": ".uados/evidence/sha256/a736a3e0b2a7f2aa6ccdb8a96c736366a820c219bcb77e8a55b03a295cdc8965"
+    }
+  ],
+  "future_prevention": "Record reviewer hardening conditions as tracked tasks at debate time instead of deferring them to completion windows; require post-fix production audit evidence in result analyses.",
+  "id": "IMP000006",
+  "implementation": "Proposed only; each item requires its own owned, reviewed task per ENGINEERING_RULES/extensions.md.",
+  "improvement": "Pin backup sha256 values into the ledger.compact event and add an anchor-attribution mode to trust verify; validate nested session report records inside streaming_load_ledger's schema section with a distinct structural-error kind/exit code plus an audit --repair-compatible recovery path; add a routine-scale mutate latency/RSS baseline test; document the compact session-gate tradeoff (crash recovery vs operator accountability).",
+  "problem": "Compact backup files (the only verifiable carrier for pre-compaction external anchors) carry no integrity binding into the ledger.compact event; structural record errors and user-data errors share exit 2 with no tool-assisted recovery; steady-state mutate cost of the double harvest fingerprint is unmeasured; compact requires no session gate.",
+  "root_cause": "The 2.1.0 remediation prioritized the P0 growth/P0 streaming fixes and the independent-review P1/P2 defects; the reviewers' hardening suggestions (reviewer B R1-R3, reviewer A steady-state tracking) were accepted as follow-ups to keep the reviewed result diff identical to the submitted one.",
+  "status": "recorded",
+  "task": null
+}
+```
+

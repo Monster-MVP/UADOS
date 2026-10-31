@@ -183,6 +183,12 @@ def streaming_load_ledger(connection, keep_events=False):
                 computed_hash = None
 
             if not keep_events:
+                # Fast header extraction assumes canonical JSON written by this
+                # module (sort_keys): the first ',"state":' occurrence is the
+                # top-level state key. A future top-level field sorting before
+                # "state" whose nested structure contains a key literally named
+                # "state" would misalign this slice — keep new top-level event
+                # fields scalar or sorted after "state".
                 st_idx = raw.find(',"state":')
                 sum_idx = raw.rfind(',"summary":')
                 if st_idx != -1 and sum_idx > st_idx and claimed_hash is not None:

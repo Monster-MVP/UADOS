@@ -154,6 +154,53 @@ class LedgerFormatV2Tests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             retry_with_backoff(exiting, config=BackoffConfig(max_attempts=3))
 
+    def test_snapshot_cadence_embedding(self):
+        """Review condition A(1a): the every-N-events snapshot branch."""
+        import uados.project as project_module
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        with patch.object(project_module, "SNAPSHOT_INTERVAL", 3):
+            for index in range(4):
+                self.project.add_note(session["session"], "Note %d" % index, "body")
+        events = self._events_from_db()
+        cadence = [event["sequence"] for event in events if "state" in event]
+        # init(1) predates the patch; note 3 sits on sequence 6 = 2*3.
+        self.assertIn(6, cadence)
+        self.assertNotIn(5, cadence)
+        self.assertNotIn(7, cadence)
+        # The chain still verifies with mixed cadence snapshots.
+        self.assertTrue(self.project.audit()["ok"])
+
+    def test_compact_preserves_historical_evidence_harvest(self):
+        """Review condition A(1b): evidence-bearing ledgers keep full history."""
+        session = self.project.start_session("agent")
+        self.project.acknowledge(session["session"], session["report_hash"])
+        evidence = self.root / "evidence"
+        evidence.mkdir(exist_ok=True)
+        (evidence / "decision.md").write_text("decision evidence", encoding="utf-8")
+        (evidence / "work.md").write_text("task work evidence", encoding="utf-8")
+        self.project.add_decision(session["session"], "ADR", "problem", ["a", "b"], "decision",
+                                  "reason", ["evidence/decision.md"], "risk")
+        task = self.project.add_task(session["session"], "T", "desc", "routine", ["src/y.py"])
+        (self.root / "src").mkdir(exist_ok=True)
+        (self.root / "src/y.py").write_text("y = 1", encoding="utf-8")
+        (evidence / "plan.md").write_text("plan", encoding="utf-8")
+        from uados import governance as gov
+        gov.plan_task(self.project, session["session"], task["task"], "steps", "checks", ["evidence/plan.md"])
+        self.project.claim_task(session["session"], task["task"])
+        self.project.record_task(session["session"], task["task"], "done work", ["evidence/work.md"])
+        self.project.add_note(session["session"], "gap", "metadata-only event after evidence")
+        before = self.project.audit()
+        self.assertTrue(before["ok"])
+        Project.compact(self.root)
+        after = self.project.audit()
+        self.assertTrue(after["ok"])
+        # Historical harvest coverage survives compaction.
+        self.assertGreaterEqual(after["evidence_records_checked"], before["evidence_records_checked"])
+        paths = {record["path"] for record in
+                 [r for task_ in self.project.read()[0]["tasks"].values() for r in task_["evidence"]]}
+        self.assertIn("evidence/work.md", paths)
+
     def test_typed_rate_limit_error_parses_retry_after(self):
         retryable, delay, category = classify_error(RateLimitError("HTTP 429; Retry-After: 17"))
         self.assertTrue(retryable)

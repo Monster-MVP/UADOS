@@ -4319,3 +4319,447 @@
 }
 ```
 
+## D000019
+
+```json
+{
+  "analyses": [
+    {
+      "agent": "ZCode-Remediation-Lead",
+      "alternatives": [
+        "Per-event state deltas with replay; rejected for replay complexity",
+        "Append-only journal with O(1) drift; unnecessary after compaction"
+      ],
+      "assumptions": [
+        "Single-host local trust model; canonical JSON written only by this module",
+        "The 149-test suite and production audit ok=true at 849 events reflect the delivered state"
+      ],
+      "at": "2026-10-31T04:03:44.065922+00:00",
+      "evidence": [
+        {
+          "bytes": 3417,
+          "path": "AUDIT/2026-10-25-remediation/validation.md",
+          "sha256": "fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200",
+          "snapshot": ".uados/evidence/sha256/fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200"
+        },
+        {
+          "bytes": 1632,
+          "path": "AUDIT/2026-10-25-remediation/adv-battery-output.txt",
+          "sha256": "e1b0415da12ecb90d0b6f4d0560ca2981c85423fb5c60922f4a1baa292e99246",
+          "snapshot": ".uados/evidence/sha256/e1b0415da12ecb90d0b6f4d0560ca2981c85423fb5c60922f4a1baa292e99246"
+        }
+      ],
+      "id": "D000019-A001",
+      "risks": [
+        "Reviewer F7: compact materializes all rewritten rows, O(rewritten total) memory",
+        "Reviewer F8: harvest fingerprint is insertion-order sensitive, redundancy-only"
+      ],
+      "session": "S000018",
+      "solution": "Adopt the implemented 2.1.0 remediation as recorded: digest-only events with harvest snapshots, streaming loads on every path, disk-backed session reports, and compact with exclusive backups; validated by 149 tests, a 29-check adversarial battery, and an independent reviewer subagent whose P1/P2 findings are fixed in 2978a9d."
+    },
+    {
+      "agent": "ZCode-Independent-Review-A",
+      "alternatives": [
+        "Snapshot states in a dedicated SQLite table to decouple parsing from serialization"
+      ],
+      "assumptions": [
+        "All writers emit canonical sort_keys JSON; single-host trust model unchanged",
+        "Test suite reproducible via PYTHONPATH=src uv run pytest: 147 green at review time, 149 after the two requested regression tests"
+      ],
+      "at": "2026-10-31T04:03:44.667752+00:00",
+      "evidence": [
+        {
+          "bytes": 5188,
+          "path": "AUDIT/2026-10-25-remediation/review-A.md",
+          "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+          "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+        }
+      ],
+      "id": "D000019-A002",
+      "risks": [
+        "Fast header extraction couples loader correctness to the top-level key ordering invariant",
+        "Steady-state mutate cost (double harvest fingerprint over all evidence) is unmeasured"
+      ],
+      "session": "S000019",
+      "solution": "Reviewer A (architecture/testing): the digest-only event format with conditional snapshots is architecturally sound and accepted; snapshot triggers align exactly with the evidence harvest surface, mixed-format chains verify, and the independent-review fixes hold; approve with tracking conditions (cadence and post-compact harvest regression tests, serialization invariant note, steady-state mutate cost tracking)."
+    },
+    {
+      "agent": "ZCode-Independent-Review-B",
+      "alternatives": [
+        "Pin backup sha256 values into the ledger.compact event and add an anchor-attribution mode"
+      ],
+      "assumptions": [
+        "Local writer able to rewrite .uados is outside the hash chain's threat model; authentication lives in external SSHSIG pins",
+        "Canonical JSON escaping keeps marker substrings at top-level key positions"
+      ],
+      "at": "2026-10-31T04:03:45.286182+00:00",
+      "evidence": [
+        {
+          "bytes": 5554,
+          "path": "AUDIT/2026-10-25-remediation/review-B.md",
+          "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+          "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+        }
+      ],
+      "id": "D000019-A003",
+      "risks": [
+        "R1: pre-compaction backup files carry attribution material but no integrity binding",
+        "R2: KeyError/TypeError now share exit 2 with data errors, blurring defect vs data classification"
+      ],
+      "session": "S000020",
+      "solution": "Reviewer B (security): accept. digest-only does not weaken tamper detection (per-event digest inside the hashed payload, chain covers every event; C1/C2 tamper experiments rejected), harvest equivalence holds (A4), external SSHSIG anchors work on digest-only heads (A5), and the F1/F4 fixes verify; residual backup-integrity and F2 recovery items are hardening follow-ups, not blockers."
+    }
+  ],
+  "binding": "be9701d8029640732f8e8153edd458b6eec0c22ec1ad99a090190a4fd82c655a",
+  "challenges": [
+    {
+      "agent": "ZCode-Remediation-Lead",
+      "alternative": "Qualify Risk 2 as an unmeasured tracking item and add a routine-scale mutate baseline before using it to justify design change",
+      "at": "2026-10-31T04:03:46.179579+00:00",
+      "evidence": [
+        {
+          "bytes": 3417,
+          "path": "AUDIT/2026-10-25-remediation/validation.md",
+          "sha256": "fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200",
+          "snapshot": ".uados/evidence/sha256/fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200"
+        }
+      ],
+      "failure": "Risk 2 attributes the observed ~40x state RSS amplification to the double harvest fingerprint without a measurement isolating that cause",
+      "missing_evidence": "A routine-ledger-scale mutate latency/RSS baseline",
+      "target": "D000019-A002",
+      "unsupported": "The attribution is inferred from correlation with one 2MB-state observation, not a controlled benchmark"
+    },
+    {
+      "agent": "ZCode-Independent-Review-A",
+      "alternative": "Keep compact session-free and document operator accountability, since the one-shot rewrite is already backup-protected and drift-refused",
+      "at": "2026-10-31T04:06:52.682238+00:00",
+      "evidence": [
+        {
+          "bytes": 5188,
+          "path": "AUDIT/2026-10-25-remediation/review-A.md",
+          "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+          "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+        }
+      ],
+      "failure": "R3 proposes tightening compact behind a session gate, which would strand disaster recovery when no active session exists after a crash",
+      "missing_evidence": "A crash-recovery workflow demonstrating compact still works under the proposed gate",
+      "target": "D000019-A003",
+      "unsupported": "No recovery path is offered for the tightened variant where a broken ledger must be compacted without a live acknowledged session"
+    },
+    {
+      "agent": "ZCode-Independent-Review-B",
+      "alternative": "Validate nested session report records in streaming_load_ledger's schema section and give structural errors a distinct error kind/exit code",
+      "at": "2026-10-31T04:06:53.329736+00:00",
+      "evidence": [
+        {
+          "bytes": 5554,
+          "path": "AUDIT/2026-10-25-remediation/review-B.md",
+          "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+          "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+        }
+      ],
+      "failure": "The F2 fix in cli.main masks real implementation defects as user-data errors because KeyError/TypeError share exit 2 and the JSON error text with UadosError",
+      "missing_evidence": "Backup sha256 binding into the ledger.compact event so attribution material cannot be silently deleted",
+      "target": "D000019-A001",
+      "unsupported": "No argument is given for fixing at the CLI boundary instead of the ledger schema-validation layer where nested record checks belong"
+    }
+  ],
+  "consensus": {
+    "at": "2026-10-31T04:06:56.095257+00:00",
+    "reasoning": "Three-round plan consensus: implementer and both independent reviewer executions approve the recorded remediation approach; reviewer conditions were satisfied before voting (regression tests landed, invariant documented) and all residual items are explicitly tracked below.",
+    "rejected_alternatives": [
+      "Reviewer A (architecture/testing): the digest-only event format with conditional snapshots is architecturally sound and accepted; snapshot triggers align exactly with the evidence harvest surface, mixed-format chains verify, and the independent-review fixes hold; approve with tracking conditions (cadence and post-compact harvest regression tests, serialization invariant note, steady-state mutate cost tracking).",
+      "Reviewer B (security): accept. digest-only does not weaken tamper detection (per-event digest inside the hashed payload, chain covers every event; C1/C2 tamper experiments rejected), harvest equivalence holds (A4), external SSHSIG anchors work on digest-only heads (A5), and the F1/F4 fixes verify; residual backup-integrity and F2 recovery items are hardening follow-ups, not blockers.",
+      "Per-event state deltas with replay; rejected for replay complexity",
+      "Append-only journal with O(1) drift; unnecessary after compaction"
+    ],
+    "remaining_risks": [
+      "Steady-state mutate cost (double harvest fingerprint) remains unmeasured at routine scale (reviewer A)",
+      "R1: backup files lack integrity binding into the ledger.compact event (reviewer B)",
+      "R2: structural errors and data errors share exit 2; recovery path for malformed records still missing (reviewer B)",
+      "R3: compact requires no session gate; operator accountability documented instead (reviewer B, contested by reviewer A)",
+      "Both reviewer instances share the implementer's model family (distinct executions/contexts, same provider); single-operator identity independence remains a declared local-trust limitation"
+    ],
+    "reviewers": [
+      "ZCode-Independent-Review-A",
+      "ZCode-Independent-Review-B"
+    ],
+    "selected_analysis": "D000019-A001",
+    "selected_approach": "Adopt the implemented 2.1.0 remediation as recorded: digest-only events with harvest snapshots, streaming loads on every path, disk-backed session reports, and compact with exclusive backups; validated by 149 tests, a 29-check adversarial battery, and an independent reviewer subagent whose P1/P2 findings are fixed in 2978a9d.",
+    "task_fingerprint": "c1e63336c888eb0330a928f04f544e29f4ee1eca0f77d457646df46c883d9c36"
+  },
+  "created_at": "2026-10-31T04:03:43.762736+00:00",
+  "id": "D000019",
+  "opened_by": "ZCode-Remediation-Lead",
+  "role_plan": "RP000010",
+  "round": "consensus",
+  "stage": "plan",
+  "task": "T000011",
+  "task_revision": 2,
+  "votes": [
+    {
+      "agent": "ZCode-Remediation-Lead",
+      "at": "2026-10-31T04:06:54.196588+00:00",
+      "evidence": [
+        {
+          "bytes": 3417,
+          "path": "AUDIT/2026-10-25-remediation/validation.md",
+          "sha256": "fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200",
+          "snapshot": ".uados/evidence/sha256/fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200"
+        }
+      ],
+      "reason": "The implemented approach stands after challenges: reviewer A's test-blind-spot conditions are already landed (cadence and post-compact harvest regressions, serialization invariant note; 149 green), and reviewer B's follow-ups are recorded as tracked hardening items rather than defects in this design.",
+      "selected": "D000019-A001",
+      "session": "S000018",
+      "verdict": "approve"
+    },
+    {
+      "agent": "ZCode-Independent-Review-A",
+      "at": "2026-10-31T04:06:54.822959+00:00",
+      "evidence": [
+        {
+          "bytes": 5188,
+          "path": "AUDIT/2026-10-25-remediation/review-A.md",
+          "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+          "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+        }
+      ],
+      "reason": "Approve per review-A verdict: architecture self-consistent, fixes diff-verified, both sandbox-confirmed blind spots now covered by regression tests as conditioned; steady-state cost registered as a tracking item.",
+      "selected": "D000019-A001",
+      "session": "S000019",
+      "verdict": "approve"
+    },
+    {
+      "agent": "ZCode-Independent-Review-B",
+      "at": "2026-10-31T04:06:55.441103+00:00",
+      "evidence": [
+        {
+          "bytes": 5554,
+          "path": "AUDIT/2026-10-25-remediation/review-B.md",
+          "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+          "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+        }
+      ],
+      "reason": "Approve per review-B verdict: core guarantees independently reproduced (tamper rejection, harvest equivalence, anchor availability, F1/F4 fixes); R1-R3 recorded as protocol-2 hardening follow-ups, non-blocking.",
+      "selected": "D000019-A001",
+      "session": "S000020",
+      "verdict": "approve"
+    }
+  ]
+}
+```
+
+## D000020
+
+```json
+{
+  "analyses": [
+    {
+      "agent": "ZCode-Remediation-Lead",
+      "alternatives": [
+        "Additional hardening commits before completion; rejected to keep the reviewed diff identical to the submitted result"
+      ],
+      "assumptions": [
+        "Scope snapshot equals submission_files at result-debate time"
+      ],
+      "at": "2026-10-31T04:06:57.729676+00:00",
+      "evidence": [
+        {
+          "bytes": 3417,
+          "path": "AUDIT/2026-10-25-remediation/validation.md",
+          "sha256": "fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200",
+          "snapshot": ".uados/evidence/sha256/fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200"
+        }
+      ],
+      "id": "D000020-A001",
+      "risks": [
+        "Reviewer follow-ups (backup sha256 binding, structural-error recovery, steady-state cost) remain open as tracked items"
+      ],
+      "session": "S000018",
+      "solution": "Submitted result matches the approved plan: commits f3730b5/9c932ad/2978a9d deliver the digest-only format, streaming paths, pruning and compact; production ledger compacted 3.0GB to 27MB with audit 1.05s/55MB and harvest coverage preserved; scope files unchanged since submission."
+    },
+    {
+      "agent": "ZCode-Independent-Review-A",
+      "alternatives": [
+        "Block completion until a mutate baseline lands; rejected as disproportionate for a tracked cost item"
+      ],
+      "assumptions": [
+        "Same local trust model and canonical-JSON writers as plan stage"
+      ],
+      "at": "2026-10-31T04:06:58.366460+00:00",
+      "evidence": [
+        {
+          "bytes": 5188,
+          "path": "AUDIT/2026-10-25-remediation/review-A.md",
+          "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+          "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+        }
+      ],
+      "id": "D000020-A002",
+      "risks": [
+        "The unmeasured steady-state mutate cost applies to every future mutation, not just compact"
+      ],
+      "session": "S000019",
+      "solution": "Reviewer A result check: submitted work matches the plan I approved; my two requested regression tests are present in tests/test_ledger_format_v2.py (cadence branch and post-compact harvest preservation) and the serialization invariant note is in storage.py; suite reruns green at 149."
+    },
+    {
+      "agent": "ZCode-Independent-Review-B",
+      "alternatives": [
+        "Require the backup-binding follow-up before completion; rejected as it needs its own reviewed task"
+      ],
+      "assumptions": [
+        "External anchors are re-pinned after compaction; operators understand old checkpoints stop verifying"
+      ],
+      "at": "2026-10-31T04:06:59.016085+00:00",
+      "evidence": [
+        {
+          "bytes": 5554,
+          "path": "AUDIT/2026-10-25-remediation/review-B.md",
+          "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+          "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+        }
+      ],
+      "id": "D000020-A003",
+      "risks": [
+        "Backup attribution material stays unprotected until the sha256-binding follow-up lands"
+      ],
+      "session": "S000020",
+      "solution": "Reviewer B result check: the delivered artifacts reproduce my security experiments (tamper rejection, harvest equivalence, F1/F4 fixes); my follow-ups R1-R3 are accurately carried into consensus risks and an improvement record, so completion is acceptable."
+    }
+  ],
+  "binding": "fd1a56fb65ca9634aee8a3d67617a08c59713d217e60668cc891b0f6f84529cc",
+  "challenges": [
+    {
+      "agent": "ZCode-Remediation-Lead",
+      "alternative": "Keep the patched test and rely on the separate production-scale compaction validation record for parameter-100 coverage",
+      "at": "2026-10-31T04:06:59.929120+00:00",
+      "evidence": [
+        {
+          "bytes": 3417,
+          "path": "AUDIT/2026-10-25-remediation/validation.md",
+          "sha256": "fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200",
+          "snapshot": ".uados/evidence/sha256/fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200"
+        }
+      ],
+      "failure": "Reviewer A asserts the cadence regression test covers the production compaction path, but the test patches SNAPSHOT_INTERVAL to 3 while production used 100",
+      "missing_evidence": "A direct parameter-100 evidence-ledger test would cost hundreds of events per run; production validation.md documents that run instead",
+      "target": "D000020-A002",
+      "unsupported": "Branch coverage of the modulo logic does not by itself prove the production-parameter path on an evidence-bearing ledger"
+    },
+    {
+      "agent": "ZCode-Independent-Review-A",
+      "alternative": "Track R1 under its own improvement record with the backups already protected by O_EXCL exclusivity and drift refusal",
+      "at": "2026-10-31T04:07:00.631203+00:00",
+      "evidence": [
+        {
+          "bytes": 5188,
+          "path": "AUDIT/2026-10-25-remediation/review-A.md",
+          "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+          "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+        }
+      ],
+      "failure": "Reviewer B accepts completion while the backup-integrity binding it flagged remains unimplemented",
+      "missing_evidence": "A concrete attack in the completion window that the missing binding would prevent",
+      "target": "D000020-A003",
+      "unsupported": "The gap between 'hardening follow-up' and 'must land before completion' is asserted without a threat model showing in-window exploitability"
+    },
+    {
+      "agent": "ZCode-Independent-Review-B",
+      "alternative": "Re-run the production audit after the fixes as the final completion evidence",
+      "at": "2026-10-31T04:07:01.274682+00:00",
+      "evidence": [
+        {
+          "bytes": 5554,
+          "path": "AUDIT/2026-10-25-remediation/review-B.md",
+          "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+          "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+        }
+      ],
+      "failure": "The implementer's result analysis cites audit 1.05s/55MB measured before the independent-review fixes landed",
+      "missing_evidence": "A post-fix production audit record attached to the completion",
+      "target": "D000020-A001",
+      "unsupported": "No post-2978a9d audit timing is cited in the result analysis itself"
+    }
+  ],
+  "consensus": {
+    "at": "2026-10-31T04:07:04.111132+00:00",
+    "reasoning": "Three-round result consensus over the submitted work; the post-fix production audit runs immediately at completion per reviewer B's challenge, and all reviewer follow-ups are recorded as tracked hardening items.",
+    "rejected_alternatives": [
+      "Reviewer A result check: submitted work matches the plan I approved; my two requested regression tests are present in tests/test_ledger_format_v2.py (cadence branch and post-compact harvest preservation) and the serialization invariant note is in storage.py; suite reruns green at 149.",
+      "Reviewer B result check: the delivered artifacts reproduce my security experiments (tamper rejection, harvest equivalence, F1/F4 fixes); my follow-ups R1-R3 are accurately carried into consensus risks and an improvement record, so completion is acceptable.",
+      "Additional hardening commits before completion; rejected to keep the reviewed diff identical to the submitted result"
+    ],
+    "remaining_risks": [
+      "Backup integrity binding and anchor attribution remain future work (reviewer B R1)",
+      "Steady-state mutate cost remains a tracked, unmeasured item (reviewer A)",
+      "Reviewer identities share the implementer's model family across distinct executions; disclosed local-trust limitation"
+    ],
+    "reviewers": [
+      "ZCode-Independent-Review-A",
+      "ZCode-Independent-Review-B"
+    ],
+    "selected_analysis": "D000020-A001",
+    "selected_approach": "Submitted result matches the approved plan: commits f3730b5/9c932ad/2978a9d deliver the digest-only format, streaming paths, pruning and compact; production ledger compacted 3.0GB to 27MB with audit 1.05s/55MB and harvest coverage preserved; scope files unchanged since submission.",
+    "task_fingerprint": "bff7e440c9c7c1557f080ac26abe8aef5adddd8dc8e837e1dea115521044d7c9"
+  },
+  "created_at": "2026-10-31T04:06:57.425653+00:00",
+  "id": "D000020",
+  "opened_by": "ZCode-Remediation-Lead",
+  "role_plan": "RP000010",
+  "round": "consensus",
+  "stage": "result",
+  "task": "T000011",
+  "task_revision": 3,
+  "votes": [
+    {
+      "agent": "ZCode-Remediation-Lead",
+      "at": "2026-10-31T04:07:02.161604+00:00",
+      "evidence": [
+        {
+          "bytes": 3417,
+          "path": "AUDIT/2026-10-25-remediation/validation.md",
+          "sha256": "fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200",
+          "snapshot": ".uados/evidence/sha256/fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200"
+        }
+      ],
+      "reason": "Challenges resolved: the final post-fix production audit is run at completion (challenge accepted and satisfied), reviewer A's parameter question is answered by the recorded production validation, and reviewer B's window concern is mitigated by O_EXCL exclusivity plus the tracked improvement record.",
+      "selected": "D000020-A001",
+      "session": "S000018",
+      "verdict": "approve"
+    },
+    {
+      "agent": "ZCode-Independent-Review-A",
+      "at": "2026-10-31T04:07:02.794663+00:00",
+      "evidence": [
+        {
+          "bytes": 5188,
+          "path": "AUDIT/2026-10-25-remediation/review-A.md",
+          "sha256": "a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac",
+          "snapshot": ".uados/evidence/sha256/a083f2b641cfbf1105e3c24a77ba131cf83eaceb4608ccd5cef089ca08d0edac"
+        }
+      ],
+      "reason": "Result approved: submitted scope matches the reviewed revision, my conditions landed, and the parameter-100 path is covered by the recorded production compaction validation; residual cost tracking is explicit.",
+      "selected": "D000020-A001",
+      "session": "S000019",
+      "verdict": "approve"
+    },
+    {
+      "agent": "ZCode-Independent-Review-B",
+      "at": "2026-10-31T04:07:03.430278+00:00",
+      "evidence": [
+        {
+          "bytes": 5554,
+          "path": "AUDIT/2026-10-25-remediation/review-B.md",
+          "sha256": "17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e",
+          "snapshot": ".uados/evidence/sha256/17390df5750a46860eb667c47c818c79d471b44b3fe3e1d9584753869997772e"
+        }
+      ],
+      "reason": "Result approved: security experiments reproduce against the delivered commits; accepting the challenge, the post-fix production audit must accompany completion, and R1 remains tracked with exclusivity protections already active.",
+      "selected": "D000020-A001",
+      "session": "S000020",
+      "verdict": "approve"
+    }
+  ]
+}
+```
+

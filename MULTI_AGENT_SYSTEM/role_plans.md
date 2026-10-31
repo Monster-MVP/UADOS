@@ -437,3 +437,52 @@
 }
 ```
 
+## RP000010
+
+```json
+{
+  "assignments": {
+    "architecture": "ZCode-Independent-Review-A",
+    "implementation": "ZCode-Remediation-Lead",
+    "security": "ZCode-Independent-Review-B",
+    "testing": "ZCode-Independent-Review-A"
+  },
+  "created_at": "2026-10-31T04:03:42.563523+00:00",
+  "id": "RP000010",
+  "method": "Deterministic declared rules, not an LLM or proof of expertise",
+  "roles": [
+    {
+      "capability": "architecture",
+      "id": "architecture",
+      "name": "Architecture Agent",
+      "reason": "Challenge interfaces, state and maintainability",
+      "reviewer": true
+    },
+    {
+      "capability": "software",
+      "id": "implementation",
+      "name": "Software Engineer Agent",
+      "reason": "Implement the accepted plan",
+      "reviewer": false
+    },
+    {
+      "capability": "security",
+      "id": "security",
+      "name": "Security Agent",
+      "reason": "Challenge trust, input and data boundaries",
+      "reviewer": true
+    },
+    {
+      "capability": "testing",
+      "id": "testing",
+      "name": "Testing Agent",
+      "reason": "Challenge validation and failure handling",
+      "reviewer": true
+    }
+  ],
+  "spec_fingerprint": "ada809aec146d065c04ceeda11190d877020778d0427f7b66450c347d4ca6c26",
+  "task": "T000011",
+  "task_type": "software"
+}
+```
+

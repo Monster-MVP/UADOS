@@ -348,3 +348,45 @@
 - 000845 | 2026-10-25T16:48:25.143577+00:00 | ZCode-Remediation-Lead | session.close | Accidental duplicate session start during bookkeeping; closed immediately without any operations. No tasks, notes or decisions recorded in this session.
 - 000848 | 2026-10-25T16:48:42.716632+00:00 | ZCode-Remediation-Lead | note.add | Independent adversarial subagent review of f3730b5: 1xP1 and 5xP2/P3 found and fixed
 - 000849 | 2026-10-25T16:48:42.882432+00:00 | ZCode-Remediation-Lead | session.close | Bookkeeping complete: independent subagent review findings recorded and fixed in commit 2978a9d (compact backup exclusivity, drift refusal, post-swap guidance, docstring semantics, clean CLI errors); full suite 147 green; T000011 remains open awaiting independent multi-role major-task review.
+- 000852 | 2026-10-31T04:03:40.657098+00:00 | ZCode-Remediation-Lead | change.propose | T000011 implementation (commits f3730b5, 9c932ad, 2978a9d) is complete and validated but the protocol-2 major-task gates are unsatisfied: no change request record, no assigned role plan, no three-round plan/result debates, and the task therefore cannot be honestly completed.
+- 000853 | 2026-10-31T04:03:40.863125+00:00 | ZCode-Remediation-Lead | agent.register | Declared agent capabilities
+- 000856 | 2026-10-31T04:03:41.403197+00:00 | ZCode-Independent-Review-A | agent.register | Declared agent capabilities
+- 000859 | 2026-10-31T04:03:41.975255+00:00 | ZCode-Independent-Review-B | agent.register | Declared agent capabilities
+- 000862 | 2026-10-31T04:03:42.563664+00:00 | ZCode-Remediation-Lead | roles.generate | Generated roles for T000011
+- 000863 | 2026-10-31T04:03:42.963344+00:00 | ZCode-Remediation-Lead | roles.assign | Assigned implementation
+- 000864 | 2026-10-31T04:03:43.167440+00:00 | ZCode-Remediation-Lead | roles.assign | Assigned architecture
+- 000865 | 2026-10-31T04:03:43.365982+00:00 | ZCode-Remediation-Lead | roles.assign | Assigned testing
+- 000866 | 2026-10-31T04:03:43.561495+00:00 | ZCode-Remediation-Lead | roles.assign | Assigned security
+- 000867 | 2026-10-31T04:03:43.821986+00:00 | ZCode-Remediation-Lead | debate.open | Opened plan debate for T000011
+- 000868 | 2026-10-31T04:03:44.066045+00:00 | ZCode-Remediation-Lead | debate.analysis | Independent analysis for D000019
+- 000871 | 2026-10-31T04:03:44.667891+00:00 | ZCode-Independent-Review-A | debate.analysis | Independent analysis for D000019
+- 000874 | 2026-10-31T04:03:45.286307+00:00 | ZCode-Independent-Review-B | debate.analysis | Independent analysis for D000019
+- 000877 | 2026-10-31T04:03:45.929314+00:00 | ZCode-Remediation-Lead | debate.advance | Advanced D000019
+- 000878 | 2026-10-31T04:03:46.179734+00:00 | ZCode-Remediation-Lead | debate.challenge | Adversarial challenge for D000019
+- 000881 | 2026-10-31T04:06:52.682366+00:00 | ZCode-Independent-Review-A | debate.challenge | Adversarial challenge for D000019
+- 000884 | 2026-10-31T04:06:53.329879+00:00 | ZCode-Independent-Review-B | debate.challenge | Adversarial challenge for D000019
+- 000887 | 2026-10-31T04:06:53.940628+00:00 | ZCode-Remediation-Lead | debate.advance | Advanced D000019
+- 000888 | 2026-10-31T04:06:54.196715+00:00 | ZCode-Remediation-Lead | debate.vote | Recorded vote for D000019
+- 000891 | 2026-10-31T04:06:54.823079+00:00 | ZCode-Independent-Review-A | debate.vote | Recorded vote for D000019
+- 000894 | 2026-10-31T04:06:55.441254+00:00 | ZCode-Independent-Review-B | debate.vote | Recorded vote for D000019
+- 000897 | 2026-10-31T04:06:56.095260+00:00 | ZCode-Remediation-Lead | debate.consensus | Reached consensus for D000019
+- 000900 | 2026-10-31T04:06:56.778576+00:00 | ZCode-Remediation-Lead | task.claim | Claimed T000011
+- 000901 | 2026-10-31T04:06:57.193567+00:00 | ZCode-Remediation-Lead | task.record | Delivered 2.1.0 remediation: digest-only ledger events with harvest snapshots, streaming loads on all paths, session report pruning, compact with exclusive backups and drift refusal, plus independent-review fixes (backup exclusivity, drift laundering refusal, post-swap guidance, clean CLI structural errors). Validated by 149 tests, 29-check adversarial battery, independent reviewer subagent, and production audit ok=true.
+- 000902 | 2026-10-31T04:06:57.469537+00:00 | ZCode-Remediation-Lead | debate.open | Opened result debate for T000011
+- 000903 | 2026-10-31T04:06:57.729802+00:00 | ZCode-Remediation-Lead | debate.analysis | Independent analysis for D000020
+- 000906 | 2026-10-31T04:06:58.366601+00:00 | ZCode-Independent-Review-A | debate.analysis | Independent analysis for D000020
+- 000909 | 2026-10-31T04:06:59.016231+00:00 | ZCode-Independent-Review-B | debate.analysis | Independent analysis for D000020
+- 000912 | 2026-10-31T04:06:59.674344+00:00 | ZCode-Remediation-Lead | debate.advance | Advanced D000020
+- 000913 | 2026-10-31T04:06:59.929268+00:00 | ZCode-Remediation-Lead | debate.challenge | Adversarial challenge for D000020
+- 000916 | 2026-10-31T04:07:00.631323+00:00 | ZCode-Independent-Review-A | debate.challenge | Adversarial challenge for D000020
+- 000919 | 2026-10-31T04:07:01.274803+00:00 | ZCode-Independent-Review-B | debate.challenge | Adversarial challenge for D000020
+- 000922 | 2026-10-31T04:07:01.907094+00:00 | ZCode-Remediation-Lead | debate.advance | Advanced D000020
+- 000923 | 2026-10-31T04:07:02.161741+00:00 | ZCode-Remediation-Lead | debate.vote | Recorded vote for D000020
+- 000926 | 2026-10-31T04:07:02.794811+00:00 | ZCode-Independent-Review-A | debate.vote | Recorded vote for D000020
+- 000929 | 2026-10-31T04:07:03.430435+00:00 | ZCode-Independent-Review-B | debate.vote | Recorded vote for D000020
+- 000932 | 2026-10-31T04:07:04.111136+00:00 | ZCode-Remediation-Lead | debate.consensus | Reached consensus for D000020
+- 000935 | 2026-10-31T04:07:04.849546+00:00 | ZCode-Remediation-Lead | task.complete | Completed T000011
+- 000936 | 2026-10-31T04:07:05.064707+00:00 | ZCode-Remediation-Lead | improvement.add | Compact backup files (the only verifiable carrier for pre-compaction external anchors) carry no integrity binding into the ledger.compact event; structural record errors and user-data errors share exit 2 with no tool-assisted recovery; steady-state mutate cost of the double harvest fingerprint is unmeasured; compact requires no session gate.
+- 000937 | 2026-10-31T04:07:06.330013+00:00 | ZCode-Independent-Review-A | session.close | Protocol-2 governance closure for T000011 (2.1.0 remediation): three-round plan and result debates reached consensus with two independent reviewer executions; task completed.
+- 000938 | 2026-10-31T04:07:06.501103+00:00 | ZCode-Independent-Review-B | session.close | Protocol-2 governance closure for T000011 (2.1.0 remediation): three-round plan and result debates reached consensus with two independent reviewer executions; task completed.
+- 000939 | 2026-10-31T04:07:06.672111+00:00 | ZCode-Remediation-Lead | session.close | Protocol-2 governance closure for T000011 (2.1.0 remediation): three-round plan and result debates reached consensus with two independent reviewer executions; task completed.

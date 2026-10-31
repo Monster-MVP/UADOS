@@ -1,0 +1,12 @@
+{
+  "problem": "Compact backup files (the only verifiable carrier for pre-compaction external anchors) carry no integrity binding into the ledger.compact event; structural record errors and user-data errors share exit 2 with no tool-assisted recovery; steady-state mutate cost of the double harvest fingerprint is unmeasured; compact requires no session gate.",
+  "root_cause": "The 2.1.0 remediation prioritized the P0 growth/P0 streaming fixes and the independent-review P1/P2 defects; the reviewers' hardening suggestions (reviewer B R1-R3, reviewer A steady-state tracking) were accepted as follow-ups to keep the reviewed result diff identical to the submitted one.",
+  "improvement": "Pin backup sha256 values into the ledger.compact event and add an anchor-attribution mode to trust verify; validate nested session report records inside streaming_load_ledger's schema section with a distinct structural-error kind/exit code plus an audit --repair-compatible recovery path; add a routine-scale mutate latency/RSS baseline test; document the compact session-gate tradeoff (crash recovery vs operator accountability).",
+  "implementation": "Proposed only; each item requires its own owned, reviewed task per ENGINEERING_RULES/extensions.md.",
+  "prevention": "Record reviewer hardening conditions as tracked tasks at debate time instead of deferring them to completion windows; require post-fix production audit evidence in result analyses.",
+  "evidence": [
+    "AUDIT/2026-10-25-remediation/review-A.md",
+    "AUDIT/2026-10-25-remediation/review-B.md",
+    "AUDIT/2026-10-25-remediation/independent-review.md"
+  ]
+}

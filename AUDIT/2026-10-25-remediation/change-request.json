@@ -1,0 +1,19 @@
+{
+  "problem": "T000011 implementation (commits f3730b5, 9c932ad, 2978a9d) is complete and validated but the protocol-2 major-task gates are unsatisfied: no change request record, no assigned role plan, no three-round plan/result debates, and the task therefore cannot be honestly completed.",
+  "background": "The 2026-10-25 independent adversarial audit found P0 ledger growth and streaming gaps; the owner directed remediation under T000011 (session S000015). Implementation, a 29-check adversarial battery, a dedicated independent reviewer subagent, and the resulting fixes are recorded and validated; only the formal debate/consensus gates remain open, blocked on reviewer availability.",
+  "alternatives": [
+    "Leave T000011 permanently open as a historical record; rejected because the ledger would diverge from the delivered, validated state it is supposed to govern.",
+    "Replan T000011 and restart the lifecycle; rejected because it would discard the recorded, verified plan and evidence chain that the debates are supposed to review.",
+    "Backfill the change request and complete plan/result three-round debates using two independent reviewer subagent instances with the recorded evidence; adopted."
+  ],
+  "decision": "Record CR-000010 for the already-implemented T000011 remediation, register one implementation identity and two independent reviewer identities backed by distinct subagent executions, run plan and result stage debates to consensus, then claim, record, and complete the task.",
+  "impact": "The ledger will match the delivered 2.1.0 state: T000011 completed with recorded independent plan/result approvals; CONSENSUS_DECISION and task register updated by the ledger projections.",
+  "risk": "Both reviewer instances run on the same model family as the implementation session (distinct executions and contexts, same provider); single-operator identity independence remains a declared limitation of the local trust model and is disclosed here and in the review records.",
+  "validation": "147 tests green (unit + integration incl. format-v2 regressions); 29-check adversarial battery; independent subagent review report with one P1 and five P2/P3 findings fixed; production audit ok=true with 849 events and zero projection drift.",
+  "evidence": [
+    "AUDIT/2026-10-25-remediation/validation.md",
+    "AUDIT/2026-10-25-remediation/independent-review.md",
+    "AUDIT/2026-10-25-remediation/adv-battery-output.txt",
+    "AUDIT/2026-10-25-adversarial-audit/report.md"
+  ]
+}

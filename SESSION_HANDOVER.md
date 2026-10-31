@@ -2,6 +2,219 @@
 
 # Session handover
 
+## 2026-10-31T04:07:06.672098+00:00 — ZCode-Remediation-Lead / S000018
+
+Protocol-2 governance closure for T000011 (2.1.0 remediation): three-round plan and result debates reached consensus with two independent reviewer executions; task completed.
+
+### Next actions
+
+- Track follow-up hardening items recorded in the improvement log (backup sha256 binding, structural-error recovery, steady-state mutate cost baseline).
+
+### Unresolved blockers
+
+- None recorded.
+
+### Failed approaches
+
+- None recorded.
+
+### Released task leases
+
+- None recorded.
+
+### Status, completed/remaining work, problems and important decisions
+
+```json
+{
+  "completed_work": [
+    "T000001: Populate bootstrap project context",
+    "T000002: Validate and package UADOS v1 delivery",
+    "T000003: Correct maintained architecture ADR link",
+    "T000004: Implement Phase 2 executable governance and validation",
+    "T000005: Integrate Phase 2 runtime protocols and central compatibility guidance",
+    "T000006: Independent final Phase2 acceptance",
+    "T000007: Phase3 trust foundation: signed audit checkpoints",
+    "T000008: Phase3 evidence foundation: recursive dependency manifests",
+    "T000009: Phase3 provider-neutral dispatch receipts",
+    "T000010: Phase3 distributed coordination boundary",
+    "T000011: Remediate P0 ledger growth and streaming integration, prune session reports, backfill Phase4 governance"
+  ],
+  "important_decisions": [
+    {
+      "decision": "Use SQLite as the local authority; generate Markdown and JSON, and reconstruct a missing database from validated complete exports.",
+      "id": "ADR000001",
+      "reason": "Atomic state/event commit handles the principal integrity risk while Python standard-library storage remains portable across agents. Independent review challenged split-file writes and recovery.",
+      "status": "accepted"
+    },
+    {
+      "decision": "Deploy defense-in-depth hardening in src/uados/coordination.py: Path.resolve().as_uri() + '?mode=ro', symlink traversal rejection, atomic _validate_ttl rollback, instance_id backend binding, clock bounds [0, 1e14], math.isclose ULP tolerance, and pre-commit token validation.",
+      "id": "ADR000002",
+      "reason": "Ensures fencing token correctness and prevents lease state corruption during concurrent multi-agent executions.",
+      "status": "accepted"
+    },
+    {
+      "decision": "Deploy streaming_load_ledger in src/uados/storage.py with fast two-part SHA-256 rolling chain validation and selective header extraction for intermediate events, verifying all 818 events in <=15s under O(1) memory bound (53.84 MB peak heap).",
+      "id": "ADR000003",
+      "reason": "Ensures 100% cryptographic integrity verification across all historical events without unconstrained memory allocation or performance degradation.",
+      "status": "accepted"
+    },
+    {
+      "decision": "2.1.0 digest-only events: every event carries state_digest, full-state snapshots embed only when the harvestable evidence set changes or every 100 events; streaming loads on every path; session report contents live on disk instead of state; compact rewrites legacy ledges with timestamped backups (production result: 3.0GB to 27MB journal, audit 1.05s/55MB, historical harvest preserved at 178 records).",
+      "id": "ADR000004",
+      "reason": "Verified on a full project copy first; production compact completed with backups ledger.pre-compact-20261025T120943Z.*; 142 tests green including mixed-format chains, compaction idempotence and digest-anchored rebuild.",
+      "status": "accepted"
+    }
+  ],
+  "known_problems": [],
+  "mode": "software",
+  "phase": "maintenance",
+  "remaining_tasks": [],
+  "runtime": "ZCode"
+}
+```
+
+## 2026-10-31T04:07:06.501089+00:00 — ZCode-Independent-Review-B / S000020
+
+Protocol-2 governance closure for T000011 (2.1.0 remediation): three-round plan and result debates reached consensus with two independent reviewer executions; task completed.
+
+### Next actions
+
+- Track follow-up hardening items recorded in the improvement log (backup sha256 binding, structural-error recovery, steady-state mutate cost baseline).
+
+### Unresolved blockers
+
+- None recorded.
+
+### Failed approaches
+
+- None recorded.
+
+### Released task leases
+
+- None recorded.
+
+### Status, completed/remaining work, problems and important decisions
+
+```json
+{
+  "completed_work": [
+    "T000001: Populate bootstrap project context",
+    "T000002: Validate and package UADOS v1 delivery",
+    "T000003: Correct maintained architecture ADR link",
+    "T000004: Implement Phase 2 executable governance and validation",
+    "T000005: Integrate Phase 2 runtime protocols and central compatibility guidance",
+    "T000006: Independent final Phase2 acceptance",
+    "T000007: Phase3 trust foundation: signed audit checkpoints",
+    "T000008: Phase3 evidence foundation: recursive dependency manifests",
+    "T000009: Phase3 provider-neutral dispatch receipts",
+    "T000010: Phase3 distributed coordination boundary",
+    "T000011: Remediate P0 ledger growth and streaming integration, prune session reports, backfill Phase4 governance"
+  ],
+  "important_decisions": [
+    {
+      "decision": "Use SQLite as the local authority; generate Markdown and JSON, and reconstruct a missing database from validated complete exports.",
+      "id": "ADR000001",
+      "reason": "Atomic state/event commit handles the principal integrity risk while Python standard-library storage remains portable across agents. Independent review challenged split-file writes and recovery.",
+      "status": "accepted"
+    },
+    {
+      "decision": "Deploy defense-in-depth hardening in src/uados/coordination.py: Path.resolve().as_uri() + '?mode=ro', symlink traversal rejection, atomic _validate_ttl rollback, instance_id backend binding, clock bounds [0, 1e14], math.isclose ULP tolerance, and pre-commit token validation.",
+      "id": "ADR000002",
+      "reason": "Ensures fencing token correctness and prevents lease state corruption during concurrent multi-agent executions.",
+      "status": "accepted"
+    },
+    {
+      "decision": "Deploy streaming_load_ledger in src/uados/storage.py with fast two-part SHA-256 rolling chain validation and selective header extraction for intermediate events, verifying all 818 events in <=15s under O(1) memory bound (53.84 MB peak heap).",
+      "id": "ADR000003",
+      "reason": "Ensures 100% cryptographic integrity verification across all historical events without unconstrained memory allocation or performance degradation.",
+      "status": "accepted"
+    },
+    {
+      "decision": "2.1.0 digest-only events: every event carries state_digest, full-state snapshots embed only when the harvestable evidence set changes or every 100 events; streaming loads on every path; session report contents live on disk instead of state; compact rewrites legacy ledges with timestamped backups (production result: 3.0GB to 27MB journal, audit 1.05s/55MB, historical harvest preserved at 178 records).",
+      "id": "ADR000004",
+      "reason": "Verified on a full project copy first; production compact completed with backups ledger.pre-compact-20261025T120943Z.*; 142 tests green including mixed-format chains, compaction idempotence and digest-anchored rebuild.",
+      "status": "accepted"
+    }
+  ],
+  "known_problems": [],
+  "mode": "software",
+  "phase": "maintenance",
+  "remaining_tasks": [],
+  "runtime": "other"
+}
+```
+
+## 2026-10-31T04:07:06.330001+00:00 — ZCode-Independent-Review-A / S000019
+
+Protocol-2 governance closure for T000011 (2.1.0 remediation): three-round plan and result debates reached consensus with two independent reviewer executions; task completed.
+
+### Next actions
+
+- Track follow-up hardening items recorded in the improvement log (backup sha256 binding, structural-error recovery, steady-state mutate cost baseline).
+
+### Unresolved blockers
+
+- None recorded.
+
+### Failed approaches
+
+- None recorded.
+
+### Released task leases
+
+- None recorded.
+
+### Status, completed/remaining work, problems and important decisions
+
+```json
+{
+  "completed_work": [
+    "T000001: Populate bootstrap project context",
+    "T000002: Validate and package UADOS v1 delivery",
+    "T000003: Correct maintained architecture ADR link",
+    "T000004: Implement Phase 2 executable governance and validation",
+    "T000005: Integrate Phase 2 runtime protocols and central compatibility guidance",
+    "T000006: Independent final Phase2 acceptance",
+    "T000007: Phase3 trust foundation: signed audit checkpoints",
+    "T000008: Phase3 evidence foundation: recursive dependency manifests",
+    "T000009: Phase3 provider-neutral dispatch receipts",
+    "T000010: Phase3 distributed coordination boundary",
+    "T000011: Remediate P0 ledger growth and streaming integration, prune session reports, backfill Phase4 governance"
+  ],
+  "important_decisions": [
+    {
+      "decision": "Use SQLite as the local authority; generate Markdown and JSON, and reconstruct a missing database from validated complete exports.",
+      "id": "ADR000001",
+      "reason": "Atomic state/event commit handles the principal integrity risk while Python standard-library storage remains portable across agents. Independent review challenged split-file writes and recovery.",
+      "status": "accepted"
+    },
+    {
+      "decision": "Deploy defense-in-depth hardening in src/uados/coordination.py: Path.resolve().as_uri() + '?mode=ro', symlink traversal rejection, atomic _validate_ttl rollback, instance_id backend binding, clock bounds [0, 1e14], math.isclose ULP tolerance, and pre-commit token validation.",
+      "id": "ADR000002",
+      "reason": "Ensures fencing token correctness and prevents lease state corruption during concurrent multi-agent executions.",
+      "status": "accepted"
+    },
+    {
+      "decision": "Deploy streaming_load_ledger in src/uados/storage.py with fast two-part SHA-256 rolling chain validation and selective header extraction for intermediate events, verifying all 818 events in <=15s under O(1) memory bound (53.84 MB peak heap).",
+      "id": "ADR000003",
+      "reason": "Ensures 100% cryptographic integrity verification across all historical events without unconstrained memory allocation or performance degradation.",
+      "status": "accepted"
+    },
+    {
+      "decision": "2.1.0 digest-only events: every event carries state_digest, full-state snapshots embed only when the harvestable evidence set changes or every 100 events; streaming loads on every path; session report contents live on disk instead of state; compact rewrites legacy ledges with timestamped backups (production result: 3.0GB to 27MB journal, audit 1.05s/55MB, historical harvest preserved at 178 records).",
+      "id": "ADR000004",
+      "reason": "Verified on a full project copy first; production compact completed with backups ledger.pre-compact-20261025T120943Z.*; 142 tests green including mixed-format chains, compaction idempotence and digest-anchored rebuild.",
+      "status": "accepted"
+    }
+  ],
+  "known_problems": [],
+  "mode": "software",
+  "phase": "maintenance",
+  "remaining_tasks": [],
+  "runtime": "other"
+}
+```
+
 ## 2026-10-25T16:48:42.882420+00:00 — ZCode-Remediation-Lead / S000017
 
 Bookkeeping complete: independent subagent review findings recorded and fixed in commit 2978a9d (compact backup exclusivity, drift refusal, post-swap guidance, docstring semantics, clean CLI errors); full suite 147 green; T000011 remains open awaiting independent multi-role major-task review.

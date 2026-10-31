@@ -397,13 +397,13 @@ Implementation/validation plan:
 
 Acceptance: (1) new events carry state digests with full-state snapshots only on evidence-relevant changes; (2) audit/status/export/mutation stream the ledger instead of full materialization; (3) session reports stop accumulating content in state and closed-session contents are pruned; (4) a compact operation shrinks the existing 3GB ledger with verified backup and honest ledger.compact event; (5) Phase4 benchmark report and v2 production review receive corrigenda; README/architecture updated; full test suite green. Evidence: AUDIT/2026-10-25-adversarial-audit/report.md
 
-Status: pending; risk: major; revision: 2.
+Status: done; risk: major; revision: 3.
 
 Scope: src/uados, tests, README.md, README_EN.md, PROJECT_MEMORY/architecture.md, docs
 
 Dependencies: none
 
-Workflow protocol: 2. Change request: None. Role plan: None.
+Workflow protocol: 2. Change request: CR000010. Role plan: RP000010.
 
 Implementation/validation plan:
 
@@ -425,13 +425,17 @@ Implementation/validation plan:
 
 ### Work and failed approaches
 
-- None recorded.
+- implementation: Delivered 2.1.0 remediation: digest-only ledger events with harvest snapshots, streaming loads on all paths, session report pruning, compact with exclusive backups and drift refusal, plus independent-review fixes (backup exclusivity, drift laundering refusal, post-swap guidance, clean CLI structural errors). Validated by 149 tests, 29-check adversarial battery, independent reviewer subagent, and production audit ok=true.
 
 ### Evidence
 
-- None recorded.
+- `AUDIT/2026-10-25-remediation/validation.md` (SHA-256 `fccd80b31bd3ac8055cc7cd2b8db5fc99a25a8d7e3f5e6082a6a57ec47fd0200`)
+- `AUDIT/2026-10-25-remediation/independent-review.md` (SHA-256 `a736a3e0b2a7f2aa6ccdb8a96c736366a820c219bcb77e8a55b03a295cdc8965`)
 
 ### Independent challenges
 
-- None recorded.
+- ZCode-Independent-Review-A / plan / approve: Approve per review-A verdict: architecture self-consistent, fixes diff-verified, both sandbox-confirmed blind spots now covered by regression tests as conditioned; steady-state cost registered as a tracking item. (fingerprint `c1e63336c888eb0330a928f04f544e29f4ee1eca0f77d457646df46c883d9c36`)
+- ZCode-Independent-Review-B / plan / approve: Approve per review-B verdict: core guarantees independently reproduced (tamper rejection, harvest equivalence, anchor availability, F1/F4 fixes); R1-R3 recorded as protocol-2 hardening follow-ups, non-blocking. (fingerprint `c1e63336c888eb0330a928f04f544e29f4ee1eca0f77d457646df46c883d9c36`)
+- ZCode-Independent-Review-A / result / approve: Result approved: submitted scope matches the reviewed revision, my conditions landed, and the parameter-100 path is covered by the recorded production compaction validation; residual cost tracking is explicit. (fingerprint `bff7e440c9c7c1557f080ac26abe8aef5adddd8dc8e837e1dea115521044d7c9`)
+- ZCode-Independent-Review-B / result / approve: Result approved: security experiments reproduce against the delivered commits; accepting the challenge, the post-fix production audit must accompany completion, and R1 remains tracked with exclusivity protections already active. (fingerprint `bff7e440c9c7c1557f080ac26abe8aef5adddd8dc8e837e1dea115521044d7c9`)
 
